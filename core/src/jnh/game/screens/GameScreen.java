@@ -4,6 +4,7 @@ import box2dLight.PointLight;
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ai.utils.Ray;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
@@ -43,14 +44,12 @@ public class GameScreen implements Screen {
         world = new World(new Vector2(0f, 0f), true);
 
         rayHandler = new RayHandler(world);
-        rayHandler.setAmbientLight(new Color(1.0f, 0.3f, 0f, 0.15f));
+        rayHandler.setAmbientLight(new Color(1.0f, 0.3f, 0f, 0.1f));
         rayHandler.setBlur(true);
-        rayHandler.setBlurNum(1);
+        rayHandler.setBlurNum(3);
 
-        PointLight p = new PointLight(rayHandler, 1000, new Color(1.0f, 0.5f, 0f, 1f), 8, 4, 4);
-        p.setSoftnessLength(3);
-        p.setXray(false);
-        //p.setContactFilter((short) 0x0001, (short) 1, (short) 0);//setContactFilter(0x0001, 1, 0);
+        PointLight p = new PointLight(rayHandler, 1000, new Color(1.0f, 0.5f, 0f, 0.8f), 6, 8, 8);
+        p.setContactFilter((short) 0x0001, (short) -1, (short) 1);
 
         stage = new GameStage(this);
         stage.getViewport().setCamera(camera);
@@ -112,6 +111,10 @@ public class GameScreen implements Screen {
 
     public World getWorld() {
         return world;
+    }
+
+    public RayHandler getRayHandler() {
+        return rayHandler;
     }
 
     public GameStage getStage() {

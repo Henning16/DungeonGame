@@ -1,5 +1,7 @@
 package jnh.game.stages;
 
+import box2dLight.RayHandler;
+import com.badlogic.gdx.ai.utils.Ray;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import jnh.game.gameObjects.Player;
@@ -38,6 +40,10 @@ public class GameStage extends Stage {
 
     public GameScreen getScreen() {
         return screen;
+    }
+
+    public RayHandler getRayHandler() {
+        return getScreen().getRayHandler();
     }
 
     public Player getPlayer() {
