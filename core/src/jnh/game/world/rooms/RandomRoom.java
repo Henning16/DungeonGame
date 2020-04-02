@@ -17,7 +17,21 @@ public class RandomRoom extends Room {
     protected void generate() {
         for(int y = 1; y < ROOM_WIDTH - 1; y++) {
             for(int x = 1; x < ROOM_HEIGHT - 1; x++) {
-                getStage().addActor(new FloorTile(getStage(), new Vector2(x, y)));
+                if(getDungeon().getGenerator().nextBoolean()) {
+                    getStage().addActor(new FloorTile(getStage(), Assets.FLOOR_TILE, new Vector2(x, y)));
+                } else if(getDungeon().getGenerator().nextBoolean()){
+                    if(getDungeon().getGenerator().nextBoolean()) {
+                        getStage().addActor(new FloorTile(getStage(), Assets.FLOOR_TILE_LIGHT_CRACKS, new Vector2(x, y)));
+                    } else {
+                        getStage().addActor(new FloorTile(getStage(), Assets.FLOOR_TILE_HEAVY_CRACKS, new Vector2(x, y)));
+                    }
+                } else {
+                    if(getDungeon().getGenerator().nextBoolean()) {
+                        getStage().addActor(new FloorTile(getStage(), Assets.FLOOR_TILE_LIGHT_MOSS, new Vector2(x, y)));
+                    } else {
+                        getStage().addActor(new FloorTile(getStage(), Assets.FLOOR_TILE_HEAVY_MOSS, new Vector2(x, y)));
+                    }
+                }
             }
         }
         for(int x = 1; x < ROOM_WIDTH - 1; x++) {

@@ -8,13 +8,18 @@ import java.awt.image.BufferedImage;
 public class Assets {
 
     public static Texture PLAYER;
-    public static Texture FLOOR_TILE;
+    public static Texture FLOOR_TILE, FLOOR_TILE_LIGHT_CRACKS, FLOOR_TILE_HEAVY_CRACKS, FLOOR_TILE_LIGHT_MOSS, FLOOR_TILE_HEAVY_MOSS;
     public static Texture STONE_B, STONE_L, STONE_T, STONE_R, STONE_F, STONE_BL, STONE_BT, STONE_BR, STONE_BLT, STONE_BLR, STONE_BTR, STONE_BLTR, STONE_LT, STONE_LR, STONE_TR;
 
     public Assets() {
         PLAYER = new Texture(Gdx.files.internal("textures/player.png"));
 
         FLOOR_TILE = new Texture(Gdx.files.internal("textures/floor_normal.png"));
+        FLOOR_TILE_LIGHT_CRACKS = new Texture(Gdx.files.internal("textures/floor_light_cracks.png"));
+        FLOOR_TILE_HEAVY_CRACKS = new Texture(Gdx.files.internal("textures/floor_heavy_cracks.png"));
+        FLOOR_TILE_LIGHT_MOSS = new Texture(Gdx.files.internal("textures/floor_light_moss.png"));
+        FLOOR_TILE_HEAVY_MOSS = new Texture(Gdx.files.internal("textures/floor_heavy_moss.png"));
+
         STONE_B = new Texture(Gdx.files.internal("textures/Wall_Stonebrick_Bot.png"));
         STONE_L = new Texture(Gdx.files.internal("textures/Wall_Stonebrick_Left.png"));
         STONE_T = new Texture(Gdx.files.internal("textures/Wall_Stonebrick_Top.png"));

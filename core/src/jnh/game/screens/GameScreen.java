@@ -4,7 +4,6 @@ import box2dLight.PointLight;
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.ai.utils.Ray;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
@@ -15,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import jnh.game.DungeonGame;
 import jnh.game.Global;
 import jnh.game.gfx.GameCamera;
+import jnh.game.gfx.Shake;
 import jnh.game.stages.GameStage;
 
 
@@ -54,7 +54,6 @@ public class GameScreen implements Screen {
         stage = new GameStage(this);
         stage.getViewport().setCamera(camera);
         Gdx.input.setInputProcessor(stage);
-
         logger = new FPSLogger();
     }
 
