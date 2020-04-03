@@ -1,6 +1,6 @@
 package jnh.game.gameObjects;
 
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
@@ -11,7 +11,7 @@ public abstract class RigidObject extends GameObject {
     private World world;
     private Body body;
 
-    public RigidObject(GameStage stage, Texture texture, Vector2 position, Vector2 dimension) {
+    public RigidObject(GameStage stage, TextureRegion texture, Vector2 position, Vector2 dimension) {
         super(stage, texture, position, dimension);
         world = stage.getScreen().getWorld();
         createBody();

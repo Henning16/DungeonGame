@@ -2,7 +2,6 @@ package jnh.game.input;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.scenes.scene2d.InputListener;
 import jnh.game.stages.GameStage;
 
 public class InputHandler {
@@ -25,6 +24,7 @@ public class InputHandler {
             stage.getPlayer().move(Direction.RIGHT);
         }
         if(Gdx.input.isKeyPressed(Input.Keys.S)) {
+
             stage.getPlayer().move(Direction.DOWN);
         }
         if(Gdx.input.isKeyPressed(Input.Keys.A)) {

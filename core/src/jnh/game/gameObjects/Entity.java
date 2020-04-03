@@ -1,6 +1,6 @@
 package jnh.game.gameObjects;
 
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
@@ -10,9 +10,14 @@ import jnh.game.stages.GameStage;
 
 public class Entity extends RigidObject {
 
+    public static final float DEFAULT_ENTITY_WIDTH = 0.6875f;
+    public static final float DEFAULT_ENTITY_HEIGHT = 1f;
+
+    private Direction looking = Direction.UP;
+
     private ItemContainer itemContainer;
 
-    public Entity(GameStage stage, Texture texture, Vector2 position, Vector2 dimension) {
+    public Entity(GameStage stage, TextureRegion texture, Vector2 position, Vector2 dimension) {
         super(stage, texture, position, dimension);
         itemContainer = new ItemContainer(32);
     }
@@ -29,11 +34,11 @@ public class Entity extends RigidObject {
         def.position.set(getX(), getY());
         def.linearDamping = 10f;
         def.fixedRotation = true;
-
         setBody(getStage().getScreen().getWorld().createBody(def));
 
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(getWidth() / 2, getHeight() / 2);
+        shape.setAsBox(getWidth() / 2, getHeight() / 2, new Vector2(-0.15f,0), 0);
         getBody().createFixture(shape, 1f);
         shape.dispose();
     }
@@ -41,23 +46,28 @@ public class Entity extends RigidObject {
     public void move(Direction direction) {
         if(direction == Direction.UP) {
             getBody().applyLinearImpulse(new Vector2(0, 0.5f), getBody().getPosition(), true);
-            getBody().setTransform(getBody().getPosition().x, getBody().getPosition().y, (float) Math.toRadians(180));
         }
         if(direction == Direction.RIGHT) {
             getBody().applyLinearImpulse(new Vector2(0.5f, 0), getBody().getPosition(), true);
-            getBody().setTransform(getBody().getPosition().x, getBody().getPosition().y, (float) Math.toRadians(90));
         }
         if(direction == Direction.DOWN) {
             getBody().applyLinearImpulse(new Vector2(0, -0.5f), getBody().getPosition(), true);
-            getBody().setTransform(getBody().getPosition().x, getBody().getPosition().y, (float) Math.toRadians(0));
         }
         if(direction == Direction.LEFT) {
             getBody().applyLinearImpulse(new Vector2(-0.5f, 0), getBody().getPosition(), true);
-            getBody().setTransform(getBody().getPosition().x, getBody().getPosition().y, (float) Math.toRadians(270));
         }
+        //setLooking(direction);
     }
 
     public ItemContainer getItemContainer() {
         return itemContainer;
+    }
+
+    public Direction getLooking() {
+        return looking;
+    }
+
+    public void setLooking(Direction looking) {
+        this.looking = looking;
     }
 }
