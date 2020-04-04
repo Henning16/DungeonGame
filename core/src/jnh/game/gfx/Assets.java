@@ -7,7 +7,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Assets {
 
     private static Texture sprites;
-    public static TextureRegion PLAYER_UP, PLAYER_RIGHT, PLAYER_DOWN, PLAYER_LEFT;
+    public static TextureRegion PLAYER_UP, PLAYER_RIGHT, PLAYER_DOWN, PLAYER_LEFT, PLAYER_UP_WALK_1, PLAYER_RIGHT_WALK_1, PLAYER_DOWN_WALK_1, PLAYER_LEFT_WALK_1, PLAYER_UP_WALK_2, PLAYER_RIGHT_WALK_2, PLAYER_DOWN_WALK_2, PLAYER_LEFT_WALK_2;
+    public static TextureRegion WALL_FRONT, WALL_TOP;
     public static TextureRegion FLOOR_TILE, FLOOR_TILE_LIGHT_CRACKS, FLOOR_TILE_HEAVY_CRACKS, FLOOR_TILE_LIGHT_MOSS, FLOOR_TILE_HEAVY_MOSS;
     public static TextureRegion STONE_B, STONE_L, STONE_T, STONE_R, STONE_F, STONE_BL, STONE_BT, STONE_BR, STONE_BLT, STONE_BLR, STONE_BTR, STONE_BLTR, STONE_LT, STONE_LR, STONE_TR;
 
@@ -16,9 +17,17 @@ public class Assets {
         new TextureRegion(sprites);
 
         PLAYER_UP = extract(16, 0, 11, 16);
-        PLAYER_RIGHT = extract(32, 0, 8, 16);
-        PLAYER_DOWN = extract(0, 0, 16, 16);
-        PLAYER_LEFT = extract(48, 0, 16, 16);
+        PLAYER_RIGHT = extract(32, 0, 11, 16);
+        PLAYER_DOWN = extract(0, 0, 11, 16);
+        PLAYER_LEFT = extract(48, 0, 11, 16);
+        PLAYER_UP_WALK_1 = extract(16, 16, 11, 16);
+        PLAYER_RIGHT_WALK_1 = extract(32, 16, 11, 16);
+        PLAYER_DOWN_WALK_1 = extract(0, 16, 11, 16);
+        PLAYER_LEFT_WALK_1 = extract(48, 16, 11, 16);
+        PLAYER_UP_WALK_2 = extract(16, 32, 11, 16);
+        PLAYER_RIGHT_WALK_2 = extract(32, 32, 11, 16);
+        PLAYER_DOWN_WALK_2 = extract(0, 32, 11, 16);
+        PLAYER_LEFT_WALK_2 = extract(48, 32, 11, 16);
 
         FLOOR_TILE = new TextureRegion(new Texture(Gdx.files.internal("textures/floor_normal.png")));
         FLOOR_TILE_LIGHT_CRACKS = new TextureRegion(new Texture(Gdx.files.internal("textures/floor_light_cracks.png")));
@@ -26,6 +35,8 @@ public class Assets {
         FLOOR_TILE_LIGHT_MOSS = new TextureRegion(new Texture(Gdx.files.internal("textures/floor_light_moss.png")));
         FLOOR_TILE_HEAVY_MOSS = new TextureRegion(new Texture(Gdx.files.internal("textures/floor_heavy_moss.png")));
 
+        WALL_TOP = extract(112, 0, 16, 16);
+        WALL_FRONT = extract(112, 16, 16, 16);
         STONE_B = new TextureRegion(new Texture(Gdx.files.internal("textures/Wall_Stonebrick_Bot.png")));
         STONE_L = new TextureRegion(new Texture(Gdx.files.internal("textures/Wall_Stonebrick_Left.png")));
         STONE_T = new TextureRegion(new Texture(Gdx.files.internal("textures/Wall_Stonebrick_Top.png")));

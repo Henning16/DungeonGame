@@ -7,6 +7,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import jnh.game.gameObjects.items.ItemContainer;
 import jnh.game.input.Direction;
 import jnh.game.stages.GameStage;
+import jnh.game.utils.WalkingState;
 
 public class Entity extends RigidObject {
 
@@ -15,6 +16,8 @@ public class Entity extends RigidObject {
 
     private Direction looking = Direction.UP;
 
+    private WalkingState walkingState = WalkingState.IDLE;
+    private float walkingCounter = 0.4f;
     private ItemContainer itemContainer;
 
     public Entity(GameStage stage, TextureRegion texture, Vector2 position, Vector2 dimension) {
@@ -25,6 +28,7 @@ public class Entity extends RigidObject {
     @Override
     public void act(float delta) {
         super.act(delta);
+        updateWalkingState(delta);
     }
 
     @Override
@@ -56,7 +60,24 @@ public class Entity extends RigidObject {
         if(direction == Direction.LEFT) {
             getBody().applyLinearImpulse(new Vector2(-0.5f, 0), getBody().getPosition(), true);
         }
-        //setLooking(direction);
+        setLooking(direction);
+    }
+
+    private void updateWalkingState(float delta) {
+        boolean walking = getBody().getLinearVelocity().len() > 0.1;
+        if(walking) {
+            walkingCounter -= delta;
+            if(walkingCounter < 0) {
+                walkingCounter = 0.4f;
+                if(walkingState == WalkingState.WALK_1) {
+                    walkingState = WalkingState.WALK_2;
+                } else {
+                    walkingState = WalkingState.WALK_1;
+                }
+            }
+        } else {
+            walkingState = WalkingState.IDLE;
+        }
     }
 
     public ItemContainer getItemContainer() {
@@ -69,5 +90,9 @@ public class Entity extends RigidObject {
 
     public void setLooking(Direction looking) {
         this.looking = looking;
+    }
+
+    public WalkingState getWalkingState() {
+        return walkingState;
     }
 }

@@ -35,7 +35,10 @@ public class RandomRoom extends Room {
             }
         }
         for(int x = 1; x < ROOM_WIDTH - 1; x++) {
-            getStage().addActor(new Wall(getStage(), Assets.STONE_T, new Vector2(x, 0)));
+            getStage().addActor(new Wall(getStage(), Assets.WALL_TOP, new Vector2(x, 1)));
+        }
+        for(int x = 1; x < ROOM_WIDTH - 1; x++) {
+            getStage().addActor(new Wall(getStage(), Assets.WALL_FRONT, new Vector2(x, 0)));
         }
         for(int x = 1; x < ROOM_WIDTH - 1; x++) {
             getStage().addActor(new Wall(getStage(), Assets.STONE_B, new Vector2(x, ROOM_HEIGHT - 1)));

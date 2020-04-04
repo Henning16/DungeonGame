@@ -1,6 +1,5 @@
 package jnh.game.screens;
 
-import box2dLight.PointLight;
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -14,7 +13,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import jnh.game.DungeonGame;
 import jnh.game.Global;
 import jnh.game.gfx.GameCamera;
-import jnh.game.gfx.Shake;
 import jnh.game.stages.GameStage;
 
 
@@ -44,12 +42,9 @@ public class GameScreen implements Screen {
         world = new World(new Vector2(0f, 0f), true);
 
         rayHandler = new RayHandler(world);
-        rayHandler.setAmbientLight(new Color(1.0f, 0.3f, 0f, 0.1f));
+        rayHandler.setAmbientLight(new Color(0.4f, 0.3f, 1f, 0.04f));
         rayHandler.setBlur(true);
-        rayHandler.setBlurNum(3);
-
-        PointLight p = new PointLight(rayHandler, 1000, new Color(1.0f, 0.5f, 0f, 0.8f), 6, 8, 8);
-        p.setContactFilter((short) 0x0001, (short) -1, (short) 1);
+        rayHandler.setBlurNum(1);
 
         stage = new GameStage(this);
         stage.getViewport().setCamera(camera);
