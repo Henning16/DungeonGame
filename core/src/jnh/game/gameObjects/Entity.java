@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
-import jnh.game.gameObjects.items.ItemContainer;
+import jnh.game.gameObjects.items.itemContainers.ItemContainer;
 import jnh.game.input.Direction;
 import jnh.game.stages.GameStage;
 import jnh.game.utils.WalkingState;
@@ -17,59 +17,59 @@ public class Entity extends RigidObject {
     private Direction looking = Direction.UP;
 
     private WalkingState walkingState = WalkingState.IDLE;
-    private float walkingCounter = 0.4f;
+    private float walkingCounter = 0.2f;
     private ItemContainer itemContainer;
 
-    public Entity(GameStage stage, TextureRegion texture, Vector2 position, Vector2 dimension) {
-        super(stage, texture, position, dimension);
-        itemContainer = new ItemContainer(32);
+    public Entity (GameStage stage, TextureRegion texture, Vector2 position, Vector2 dimension) {
+        super (stage, texture, position, dimension);
+        itemContainer = new ItemContainer (32);
     }
 
     @Override
-    public void act(float delta) {
-        super.act(delta);
-        updateWalkingState(delta);
+    public void act (float delta) {
+        super.act (delta);
+        updateWalkingState (delta);
     }
 
     @Override
-    public void createBody() {
-        BodyDef def = new BodyDef();
+    public void createBody () {
+        BodyDef def = new BodyDef ();
         def.type = BodyDef.BodyType.DynamicBody;
-        def.position.set(getX(), getY());
+        def.position.set (getX (), getY ());
         def.linearDamping = 10f;
         def.fixedRotation = true;
-        setBody(getStage().getScreen().getWorld().createBody(def));
+        setBody (getStage ().getScreen ().getWorld ().createBody (def));
 
-        PolygonShape shape = new PolygonShape();
-        shape.setAsBox(getWidth() / 2, getHeight() / 2);
-        shape.setAsBox(getWidth() / 2, getHeight() / 2, new Vector2(-0.15f,0), 0);
-        getBody().createFixture(shape, 1f);
-        shape.dispose();
+        PolygonShape shape = new PolygonShape ();
+        shape.setAsBox (getWidth () / 2, getHeight () / 2);
+        shape.setAsBox (getWidth () / 2, getHeight () / 2, new Vector2 (-0.15f, 0), 0);
+        getBody ().createFixture (shape, 1f);
+        shape.dispose ();
     }
 
-    public void move(Direction direction) {
-        if(direction == Direction.UP) {
-            getBody().applyLinearImpulse(new Vector2(0, 0.5f), getBody().getPosition(), true);
+    public void move (Direction direction) {
+        if (direction == Direction.UP) {
+            getBody ().applyLinearImpulse (new Vector2 (0, 0.5f), getBody ().getPosition (), true);
         }
-        if(direction == Direction.RIGHT) {
-            getBody().applyLinearImpulse(new Vector2(0.5f, 0), getBody().getPosition(), true);
+        if (direction == Direction.RIGHT) {
+            getBody ().applyLinearImpulse (new Vector2 (0.5f, 0), getBody ().getPosition (), true);
         }
-        if(direction == Direction.DOWN) {
-            getBody().applyLinearImpulse(new Vector2(0, -0.5f), getBody().getPosition(), true);
+        if (direction == Direction.DOWN) {
+            getBody ().applyLinearImpulse (new Vector2 (0, -0.5f), getBody ().getPosition (), true);
         }
-        if(direction == Direction.LEFT) {
-            getBody().applyLinearImpulse(new Vector2(-0.5f, 0), getBody().getPosition(), true);
+        if (direction == Direction.LEFT) {
+            getBody ().applyLinearImpulse (new Vector2 (-0.5f, 0), getBody ().getPosition (), true);
         }
-        setLooking(direction);
+        setLooking (direction);
     }
 
-    private void updateWalkingState(float delta) {
-        boolean walking = getBody().getLinearVelocity().len() > 0.1;
-        if(walking) {
+    private void updateWalkingState (float delta) {
+        boolean walking = getBody ().getLinearVelocity ().len () > 0.5;
+        if (walking) {
             walkingCounter -= delta;
-            if(walkingCounter < 0) {
-                walkingCounter = 0.4f;
-                if(walkingState == WalkingState.WALK_1) {
+            if (walkingCounter < 0) {
+                walkingCounter = 0.2f;
+                if (walkingState == WalkingState.WALK_1) {
                     walkingState = WalkingState.WALK_2;
                 } else {
                     walkingState = WalkingState.WALK_1;
@@ -80,19 +80,19 @@ public class Entity extends RigidObject {
         }
     }
 
-    public ItemContainer getItemContainer() {
+    public ItemContainer getItemContainer () {
         return itemContainer;
     }
 
-    public Direction getLooking() {
+    public Direction getLooking () {
         return looking;
     }
 
-    public void setLooking(Direction looking) {
+    public void setLooking (Direction looking) {
         this.looking = looking;
     }
 
-    public WalkingState getWalkingState() {
+    public WalkingState getWalkingState () {
         return walkingState;
     }
 }

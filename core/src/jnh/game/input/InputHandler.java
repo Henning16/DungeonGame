@@ -8,27 +8,27 @@ public class InputHandler {
 
     private GameStage stage;
 
-    public InputHandler(GameStage stage) {
+    public InputHandler (GameStage stage) {
         this.stage = stage;
     }
 
-    public void act(double delta) {
-        playerMovement();
+    public void act (double delta) {
+        playerMovement ();
     }
 
-    private void playerMovement() {
-        if(Gdx.input.isKeyPressed(Input.Keys.W)) {
-            stage.getPlayer().move(Direction.UP);
+    private void playerMovement () {
+        if (Gdx.input.isKeyPressed (Input.Keys.W)) {
+            stage.getPlayer ().move (Direction.UP);
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.D)) {
-            stage.getPlayer().move(Direction.RIGHT);
+        if (Gdx.input.isKeyPressed (Input.Keys.D)) {
+            stage.getPlayer ().move (Direction.RIGHT);
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.S)) {
+        if (Gdx.input.isKeyPressed (Input.Keys.S)) {
 
-            stage.getPlayer().move(Direction.DOWN);
+            stage.getPlayer ().move (Direction.DOWN);
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.A)) {
-            stage.getPlayer().move(Direction.LEFT);
+        if (Gdx.input.isKeyPressed (Input.Keys.A)) {
+            stage.getPlayer ().move (Direction.LEFT);
         }
     }
 

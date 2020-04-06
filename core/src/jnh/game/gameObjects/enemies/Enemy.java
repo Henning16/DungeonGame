@@ -7,7 +7,7 @@ import jnh.game.stages.GameStage;
 
 public class Enemy extends Entity {
 
-    public Enemy(GameStage stage, TextureRegion texture, Vector2 position, Vector2 dimension) {
-        super(stage, texture, position, dimension);
+    public Enemy (GameStage stage, TextureRegion texture, Vector2 position, Vector2 dimension) {
+        super (stage, texture, position, dimension);
     }
 }

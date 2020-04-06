@@ -9,31 +9,31 @@ import jnh.game.stages.GameStage;
 public abstract class GameObject extends Image {
 
     private GameStage stage;
-
     private TextureRegion texture;
 
-    public GameObject(GameStage stage, TextureRegion texture, Vector2 position, Vector2 dimension) {
-        super(texture);
+    public GameObject (GameStage stage, TextureRegion texture, Vector2 position, Vector2 dimension) {
+        super (texture);
         this.stage = stage;
-        setBounds(position.x, position.y, dimension.x, dimension.y);
-        setOrigin(getWidth() / 2, getHeight() / 2);
+        setBounds (position.x, position.y, dimension.x, dimension.y);
+        setOrigin (getWidth () / 2, getHeight () / 2);
     }
 
     @Override
-    public void act(float delta) {
-        super.act(delta);
+    public void act (float delta) {
+        super.act (delta);
     }
 
-    public GameStage getStage() {
+    public GameStage getStage () {
         return stage;
     }
 
-    public TextureRegion getTexture() {
+    public TextureRegion getTexture () {
         return texture;
     }
 
-    public void setTexture(TextureRegion texture) {
+    public void setTexture (TextureRegion texture) {
         this.texture = texture;
-        setDrawable(new TextureRegionDrawable(texture));
+        setDrawable (new TextureRegionDrawable (texture));
     }
+
 }

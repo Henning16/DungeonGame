@@ -19,37 +19,37 @@ public class Dungeon {
     private Room currentRoom;
     private Room[][] rooms;
 
-    public Dungeon(GameStage stage, long seed, int difficulty) {
+    public Dungeon (GameStage stage, long seed, int difficulty) {
         this.stage = stage;
         this.seed = seed;
         this.difficulty = difficulty;
-        generate();
+        generate ();
     }
 
-    private void generate() {
+    private void generate () {
         rooms = new Room[DUNGEON_SIZE][DUNGEON_SIZE];
-        generator = new Random(seed);
-        rooms[DUNGEON_SIZE / 2][DUNGEON_SIZE / 2] = new RandomRoom(stage, this);
+        generator = new Random (seed);
+        rooms[DUNGEON_SIZE / 2][DUNGEON_SIZE / 2] = new RandomRoom (stage, this);
         currentRoom = rooms[DUNGEON_SIZE / 2][DUNGEON_SIZE / 2];
     }
 
-    public Room getCurrentRoom() {
+    public Room getCurrentRoom () {
         return currentRoom;
     }
 
-    public void setCurrentRoom(Room room) {
+    public void setCurrentRoom (Room room) {
         this.currentRoom = room;
     }
 
-    public Room getRoomAt(int x, int y) {
+    public Room getRoomAt (int x, int y) {
         return rooms[x][y];
     }
 
-    public Random getGenerator() {
+    public Random getGenerator () {
         return generator;
     }
 
-    public int getDifficulty() {
+    public int getDifficulty () {
         return difficulty;
     }
 }
