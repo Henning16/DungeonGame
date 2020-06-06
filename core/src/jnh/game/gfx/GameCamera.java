@@ -11,30 +11,30 @@ public class GameCamera extends OrthographicCamera {
 
     private Shake shake = Shake.EMPTY;
 
-    public GameCamera (GameScreen screen) {
-        super ();
+    public GameCamera(GameScreen screen) {
+        super();
         this.screen = screen;
-        setToOrtho (false, Gdx.graphics.getWidth () / 2f, Gdx.graphics.getHeight () / 2f);
-        update ();
+        setToOrtho(false, Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f);
+        update();
     }
 
-    public void shake (Shake shake) {
+    public void shake(Shake shake) {
         this.shake = shake;
     }
 
-    public void act (float delta) {
-        position.x = screen.getStage ().getPlayer ().getX () * Global.UNIT;
-        position.y = screen.getStage ().getPlayer ().getY () * Global.UNIT;
-        if (shake.duration > 0f) {
-            translate ((float) (Math.random () * 2f - 1f) * shake.intensity, (float) (Math.random () * 2f - 1f) * shake.intensity);
+    public void act(float delta) {
+        position.x = screen.getStage().getPlayer().getX() * Global.UNIT;
+        position.y = screen.getStage().getPlayer().getY() * Global.UNIT;
+        if(shake.duration > 0f) {
+            translate((float) (Math.random() * 2f - 1f) * shake.intensity, (float) (Math.random() * 2f - 1f) * shake.intensity);
         }
-        if (shake.duration > 0f) {
-            shake.duration = Math.max (0f, shake.duration - delta);
+        if(shake.duration > 0f) {
+            shake.duration = Math.max(0f, shake.duration - delta);
         }
-        update ();
+        update();
     }
 
-    public void resize (int width, int height) {
-        setToOrtho (false, width / 2f, height / 2f);
+    public void resize(int width, int height) {
+        setToOrtho(false, width / 2f, height / 2f);
     }
 }

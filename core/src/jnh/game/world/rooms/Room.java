@@ -14,19 +14,19 @@ public abstract class Room {
     private RoomType type;
     private Room top, right, bottom, left;
 
-    public Room (GameStage stage, Dungeon dungeon) {
+    public Room(GameStage stage, Dungeon dungeon) {
         this.stage = stage;
         this.dungeon = dungeon;
-        generate ();
+        generate();
     }
 
-    protected abstract void generate ();
+    protected abstract void generate();
 
-    protected GameStage getStage () {
+    protected GameStage getStage() {
         return stage;
     }
 
-    protected Dungeon getDungeon () {
+    protected Dungeon getDungeon() {
         return dungeon;
     }
 }
