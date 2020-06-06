@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import jnh.game.DungeonGame;
 import jnh.game.Global;
+import jnh.game.gameObjects.construction.BlueprintTester;
 import jnh.game.gfx.GameCamera;
 import jnh.game.stages.GameStage;
 
@@ -52,6 +53,8 @@ public class GameScreen implements Screen {
         stage.getViewport().setCamera(camera);
         Gdx.input.setInputProcessor(stage);
         logger = new FPSLogger();
+
+        new BlueprintTester();
     }
 
     public void update(float delta) {

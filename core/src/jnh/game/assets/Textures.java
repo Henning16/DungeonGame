@@ -11,7 +11,7 @@ import jnh.game.utils.Direction;
 public class Textures {
 
     private final Texture sprites, PLAYER_SHEET, FLOOR_SHEET, WALL_SHEET;
-    public final TextureRegion ERROR;
+    public final Animation ERROR;
     public final Animation<TextureRegion>[][] PLAYER;
     public final Animation<TextureRegion>[] FLOOR_TILE;
     public final Animation[][] WALL;
@@ -19,7 +19,8 @@ public class Textures {
     public Textures() {
         sprites = new Texture(Gdx.files.internal("textures/textures.png"));
 
-        ERROR = get(sprites, 496, 496, 16, 16);
+        ERROR = new Animation<>(1f,
+                get(sprites, 496, 496, 16, 16));
 
         PLAYER_SHEET = new Texture(Gdx.files.internal("textures/player.png"));
         FLOOR_SHEET = new Texture(Gdx.files.internal("textures/floor.png"));

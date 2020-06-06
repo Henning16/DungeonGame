@@ -52,7 +52,7 @@ public class Animator {
         if(currentAnimation != null) {
             return currentAnimation.getKeyFrame(elapsedTime);
         } else {
-            return Assets.textures.ERROR;
+            return (TextureRegion) Assets.textures.ERROR.getKeyFrame(1);
         }
     }
 

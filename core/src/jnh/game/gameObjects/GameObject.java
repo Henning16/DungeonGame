@@ -5,20 +5,23 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import jnh.game.gameObjects.behaviors.Behavior;
+import jnh.game.assets.Assets;
+import jnh.game.gameObjects.components.Component;
 import jnh.game.gfx.animations.Animator;
 import jnh.game.stages.GameStage;
 
 import java.util.ArrayList;
 
-public abstract class GameObject extends Image {
+public class GameObject extends Image {
 
     private GameStage stage;
 
     private TextureRegion texture;
     private Animator animator;
 
-    private ArrayList<Behavior> behaviors = new ArrayList<>();
+    private ArrayList<Component> components = new ArrayList<>();
+
+    public static final GameObject EMPTY = new GameObject(null, Assets.textures.ERROR, new Vector2(1, 1), new Vector2(1, 1));
 
     public GameObject(GameStage stage, Animation<TextureRegion> animation, Vector2 position, Vector2 dimension) {
         super(animation.getKeyFrame(0));
@@ -38,8 +41,8 @@ public abstract class GameObject extends Image {
     }
 
     public void tick(float delta) {
-        for(Behavior behavior: behaviors) {
-            behavior.act(delta);
+        for(Component component: components) {
+            component.act(delta);
         }
     }
 
@@ -64,7 +67,7 @@ public abstract class GameObject extends Image {
         return animator;
     }
 
-    public void addBehavior(Behavior behavior) {
-        behaviors.add(behavior);
+    public void addComponent(Component component) {
+        components.add(component);
     }
 }
