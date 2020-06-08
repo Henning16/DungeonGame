@@ -17,7 +17,7 @@ public abstract class Entity extends RigidObject {
 
     private int looking = Direction.UP;
 
-    private int state = EntityState.IDLE;
+    private int state = MovementState.IDLE;
     private final ItemContainer itemContainer;
 
     public Entity(GameStage stage, Animation<TextureRegion> animation, Vector2 position, Vector2 dimension) {
@@ -65,9 +65,9 @@ public abstract class Entity extends RigidObject {
 
     private void updateWalkingState(float delta) {
         if(getBody().getLinearVelocity().len() > 0.5) {
-            state = EntityState.WALK;
+            state = MovementState.WALK;
         } else {
-            state = EntityState.IDLE;
+            state = MovementState.IDLE;
         }
     }
 

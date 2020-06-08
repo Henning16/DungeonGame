@@ -2,7 +2,19 @@ package jnh.game.gameObjects.components;
 
 import jnh.game.gameObjects.GameObject;
 
+/**
+ * Components können GameObjects hinzugefügt werden und übernehmen Teilaufgaben dieser GameObjects.
+ * @see GameObject
+ */
 public abstract class Component {
+
+    public Component() {
+
+    }
+
+    public Component(Component component) {
+
+    }
 
     /**
      * Verweis auf das GameObject dem diese Component zugeordnet ist. Die Variable hat den Wert {@code null} bevor die Methode {@link #attachedTo(GameObject)} aufgerufen wurde.
@@ -14,7 +26,7 @@ public abstract class Component {
      * @param parameters Übergebene Parameter als String-Array. {@code null} wird ignoriert, bestehende Werte also nicht überschireben.
      * @throws IllegalArgumentException Diese Exception wird ausgelöst, wenn die Parameter ungültige Werte enthalten, bzw. nicht interpretiert werden können.
      */
-    public abstract void set(String[] parameters) throws IllegalArgumentException;
+    public abstract void set(String[] parameters) throws Exception;
 
     /**
      * Diese Methode aufgerufen, nachdem diese Component einem {@link GameObject} hinzugefügt wurde.
@@ -37,6 +49,11 @@ public abstract class Component {
      */
     public abstract void render();
 
+    /**
+     * Diese Methode wird aufgerufen, nachdem das {@link GameObject} von der {@link jnh.game.stages.GameStage} gelöscht wurde.
+     */
     public abstract void remove();
+
+    public abstract Component copy();
 
 }

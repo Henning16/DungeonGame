@@ -25,7 +25,6 @@ public class Item extends GameObject {
     public void tick(float delta) {
         super.tick(delta);
         if(toBeRemoved) {
-            System.out.println("removing");
             getStage().getItems().remove(this);
             remove();
         }

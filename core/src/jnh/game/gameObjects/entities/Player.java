@@ -9,10 +9,10 @@ import jnh.game.utils.Direction;
 public class Player extends Entity {
 
     public Player(GameStage stage, Vector2 position) {
-        super(stage, Assets.textures.PLAYER[Direction.DOWN][EntityState.IDLE], position, new Vector2(DEFAULT_ENTITY_WIDTH, DEFAULT_ENTITY_HEIGHT));
+        super(stage, Assets.textures.PLAYER[Direction.DOWN][MovementState.IDLE], position, new Vector2(DEFAULT_ENTITY_WIDTH, DEFAULT_ENTITY_HEIGHT));
         getAnimator().play(Assets.textures.PLAYER[getLooking()][getState()], true);
         setTexture(getAnimator().getTexture());
-        addComponent(new ItemCollectionComponent(this));
+        addComponent(new ItemCollectionComponent());
     }
 
     @Override

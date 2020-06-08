@@ -17,6 +17,7 @@ public class InputHandler {
         playerMovement();
     }
 
+    @Deprecated
     private void playerMovement() {
         if(Gdx.input.isKeyPressed(Input.Keys.W)) {
             stage.getPlayer().move(Direction.UP);

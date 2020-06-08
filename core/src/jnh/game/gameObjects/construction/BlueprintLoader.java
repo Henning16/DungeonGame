@@ -1,7 +1,6 @@
 package jnh.game.gameObjects.construction;
 
 import com.badlogic.gdx.Gdx;
-import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.components.Component;
 
 import java.lang.reflect.Constructor;
@@ -19,22 +18,24 @@ public class BlueprintLoader {
             Component c;
             try {
                 Class<?> cls = Class.forName("jnh.game.gameObjects.components."+tokens[0]);
-                Constructor<?> constructor = cls.getConstructor(GameObject.class);
-                c = (Component) constructor.newInstance(GameObject.EMPTY);
+                Constructor<?> constructor = cls.getConstructor();
+                c = (Component) constructor.newInstance();
                 blueprint.components.add(c);
             } catch(Exception e) {
+                e.printStackTrace();
                 System.err.println("The component " + tokens[0] + " could not be found.");
                 continue;
             }
             String[] values = tokens[1].split(" ");
             for(int j = 0; j < values.length; j++) {
-                if(values[j] == "_") {
+                if(values[j].equals("_")) {
                     values[j] = null;
                 }
             }
             try {
                 c.set(Arrays.copyOfRange(values, 1, values.length));
-            } catch(IllegalArgumentException e) {
+            } catch(Exception e) {
+                e.printStackTrace();
                 System.err.println("The parameters provided for the component " + c.getClass().getName() + " are invalid.");
             }
         }

@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import jnh.game.gameObjects.entities.EntityState;
+import jnh.game.gameObjects.entities.MovementState;
 import jnh.game.gameObjects.roomBoundaries.FloorTile;
 import jnh.game.utils.Direction;
 
@@ -30,42 +30,42 @@ public class Textures {
         FLOOR_TILE = new Animation[5];
         WALL = new Animation[5][4];
 
-        PLAYER[Direction.UP][EntityState.IDLE] = new Animation<>(1f,
+        PLAYER[Direction.UP][MovementState.IDLE] = new Animation<>(1f,
                 get(PLAYER_SHEET, 11, 0, 11, 16));
-                PLAYER[Direction.UP][EntityState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
-        PLAYER[Direction.RIGHT][EntityState.IDLE] = new Animation<>(1f,
+                PLAYER[Direction.UP][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
+        PLAYER[Direction.RIGHT][MovementState.IDLE] = new Animation<>(1f,
                 get(PLAYER_SHEET, 22, 0, 11, 16));
-                PLAYER[Direction.RIGHT][EntityState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
-        PLAYER[Direction.DOWN][EntityState.IDLE] = new Animation<>(1f,
+                PLAYER[Direction.RIGHT][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
+        PLAYER[Direction.DOWN][MovementState.IDLE] = new Animation<>(1f,
                 get(PLAYER_SHEET, 0, 0, 11, 16));
-                PLAYER[Direction.DOWN][EntityState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
-        PLAYER[Direction.LEFT][EntityState.IDLE] = new Animation<>(1f,
+                PLAYER[Direction.DOWN][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
+        PLAYER[Direction.LEFT][MovementState.IDLE] = new Animation<>(1f,
                 get(PLAYER_SHEET, 33, 0, 11, 16));
-                PLAYER[Direction.LEFT][EntityState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
-        PLAYER[Direction.UP][EntityState.WALK] = new Animation<>(0.2f,
+                PLAYER[Direction.LEFT][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
+        PLAYER[Direction.UP][MovementState.WALK] = new Animation<>(0.2f,
                 get(PLAYER_SHEET, 11, 0, 11, 16),
                 get(PLAYER_SHEET, 11, 16, 11, 16),
                 get(PLAYER_SHEET, 11, 0, 11, 16),
                 get(PLAYER_SHEET, 11, 32, 11, 16));
-                PLAYER[Direction.UP][EntityState.WALK].setPlayMode(Animation.PlayMode.LOOP);
-        PLAYER[Direction.RIGHT][EntityState.WALK] = new Animation<>(0.2f,
+                PLAYER[Direction.UP][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
+        PLAYER[Direction.RIGHT][MovementState.WALK] = new Animation<>(0.2f,
                 get(PLAYER_SHEET, 22, 0, 11, 16),
                 get(PLAYER_SHEET, 22, 16, 11, 16),
                 get(PLAYER_SHEET, 22, 0, 11, 16),
                 get(PLAYER_SHEET, 22, 32, 11, 16));
-                PLAYER[Direction.RIGHT][EntityState.WALK].setPlayMode(Animation.PlayMode.LOOP);
-        PLAYER[Direction.DOWN][EntityState.WALK] = new Animation<>(0.2f,
+                PLAYER[Direction.RIGHT][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
+        PLAYER[Direction.DOWN][MovementState.WALK] = new Animation<>(0.2f,
                 get(PLAYER_SHEET, 0, 0, 11, 16),
                 get(PLAYER_SHEET, 0, 16, 11, 16),
                 get(PLAYER_SHEET, 0, 0, 11, 16),
                 get(PLAYER_SHEET, 0, 32, 11, 16));
-                PLAYER[Direction.DOWN][EntityState.WALK].setPlayMode(Animation.PlayMode.LOOP);
-        PLAYER[Direction.LEFT][EntityState.WALK] = new Animation<>(0.2f,
+                PLAYER[Direction.DOWN][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
+        PLAYER[Direction.LEFT][MovementState.WALK] = new Animation<>(0.2f,
                 get(PLAYER_SHEET, 33, 0, 11, 16),
                 get(PLAYER_SHEET, 33, 16, 11, 16),
                 get(PLAYER_SHEET, 33, 0, 11, 16),
                 get(PLAYER_SHEET, 33, 32, 11, 16));
-                PLAYER[Direction.LEFT][EntityState.WALK].setPlayMode(Animation.PlayMode.LOOP);
+                PLAYER[Direction.LEFT][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
 
         FLOOR_TILE[FloorTile.Type.NORMAL] = new Animation<>(1f,
                 get(FLOOR_SHEET, 0 , 0, 16, 16));

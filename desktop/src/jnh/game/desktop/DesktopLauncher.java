@@ -13,6 +13,7 @@ public class DesktopLauncher {
         config.height = 900;
         config.backgroundFPS = 60;
         config.foregroundFPS = 60;
+        config.vSyncEnabled = true;
         config.fullscreen = false;
         new LwjglApplication(new DungeonGame(), config);
     }

@@ -6,7 +6,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import jnh.game.assets.Assets;
-import jnh.game.gameObjects.entities.EntityState;
+import jnh.game.gameObjects.GameObject;
+import jnh.game.gameObjects.entities.MovementState;
 import jnh.game.gameObjects.entities.Player;
 import jnh.game.gameObjects.items.Item;
 import jnh.game.gameObjects.lightObjects.LightObject;
@@ -52,13 +53,16 @@ public class GameStage extends Stage {
         player = new Player(this, new Vector2(3, 5));
         getMainLayer().addActor(player);
 
-        addActor(new LightObject(this, new Color(0.8f, 1f, 0.9f, 0.8f), new Vector2(8f, 8f ), 14, 0.1f, false));
-        addActor(new LightObject(this, new Color(1f, 0.7f, 0.3f, 0.7f), new Vector2(2f, 2f ), 9, 0.1f, false));
-        addActor(new LightObject(this, new Color(0.9f, 0.8f, 1f, 0.7f), new Vector2(1f, 9f ), 10, 0.1f, false));
+        addActor(new LightObject(this, new Color(0.8f, 1f, 0.9f, 0.9f), new Vector2(8f, 8f ), 14, 0.1f, false));
+        addActor(new LightObject(this, new Color(1f, 0.7f, 0.3f, 0.8f), new Vector2(2f, 2f ), 9, 0.1f, false));
+        addActor(new LightObject(this, new Color(0.9f, 0.8f, 1f, 0.8f), new Vector2(1f, 9f ), 10, 0.1f, false));
 
-        addActor(new Item(this, Assets.textures.PLAYER[Direction.UP][EntityState.WALK], Assets.textures.PLAYER[Direction.UP][EntityState.WALK], new Vector2(4,4)));
-        addActor(new Item(this, Assets.textures.PLAYER[Direction.UP][EntityState.WALK], Assets.textures.PLAYER[Direction.UP][EntityState.WALK], new Vector2(5,4)));
-        addActor(new Item(this, Assets.textures.PLAYER[Direction.UP][EntityState.WALK], Assets.textures.PLAYER[Direction.UP][EntityState.WALK], new Vector2(9,7)));
+        addActor(new Item(this, Assets.textures.PLAYER[Direction.UP][MovementState.WALK], Assets.textures.PLAYER[Direction.UP][MovementState.WALK], new Vector2(4,4)));
+        addActor(new Item(this, Assets.textures.PLAYER[Direction.UP][MovementState.WALK], Assets.textures.PLAYER[Direction.UP][MovementState.WALK], new Vector2(5,4)));
+        addActor(new Item(this, Assets.textures.PLAYER[Direction.UP][MovementState.WALK], Assets.textures.PLAYER[Direction.UP][MovementState.WALK], new Vector2(9,7)));
+
+        GameObject g = new GameObject(this, Assets.blueprints.FLOOR);
+        addActor(g);
     }
 
     @Override

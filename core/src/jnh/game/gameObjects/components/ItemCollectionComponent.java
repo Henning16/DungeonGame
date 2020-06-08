@@ -7,8 +7,16 @@ public class ItemCollectionComponent extends Component {
 
     private float range = 0.5f;
 
+    public ItemCollectionComponent() {
+
+    }
+
+    public ItemCollectionComponent(ItemCollectionComponent other) {
+        this.range = other.range;
+    }
+
     @Override
-    public void set(String[] parameters) throws IllegalArgumentException {
+    public void set(String[] parameters) throws Exception {
         range = (parameters[0] != null) ? Float.parseFloat(parameters[0]): range;
     }
 
@@ -31,5 +39,12 @@ public class ItemCollectionComponent extends Component {
     @Override
     public void remove() {
 
+    }
+
+    @Override
+    public ItemCollectionComponent copy() {
+        ItemCollectionComponent c = new ItemCollectionComponent();
+        c.range = range;
+        return c;
     }
 }

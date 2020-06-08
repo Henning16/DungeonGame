@@ -1,0 +1,5 @@
+PLAYER
+BodyComponent: 2 _ _ _
+MovementComponent:
+PlayerMovementComponent:
+ItemCollectionComponent: 0.5

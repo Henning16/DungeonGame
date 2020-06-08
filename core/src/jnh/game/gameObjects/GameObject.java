@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import jnh.game.assets.Assets;
 import jnh.game.gameObjects.components.Component;
 import jnh.game.gameObjects.construction.Blueprint;
 import jnh.game.gfx.animations.Animator;
@@ -20,17 +19,21 @@ public class GameObject extends Image {
 
     private GameStage stage;
 
+    @Deprecated
     private TextureRegion texture;
+    @Deprecated
     private Animator animator;
 
     private ArrayList<Component> components = new ArrayList<>();
 
-    public static final GameObject EMPTY = new GameObject(null, Assets.textures.ERROR, new Vector2(1, 1), new Vector2(1, 1));
-
-    public GameObject(Blueprint blueprint) {
+    public GameObject(GameStage stage, Blueprint blueprint) {
+        this.stage = stage;
         this.blueprint = blueprint;
-        //TODO check if this really works
-        this.components = new ArrayList<>(blueprint.components);
+        setBounds(1,1,1,1);
+        setOrigin(getWidth() / 2, getHeight() / 2);
+        for(Component component: blueprint.components) {
+            addComponent(component.copy());
+        }
         this.type = blueprint.type;
     }
 
@@ -46,9 +49,13 @@ public class GameObject extends Image {
     public final void act(float delta) {
         super.act(delta);
         tick(delta);
-        animator.tick(delta);
+        if(animator != null) {
+            animator.tick(delta);
+        }
         render();
-        setTexture(animator.getTexture());
+        if(animator != null) {
+            setTexture(animator.getTexture());
+        }
     }
 
     public void tick(float delta) {
