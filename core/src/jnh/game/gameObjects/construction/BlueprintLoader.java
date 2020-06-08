@@ -28,13 +28,12 @@ public class BlueprintLoader {
             }
             String[] values = tokens[1].split(" ");
             for(int j = 0; j < values.length; j++) {
-                System.out.println(values[j].length());
                 if(values[j] == "_") {
                     values[j] = null;
                 }
             }
             try {
-                c.init(Arrays.copyOfRange(values, 1, values.length));
+                c.set(Arrays.copyOfRange(values, 1, values.length));
             } catch(IllegalArgumentException e) {
                 System.err.println("The parameters provided for the component " + c.getClass().getName() + " are invalid.");
             }
