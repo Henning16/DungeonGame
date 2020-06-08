@@ -1,9 +1,10 @@
 package jnh.game.gameObjects.components;
 
-import jnh.game.gameObjects.entities.Entity;
 import jnh.game.gameObjects.items.Item;
 
 public class ItemCollectionComponent extends Component {
+
+    private ItemContainerComponent containerComponent;
 
     private float range = 0.5f;
 
@@ -21,11 +22,15 @@ public class ItemCollectionComponent extends Component {
     }
 
     @Override
-    public void tick(double delta) {
+    public void tick(float delta) {
+        if(containerComponent == null) {
+            containerComponent = (ItemContainerComponent) gameObject.getComponent(ItemContainerComponent.class);
+            return;
+        }
         for(Item item: gameObject.getStage().getItems()) {
             //pythagoras
             if((item.getX() - gameObject.getX())*(item.getX() - gameObject.getX()) + (item.getY() - gameObject.getY())*(item.getY() - gameObject.getY()) <= range * range) {
-                ((Entity) gameObject).getItemContainer().add(item);
+                containerComponent.add(item);
                 item.setToBeRemoved(true);
             }
         }

@@ -44,14 +44,13 @@ public class BodyComponent extends Component {
                 break;
             default:
         }
-        System.out.println(bodyType);
         density = (parameters[1] != null) ? Float.parseFloat(parameters[1]): density;
         linearDamping = (parameters[2] != null) ? Float.parseFloat(parameters[2]): linearDamping;
         fixedRotation = (parameters[3] != null) ? Boolean.parseBoolean(parameters[3]): fixedRotation;
     }
 
     @Override
-    public void tick(double delta) {
+    public void tick(float delta) {
         gameObject.setPosition(getBody().getPosition().x, getBody().getPosition().y);
     }
 

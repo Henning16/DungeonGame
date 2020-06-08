@@ -17,7 +17,7 @@ public class Measurements extends Component {
     }
 
     @Override
-    public void tick(double delta) {
+    public void tick(float delta) {
 
     }
 

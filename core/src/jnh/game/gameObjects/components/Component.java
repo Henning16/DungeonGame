@@ -41,11 +41,11 @@ public abstract class Component {
      * @param delta die vergangene Zeit in Sekunden seit dem letzten Tick
      * @see #render()
      */
-    public abstract void tick(double delta);
+    public abstract void tick(float delta);
 
     /**
      * Diese Methode wird bei jedem Rendern aufgerufen. Zu diesem Zeitpunkt wurden alle Tick-Methoden dieses GameObjects, aber noch nicht zwangsweise alle Tick-Methoden anderer GameObjects, ausgeführt. Die Methode wird zum Aktualisieren der Texturen, insbesondere mithilfe vom {@link jnh.game.gfx.animations.Animator} genutzt.
-     * @see #tick(double) 
+     * @see #tick(float)
      */
     public abstract void render();
 

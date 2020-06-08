@@ -18,7 +18,7 @@ public class RenderComponent extends Component {
     }
 
     @Override
-    public void tick(double delta) {
+    public void tick(float delta) {
         if(!paused) {
             elapsedTime += delta;
         }

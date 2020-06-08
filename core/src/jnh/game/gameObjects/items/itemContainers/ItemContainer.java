@@ -4,6 +4,7 @@ import jnh.game.gameObjects.items.Item;
 
 import java.util.LinkedList;
 
+@Deprecated
 public class ItemContainer {
 
     public static final int DEFAULT_SIZE = 32;
