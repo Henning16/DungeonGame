@@ -1,5 +1,5 @@
 PLAYER
-Measurements: 8 3 0.6 1
+Measurements: 8 3 0.7 1
 MovementComponent: _
 PlayerMovementComponent: _
 MovementTextureComponent: ZOMBIE

@@ -35,6 +35,7 @@ public class BlueprintLoader {
             try {
                 c.set(Arrays.copyOfRange(values, 1, values.length));
             } catch(Exception e) {
+                e.printStackTrace();
                 System.err.println("[BlueprintLoader] The parameters provided for the component " + c.getClass().getName() + " are invalid.");
             }
         }

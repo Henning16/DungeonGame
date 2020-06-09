@@ -2,7 +2,7 @@ package jnh.game.world.rooms;
 
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.assets.Assets;
-import jnh.game.gameObjects.roomBoundaries.FloorTile;
+import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.roomBoundaries.Wall;
 import jnh.game.gameObjects.roomBoundaries.WallExtension;
 import jnh.game.stages.GameStage;
@@ -18,21 +18,9 @@ public class RandomRoom extends Room {
     protected void generate() {
         for(int y = 1; y < ROOM_WIDTH - 1; y++) {
             for(int x = 1; x < ROOM_HEIGHT - 1; x++) {
-                if(getDungeon().getGenerator().nextBoolean()) {
-                    getStage().getBackgroundLayer().addActor(new FloorTile(getStage(), Assets.textures.FLOOR_TILE[FloorTile.Type.NORMAL], new Vector2(x, y)));
-                } else if(getDungeon().getGenerator().nextBoolean()) {
-                    if(getDungeon().getGenerator().nextBoolean()) {
-                        getStage().getBackgroundLayer().addActor(new FloorTile(getStage(), Assets.textures.FLOOR_TILE[FloorTile.Type.LIGHT_CRACKS], new Vector2(x, y)));
-                    } else {
-                        getStage().getBackgroundLayer().addActor(new FloorTile(getStage(), Assets.textures.FLOOR_TILE[FloorTile.Type.HEAVY_CRACKS], new Vector2(x, y)));
-                    }
-                } else {
-                    if(getDungeon().getGenerator().nextBoolean()) {
-                        getStage().getBackgroundLayer().addActor(new FloorTile(getStage(), Assets.textures.FLOOR_TILE[FloorTile.Type.LIGHT_MOSS], new Vector2(x, y)));
-                    } else {
-                        getStage().getBackgroundLayer().addActor(new FloorTile(getStage(), Assets.textures.FLOOR_TILE[FloorTile.Type.HEAVY_MOSS], new Vector2(x, y)));
-                    }
-                }
+                GameObject tile = new GameObject(getStage(), Assets.blueprints.FLOOR);
+                tile.setPosition(x, y);
+                getStage().getBackgroundLayer().addActor(tile);
             }
         }
 

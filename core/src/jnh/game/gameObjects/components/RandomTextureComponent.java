@@ -40,7 +40,7 @@ public class RandomTextureComponent extends Component {
     @Override
     public void attachedTo(GameObject gameObject) {
         super.attachedTo(gameObject);
-        texture = textures[(int) Math.random() * textures.length];
+        texture = textures[(int) (Math.random() * textures.length)];
         gameObject.setTexture(texture.getKeyFrame(elapsedTime));
     }
 

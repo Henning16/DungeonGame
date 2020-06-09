@@ -1,2 +1,2 @@
 FLOOR
-RenderComponent: {}
+RandomTextureComponent: FLOOR_TILE _
