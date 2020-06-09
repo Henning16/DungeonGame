@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import jnh.game.assets.Assets;
 import jnh.game.gfx.animations.Animator;
 
-public class MovementRenderComponent extends Component {
+public class MovementTextureComponent extends Component {
 
     private MovementComponent movementComponent;
 
@@ -38,8 +38,8 @@ public class MovementRenderComponent extends Component {
     }
 
     @Override
-    public MovementRenderComponent copy() {
-        MovementRenderComponent c = new MovementRenderComponent();
+    public MovementTextureComponent copy() {
+        MovementTextureComponent c = new MovementTextureComponent();
         c.texture = texture;
         return c;
     }

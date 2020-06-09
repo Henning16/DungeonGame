@@ -7,11 +7,12 @@ import java.util.LinkedList;
 //TODO change from Item to GameObject
 public class ItemContainerComponent extends Component {
 
-    private LinkedList<Item> items;
-    private int size = 8;
+    private LinkedList<Item> items = new LinkedList<>();
+    private int size = 1;
 
     @Override
-    public void set(String[] parameters) throws Exception {
+    public void set(String[] parameters) throws IllegalArgumentException {
+        System.out.println(parameters[0]);
         size = (parameters[0] != null) ? Integer.parseInt(parameters[0]) : size;
     }
 

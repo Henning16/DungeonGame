@@ -5,9 +5,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 
-public class RenderComponent extends Component {
+public class TextureComponent extends Component {
 
-    private Animation<TextureRegion> texture = Assets.textures.ERROR;
+    private Animation<TextureRegion> texture;
     private float elapsedTime = 0f;
     private boolean paused = true;
 
@@ -44,7 +44,7 @@ public class RenderComponent extends Component {
 
     @Override
     public Component copy() {
-        RenderComponent c = new RenderComponent();
+        TextureComponent c = new TextureComponent();
         c.texture = texture;
         c.paused = paused;
         return c;

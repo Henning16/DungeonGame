@@ -23,10 +23,10 @@ public class BlueprintLoader {
                 blueprint.components.add(c);
             } catch(Exception e) {
                 e.printStackTrace();
-                System.err.println("The component " + tokens[0] + " could not be found.");
+                System.err.println("[BlueprintLoader] The component " + tokens[0] + " could not be found.");
                 continue;
             }
-            String[] values = tokens[1].split(" ");
+            String[] values = tokens[1].split("\\s+");
             for(int j = 0; j < values.length; j++) {
                 if(values[j].equals("_")) {
                     values[j] = null;
@@ -35,8 +35,7 @@ public class BlueprintLoader {
             try {
                 c.set(Arrays.copyOfRange(values, 1, values.length));
             } catch(Exception e) {
-                e.printStackTrace();
-                System.err.println("The parameters provided for the component " + c.getClass().getName() + " are invalid.");
+                System.err.println("[BlueprintLoader] The parameters provided for the component " + c.getClass().getName() + " are invalid.");
             }
         }
         return blueprint;

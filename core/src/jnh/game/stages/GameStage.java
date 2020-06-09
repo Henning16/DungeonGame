@@ -61,8 +61,8 @@ public class GameStage extends Stage {
         addActor(new Item(this, Assets.textures.PLAYER[Direction.UP][MovementState.WALK], Assets.textures.PLAYER[Direction.UP][MovementState.WALK], new Vector2(5,4)));
         addActor(new Item(this, Assets.textures.PLAYER[Direction.UP][MovementState.WALK], Assets.textures.PLAYER[Direction.UP][MovementState.WALK], new Vector2(9,7)));
 
-        GameObject g = new GameObject(this, Assets.blueprints.FLOOR);
-        addActor(g);
+        GameObject g = new GameObject(this, Assets.blueprints.PLAYER);
+        getMainLayer().addActor(g);
     }
 
     @Override

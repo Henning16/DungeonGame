@@ -1,5 +1,8 @@
 PLAYER
-BodyComponent: 2 _ _ _
-MovementComponent:
-PlayerMovementComponent:
-ItemCollectionComponent: 0.5
+Measurements: 8 3 0.6 1
+MovementComponent: _
+PlayerMovementComponent: _
+MovementTextureComponent: ZOMBIE
+BodyComponent: 2 _ 4 _
+ItemContainerComponent: 2
+ItemCollectionComponent: 0.5f
