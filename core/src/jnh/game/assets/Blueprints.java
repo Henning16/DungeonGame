@@ -7,14 +7,14 @@ public class Blueprints {
 
     private BlueprintLoader loader;
 
-    public Blueprint TEST, PLAYER;
+    public Blueprint PLAYER, ZOMBIE;
     public Blueprint FLOOR;
 
     public Blueprints() {
         loader = new BlueprintLoader();
 
-        //TEST = loader.loadBlueprint("test");
         PLAYER = loader.loadBlueprint("player");
+        ZOMBIE = loader.loadBlueprint("zombie");
 
         FLOOR = loader.loadBlueprint("floor");
     }

@@ -117,6 +117,10 @@ public class GameScreen implements Screen {
         return rayHandler;
     }
 
+    public GameCamera getGameCamera() {
+        return camera;
+    }
+
     public GameStage getStage() {
         return stage;
     }

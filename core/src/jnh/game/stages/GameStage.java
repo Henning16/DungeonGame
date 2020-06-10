@@ -56,6 +56,8 @@ public class GameStage extends Stage {
 
         player = new GameObject(this, Assets.blueprints.PLAYER);
         getMainLayer().addActor(player);
+
+        getMainLayer().addActor(new GameObject(this, Assets.blueprints.ZOMBIE));
     }
 
     @Override

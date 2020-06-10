@@ -1,8 +1,9 @@
 PLAYER
 Measurements: 4 4 0.6875 1
-MovementComponent: _
+MovementComponent: 2
 PlayerMovementComponent: _
 MovementTextureComponent: PLAYER
 BodyComponent: 2 _ 10 _
 ItemContainerComponent: 2
 ItemCollectionComponent: 0.5f
+HealthComponent: 100

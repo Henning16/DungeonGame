@@ -12,7 +12,7 @@ public class MovementComponent extends Component {
     private BodyComponent bodyComponent;
 
     //TODO implement maxSpeed
-    private int maxSpeed;
+    private float maxSpeed = 0;
 
     private int state;
     private int looking;
@@ -31,7 +31,7 @@ public class MovementComponent extends Component {
 
     @Override
     public void set(String[] parameters) throws Exception {
-
+        maxSpeed = (parameters[0] != null) ? Float.parseFloat(parameters[0]) : maxSpeed;
     }
 
     @Override
@@ -59,6 +59,7 @@ public class MovementComponent extends Component {
     @Override
     public MovementComponent copy() {
         MovementComponent c = new MovementComponent();
+        c.maxSpeed = maxSpeed;
         return c;
     }
 
@@ -71,17 +72,17 @@ public class MovementComponent extends Component {
         if(bodyComponent == null) {
             return;
         }
-        if(direction == Direction.UP) {
-            bodyComponent.getBody().applyLinearImpulse(new Vector2(0, 0.5f), bodyComponent.getBody().getPosition(), true);
+        if(direction == Direction.UP && bodyComponent.getBody().getLinearVelocity().y <= maxSpeed) {
+            bodyComponent.getBody().applyLinearImpulse(new Vector2(0, maxSpeed), bodyComponent.getBody().getPosition(), true);
         }
-        if(direction == Direction.RIGHT) {
-            bodyComponent.getBody().applyLinearImpulse(new Vector2(0.5f, 0), bodyComponent.getBody().getPosition(), true);
+        if(direction == Direction.RIGHT && bodyComponent.getBody().getLinearVelocity().x <= maxSpeed) {
+            bodyComponent.getBody().applyLinearImpulse(new Vector2(maxSpeed, 0), bodyComponent.getBody().getPosition(), true);
         }
-        if(direction == Direction.DOWN) {
-            bodyComponent.getBody().applyLinearImpulse(new Vector2(0, -0.5f), bodyComponent.getBody().getPosition(), true);
+        if(direction == Direction.DOWN && bodyComponent.getBody().getLinearVelocity().y >= - maxSpeed) {
+            bodyComponent.getBody().applyLinearImpulse(new Vector2(0, -maxSpeed), bodyComponent.getBody().getPosition(), true);
         }
-        if(direction == Direction.LEFT) {
-            bodyComponent.getBody().applyLinearImpulse(new Vector2(-0.5f, 0), bodyComponent.getBody().getPosition(), true);
+        if(direction == Direction.LEFT && bodyComponent.getBody().getLinearVelocity().x >= - maxSpeed) {
+            bodyComponent.getBody().applyLinearImpulse(new Vector2(-maxSpeed, 0), bodyComponent.getBody().getPosition(), true);
         }
         setLooking(direction);
     }

@@ -1,0 +1,7 @@
+ZOMBIE
+Measurements: 4 6 0.6875 1
+MovementComponent: 1
+MovementTextureComponent: ZOMBIE
+BodyComponent: 2 _ 10 _
+FollowPlayerComponent: 9
+AttackPlayerComponent: _
