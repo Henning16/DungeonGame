@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import jnh.game.gameObjects.entities.MovementState;
-import jnh.game.gameObjects.roomBoundaries.FloorTile;
 import jnh.game.utils.Direction;
 
 public class Textures {
@@ -29,7 +28,7 @@ public class Textures {
 
         PLAYER = new Animation[4][2];
         ZOMBIE = new Animation[4][2];
-        FLOOR_TILE = new Animation[5];
+        FLOOR_TILE = new Animation[8];
         WALL = new Animation[5][4];
 
         PLAYER[Direction.UP][MovementState.IDLE] = new Animation<>(1f,
@@ -106,21 +105,30 @@ public class Textures {
                 get(ZOMBIE_SHEET, 33, 32, 11, 16));
         ZOMBIE[Direction.LEFT][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
 
-        FLOOR_TILE[FloorTile.Type.NORMAL] = new Animation<>(1f,
+        FLOOR_TILE[0] = new Animation<>(1f,
                 get(FLOOR_SHEET, 0 , 0, 16, 16));
-                FLOOR_TILE[FloorTile.Type.NORMAL].setPlayMode(Animation.PlayMode.NORMAL);
-        FLOOR_TILE[FloorTile.Type.LIGHT_CRACKS] = new Animation<>(1f,
+                FLOOR_TILE[0].setPlayMode(Animation.PlayMode.NORMAL);
+        FLOOR_TILE[1] = new Animation<>(1f,
                 get(FLOOR_SHEET, 16 , 0, 16, 16));
-                FLOOR_TILE[FloorTile.Type.LIGHT_CRACKS].setPlayMode(Animation.PlayMode.NORMAL);
-        FLOOR_TILE[FloorTile.Type.HEAVY_CRACKS] = new Animation<>(1f,
+                FLOOR_TILE[1].setPlayMode(Animation.PlayMode.NORMAL);
+        FLOOR_TILE[2] = new Animation<>(1f,
                 get(FLOOR_SHEET, 32 , 0, 16, 16));
-                FLOOR_TILE[FloorTile.Type.HEAVY_CRACKS].setPlayMode(Animation.PlayMode.NORMAL);
-        FLOOR_TILE[FloorTile.Type.LIGHT_MOSS] = new Animation<>(1f,
+                FLOOR_TILE[2].setPlayMode(Animation.PlayMode.NORMAL);
+        FLOOR_TILE[3] = new Animation<>(1f,
                 get(FLOOR_SHEET, 48 , 0, 16, 16));
-                FLOOR_TILE[FloorTile.Type.LIGHT_MOSS].setPlayMode(Animation.PlayMode.NORMAL);
-        FLOOR_TILE[FloorTile.Type.HEAVY_MOSS] = new Animation<>(1f,
+                FLOOR_TILE[3].setPlayMode(Animation.PlayMode.NORMAL);
+        FLOOR_TILE[4] = new Animation<>(1f,
                 get(FLOOR_SHEET, 64 , 0, 16, 16));
-                FLOOR_TILE[FloorTile.Type.HEAVY_MOSS].setPlayMode(Animation.PlayMode.NORMAL);
+                FLOOR_TILE[4].setPlayMode(Animation.PlayMode.NORMAL);
+        FLOOR_TILE[5] = new Animation<>(1f,
+                get(FLOOR_SHEET, 80 , 0, 16, 16));
+                FLOOR_TILE[5].setPlayMode(Animation.PlayMode.NORMAL);
+        FLOOR_TILE[6] = new Animation<>(1f,
+                get(FLOOR_SHEET, 96 , 0, 16, 16));
+                FLOOR_TILE[6].setPlayMode(Animation.PlayMode.NORMAL);
+        FLOOR_TILE[7] = new Animation<>(1f,
+                get(FLOOR_SHEET, 112 , 0, 16, 16));
+                FLOOR_TILE[7].setPlayMode(Animation.PlayMode.NORMAL);
 
         WALL[0][0] = new Animation<>(1f,
                 get(WALL_SHEET, 0, 0, 16, 16));
