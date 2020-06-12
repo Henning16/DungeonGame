@@ -12,7 +12,11 @@ public class BlueprintLoader {
         Blueprint blueprint = new Blueprint();
         String blueprintRepresentation = Gdx.files.internal("blueprints/"+name+".bpt").readString();
         String[] lines = blueprintRepresentation.split("\n");
-        blueprint.type = lines[0].trim();
+        String[] args = lines[0].trim().split(" ");
+        blueprint.type = args[0];
+        try {
+            blueprint.layer = args[1];
+        } catch(Exception e) { }
         for(int i = 1; i < lines.length; i++) {
             String[] tokens = lines[i].split(":");
             Component c;

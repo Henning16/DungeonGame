@@ -8,6 +8,7 @@ import jnh.game.gfx.animations.Animator;
 public class MovementTextureComponent extends Component {
 
     private MovementComponent movementComponent;
+    private BodyComponent bodyComponent;
 
     private Animator animator = new Animator();
     private Animation<TextureRegion>[][]  texture = Assets.textures.PLAYER;
@@ -19,11 +20,18 @@ public class MovementTextureComponent extends Component {
 
     @Override
     public void tick(float delta) {
-        if(movementComponent == null) {
+        if(movementComponent == null || bodyComponent == null) {
             movementComponent = (MovementComponent) gameObject.getComponent(MovementComponent.class);
+            bodyComponent = (BodyComponent) gameObject.getComponent(BodyComponent.class);
             return;
         }
         animator.tick(delta);
+        if(movementComponent.getLooking() == 1 || movementComponent.getLooking() == 3) {
+            gameObject.setSize(0.5f, 1);
+            gameObject.setOrigin(gameObject.getWidth() / 2, gameObject.getHeight() / 2);
+        } else {
+            gameObject.setSize(0.6875f, 1);
+        }
         animator.play(texture[movementComponent.getLooking()][movementComponent.getState()], true);
     }
 

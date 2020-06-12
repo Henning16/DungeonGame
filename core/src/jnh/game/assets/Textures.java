@@ -9,11 +9,12 @@ import jnh.game.utils.Direction;
 
 public class Textures {
 
-    private final Texture sprites, PLAYER_SHEET, ZOMBIE_SHEET, FLOOR_SHEET, WALL_SHEET;
+    private final Texture sprites, PLAYER_SHEET, ZOMBIE_SHEET, FLOOR_SHEET, WALL_SHEET, WEAPONS_SHEET;
     public final Animation ERROR;
     public final Animation<TextureRegion>[][] PLAYER, ZOMBIE;
     public final Animation<TextureRegion>[] FLOOR_TILE;
     public final Animation[][] WALL;
+    public final Animation AXE;
 
     public Textures() {
         sprites = new Texture(Gdx.files.internal("textures/textures.png"));
@@ -25,6 +26,7 @@ public class Textures {
         ZOMBIE_SHEET = new Texture(Gdx.files.internal("textures/zombie.png"));
         FLOOR_SHEET = new Texture(Gdx.files.internal("textures/floor.png"));
         WALL_SHEET = new Texture(Gdx.files.internal("textures/wall.png"));
+        WEAPONS_SHEET = new Texture(Gdx.files.internal("textures/weapons.png"));
 
         PLAYER = new Animation[4][2];
         ZOMBIE = new Animation[4][2];
@@ -35,13 +37,13 @@ public class Textures {
                 get(PLAYER_SHEET, 11, 0, 11, 16));
                 PLAYER[Direction.UP][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.RIGHT][MovementState.IDLE] = new Animation<>(1f,
-                get(PLAYER_SHEET, 22, 0, 11, 16));
+                get(PLAYER_SHEET, 22, 0, 8, 16));
                 PLAYER[Direction.RIGHT][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.DOWN][MovementState.IDLE] = new Animation<>(1f,
                 get(PLAYER_SHEET, 0, 0, 11, 16));
                 PLAYER[Direction.DOWN][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.LEFT][MovementState.IDLE] = new Animation<>(1f,
-                get(PLAYER_SHEET, 33, 0, 11, 16));
+                get(PLAYER_SHEET, 30, 0, 8, 16));
                 PLAYER[Direction.LEFT][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.UP][MovementState.WALK] = new Animation<>(0.2f,
                 get(PLAYER_SHEET, 11, 0, 11, 16),
@@ -50,10 +52,10 @@ public class Textures {
                 get(PLAYER_SHEET, 11, 32, 11, 16));
                 PLAYER[Direction.UP][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.RIGHT][MovementState.WALK] = new Animation<>(0.2f,
-                get(PLAYER_SHEET, 22, 0, 11, 16),
-                get(PLAYER_SHEET, 22, 16, 11, 16),
-                get(PLAYER_SHEET, 22, 0, 11, 16),
-                get(PLAYER_SHEET, 22, 32, 11, 16));
+                get(PLAYER_SHEET, 22, 0, 8, 16),
+                get(PLAYER_SHEET, 22, 16, 8, 16),
+                get(PLAYER_SHEET, 22, 0, 8, 16),
+                get(PLAYER_SHEET, 22, 32, 8, 16));
                 PLAYER[Direction.RIGHT][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.DOWN][MovementState.WALK] = new Animation<>(0.2f,
                 get(PLAYER_SHEET, 0, 0, 11, 16),
@@ -62,23 +64,23 @@ public class Textures {
                 get(PLAYER_SHEET, 0, 32, 11, 16));
                 PLAYER[Direction.DOWN][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.LEFT][MovementState.WALK] = new Animation<>(0.2f,
-                get(PLAYER_SHEET, 33, 0, 11, 16),
-                get(PLAYER_SHEET, 33, 16, 11, 16),
-                get(PLAYER_SHEET, 33, 0, 11, 16),
-                get(PLAYER_SHEET, 33, 32, 11, 16));
+                get(PLAYER_SHEET, 30, 0, 8, 16),
+                get(PLAYER_SHEET, 30, 16, 8, 16),
+                get(PLAYER_SHEET, 30, 0, 8, 16),
+                get(PLAYER_SHEET, 30, 32, 8, 16));
                 PLAYER[Direction.LEFT][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
 
         ZOMBIE[Direction.UP][MovementState.IDLE] = new Animation<>(1f,
                 get(ZOMBIE_SHEET, 11, 0, 11, 16));
         ZOMBIE[Direction.UP][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         ZOMBIE[Direction.RIGHT][MovementState.IDLE] = new Animation<>(1f,
-                get(ZOMBIE_SHEET, 22, 0, 11, 16));
+                get(ZOMBIE_SHEET, 22, 0, 8, 16));
         ZOMBIE[Direction.RIGHT][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         ZOMBIE[Direction.DOWN][MovementState.IDLE] = new Animation<>(1f,
                 get(ZOMBIE_SHEET, 0, 0, 11, 16));
         ZOMBIE[Direction.DOWN][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         ZOMBIE[Direction.LEFT][MovementState.IDLE] = new Animation<>(1f,
-                get(ZOMBIE_SHEET, 33, 0, 11, 16));
+                get(ZOMBIE_SHEET, 30, 0, 8, 16));
         ZOMBIE[Direction.LEFT][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         ZOMBIE[Direction.UP][MovementState.WALK] = new Animation<>(0.2f,
                 get(ZOMBIE_SHEET, 11, 0, 11, 16),
@@ -87,10 +89,10 @@ public class Textures {
                 get(ZOMBIE_SHEET, 11, 32, 11, 16));
         ZOMBIE[Direction.UP][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
         ZOMBIE[Direction.RIGHT][MovementState.WALK] = new Animation<>(0.2f,
-                get(ZOMBIE_SHEET, 22, 0, 11, 16),
-                get(ZOMBIE_SHEET, 22, 16, 11, 16),
-                get(ZOMBIE_SHEET, 22, 0, 11, 16),
-                get(ZOMBIE_SHEET, 22, 32, 11, 16));
+                get(ZOMBIE_SHEET, 22, 0, 8, 16),
+                get(ZOMBIE_SHEET, 22, 16, 8, 16),
+                get(ZOMBIE_SHEET, 22, 0, 8, 16),
+                get(ZOMBIE_SHEET, 22, 32, 8, 16));
         ZOMBIE[Direction.RIGHT][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
         ZOMBIE[Direction.DOWN][MovementState.WALK] = new Animation<>(0.2f,
                 get(ZOMBIE_SHEET, 0, 0, 11, 16),
@@ -99,10 +101,10 @@ public class Textures {
                 get(ZOMBIE_SHEET, 0, 32, 11, 16));
         ZOMBIE[Direction.DOWN][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
         ZOMBIE[Direction.LEFT][MovementState.WALK] = new Animation<>(0.2f,
-                get(ZOMBIE_SHEET, 33, 0, 11, 16),
-                get(ZOMBIE_SHEET, 33, 16, 11, 16),
-                get(ZOMBIE_SHEET, 33, 0, 11, 16),
-                get(ZOMBIE_SHEET, 33, 32, 11, 16));
+                get(ZOMBIE_SHEET, 30, 0, 8, 16),
+                get(ZOMBIE_SHEET, 30, 16, 8, 16),
+                get(ZOMBIE_SHEET, 30, 0, 8, 16),
+                get(ZOMBIE_SHEET, 30, 32, 8, 16));
         ZOMBIE[Direction.LEFT][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
 
         FLOOR_TILE[0] = new Animation<>(1f,
@@ -170,6 +172,9 @@ public class Textures {
                 get(WALL_SHEET, 64, 32, 16, 16));
         WALL[4][3] = new Animation<>(1f,
                 get(WALL_SHEET, 64, 48, 16, 16));
+
+        AXE = new Animation(1f,
+                get(WEAPONS_SHEET, 0, 0, 16, 16));
     }
 
     private TextureRegion get(Texture texture, int x, int y, int width, int height) {

@@ -16,27 +16,32 @@ public class GameObject extends Image {
 
     private Blueprint blueprint;
     private String type;
+    private int id;
 
     private GameStage stage;
+    private GameObjectManager gameObjectManager;
 
-    @Deprecated
     private TextureRegion texture;
-    @Deprecated
     private Animator animator;
 
     private ArrayList<Component> components = new ArrayList<>();
 
     public GameObject(GameStage stage, Blueprint blueprint) {
         this.stage = stage;
+        this.gameObjectManager = stage.getGameObjectManager();
         this.blueprint = blueprint;
+        this.type = blueprint.type;
         setBounds(1,1,1,1);
         setOrigin(getWidth() / 2, getHeight() / 2);
+        this.id = getGameObjectManager().add(this, stage.getMainLayer());
         for(Component component: blueprint.components) {
             addComponent(component.copy());
         }
-        this.type = blueprint.type;
     }
 
+    //TODO add constructor accepting specific GameObject data
+
+    @Deprecated
     public GameObject(GameStage stage, Animation<TextureRegion> animation, Vector2 position, Vector2 dimension) {
         super(animation.getKeyFrame(0));
         this.stage = stage;
@@ -45,6 +50,10 @@ public class GameObject extends Image {
         this.animator = new Animator();
     }
 
+    /**
+     * Aktualisiert den {@link Animator} und ruft {@link #tick(float)} und {@link #render()} auf.
+     * @param delta die Zeit in Sekunden seit dem letzten Tick
+     */
     @Override
     public final void act(float delta) {
         super.act(delta);
@@ -58,18 +67,33 @@ public class GameObject extends Image {
         }
     }
 
+    /**
+     * Führt die {@link Component#tick(float)} aller Components aus.
+     * @param delta die Zeit in Sekunden seit dem letzten Tick
+     * @see Component
+     * @see #render()
+     */
     public void tick(float delta) {
         for(Component component: components) {
             component.tick(delta);
         }
     }
 
+    /**
+     * Führt die {@link Component#render()} aller Components aus.
+     * @see Component
+     * @see #tick(float)
+      */
     public void render() {
         for(Component component: components) {
             component.render();
         }
     }
 
+    /**
+     * Löscht das GameObject. Diese Methode darf nur vom {@link GameObjectManager} benutzt werden! Zum Löschen eines GameObjects immer {@link GameObjectManager#remove(int)} oder {@link GameObjectManager#requestRemove(int)} benutzen!
+     * @return ob das GameObject gelöscht wurde, oder es schon gelöscht war
+     */
     @Override
     public boolean remove() {
         boolean remove = super.remove();
@@ -79,17 +103,49 @@ public class GameObject extends Image {
         return remove;
     }
 
+
+    /**
+     * Gibt den {@link Blueprint}, also die Vorlage, zurück, aus dem das GameObject erschaffen wurde.
+     * @return der Blueprint, aus dem das GameObject erschaffen wurde
+     * @see GameObject#GameObject(GameStage, Blueprint) 
+     */
     public Blueprint getBlueprint() {
         return blueprint;
     }
 
+    /**
+     * Gibt den Typ des GameObjects zurück. Also zum Beispiel {@code PLAYER} oder {@code ZOMBIE}. Das hat den gleichen Effekt wie {@link Blueprint#type}.
+     * @return der Typ
+     */
     public String getType() {
         return type;
     }
 
+    public int getID() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+    /**
+     * Gibt die {@link GameStage} zurück.
+     * @return die GameStage
+     */
     public GameStage getStage() {
         return stage;
     }
+
+    /**
+     * Gibt den {@link GameObjectManager} zurück.
+     * @return der GameObjectManager
+     */
+    public GameObjectManager getGameObjectManager() {
+        return gameObjectManager;
+    }
+
 
     public TextureRegion getTexture() {
         return texture;
@@ -104,6 +160,11 @@ public class GameObject extends Image {
         return animator;
     }
 
+
+    /**
+     * Fügt die Compnent dem GameObject hinzu.
+     * @param component die hinzuzufügende Component
+     */
     public void addComponent(Component component) {
         components.add(component);
         component.attachedTo(this);

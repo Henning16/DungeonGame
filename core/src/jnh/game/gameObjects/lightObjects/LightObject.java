@@ -19,7 +19,7 @@ public class LightObject extends Actor {
 
     public LightObject(GameStage stage) {
         this.rayHandler = stage.getRayHandler();
-        light = new PointLight(rayHandler, 1000, color, distance, 0f, 0f);
+        light = new PointLight(rayHandler, 100, color, distance, 0f, 0f);
         light.setSoftnessLength(2);
         stage.getLightUpdater().register(this);
     }
@@ -29,7 +29,7 @@ public class LightObject extends Actor {
         this.color = color;
         this.flickeringIntensity = flickeringIntensity;
         this.castShadows = castShadows;
-        light = new PointLight(rayHandler, 2000, color, distance, position.x, position.y);
+        light = new PointLight(rayHandler, 100, color, distance, position.x, position.y);
         light.setSoftnessLength(2);
         setPosition(position);
         setCastShadows(castShadows);

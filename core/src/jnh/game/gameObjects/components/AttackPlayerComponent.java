@@ -16,11 +16,11 @@ public class AttackPlayerComponent extends Component {
     @Override
     public void tick(float delta) {
         if(player == null) {
-            player = gameObject.getStage().getPlayer();
+            player = gameObject.getGameObjectManager().getGameObject(gameObject.getGameObjectManager().playerID);
         }
         //TODO use weapon stats
         remainingCooldownTime = Math.max(0, remainingCooldownTime - delta);
-        if(Vector2.dst(player.getX(), player.getY(), gameObject.getX(), gameObject.getY()) < 2.0f && remainingCooldownTime == 0f) {
+        if(Vector2.dst(player.getX(), player.getY(), gameObject.getX(), gameObject.getY()) < 1.5f && remainingCooldownTime == 0f) {
             ((HealthComponent) player.getComponent(HealthComponent.class)).dealDamage((int) (Math.random() * 80), 1);
             ((BodyComponent) player.getComponent(BodyComponent.class)).getBody().applyForce(new Vector2(player.getX() - gameObject.getX(), player.getY() - gameObject.getY()).scl(150), new Vector2(player.getX(), player.getY()), true);
             remainingCooldownTime = 1f;

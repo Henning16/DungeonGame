@@ -68,23 +68,32 @@ public class MovementComponent extends Component {
      * @param direction die Richtung als Zahl
      * @see Direction
      */
-    public void move(int direction) {
+    public void move(int direction, float speedMultiplier) {
         if(bodyComponent == null) {
             return;
         }
         if(direction == Direction.UP && bodyComponent.getBody().getLinearVelocity().y <= maxSpeed) {
-            bodyComponent.getBody().applyLinearImpulse(new Vector2(0, maxSpeed), bodyComponent.getBody().getPosition(), true);
+            bodyComponent.getBody().applyLinearImpulse(new Vector2(0, maxSpeed * speedMultiplier), bodyComponent.getBody().getPosition(), true);
         }
         if(direction == Direction.RIGHT && bodyComponent.getBody().getLinearVelocity().x <= maxSpeed) {
-            bodyComponent.getBody().applyLinearImpulse(new Vector2(maxSpeed, 0), bodyComponent.getBody().getPosition(), true);
+            bodyComponent.getBody().applyLinearImpulse(new Vector2(maxSpeed * speedMultiplier, 0), bodyComponent.getBody().getPosition(), true);
         }
         if(direction == Direction.DOWN && bodyComponent.getBody().getLinearVelocity().y >= - maxSpeed) {
-            bodyComponent.getBody().applyLinearImpulse(new Vector2(0, -maxSpeed), bodyComponent.getBody().getPosition(), true);
+            bodyComponent.getBody().applyLinearImpulse(new Vector2(0, -maxSpeed * speedMultiplier), bodyComponent.getBody().getPosition(), true);
         }
         if(direction == Direction.LEFT && bodyComponent.getBody().getLinearVelocity().x >= - maxSpeed) {
-            bodyComponent.getBody().applyLinearImpulse(new Vector2(-maxSpeed, 0), bodyComponent.getBody().getPosition(), true);
+            bodyComponent.getBody().applyLinearImpulse(new Vector2(-maxSpeed * speedMultiplier, 0), bodyComponent.getBody().getPosition(), true);
         }
         setLooking(direction);
+    }
+
+    /**
+     * Bewegt das GameObject in die angegebene Richtung.
+     * @param direction die Richtung als Zahl
+     * @see Direction
+     */
+    public void move(int direction) {
+        move(direction, 1f);
     }
 
     /**

@@ -23,8 +23,8 @@ public class GameCamera extends OrthographicCamera {
     }
 
     public void act(float delta) {
-        position.x = screen.getStage().getPlayer().getX() * Global.UNIT;
-        position.y = screen.getStage().getPlayer().getY() * Global.UNIT;
+        position.x = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID).getX() * Global.UNIT;
+        position.y = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID).getY() * Global.UNIT;
         if(shake.duration > 0f) {
             translate((float) (Math.random() * 2f - 1f) * shake.intensity, (float) (Math.random() * 2f - 1f) * shake.intensity);
         }

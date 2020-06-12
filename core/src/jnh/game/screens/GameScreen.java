@@ -45,7 +45,7 @@ public class GameScreen implements Screen {
         world = new World(new Vector2(0f, 0f), true);
 
         rayHandler = new RayHandler(world);
-        rayHandler.setAmbientLight(new Color(0.4f, 0.3f, 1f, 0.1f));
+        rayHandler.setAmbientLight(new Color(1f, 0.9f, 0.8f, 0.04f));
         rayHandler.setBlur(true);
         rayHandler.setBlurNum(1);
 

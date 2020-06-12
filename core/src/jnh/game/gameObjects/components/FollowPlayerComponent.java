@@ -20,7 +20,7 @@ public class FollowPlayerComponent extends Component {
     public void tick(float delta) {
         if(movementComponent == null || player == null) {
             movementComponent = (MovementComponent) gameObject.getComponent(MovementComponent.class);
-            player = gameObject.getStage().getPlayer();
+            player = gameObject.getGameObjectManager().getGameObject(gameObject.getGameObjectManager().playerID);
             return;
         }
         if(Vector2.dst(player.getX(), player.getY(), gameObject.getX(), gameObject.getY()) > followDistance) {

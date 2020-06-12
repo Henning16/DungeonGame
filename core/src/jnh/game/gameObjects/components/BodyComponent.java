@@ -70,8 +70,7 @@ public class BodyComponent extends Component {
         body = gameObject.getStage().getScreen().getWorld().createBody(def);
 
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(gameObject.getWidth() / 2, gameObject.getHeight() / 2);
-        shape.setAsBox(gameObject.getWidth() / 2, gameObject.getHeight() / 2, new Vector2(0, 0), 0);
+        shape.setAsBox(gameObject.getWidth() / 2, gameObject.getHeight() / 2, new Vector2(-0.15f, 0), 0);
         getBody().createFixture(shape, density);
         shape.dispose();
         body.setUserData(gameObject);

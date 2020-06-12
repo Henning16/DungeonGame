@@ -1,6 +1,6 @@
 package jnh.game.gameObjects.components;
 
-import jnh.game.gameObjects.items.Item;
+import jnh.game.gameObjects.GameObject;
 
 public class ItemCollectionComponent extends Component {
 
@@ -27,11 +27,17 @@ public class ItemCollectionComponent extends Component {
             containerComponent = (ItemContainerComponent) gameObject.getComponent(ItemContainerComponent.class);
             return;
         }
-        for(Item item: gameObject.getStage().getItems()) {
+        //TODO use new item system
+        for(int itemID: gameObject.getGameObjectManager().items) {
             //pythagoras
-            if((item.getX() - gameObject.getX())*(item.getX() - gameObject.getX()) + (item.getY() - gameObject.getY())*(item.getY() - gameObject.getY()) <= range * range) {
-                containerComponent.add(item);
-                item.setToBeRemoved(true);
+            GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
+            float distanceSquare = (item.getX() - gameObject.getX())*(item.getX() - gameObject.getX()) + (item.getY() - gameObject.getY())*(item.getY() - gameObject.getY());
+            if(distanceSquare <= 5 * range * range) {
+                item.moveBy(0.2f * (gameObject.getX() - item.getX()), 0.2f * (gameObject.getY() - item.getY()));
+            }
+            if(distanceSquare <= range * range) {
+                containerComponent.add(itemID);
+                gameObject.getGameObjectManager().requestRemove(itemID);
             }
         }
     }

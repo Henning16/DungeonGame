@@ -1,18 +1,15 @@
 package jnh.game.gameObjects.components;
 
-import jnh.game.gameObjects.items.Item;
-
 import java.util.LinkedList;
 
 //TODO change from Item to GameObject
 public class ItemContainerComponent extends Component {
 
-    private LinkedList<Item> items = new LinkedList<>();
+    private LinkedList<Integer> items = new LinkedList<>();
     private int size = 1;
 
     @Override
     public void set(String[] parameters) throws IllegalArgumentException {
-        System.out.println(parameters[0]);
         size = (parameters[0] != null) ? Integer.parseInt(parameters[0]) : size;
     }
 
@@ -39,16 +36,16 @@ public class ItemContainerComponent extends Component {
         return c;
     }
 
-    public boolean add(Item item) {
+    public boolean add(int id) {
         if(items.size() >= size) {
             return false;
         } else {
-            items.add(item);
+            items.add(id);
             return true;
         }
     }
 
-    public boolean remove(Item item) {
-        return items.remove(item);
+    public int remove(int id) {
+        return items.remove(id);
     }
 }

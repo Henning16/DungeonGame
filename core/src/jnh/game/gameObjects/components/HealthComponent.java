@@ -38,7 +38,6 @@ public class HealthComponent extends Component {
     public void dealDamage(int damage, float damageModifier) {
         health = Math.max(0, health - (int) (damage * damageModifier));
         if(gameObject.getType().equals("PLAYER")) {
-            System.out.println("damage");
             gameObject.getStage().getScreen().getGameCamera().shake(new Shake(0.2f, damage * damageModifier * 0.03f));
         }
     }
