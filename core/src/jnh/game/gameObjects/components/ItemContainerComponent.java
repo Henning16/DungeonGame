@@ -1,8 +1,9 @@
 package jnh.game.gameObjects.components;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
+
 import java.util.LinkedList;
 
-//TODO change from Item to GameObject
 public class ItemContainerComponent extends Component {
 
     private LinkedList<Integer> items = new LinkedList<>();
@@ -14,12 +15,19 @@ public class ItemContainerComponent extends Component {
     }
 
     @Override
+    public String[] get() {
+        String[] parameters = new String[1];
+        parameters[0] = String.valueOf(size);
+        return parameters;
+    }
+
+    @Override
     public void tick(float delta) {
 
     }
 
     @Override
-    public void render() {
+    public void render(Batch batch) {
 
     }
 

@@ -1,5 +1,6 @@
 package jnh.game.gameObjects.components;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.gameObjects.GameObject;
 
@@ -14,15 +15,27 @@ public class Measurements extends Component {
         position.y = (parameters[1] != null) ? Float.parseFloat(parameters[1]) : position.y;
         dimension.x = (parameters[2] != null) ? Float.parseFloat(parameters[2]) : dimension.x;
         dimension.y = (parameters[3] != null) ? Float.parseFloat(parameters[3]) : dimension.y;
+        if(gameObject != null) {
+            gameObject.setBounds(position.x, position.y, dimension.x, dimension.y);
+        }
+    }
+
+    @Override
+    public String[] get() {
+        String[] parameters = new String[4];
+        parameters[0] = String.valueOf(gameObject.getX());
+        parameters[1] = String.valueOf(gameObject.getY());
+        parameters[2] = String.valueOf(gameObject.getWidth());
+        parameters[3] = String.valueOf(gameObject.getHeight());
+        return parameters;
     }
 
     @Override
     public void tick(float delta) {
-
     }
 
     @Override
-    public void render() {
+    public void render(Batch batch) {
 
     }
 

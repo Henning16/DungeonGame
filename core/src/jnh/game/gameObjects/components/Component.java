@@ -1,5 +1,6 @@
 package jnh.game.gameObjects.components;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import jnh.game.gameObjects.GameObject;
 
 /**
@@ -29,6 +30,12 @@ public abstract class Component {
     public abstract void set(String[] parameters) throws Exception;
 
     /**
+     * Diese Methode verwandelt, relevante momentane Informationen des GameObjects in ein String-Array der später wieder von der {@link #set(String[])}-Methode interpretiert werden kann.
+     * @returns die Parameter
+     */
+    public abstract String[] get();
+
+    /**
      * Diese Methode aufgerufen, nachdem diese Component einem {@link GameObject} hinzugefügt wurde.
      * @param gameObject das GameObject, dem diese Component hinzugefügt wurde.
      */
@@ -39,15 +46,16 @@ public abstract class Component {
     /**
      * Diese Methode wird bei jedem Tick-Aufgerufen und wird zum Aktualisieren von Werten etc. genutzt.
      * @param delta die vergangene Zeit in Sekunden seit dem letzten Tick
-     * @see #render()
+     * @see #render(Batch)
      */
     public abstract void tick(float delta);
 
     /**
      * Diese Methode wird bei jedem Rendern aufgerufen. Zu diesem Zeitpunkt wurden alle Tick-Methoden dieses GameObjects, aber noch nicht zwangsweise alle Tick-Methoden anderer GameObjects, ausgeführt. Die Methode wird zum Aktualisieren der Texturen, insbesondere mithilfe vom {@link jnh.game.gfx.animations.Animator} genutzt.
      * @see #tick(float)
+     * @param batch
      */
-    public abstract void render();
+    public abstract void render(Batch batch);
 
     /**
      * Diese Methode wird aufgerufen, nachdem das {@link GameObject} von der {@link jnh.game.stages.GameStage} gelöscht wurde.

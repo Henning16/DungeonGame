@@ -1,0 +1,5310 @@
+0 FLOOR
+RandomTextureComponent: ERROR true
+***
+1 FLOOR
+RandomTextureComponent: ERROR true
+***
+2 FLOOR
+RandomTextureComponent: ERROR true
+***
+3 FLOOR
+RandomTextureComponent: ERROR true
+***
+4 FLOOR
+RandomTextureComponent: ERROR true
+***
+5 FLOOR
+RandomTextureComponent: ERROR true
+***
+6 FLOOR
+RandomTextureComponent: ERROR true
+***
+7 FLOOR
+RandomTextureComponent: ERROR true
+***
+8 FLOOR
+RandomTextureComponent: ERROR true
+***
+9 FLOOR
+RandomTextureComponent: ERROR true
+***
+10 FLOOR
+RandomTextureComponent: ERROR true
+***
+11 FLOOR
+RandomTextureComponent: ERROR true
+***
+12 FLOOR
+RandomTextureComponent: ERROR true
+***
+13 FLOOR
+RandomTextureComponent: ERROR true
+***
+14 FLOOR
+RandomTextureComponent: ERROR true
+***
+15 FLOOR
+RandomTextureComponent: ERROR true
+***
+16 FLOOR
+RandomTextureComponent: ERROR true
+***
+17 FLOOR
+RandomTextureComponent: ERROR true
+***
+18 FLOOR
+RandomTextureComponent: ERROR true
+***
+19 FLOOR
+RandomTextureComponent: ERROR true
+***
+20 FLOOR
+RandomTextureComponent: ERROR true
+***
+21 FLOOR
+RandomTextureComponent: ERROR true
+***
+22 FLOOR
+RandomTextureComponent: ERROR true
+***
+23 FLOOR
+RandomTextureComponent: ERROR true
+***
+24 FLOOR
+RandomTextureComponent: ERROR true
+***
+25 FLOOR
+RandomTextureComponent: ERROR true
+***
+26 FLOOR
+RandomTextureComponent: ERROR true
+***
+27 FLOOR
+RandomTextureComponent: ERROR true
+***
+28 FLOOR
+RandomTextureComponent: ERROR true
+***
+29 FLOOR
+RandomTextureComponent: ERROR true
+***
+30 FLOOR
+RandomTextureComponent: ERROR true
+***
+31 FLOOR
+RandomTextureComponent: ERROR true
+***
+32 FLOOR
+RandomTextureComponent: ERROR true
+***
+33 FLOOR
+RandomTextureComponent: ERROR true
+***
+34 FLOOR
+RandomTextureComponent: ERROR true
+***
+35 FLOOR
+RandomTextureComponent: ERROR true
+***
+36 FLOOR
+RandomTextureComponent: ERROR true
+***
+37 FLOOR
+RandomTextureComponent: ERROR true
+***
+38 FLOOR
+RandomTextureComponent: ERROR true
+***
+39 FLOOR
+RandomTextureComponent: ERROR true
+***
+40 FLOOR
+RandomTextureComponent: ERROR true
+***
+41 FLOOR
+RandomTextureComponent: ERROR true
+***
+42 FLOOR
+RandomTextureComponent: ERROR true
+***
+43 FLOOR
+RandomTextureComponent: ERROR true
+***
+44 FLOOR
+RandomTextureComponent: ERROR true
+***
+45 FLOOR
+RandomTextureComponent: ERROR true
+***
+46 FLOOR
+RandomTextureComponent: ERROR true
+***
+47 FLOOR
+RandomTextureComponent: ERROR true
+***
+48 FLOOR
+RandomTextureComponent: ERROR true
+***
+49 FLOOR
+RandomTextureComponent: ERROR true
+***
+50 FLOOR
+RandomTextureComponent: ERROR true
+***
+51 FLOOR
+RandomTextureComponent: ERROR true
+***
+52 FLOOR
+RandomTextureComponent: ERROR true
+***
+53 FLOOR
+RandomTextureComponent: ERROR true
+***
+54 FLOOR
+RandomTextureComponent: ERROR true
+***
+55 FLOOR
+RandomTextureComponent: ERROR true
+***
+56 FLOOR
+RandomTextureComponent: ERROR true
+***
+57 FLOOR
+RandomTextureComponent: ERROR true
+***
+58 FLOOR
+RandomTextureComponent: ERROR true
+***
+59 FLOOR
+RandomTextureComponent: ERROR true
+***
+60 FLOOR
+RandomTextureComponent: ERROR true
+***
+61 FLOOR
+RandomTextureComponent: ERROR true
+***
+62 FLOOR
+RandomTextureComponent: ERROR true
+***
+63 FLOOR
+RandomTextureComponent: ERROR true
+***
+64 FLOOR
+RandomTextureComponent: ERROR true
+***
+65 FLOOR
+RandomTextureComponent: ERROR true
+***
+66 FLOOR
+RandomTextureComponent: ERROR true
+***
+67 FLOOR
+RandomTextureComponent: ERROR true
+***
+68 FLOOR
+RandomTextureComponent: ERROR true
+***
+69 FLOOR
+RandomTextureComponent: ERROR true
+***
+70 FLOOR
+RandomTextureComponent: ERROR true
+***
+71 FLOOR
+RandomTextureComponent: ERROR true
+***
+72 FLOOR
+RandomTextureComponent: ERROR true
+***
+73 FLOOR
+RandomTextureComponent: ERROR true
+***
+74 FLOOR
+RandomTextureComponent: ERROR true
+***
+75 FLOOR
+RandomTextureComponent: ERROR true
+***
+76 FLOOR
+RandomTextureComponent: ERROR true
+***
+77 FLOOR
+RandomTextureComponent: ERROR true
+***
+78 FLOOR
+RandomTextureComponent: ERROR true
+***
+79 FLOOR
+RandomTextureComponent: ERROR true
+***
+80 FLOOR
+RandomTextureComponent: ERROR true
+***
+81 FLOOR
+RandomTextureComponent: ERROR true
+***
+82 FLOOR
+RandomTextureComponent: ERROR true
+***
+83 FLOOR
+RandomTextureComponent: ERROR true
+***
+84 FLOOR
+RandomTextureComponent: ERROR true
+***
+85 FLOOR
+RandomTextureComponent: ERROR true
+***
+86 FLOOR
+RandomTextureComponent: ERROR true
+***
+87 FLOOR
+RandomTextureComponent: ERROR true
+***
+88 FLOOR
+RandomTextureComponent: ERROR true
+***
+89 FLOOR
+RandomTextureComponent: ERROR true
+***
+90 FLOOR
+RandomTextureComponent: ERROR true
+***
+91 FLOOR
+RandomTextureComponent: ERROR true
+***
+92 FLOOR
+RandomTextureComponent: ERROR true
+***
+93 FLOOR
+RandomTextureComponent: ERROR true
+***
+94 FLOOR
+RandomTextureComponent: ERROR true
+***
+95 FLOOR
+RandomTextureComponent: ERROR true
+***
+96 FLOOR
+RandomTextureComponent: ERROR true
+***
+97 FLOOR
+RandomTextureComponent: ERROR true
+***
+98 FLOOR
+RandomTextureComponent: ERROR true
+***
+99 FLOOR
+RandomTextureComponent: ERROR true
+***
+100 AXE
+Measurements: 3.670506 3.9789193 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+101 AXE
+Measurements: 3.0652146 5.806411 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+102 AXE
+Measurements: 2.7447224 4.6047726 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+103 AXE
+Measurements: 7.384301 5.4754205 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+104 AXE
+Measurements: 7.3259544 8.096246 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+105 AXE
+Measurements: 2.9264722 6.78044 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+106 AXE
+Measurements: 4.2568007 3.793585 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+107 AXE
+Measurements: 3.6018207 4.0178537 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+108 AXE
+Measurements: 9.248081 8.562416 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+109 AXE
+Measurements: 4.1941023 3.6629112 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+110 AXE
+Measurements: 2.8691046 2.220454 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+111 AXE
+Measurements: 8.502559 4.1151204 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+112 AXE
+Measurements: 8.015509 4.1785655 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+113 AXE
+Measurements: 9.265445 3.768923 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+114 AXE
+Measurements: 9.0525465 6.357985 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+115 AXE
+Measurements: 6.6641717 5.537404 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+116 AXE
+Measurements: 4.119367 3.647152 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+117 AXE
+Measurements: 9.178819 6.736599 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+118 AXE
+Measurements: 6.7328186 6.0449905 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+119 AXE
+Measurements: 4.2129145 3.736662 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+120 AXE
+Measurements: 9.250151 5.0652113 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+121 AXE
+Measurements: 5.625654 8.479324 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+122 AXE
+Measurements: 9.314929 7.2849154 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+123 AXE
+Measurements: 5.986408 2.5678747 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+124 AXE
+Measurements: 3.9394815 2.6681917 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+125 AXE
+Measurements: 7.565542 7.740221 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+126 AXE
+Measurements: 8.183383 3.54183 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+127 AXE
+Measurements: 3.7081838 5.0879765 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+128 AXE
+Measurements: 4.7221723 2.432721 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+129 AXE
+Measurements: 3.5891712 6.793836 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+130 AXE
+Measurements: 8.7443285 2.5184367 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+131 AXE
+Measurements: 7.1598115 7.020031 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+132 AXE
+Measurements: 4.421462 5.8205256 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+133 AXE
+Measurements: 6.194147 8.915084 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+134 AXE
+Measurements: 5.7798276 5.5244875 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+135 AXE
+Measurements: 2.2231126 7.002815 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+136 AXE
+Measurements: 8.773897 2.4281602 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+137 AXE
+Measurements: 2.3530004 2.2222419 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+138 AXE
+Measurements: 3.6701224 7.7460103 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+139 AXE
+Measurements: 2.9051251 5.0461726 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+140 AXE
+Measurements: 7.3591843 6.345913 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+141 AXE
+Measurements: 9.072281 8.17351 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+142 AXE
+Measurements: 3.7826984 4.2449756 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+143 AXE
+Measurements: 8.8613825 9.4405775 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+144 AXE
+Measurements: 9.358196 2.4579453 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+145 AXE
+Measurements: 8.558627 3.5925689 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+146 AXE
+Measurements: 8.817713 3.8215415 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+147 AXE
+Measurements: 2.9080768 2.1952412 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+148 AXE
+Measurements: 6.7764378 8.523549 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+149 AXE
+Measurements: 2.1301594 9.232493 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+150 AXE
+Measurements: 7.3964243 6.5393305 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+151 AXE
+Measurements: 6.2107444 3.6618972 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+152 AXE
+Measurements: 7.851294 4.0319705 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+153 AXE
+Measurements: 5.7874513 2.4976149 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+154 AXE
+Measurements: 7.3196716 8.5490465 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+155 AXE
+Measurements: 5.725013 4.09151 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+156 AXE
+Measurements: 4.3703475 5.540649 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+157 AXE
+Measurements: 6.332035 8.5006695 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+158 AXE
+Measurements: 4.2452426 7.792009 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+159 AXE
+Measurements: 8.990336 3.6768937 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+160 AXE
+Measurements: 9.034608 5.5895 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+161 AXE
+Measurements: 2.72771 5.5412054 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+162 AXE
+Measurements: 4.6641917 8.473269 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+163 AXE
+Measurements: 4.0078607 5.7390842 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+164 AXE
+Measurements: 6.716318 5.7766247 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+165 AXE
+Measurements: 5.611922 5.888294 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+166 AXE
+Measurements: 3.2598417 2.128568 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+167 AXE
+Measurements: 2.800813 6.938319 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+168 AXE
+Measurements: 3.954996 3.6339345 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+169 AXE
+Measurements: 2.2850723 9.006857 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+170 AXE
+Measurements: 7.458535 8.481633 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+171 AXE
+Measurements: 8.829271 3.9911861 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+172 AXE
+Measurements: 4.675391 3.5311747 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+173 AXE
+Measurements: 4.41144 2.7507224 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+174 AXE
+Measurements: 3.6569402 3.9560814 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+175 AXE
+Measurements: 3.6368556 4.0662355 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+176 AXE
+Measurements: 6.4082446 4.077282 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+177 AXE
+Measurements: 4.5461435 8.535433 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+178 AXE
+Measurements: 9.430231 7.5280323 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+179 AXE
+Measurements: 5.818393 5.828349 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+180 AXE
+Measurements: 8.3162 3.710468 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+181 AXE
+Measurements: 6.3562536 3.7767167 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+182 AXE
+Measurements: 5.662154 4.046174 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+183 AXE
+Measurements: 8.994082 3.9523203 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+184 AXE
+Measurements: 8.561914 3.928605 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+185 AXE
+Measurements: 6.436603 3.515218 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+186 AXE
+Measurements: 8.714084 4.1615057 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+187 AXE
+Measurements: 5.307858 2.4441667 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+188 AXE
+Measurements: 4.6086645 8.986739 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+189 AXE
+Measurements: 2.854453 3.5743263 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+190 AXE
+Measurements: 3.764835 5.3911858 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+191 AXE
+Measurements: 5.485753 9.099649 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+192 AXE
+Measurements: 7.073555 6.0590763 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+193 AXE
+Measurements: 2.5690157 4.257449 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+194 AXE
+Measurements: 8.531804 2.4170475 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+195 AXE
+Measurements: 7.1686287 7.204371 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+196 AXE
+Measurements: 3.7282715 7.560782 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+197 AXE
+Measurements: 7.254721 6.560552 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+198 AXE
+Measurements: 3.8914533 7.7522397 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+199 AXE
+Measurements: 4.2223825 4.6569505 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+200 AXE
+Measurements: 4.241064 8.396731 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+201 AXE
+Measurements: 4.256477 5.3710046 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+202 AXE
+Measurements: 8.479624 4.087526 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+203 AXE
+Measurements: 8.22567 2.580839 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+204 AXE
+Measurements: 2.8390312 5.0663824 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+205 AXE
+Measurements: 7.5331693 6.575669 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+206 AXE
+Measurements: 4.512252 9.172193 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+207 AXE
+Measurements: 5.997572 8.924538 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+208 AXE
+Measurements: 4.824027 6.0170393 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+209 AXE
+Measurements: 3.960773 4.343929 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+210 AXE
+Measurements: 3.857294 8.784492 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+211 AXE
+Measurements: 6.001528 5.499546 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+212 AXE
+Measurements: 7.261296 3.464026 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+213 AXE
+Measurements: 4.1208344 2.9282978 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+214 AXE
+Measurements: 9.4144 4.6259036 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+215 AXE
+Measurements: 4.27878 8.361101 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+216 AXE
+Measurements: 7.2878456 2.5459125 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+217 AXE
+Measurements: 3.6823175 7.8951726 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+218 AXE
+Measurements: 6.07585 3.9953833 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+219 AXE
+Measurements: 7.166428 8.426635 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+220 AXE
+Measurements: 4.950524 5.656012 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+221 AXE
+Measurements: 7.5626783 9.539367 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+222 AXE
+Measurements: 4.51422 3.496019 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+223 AXE
+Measurements: 5.3924284 7.892493 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+224 AXE
+Measurements: 2.1416807 8.642072 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+225 AXE
+Measurements: 3.6111715 7.9042196 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+226 AXE
+Measurements: 5.0215364 8.712136 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+227 AXE
+Measurements: 2.1444323 8.163945 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+228 AXE
+Measurements: 6.9633217 3.9110124 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+229 AXE
+Measurements: 9.156876 7.088635 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+230 AXE
+Measurements: 5.6348453 9.097432 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+231 AXE
+Measurements: 7.469941 9.585318 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+232 AXE
+Measurements: 9.265426 5.239859 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+233 AXE
+Measurements: 7.134305 8.893065 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+234 AXE
+Measurements: 6.104009 9.083406 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+235 AXE
+Measurements: 7.9023514 3.8119836 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+236 AXE
+Measurements: 9.392689 8.428614 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+237 AXE
+Measurements: 3.6995108 5.20426 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+238 AXE
+Measurements: 7.9150157 3.515011 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+239 AXE
+Measurements: 6.5054026 8.769254 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+240 AXE
+Measurements: 6.024654 8.497827 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+241 AXE
+Measurements: 2.8881533 5.749118 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+242 AXE
+Measurements: 7.2956023 7.709176 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+243 AXE
+Measurements: 7.412198 8.037897 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+244 AXE
+Measurements: 4.4761777 8.777589 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+245 AXE
+Measurements: 8.07437 3.9821095 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+246 AXE
+Measurements: 5.097933 3.5902205 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+247 AXE
+Measurements: 8.7831955 4.472122 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+248 AXE
+Measurements: 4.199309 4.1981463 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+249 AXE
+Measurements: 4.096323 3.2156227 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+250 AXE
+Measurements: 3.528153 7.619392 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+251 AXE
+Measurements: 5.135907 5.479651 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+252 AXE
+Measurements: 9.046905 6.4107256 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+253 AXE
+Measurements: 8.969744 7.158282 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+254 AXE
+Measurements: 4.192742 7.662979 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+255 AXE
+Measurements: 3.6228862 3.9114356 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+256 AXE
+Measurements: 6.402449 5.7971 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+257 AXE
+Measurements: 7.324647 8.63896 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+258 AXE
+Measurements: 2.6504261 5.5004544 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+259 AXE
+Measurements: 4.036478 7.822961 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+260 AXE
+Measurements: 8.533987 2.4215412 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+261 AXE
+Measurements: 2.871406 5.6537695 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+262 AXE
+Measurements: 4.028562 4.7635098 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+263 AXE
+Measurements: 9.364127 7.633153 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+264 AXE
+Measurements: 7.7861843 7.536749 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+265 AXE
+Measurements: 7.4151254 8.228952 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+266 AXE
+Measurements: 2.6355112 9.408393 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+267 AXE
+Measurements: 4.316093 8.64698 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+268 AXE
+Measurements: 7.7978816 6.5960665 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+269 AXE
+Measurements: 4.7653985 8.515768 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+270 AXE
+Measurements: 7.6333404 2.4768338 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+271 AXE
+Measurements: 4.0555096 5.905591 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+272 AXE
+Measurements: 7.252149 7.2366805 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+273 AXE
+Measurements: 9.188204 6.1698833 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+274 AXE
+Measurements: 8.405287 3.4992797 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+275 AXE
+Measurements: 4.344564 3.9636924 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+276 AXE
+Measurements: 7.6528783 7.7034326 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+277 AXE
+Measurements: 2.1190238 8.998606 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+278 AXE
+Measurements: 3.764861 8.6472025 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+279 AXE
+Measurements: 7.375993 7.1039886 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+280 AXE
+Measurements: 4.1566753 9.076887 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+281 AXE
+Measurements: 2.8284166 4.960077 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+282 AXE
+Measurements: 4.8075867 3.4700058 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+283 AXE
+Measurements: 3.9561017 5.350989 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+284 AXE
+Measurements: 2.3983097 9.510954 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+285 AXE
+Measurements: 4.6774955 8.696163 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+286 AXE
+Measurements: 4.11816 4.652507 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+287 AXE
+Measurements: 7.737535 4.1701026 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+288 AXE
+Measurements: 8.4687 3.5255651 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+289 AXE
+Measurements: 4.441824 9.184563 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+290 AXE
+Measurements: 4.337888 4.109648 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+291 AXE
+Measurements: 7.199219 6.411148 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+292 AXE
+Measurements: 6.645853 5.8099136 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+293 AXE
+Measurements: 2.2491338 7.265529 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+294 AXE
+Measurements: 9.272087 7.2134485 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+295 AXE
+Measurements: 3.9197268 3.622734 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+296 AXE
+Measurements: 3.9899807 3.093586 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+297 AXE
+Measurements: 8.904257 6.078845 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+298 AXE
+Measurements: 9.1084 3.8212051 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+299 AXE
+Measurements: 7.671353 6.509042 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+300 AXE
+Measurements: 2.4379604 3.6787696 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+301 AXE
+Measurements: 7.780943 8.72011 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+302 AXE
+Measurements: 7.2048445 5.928634 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+303 AXE
+Measurements: 6.100159 8.986499 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+304 AXE
+Measurements: 5.7841053 2.5084465 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+305 AXE
+Measurements: 9.005449 4.8349767 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+306 AXE
+Measurements: 8.836878 2.6478 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+307 AXE
+Measurements: 8.996331 5.30919 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+308 AXE
+Measurements: 8.866189 9.328826 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+309 AXE
+Measurements: 4.780778 5.416057 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+310 AXE
+Measurements: 5.0708027 3.7228806 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+311 AXE
+Measurements: 9.252011 8.503465 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+312 AXE
+Measurements: 2.9601436 9.501905 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+313 AXE
+Measurements: 7.559493 8.766106 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+314 AXE
+Measurements: 4.6057043 8.853809 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+315 AXE
+Measurements: 3.7223065 3.7976098 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+316 AXE
+Measurements: 6.7413464 6.078452 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+317 AXE
+Measurements: 8.093378 3.4893558 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+318 AXE
+Measurements: 4.3272448 4.1519427 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+319 AXE
+Measurements: 2.3092458 7.1414185 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+320 AXE
+Measurements: 4.8148212 9.110903 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+321 AXE
+Measurements: 2.4485106 4.120096 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+322 AXE
+Measurements: 9.320118 4.502327 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+323 AXE
+Measurements: 2.5159047 4.1244607 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+324 AXE
+Measurements: 4.6008286 6.0526347 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+325 AXE
+Measurements: 3.6389537 8.480018 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+326 AXE
+Measurements: 4.286458 4.2132735 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+327 AXE
+Measurements: 2.0578988 7.6885633 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+328 AXE
+Measurements: 7.7758446 7.4357753 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+329 AXE
+Measurements: 8.300773 9.488058 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+330 AXE
+Measurements: 6.125278 9.021564 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+331 AXE
+Measurements: 2.9067397 3.530619 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+332 AXE
+Measurements: 4.0254536 4.365821 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+333 AXE
+Measurements: 9.437684 6.7757077 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+334 AXE
+Measurements: 6.8724837 3.8736324 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+335 AXE
+Measurements: 5.736169 2.5919821 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+336 AXE
+Measurements: 3.765201 4.5541563 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+337 AXE
+Measurements: 6.017432 8.798145 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+338 AXE
+Measurements: 7.816527 7.3772945 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+339 AXE
+Measurements: 9.041177 8.221999 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+340 AXE
+Measurements: 7.232172 6.5518575 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+341 AXE
+Measurements: 8.907604 3.6060643 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+342 AXE
+Measurements: 3.7338042 2.926526 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+343 AXE
+Measurements: 4.088279 8.441713 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+344 AXE
+Measurements: 3.9866507 8.762344 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+345 AXE
+Measurements: 2.3760757 4.2622223 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+346 AXE
+Measurements: 8.916195 9.222838 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+347 AXE
+Measurements: 4.1837626 7.320599 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+348 AXE
+Measurements: 3.396138 6.5204024 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+349 AXE
+Measurements: 7.2538967 7.4315934 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+350 AXE
+Measurements: 8.863344 4.662748 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+351 AXE
+Measurements: 6.823353 9.018042 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+352 AXE
+Measurements: 8.886745 9.407541 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+353 AXE
+Measurements: 8.811361 9.198448 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+354 AXE
+Measurements: 9.353399 8.14021 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+355 AXE
+Measurements: 2.0544305 7.588573 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+356 AXE
+Measurements: 2.842024 3.5945842 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+357 AXE
+Measurements: 4.1004357 3.6877005 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+358 AXE
+Measurements: 5.4866533 2.4422596 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+359 AXE
+Measurements: 4.667336 5.736488 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+360 AXE
+Measurements: 4.354849 4.0015335 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+361 AXE
+Measurements: 3.6149533 7.9507623 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+362 AXE
+Measurements: 2.052601 8.079492 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+363 AXE
+Measurements: 9.319158 5.6599846 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+364 AXE
+Measurements: 4.1329603 3.474324 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+365 AXE
+Measurements: 9.132135 2.4216466 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+366 AXE
+Measurements: 6.669953 5.4190817 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+367 AXE
+Measurements: 5.5962424 8.879597 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+368 AXE
+Measurements: 9.216027 9.125297 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+369 AXE
+Measurements: 6.2680273 8.808305 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+370 AXE
+Measurements: 6.6374054 4.110359 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+371 AXE
+Measurements: 4.6342835 3.4902499 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+372 AXE
+Measurements: 4.2273197 7.899575 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+373 AXE
+Measurements: 8.576058 3.866294 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+374 AXE
+Measurements: 7.6984005 8.225123 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+375 AXE
+Measurements: 6.6641808 8.837657 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+376 AXE
+Measurements: 6.7996783 2.4255571 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+377 AXE
+Measurements: 4.6329556 3.5359836 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+378 AXE
+Measurements: 6.7968917 4.1027446 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+379 AXE
+Measurements: 7.3202367 3.879489 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+380 AXE
+Measurements: 7.2911825 6.849782 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+381 AXE
+Measurements: 7.917966 3.4974985 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+382 AXE
+Measurements: 6.0832257 5.9950094 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+383 AXE
+Measurements: 9.20397 6.2764726 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+384 AXE
+Measurements: 9.215457 6.2587495 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+385 AXE
+Measurements: 1.9883542 8.448297 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+386 AXE
+Measurements: 4.2824287 4.9206924 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+387 AXE
+Measurements: 9.410648 7.776839 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+388 AXE
+Measurements: 3.6515915 6.900025 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+389 AXE
+Measurements: 4.0173464 7.4665422 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+390 AXE
+Measurements: 7.0385103 5.7689924 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+391 AXE
+Measurements: 7.492433 4.1766744 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+392 AXE
+Measurements: 7.2652283 8.95838 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+393 AXE
+Measurements: 6.9987583 2.5337155 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+394 AXE
+Measurements: 3.8475842 3.7167697 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+395 AXE
+Measurements: 4.8907104 8.482563 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+396 AXE
+Measurements: 5.9635196 4.0298896 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+397 AXE
+Measurements: 3.2028782 5.663487 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+398 AXE
+Measurements: 7.099715 9.045067 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+399 AXE
+Measurements: 2.7132013 5.5735373 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+400 AXE
+Measurements: 9.0021925 3.7338216 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+401 AXE
+Measurements: 9.209319 7.079016 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+402 AXE
+Measurements: 9.257495 3.919585 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+403 AXE
+Measurements: 5.045888 6.0967407 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+404 AXE
+Measurements: 3.8035226 4.02961 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+405 AXE
+Measurements: 7.4792204 8.344305 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+406 AXE
+Measurements: 7.0392203 2.4446468 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+407 AXE
+Measurements: 9.289389 6.285208 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+408 AXE
+Measurements: 2.935663 6.570462 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+409 AXE
+Measurements: 5.23117 5.4844 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+410 AXE
+Measurements: 3.0149498 5.6837063 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+411 AXE
+Measurements: 7.5846486 7.4522285 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+412 AXE
+Measurements: 3.5698204 7.6793675 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+413 AXE
+Measurements: 3.9396663 3.1356392 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+414 AXE
+Measurements: 4.841761 8.580586 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+415 AXE
+Measurements: 9.4218 4.6301947 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+416 AXE
+Measurements: 2.3006094 3.7444193 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+417 AXE
+Measurements: 8.806346 9.004978 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+418 AXE
+Measurements: 2.45105 3.6888864 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+419 AXE
+Measurements: 5.5789557 7.6067195 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+420 AXE
+Measurements: 8.882688 3.5386717 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+421 AXE
+Measurements: 4.1008677 4.6959224 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+422 AXE
+Measurements: 9.102229 6.6990767 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+423 AXE
+Measurements: 5.3650203 7.9630413 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+424 AXE
+Measurements: 3.973827 4.7191467 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+425 AXE
+Measurements: 7.989214 3.5296798 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+426 AXE
+Measurements: 9.27151 8.490442 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+427 AXE
+Measurements: 9.092772 5.0894837 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+428 AXE
+Measurements: 6.151292 9.159917 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+429 AXE
+Measurements: 9.428114 5.759104 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+430 AXE
+Measurements: 3.9232152 8.017948 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+431 AXE
+Measurements: 6.1741343 8.496738 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+432 AXE
+Measurements: 5.4172707 3.944956 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+433 AXE
+Measurements: 7.2535043 9.011309 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+434 AXE
+Measurements: 3.6499705 4.083686 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+435 AXE
+Measurements: 8.386945 2.4083097 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+436 AXE
+Measurements: 2.7329168 4.987471 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+437 AXE
+Measurements: 6.39644 8.5022135 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+438 AXE
+Measurements: 7.674159 7.6519933 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+439 AXE
+Measurements: 6.0801024 2.5578723 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+440 AXE
+Measurements: 7.556819 6.0137897 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+441 AXE
+Measurements: 2.6836097 5.498415 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+442 AXE
+Measurements: 5.9276824 8.878386 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+443 AXE
+Measurements: 9.101567 3.60971 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+444 AXE
+Measurements: 5.597338 2.4450872 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+445 AXE
+Measurements: 5.248685 8.6227045 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+446 AXE
+Measurements: 7.5070896 8.897734 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+447 AXE
+Measurements: 6.358511 9.070355 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+448 AXE
+Measurements: 7.4192204 5.6530595 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+449 AXE
+Measurements: 5.17998 3.7242534 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+450 AXE
+Measurements: 7.157312 6.957122 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+451 AXE
+Measurements: 7.3189154 7.7020054 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+452 AXE
+Measurements: 6.6135817 8.633471 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+453 AXE
+Measurements: 7.4881434 3.6603937 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+454 AXE
+Measurements: 9.144604 5.464146 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+455 AXE
+Measurements: 5.9024234 3.7555518 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+456 AXE
+Measurements: 2.4248278 3.8806598 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+457 AXE
+Measurements: 4.5826907 8.5459795 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+458 AXE
+Measurements: 8.234964 4.0146556 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+459 AXE
+Measurements: 4.3646045 4.001397 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+460 AXE
+Measurements: 6.5360723 5.866814 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+461 AXE
+Measurements: 3.3115437 6.320498 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+462 AXE
+Measurements: 7.2999315 3.726348 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+463 AXE
+Measurements: 7.300767 8.740269 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+464 AXE
+Measurements: 3.7275798 5.620702 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+465 AXE
+Measurements: 3.6938472 4.589989 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+466 AXE
+Measurements: 5.057343 3.5108888 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+467 AXE
+Measurements: 4.3753386 8.927633 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+468 AXE
+Measurements: 4.250255 2.7959785 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+469 AXE
+Measurements: 4.486508 8.886333 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+470 AXE
+Measurements: 3.6799572 4.734602 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+471 AXE
+Measurements: 3.8632576 3.8623657 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+472 AXE
+Measurements: 7.524774 7.055615 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+473 AXE
+Measurements: 6.3895454 5.8941965 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+474 AXE
+Measurements: 5.890337 8.790634 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+475 AXE
+Measurements: 3.781177 8.271049 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+476 AXE
+Measurements: 2.8802211 5.710288 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+477 AXE
+Measurements: 9.198062 8.701972 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+478 AXE
+Measurements: 9.412763 2.8621228 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+479 AXE
+Measurements: 7.6552477 2.3373525 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+480 AXE
+Measurements: 3.6658957 4.081542 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+481 AXE
+Measurements: 4.745245 3.638792 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+482 AXE
+Measurements: 9.049906 8.56385 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+483 AXE
+Measurements: 4.6350813 8.688808 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+484 AXE
+Measurements: 9.1350765 5.1218176 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+485 AXE
+Measurements: 2.7459903 9.39508 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+486 AXE
+Measurements: 8.78662 4.626031 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+487 AXE
+Measurements: 2.269811 8.946756 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+488 AXE
+Measurements: 5.8525634 2.3854647 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+489 AXE
+Measurements: 3.6634116 7.693235 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+490 AXE
+Measurements: 5.8845882 6.0463667 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+491 AXE
+Measurements: 4.1615076 5.219871 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+492 AXE
+Measurements: 9.06605 3.7683876 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+493 AXE
+Measurements: 6.608837 2.4616313 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+494 AXE
+Measurements: 5.6671457 8.555439 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+495 AXE
+Measurements: 8.896051 9.436028 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+496 AXE
+Measurements: 2.9308276 2.0465753 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+497 AXE
+Measurements: 4.5455623 3.4850485 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+498 AXE
+Measurements: 5.017339 2.485297 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+499 AXE
+Measurements: 4.5396214 3.5336146 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+500 AXE
+Measurements: 5.8666596 5.8284183 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+501 AXE
+Measurements: 3.73349 8.731475 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+502 AXE
+Measurements: 2.0749574 8.923406 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+503 AXE
+Measurements: 3.886467 8.895186 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+504 AXE
+Measurements: 6.0592904 8.98506 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+505 AXE
+Measurements: 6.681039 8.504973 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+506 AXE
+Measurements: 4.2402596 7.74833 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+507 AXE
+Measurements: 9.271066 3.7005262 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+508 AXE
+Measurements: 5.318174 4.1104617 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+509 AXE
+Measurements: 8.87931 5.4001927 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+510 AXE
+Measurements: 8.890632 4.723895 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+511 AXE
+Measurements: 6.7926636 5.8241463 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+512 AXE
+Measurements: 2.8442812 9.554855 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+513 AXE
+Measurements: 7.8325167 6.9286857 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+514 AXE
+Measurements: 9.351999 6.1265416 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+515 AXE
+Measurements: 4.264051 4.7703657 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+516 AXE
+Measurements: 3.9865794 7.997885 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+517 AXE
+Measurements: 7.751714 3.7582488 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+518 AXE
+Measurements: 9.467936 6.491971 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+519 AXE
+Measurements: 3.7267756 3.7518096 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+520 AXE
+Measurements: 9.328259 7.5356646 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+521 AXE
+Measurements: 6.152649 3.8893282 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+522 AXE
+Measurements: 8.88628 4.6849446 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+523 AXE
+Measurements: 4.1164694 4.361223 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+524 AXE
+Measurements: 4.1903615 8.938186 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+525 AXE
+Measurements: 4.775344 3.5238223 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+526 AXE
+Measurements: 7.842555 7.183494 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+527 AXE
+Measurements: 7.2342896 5.9793496 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+528 AXE
+Measurements: 4.298701 4.0304523 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+529 AXE
+Measurements: 5.1878924 6.054885 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+530 AXE
+Measurements: 4.295436 4.550519 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+531 AXE
+Measurements: 4.589791 5.4167337 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+532 AXE
+Measurements: 6.1876907 2.609101 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+533 AXE
+Measurements: 7.4547105 6.4922876 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+534 AXE
+Measurements: 7.199083 6.8383865 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+535 AXE
+Measurements: 9.31485 7.654305 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+536 AXE
+Measurements: 5.7758126 7.9748826 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+537 AXE
+Measurements: 4.7883873 2.3701382 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+538 AXE
+Measurements: 5.231631 5.629278 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+539 AXE
+Measurements: 6.272938 6.053114 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+540 AXE
+Measurements: 5.9695206 3.6579711 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+541 AXE
+Measurements: 8.38388 3.474125 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+542 AXE
+Measurements: 8.597617 2.4824088 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+543 AXE
+Measurements: 3.8889172 4.7091637 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+544 AXE
+Measurements: 7.0259094 9.064714 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+545 AXE
+Measurements: 6.6103454 8.44301 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+546 AXE
+Measurements: 2.140384 7.209655 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+547 AXE
+Measurements: 9.205695 4.5102015 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+548 AXE
+Measurements: 3.6991081 2.8724957 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+549 AXE
+Measurements: 6.1321335 9.158284 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+550 AXE
+Measurements: 7.945329 2.3940787 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+551 AXE
+Measurements: 3.8206003 8.501287 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+552 AXE
+Measurements: 6.953187 6.0708985 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+553 AXE
+Measurements: 6.028889 9.155847 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+554 AXE
+Measurements: 2.9256942 5.0881777 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+555 AXE
+Measurements: 3.8908975 3.1149678 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+556 AXE
+Measurements: 3.0495534 5.24646 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+557 AXE
+Measurements: 4.291966 4.213195 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+558 AXE
+Measurements: 2.0837982 9.390661 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+559 AXE
+Measurements: 3.9435663 8.523241 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+560 AXE
+Measurements: 3.7481759 5.1921396 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+561 AXE
+Measurements: 7.1590157 7.2223926 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+562 AXE
+Measurements: 4.0311265 9.029545 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+563 AXE
+Measurements: 4.9685483 9.121144 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+564 AXE
+Measurements: 8.701654 3.4903626 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+565 AXE
+Measurements: 5.124389 8.532259 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+566 AXE
+Measurements: 4.897596 6.0432 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+567 AXE
+Measurements: 3.88714 5.1832576 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+568 AXE
+Measurements: 7.484225 7.7853065 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+569 AXE
+Measurements: 3.704246 3.8388212 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+570 AXE
+Measurements: 2.962779 5.020402 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+571 AXE
+Measurements: 5.969496 5.6117487 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+572 AXE
+Measurements: 3.7367673 5.1745195 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+573 AXE
+Measurements: 5.555483 8.710399 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+574 AXE
+Measurements: 3.693596 4.1850243 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+575 AXE
+Measurements: 5.94455 9.162949 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+576 AXE
+Measurements: 6.7567806 3.5991256 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+577 AXE
+Measurements: 7.5375195 2.4863477 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+578 AXE
+Measurements: 7.2595344 3.7807164 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+579 AXE
+Measurements: 9.407433 7.643244 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+580 AXE
+Measurements: 9.221036 9.404801 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+581 AXE
+Measurements: 6.707397 8.570941 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+582 AXE
+Measurements: 5.3126745 5.8927794 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+583 AXE
+Measurements: 5.826713 9.02592 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+584 AXE
+Measurements: 5.4843473 8.064132 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+585 AXE
+Measurements: 4.3830457 3.5060105 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+586 AXE
+Measurements: 5.929489 4.1259894 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+587 AXE
+Measurements: 4.1958737 8.169255 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+588 AXE
+Measurements: 7.652362 8.693489 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+589 AXE
+Measurements: 6.552607 8.520102 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+590 AXE
+Measurements: 2.2735915 7.9333034 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+591 AXE
+Measurements: 9.232327 6.303975 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+592 AXE
+Measurements: 4.3267393 3.8552403 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+593 AXE
+Measurements: 7.7755294 7.2020564 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+594 AXE
+Measurements: 2.2907827 7.6761518 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+595 AXE
+Measurements: 9.220563 7.7175174 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+596 AXE
+Measurements: 6.710898 3.977692 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+597 AXE
+Measurements: 4.348617 3.939439 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+598 AXE
+Measurements: 7.2886176 2.5297809 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+599 AXE
+Measurements: 4.981871 6.0221004 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+600 AXE
+Measurements: 4.601728 8.529332 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+601 AXE
+Measurements: 6.729511 9.614019 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+602 AXE
+Measurements: 2.806006 4.7822595 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+603 AXE
+Measurements: 7.780904 6.7939634 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+604 AXE
+Measurements: 7.1863647 8.266586 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+605 AXE
+Measurements: 4.3240767 4.0611916 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+606 AXE
+Measurements: 9.126999 8.709354 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+607 AXE
+Measurements: 3.8314586 5.517917 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+608 AXE
+Measurements: 3.6698382 8.169358 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+609 AXE
+Measurements: 9.26475 5.863868 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+610 AXE
+Measurements: 5.740735 3.9638274 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+611 AXE
+Measurements: 3.53845 7.8743935 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+612 AXE
+Measurements: 9.14991 8.943347 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+613 AXE
+Measurements: 4.0922384 8.344266 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+614 AXE
+Measurements: 6.115196 5.7969933 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+615 AXE
+Measurements: 9.08769 3.9372735 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+616 AXE
+Measurements: 7.418346 7.351156 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+617 AXE
+Measurements: 2.0593336 8.044975 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+618 AXE
+Measurements: 5.0421963 5.822014 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+619 AXE
+Measurements: 8.535949 4.0050964 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+620 AXE
+Measurements: 7.0924973 2.3990328 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+621 AXE
+Measurements: 8.650156 2.508486 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+622 AXE
+Measurements: 2.1961513 9.253264 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+623 AXE
+Measurements: 4.174227 8.1095495 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+624 AXE
+Measurements: 4.1313663 2.7178774 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+625 AXE
+Measurements: 5.745673 4.045525 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+626 AXE
+Measurements: 6.4247775 5.722481 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+627 AXE
+Measurements: 5.7914624 7.565732 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+628 AXE
+Measurements: 4.797025 4.009154 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+629 AXE
+Measurements: 5.2626967 8.525485 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+630 AXE
+Measurements: 7.8831086 3.9335515 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+631 AXE
+Measurements: 6.9000425 6.023777 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+632 AXE
+Measurements: 4.9017 3.9927683 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+633 AXE
+Measurements: 3.9747396 3.6456714 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+634 AXE
+Measurements: 9.406315 6.2275887 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+635 AXE
+Measurements: 9.393228 6.802147 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+636 AXE
+Measurements: 9.016009 8.21862 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+637 AXE
+Measurements: 9.352156 6.9727635 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+638 AXE
+Measurements: 4.23825 5.033301 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+639 AXE
+Measurements: 9.032757 7.1862288 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+640 AXE
+Measurements: 8.776026 4.7696705 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+641 AXE
+Measurements: 5.414224 7.8290625 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+642 AXE
+Measurements: 8.949024 2.49423 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+643 AXE
+Measurements: 4.1757193 8.582361 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+644 AXE
+Measurements: 7.235325 3.5159044 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+645 AXE
+Measurements: 9.443932 5.1664777 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+646 AXE
+Measurements: 4.114375 5.2948756 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+647 AXE
+Measurements: 4.3460865 2.5100777 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+648 AXE
+Measurements: 7.6820602 5.7694097 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+649 AXE
+Measurements: 6.4485855 5.3966365 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+650 AXE
+Measurements: 5.2943387 5.500849 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+651 AXE
+Measurements: 2.3918238 9.180286 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+652 AXE
+Measurements: 5.813858 7.9945393 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+653 AXE
+Measurements: 2.8220403 6.507552 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+654 AXE
+Measurements: 5.446899 6.0568943 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+655 AXE
+Measurements: 3.917921 4.6504307 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+656 AXE
+Measurements: 6.368912 8.580563 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+657 AXE
+Measurements: 7.664754 6.8362827 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+658 AXE
+Measurements: 2.1980247 8.174174 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+659 AXE
+Measurements: 7.534617 8.768762 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+660 AXE
+Measurements: 2.426825 4.576432 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+661 AXE
+Measurements: 5.8905687 5.7578697 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+662 AXE
+Measurements: 2.779786 6.93057 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+663 AXE
+Measurements: 4.8707995 2.456658 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+664 AXE
+Measurements: 5.0839334 9.126758 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+665 AXE
+Measurements: 4.751059 4.0897913 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+666 AXE
+Measurements: 4.3305197 4.0968313 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+667 AXE
+Measurements: 6.904897 5.58 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+668 AXE
+Measurements: 9.423579 4.6291037 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+669 AXE
+Measurements: 4.9476924 8.82615 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+670 AXE
+Measurements: 6.378414 2.601895 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+671 AXE
+Measurements: 3.7970035 5.5100374 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+672 AXE
+Measurements: 4.3182044 3.015366 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+673 AXE
+Measurements: 4.0458484 4.339897 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+674 AXE
+Measurements: 7.9375257 3.5358987 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+675 AXE
+Measurements: 5.8341904 7.490857 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+676 AXE
+Measurements: 5.6961784 2.4692113 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+677 AXE
+Measurements: 7.796553 3.8756332 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+678 AXE
+Measurements: 7.246799 6.9136205 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+679 AXE
+Measurements: 6.637779 8.770085 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+680 AXE
+Measurements: 4.705058 3.5559464 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+681 AXE
+Measurements: 2.1181223 8.45767 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+682 AXE
+Measurements: 9.247348 6.7882786 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+683 AXE
+Measurements: 9.074337 6.23658 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+684 AXE
+Measurements: 7.7730317 2.519738 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+685 AXE
+Measurements: 8.276865 2.477933 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+686 AXE
+Measurements: 5.662425 5.5924616 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+687 AXE
+Measurements: 7.4964166 8.896554 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+688 AXE
+Measurements: 7.3125987 4.1210856 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+689 AXE
+Measurements: 4.893155 5.7935033 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+690 AXE
+Measurements: 6.6586757 5.5067616 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+691 AXE
+Measurements: 3.929588 8.968509 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+692 AXE
+Measurements: 2.74602 5.4353585 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+693 AXE
+Measurements: 2.8991828 4.927505 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+694 AXE
+Measurements: 6.017554 8.619453 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+695 AXE
+Measurements: 5.4153166 7.4987087 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+696 AXE
+Measurements: 7.146605 7.0162096 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+697 AXE
+Measurements: 5.4774084 3.6062486 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+698 AXE
+Measurements: 2.262852 7.5291777 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+699 AXE
+Measurements: 9.312773 4.7826047 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+700 AXE
+Measurements: 4.316314 3.7845223 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+701 AXE
+Measurements: 4.39815 4.0170827 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+702 AXE
+Measurements: 4.9026775 9.191066 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+703 AXE
+Measurements: 2.896511 2.1782136 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+704 AXE
+Measurements: 3.69498 5.196834 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+705 AXE
+Measurements: 2.6882918 9.563038 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+706 AXE
+Measurements: 5.795379 2.5230818 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+707 AXE
+Measurements: 3.696612 4.2375464 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+708 AXE
+Measurements: 5.924591 9.144489 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+709 AXE
+Measurements: 3.8464704 2.8945608 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+710 AXE
+Measurements: 7.980158 4.1648955 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+711 AXE
+Measurements: 4.209437 2.722206 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+712 AXE
+Measurements: 6.5052805 3.5805457 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+713 AXE
+Measurements: 2.8927665 6.6465325 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+714 AXE
+Measurements: 3.0421321 6.63739 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+715 AXE
+Measurements: 4.5010424 6.020693 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+716 AXE
+Measurements: 6.956709 9.090346 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+717 AXE
+Measurements: 5.7935767 3.5685565 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+718 AXE
+Measurements: 5.404789 7.89391 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+719 AXE
+Measurements: 8.877002 4.008586 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+720 AXE
+Measurements: 4.323335 2.7242103 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+721 AXE
+Measurements: 6.6844087 9.5669155 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+722 AXE
+Measurements: 9.023776 8.01564 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+723 AXE
+Measurements: 6.4679775 8.513928 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+724 AXE
+Measurements: 2.9180355 5.6561465 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+725 AXE
+Measurements: 2.2014322 7.203421 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+726 AXE
+Measurements: 6.993362 5.476307 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+727 AXE
+Measurements: 4.129494 9.046033 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+728 AXE
+Measurements: 4.777799 3.715405 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+729 AXE
+Measurements: 3.646686 5.2777395 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+730 AXE
+Measurements: 6.3020244 3.8815534 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+731 AXE
+Measurements: 3.7680964 8.19088 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+732 AXE
+Measurements: 7.225172 6.1299844 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+733 AXE
+Measurements: 6.256772 2.406317 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+734 AXE
+Measurements: 7.1710653 8.424347 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+735 AXE
+Measurements: 4.3444023 9.06108 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+736 AXE
+Measurements: 3.9528363 4.8962584 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+737 AXE
+Measurements: 9.480087 6.821318 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+738 AXE
+Measurements: 6.992363 8.809743 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+739 AXE
+Measurements: 3.6715045 3.8495898 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+740 AXE
+Measurements: 6.349326 5.4989233 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+741 AXE
+Measurements: 9.359547 5.559266 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+742 AXE
+Measurements: 4.479737 5.90582 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+743 AXE
+Measurements: 5.9920473 5.4833226 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+744 AXE
+Measurements: 4.6315703 5.914877 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+745 AXE
+Measurements: 7.780674 7.4801397 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+746 AXE
+Measurements: 4.2706485 5.4717674 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+747 AXE
+Measurements: 9.378953 2.4358962 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+748 AXE
+Measurements: 7.0021424 5.556549 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+749 AXE
+Measurements: 3.8287063 3.0026248 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+750 AXE
+Measurements: 5.456924 3.9302318 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+751 AXE
+Measurements: 7.4118333 4.0334735 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+752 AXE
+Measurements: 6.1030293 3.781454 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+753 AXE
+Measurements: 7.2630873 8.994 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+754 AXE
+Measurements: 7.6914296 6.8773127 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+755 AXE
+Measurements: 8.716451 3.8880045 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+756 AXE
+Measurements: 9.035468 3.5079758 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+757 AXE
+Measurements: 2.5980902 9.587685 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+758 AXE
+Measurements: 6.438066 4.0363154 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+759 AXE
+Measurements: 4.4210978 8.61799 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+760 AXE
+Measurements: 2.5634503 6.906942 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+761 AXE
+Measurements: 7.9270644 2.3266969 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+762 AXE
+Measurements: 4.0256267 4.6612735 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+763 AXE
+Measurements: 8.88559 9.357083 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+764 AXE
+Measurements: 7.829587 7.3374915 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+765 AXE
+Measurements: 2.0486448 9.341122 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+766 AXE
+Measurements: 4.5752726 5.765721 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+767 AXE
+Measurements: 3.9052515 2.5892327 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+768 AXE
+Measurements: 7.170278 7.1277766 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+769 AXE
+Measurements: 8.913968 8.707881 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+770 AXE
+Measurements: 4.246281 7.714446 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+771 AXE
+Measurements: 7.7077236 2.3753154 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+772 AXE
+Measurements: 7.2929688 7.985979 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+773 AXE
+Measurements: 2.0735207 8.810753 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+774 AXE
+Measurements: 7.2700615 5.702014 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+775 AXE
+Measurements: 7.0475087 5.555724 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+776 AXE
+Measurements: 6.9800067 5.6410823 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+777 AXE
+Measurements: 7.640651 7.2280674 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+778 AXE
+Measurements: 7.189759 5.7306027 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+779 AXE
+Measurements: 4.0082297 4.330596 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+780 AXE
+Measurements: 8.015852 3.6053705 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+781 AXE
+Measurements: 7.4825435 7.4527135 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+782 AXE
+Measurements: 8.896228 5.413568 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+783 AXE
+Measurements: 7.384615 6.726757 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+784 AXE
+Measurements: 8.947334 7.7053127 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+785 AXE
+Measurements: 9.2233715 7.684017 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+786 AXE
+Measurements: 3.748293 8.099199 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+787 AXE
+Measurements: 2.5955105 4.8110976 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+788 AXE
+Measurements: 2.2235625 9.098308 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+789 AXE
+Measurements: 5.792367 2.4860537 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+790 AXE
+Measurements: 5.9537125 8.669027 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+791 AXE
+Measurements: 5.204092 3.4630947 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+792 AXE
+Measurements: 7.652544 3.6280582 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+793 AXE
+Measurements: 7.362808 7.246179 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+794 AXE
+Measurements: 6.3263745 8.662289 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+795 AXE
+Measurements: 3.8554468 5.7797785 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+796 AXE
+Measurements: 5.720664 3.7885318 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+797 AXE
+Measurements: 7.2885933 7.2651067 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+798 AXE
+Measurements: 2.5939386 5.192402 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+799 AXE
+Measurements: 9.300248 6.238775 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+800 AXE
+Measurements: 5.609374 3.7256608 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+801 AXE
+Measurements: 6.529035 9.093405 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+802 AXE
+Measurements: 9.178588 2.641712 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+803 AXE
+Measurements: 9.307095 8.960047 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+804 AXE
+Measurements: 8.891333 9.412432 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+805 AXE
+Measurements: 2.8098702 5.409238 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+806 AXE
+Measurements: 3.9065886 3.1905847 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+807 AXE
+Measurements: 6.003233 3.74461 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+808 AXE
+Measurements: 9.141981 7.3330636 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+809 AXE
+Measurements: 5.988029 9.588971 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+810 AXE
+Measurements: 9.418285 7.285394 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+811 AXE
+Measurements: 4.2577176 3.0213578 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+812 AXE
+Measurements: 9.497366 2.8133674 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+813 AXE
+Measurements: 6.0338364 9.034665 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+814 AXE
+Measurements: 3.5556848 6.7784576 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+815 AXE
+Measurements: 5.8156085 2.4250066 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+816 AXE
+Measurements: 9.117917 6.999728 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+817 AXE
+Measurements: 6.851785 5.8184414 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+818 AXE
+Measurements: 3.3046432 6.348128 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+819 AXE
+Measurements: 7.299073 6.035525 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+820 AXE
+Measurements: 8.818678 4.591291 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+821 AXE
+Measurements: 7.4900355 6.3315787 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+822 AXE
+Measurements: 8.662215 3.7418187 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+823 AXE
+Measurements: 9.386328 8.8623 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+824 AXE
+Measurements: 6.010677 3.8252535 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+825 AXE
+Measurements: 4.08961 8.008148 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+826 AXE
+Measurements: 3.3468077 6.0673165 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+827 AXE
+Measurements: 4.1559434 4.323136 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+828 AXE
+Measurements: 3.8579566 8.716328 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+829 AXE
+Measurements: 4.8438396 6.0370636 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+830 AXE
+Measurements: 3.2708395 2.1998894 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+831 AXE
+Measurements: 6.6038504 5.5403347 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+832 AXE
+Measurements: 9.190594 7.724405 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+833 AXE
+Measurements: 6.5901628 6.097744 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+834 AXE
+Measurements: 2.3257303 8.406209 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+835 AXE
+Measurements: 5.3745556 5.8351917 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+836 AXE
+Measurements: 5.459035 7.5747104 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+837 AXE
+Measurements: 5.004275 8.544402 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+838 AXE
+Measurements: 5.479729 8.009287 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+839 AXE
+Measurements: 4.117647 5.957623 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+840 AXE
+Measurements: 9.46405 5.9674225 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+841 AXE
+Measurements: 4.2276573 3.8331947 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+842 AXE
+Measurements: 8.7306385 3.8114054 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+843 AXE
+Measurements: 9.279604 8.441954 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+844 AXE
+Measurements: 7.757248 3.7989361 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+845 AXE
+Measurements: 3.7882357 2.725078 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+846 AXE
+Measurements: 4.26419 2.8927324 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+847 AXE
+Measurements: 5.420046 9.14345 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+848 AXE
+Measurements: 4.0221605 5.654607 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+849 AXE
+Measurements: 5.0871515 8.508738 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+850 AXE
+Measurements: 8.136943 3.5944388 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+851 AXE
+Measurements: 7.830368 7.952613 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+852 AXE
+Measurements: 5.363119 8.1148615 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+853 AXE
+Measurements: 2.3735814 3.9171925 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+854 AXE
+Measurements: 8.208483 4.166945 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+855 AXE
+Measurements: 3.8875277 5.6852374 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+856 AXE
+Measurements: 3.1501648 5.634251 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+857 AXE
+Measurements: 5.69708 2.5428967 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+858 AXE
+Measurements: 7.5947804 5.609022 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+859 AXE
+Measurements: 6.503072 3.6470997 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+860 AXE
+Measurements: 7.206472 7.9303594 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+861 AXE
+Measurements: 9.410421 7.082097 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+862 AXE
+Measurements: 2.145586 7.626253 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+863 AXE
+Measurements: 5.8758454 7.539335 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+864 AXE
+Measurements: 5.672001 7.9598103 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+865 AXE
+Measurements: 2.7553098 5.5648956 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+866 AXE
+Measurements: 5.76358 4.0114903 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+867 AXE
+Measurements: 3.844482 8.294963 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+868 AXE
+Measurements: 9.440231 8.336984 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+869 AXE
+Measurements: 7.2703996 6.882385 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+870 AXE
+Measurements: 5.914628 5.3864055 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+871 AXE
+Measurements: 7.0586834 2.462823 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+872 AXE
+Measurements: 9.16665 6.6597548 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+873 AXE
+Measurements: 4.049126 3.7774034 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+874 AXE
+Measurements: 6.959321 3.713884 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+875 AXE
+Measurements: 3.8093393 8.116521 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+876 AXE
+Measurements: 6.2129364 5.700843 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+877 AXE
+Measurements: 7.1911373 5.5737743 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+878 AXE
+Measurements: 6.561106 5.9490004 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+879 AXE
+Measurements: 3.6868258 2.6462555 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+880 AXE
+Measurements: 5.9805675 9.574151 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+881 AXE
+Measurements: 2.3154724 9.356422 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+882 AXE
+Measurements: 4.751197 5.539418 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+883 AXE
+Measurements: 9.353708 5.818636 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+884 AXE
+Measurements: 6.71347 4.1340804 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+885 AXE
+Measurements: 7.616303 2.436872 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+886 AXE
+Measurements: 2.3357823 4.2045536 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+887 AXE
+Measurements: 4.297002 5.298753 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+888 AXE
+Measurements: 2.7298508 6.969293 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+889 AXE
+Measurements: 4.1020937 4.3129086 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+890 AXE
+Measurements: 9.264173 3.8373885 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+891 AXE
+Measurements: 8.805469 4.3521967 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+892 AXE
+Measurements: 7.5824003 5.783086 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+893 AXE
+Measurements: 5.9372053 2.452538 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+894 AXE
+Measurements: 4.213777 2.9164689 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+895 AXE
+Measurements: 7.5038385 8.917875 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+896 AXE
+Measurements: 2.1933842 9.138196 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+897 AXE
+Measurements: 9.369246 6.734604 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+898 AXE
+Measurements: 5.141958 9.078949 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+899 AXE
+Measurements: 5.1614876 3.5898206 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+900 AXE
+Measurements: 7.235902 7.5153837 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+901 AXE
+Measurements: 8.937845 6.572486 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+902 AXE
+Measurements: 5.4397955 5.75598 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+903 AXE
+Measurements: 7.829687 8.37686 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+904 AXE
+Measurements: 7.32177 3.8773527 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+905 AXE
+Measurements: 7.602383 2.3715904 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+906 AXE
+Measurements: 3.2256727 6.821603 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+907 AXE
+Measurements: 4.2098103 8.377713 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+908 AXE
+Measurements: 9.235443 8.159692 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+909 AXE
+Measurements: 7.4645033 3.782456 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+910 AXE
+Measurements: 2.5800807 2.0906441 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+911 AXE
+Measurements: 5.8676786 8.548857 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+912 AXE
+Measurements: 3.902579 5.1368613 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+913 AXE
+Measurements: 7.740013 3.7268953 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+914 AXE
+Measurements: 7.802357 6.604789 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+915 AXE
+Measurements: 4.260665 5.463144 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+916 AXE
+Measurements: 2.7881234 5.4713717 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+917 AXE
+Measurements: 6.8923364 5.534753 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+918 AXE
+Measurements: 9.276543 4.0087776 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+919 AXE
+Measurements: 3.8011737 5.402791 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+920 AXE
+Measurements: 6.0132103 3.8761208 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+921 AXE
+Measurements: 3.7107463 3.7243965 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+922 AXE
+Measurements: 6.306112 5.6276503 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+923 AXE
+Measurements: 5.373067 3.5385745 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+924 AXE
+Measurements: 8.969909 7.91913 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+925 AXE
+Measurements: 6.058849 5.6549783 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+926 AXE
+Measurements: 6.1889796 2.5832682 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+927 AXE
+Measurements: 7.7359886 5.9394245 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+928 AXE
+Measurements: 9.11326 3.611035 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+929 AXE
+Measurements: 6.146697 3.8284976 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+930 AXE
+Measurements: 2.6852112 9.549295 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+931 AXE
+Measurements: 4.014996 8.680304 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+932 AXE
+Measurements: 2.8208926 9.493733 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+933 AXE
+Measurements: 8.089323 2.3719327 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+934 AXE
+Measurements: 5.779987 5.4527683 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+935 AXE
+Measurements: 7.974345 2.468694 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+936 AXE
+Measurements: 2.77974 4.516659 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+937 AXE
+Measurements: 5.8113813 9.004433 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+938 AXE
+Measurements: 7.749057 8.518474 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+939 AXE
+Measurements: 3.906879 4.64294 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+940 AXE
+Measurements: 7.417883 7.1003366 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+941 AXE
+Measurements: 6.7309065 5.623536 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+942 AXE
+Measurements: 4.0469775 7.526551 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+943 AXE
+Measurements: 5.1778555 8.494981 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+944 AXE
+Measurements: 9.209738 5.6547713 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+945 AXE
+Measurements: 6.328325 4.0659585 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+946 AXE
+Measurements: 2.5242026 9.515579 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+947 AXE
+Measurements: 5.0765643 5.4496465 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+948 AXE
+Measurements: 9.292312 4.5132732 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+949 AXE
+Measurements: 8.829269 4.0929217 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+950 AXE
+Measurements: 8.37476 4.0316243 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+951 AXE
+Measurements: 2.8010156 6.868133 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+952 AXE
+Measurements: 4.246488 8.381459 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+953 AXE
+Measurements: 4.676323 5.6401715 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+954 AXE
+Measurements: 9.383682 4.090996 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+955 AXE
+Measurements: 3.3037136 6.0595174 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+956 AXE
+Measurements: 6.6028285 9.058766 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+957 AXE
+Measurements: 5.7467074 7.633474 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+958 AXE
+Measurements: 3.95436 4.335359 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+959 AXE
+Measurements: 8.204039 2.463268 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+960 AXE
+Measurements: 2.2883606 7.678265 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+961 AXE
+Measurements: 8.932441 8.8652725 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+962 AXE
+Measurements: 6.6395006 8.732119 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+963 AXE
+Measurements: 5.1657276 4.059704 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+964 AXE
+Measurements: 7.2202187 3.5199862 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+965 AXE
+Measurements: 3.958957 3.1868958 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+966 AXE
+Measurements: 3.6222897 8.327975 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+967 AXE
+Measurements: 5.0959864 5.810862 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+968 AXE
+Measurements: 5.4210963 9.073071 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+969 AXE
+Measurements: 7.3321743 5.6853533 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+970 AXE
+Measurements: 7.3927965 3.464698 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+971 AXE
+Measurements: 8.923743 5.5751452 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+972 AXE
+Measurements: 4.739145 4.103442 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+973 AXE
+Measurements: 3.9564428 2.7602699 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+974 AXE
+Measurements: 7.135357 8.468065 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+975 AXE
+Measurements: 4.7948694 6.0634985 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+976 AXE
+Measurements: 6.991584 5.756503 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+977 AXE
+Measurements: 9.182414 9.079374 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+978 AXE
+Measurements: 3.6493192 3.9369667 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+979 AXE
+Measurements: 9.210674 8.369467 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+980 AXE
+Measurements: 3.2010283 6.0065455 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+981 AXE
+Measurements: 7.673146 7.7950363 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+982 AXE
+Measurements: 9.0662775 6.1637144 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+983 AXE
+Measurements: 4.353658 4.819775 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+984 AXE
+Measurements: 8.976904 8.50434 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+985 AXE
+Measurements: 6.363929 5.558754 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+986 AXE
+Measurements: 4.361526 2.7713492 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+987 AXE
+Measurements: 6.944161 3.6551669 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+988 AXE
+Measurements: 4.128712 7.428133 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+989 AXE
+Measurements: 6.5340776 3.8736832 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+990 AXE
+Measurements: 4.5845003 3.739377 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+991 AXE
+Measurements: 2.194848 8.814801 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+992 AXE
+Measurements: 5.898515 8.725276 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+993 AXE
+Measurements: 3.605041 4.0131636 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+994 AXE
+Measurements: 3.079138 6.8572364 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+995 AXE
+Measurements: 5.779627 8.624978 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+996 AXE
+Measurements: 5.803921 5.470815 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+997 AXE
+Measurements: 3.7613974 2.5246017 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+998 AXE
+Measurements: 5.4281454 4.147948 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+999 AXE
+Measurements: 6.4198027 8.80013 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1000 AXE
+Measurements: 9.232596 5.4975705 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1001 AXE
+Measurements: 3.199816 6.2488165 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1002 AXE
+Measurements: 2.243128 8.018902 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1003 AXE
+Measurements: 4.133004 3.674621 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1004 AXE
+Measurements: 6.8546405 5.4386573 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1005 AXE
+Measurements: 6.369648 8.825405 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1006 AXE
+Measurements: 4.8620496 5.4265165 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1007 AXE
+Measurements: 8.413522 2.5714564 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1008 AXE
+Measurements: 8.929745 8.622261 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1009 AXE
+Measurements: 2.6851132 6.6365123 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1010 AXE
+Measurements: 3.9551105 3.6429849 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1011 AXE
+Measurements: 4.9935637 8.963295 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1012 AXE
+Measurements: 6.1982636 3.8423884 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1013 AXE
+Measurements: 5.3857293 8.148418 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1014 AXE
+Measurements: 7.1419563 7.7677336 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1015 AXE
+Measurements: 7.402018 5.4816637 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1016 AXE
+Measurements: 2.284704 4.167126 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1017 AXE
+Measurements: 5.808517 6.084834 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1018 AXE
+Measurements: 9.412159 6.938331 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1019 AXE
+Measurements: 6.989192 8.991027 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1020 AXE
+Measurements: 8.906219 8.324002 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1021 AXE
+Measurements: 9.23543 8.640427 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1022 AXE
+Measurements: 4.5479765 3.8622026 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1023 AXE
+Measurements: 6.2050285 2.3873672 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1024 AXE
+Measurements: 3.6574655 4.3753457 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1025 AXE
+Measurements: 5.5374746 7.6152606 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1026 AXE
+Measurements: 9.309326 8.715864 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1027 AXE
+Measurements: 8.790413 2.6065288 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1028 AXE
+Measurements: 7.9621534 3.483709 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1029 AXE
+Measurements: 2.3452082 9.451615 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1030 AXE
+Measurements: 7.956025 3.5400918 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1031 AXE
+Measurements: 5.877457 7.909473 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1032 AXE
+Measurements: 5.696959 5.9982934 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1033 AXE
+Measurements: 3.994545 4.337516 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1034 AXE
+Measurements: 3.556779 6.601597 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1035 AXE
+Measurements: 2.121716 8.026497 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1036 AXE
+Measurements: 3.7558799 5.716887 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1037 AXE
+Measurements: 5.8907533 8.564724 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1038 AXE
+Measurements: 3.880549 4.838069 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1039 AXE
+Measurements: 3.7950792 3.067373 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1040 AXE
+Measurements: 9.466412 2.7942407 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1041 AXE
+Measurements: 9.271651 5.430105 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1042 AXE
+Measurements: 2.0494516 8.477731 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1043 AXE
+Measurements: 8.878604 4.982262 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1044 AXE
+Measurements: 5.8927255 3.4613116 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1045 AXE
+Measurements: 8.37824 9.472816 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1046 AXE
+Measurements: 2.825451 2.189167 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1047 AXE
+Measurements: 4.6792154 8.510736 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1048 AXE
+Measurements: 2.562046 4.771869 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1049 AXE
+Measurements: 7.5509243 8.674296 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1050 AXE
+Measurements: 6.1528554 4.0049934 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1051 AXE
+Measurements: 3.9683597 4.2433577 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1052 AXE
+Measurements: 2.957666 5.612632 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1053 AXE
+Measurements: 6.877989 3.6094885 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1054 AXE
+Measurements: 9.391186 9.413371 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1055 AXE
+Measurements: 4.8922625 9.07083 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1056 AXE
+Measurements: 9.236477 8.360086 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1057 AXE
+Measurements: 5.8909063 3.9395444 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1058 AXE
+Measurements: 9.301796 7.8469424 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1059 AXE
+Measurements: 5.6805477 7.7096143 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1060 AXE
+Measurements: 4.682862 3.595065 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1061 AXE
+Measurements: 6.1758347 3.5199394 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1062 AXE
+Measurements: 5.7094088 4.1557074 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1063 AXE
+Measurements: 9.3377075 5.157114 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1064 AXE
+Measurements: 5.6425757 6.0977497 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1065 AXE
+Measurements: 4.876187 5.9354734 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1066 AXE
+Measurements: 8.606988 3.6834245 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1067 AXE
+Measurements: 5.7653913 5.5984187 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1068 AXE
+Measurements: 4.08816 2.6905637 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1069 AXE
+Measurements: 9.137811 5.991341 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1070 AXE
+Measurements: 4.7187643 5.712949 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1071 AXE
+Measurements: 3.662592 7.4941916 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1072 AXE
+Measurements: 6.8595223 8.920749 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1073 AXE
+Measurements: 4.4057856 8.945754 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1074 AXE
+Measurements: 5.5186377 9.058527 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1075 AXE
+Measurements: 3.6262434 7.60062 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1076 AXE
+Measurements: 8.967163 8.246517 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1077 AXE
+Measurements: 3.6903994 5.6164207 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1078 AXE
+Measurements: 4.560142 3.5517094 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1079 AXE
+Measurements: 9.1862135 2.5722675 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1080 AXE
+Measurements: 9.178 5.0715933 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1081 AXE
+Measurements: 7.228612 6.558306 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1082 AXE
+Measurements: 6.6368737 8.48274 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1083 AXE
+Measurements: 2.2679853 7.4700723 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1084 AXE
+Measurements: 6.7119784 4.0671554 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1085 AXE
+Measurements: 5.359319 7.754757 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1086 AXE
+Measurements: 6.4619927 5.435429 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1087 AXE
+Measurements: 6.887177 8.951473 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1088 AXE
+Measurements: 4.622424 3.510748 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1089 AXE
+Measurements: 4.3322062 4.341922 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1090 AXE
+Measurements: 9.044834 9.1406355 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1091 AXE
+Measurements: 9.170223 5.9887233 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1092 AXE
+Measurements: 7.3098545 6.5330386 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1093 AXE
+Measurements: 9.384659 6.4758797 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1094 AXE
+Measurements: 6.1471324 6.086102 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1095 AXE
+Measurements: 5.722655 6.043313 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1096 AXE
+Measurements: 3.2619078 6.3875165 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1097 AXE
+Measurements: 8.013145 2.4152377 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1098 AXE
+Measurements: 9.041588 6.3984733 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1099 AXE
+Measurements: 2.6269147 4.7155347 0.6 0.6
+TextureComponent: AXE true
+ItemComponent:
+***
+1100 PLAYER
+Measurements: 4.17611 5.9187856 0.6875 1.0
+MovementComponent: 2.0 1 2
+PlayerMovementComponent:
+MovementTextureComponent: PLAYER
+BodyComponent: 2 1.0 10.0 true
+ItemContainerComponent: 2
+ItemCollectionComponent: 0.5
+HealthComponent: 100 100
+***

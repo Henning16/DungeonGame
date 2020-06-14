@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.GameObjectManager;
+import jnh.game.gameObjects.Layer;
+import jnh.game.gameObjects.construction.SceneHandler;
 import jnh.game.gameObjects.lightObjects.LightObject;
 import jnh.game.gameObjects.lightObjects.LightUpdater;
 import jnh.game.screens.GameScreen;
@@ -16,12 +18,14 @@ import jnh.game.world.Dungeon;
 
 public class GameStage extends Stage {
 
+    private SceneHandler sceneHandler = new SceneHandler(this);
+
     private GameScreen screen;
     @Deprecated
     private LightUpdater lightUpdater;
 
     private GameObjectManager gameObjectManager;
-    private Group backgroundLayer, mainLayer, foregroundLayer;
+    private Layer backgroundLayer, mainLayer, foregroundLayer;
 
     private Dungeon dungeon;
 
@@ -33,11 +37,11 @@ public class GameStage extends Stage {
 
         gameObjectManager = new GameObjectManager(this);
 
-        backgroundLayer = new Group();
+        backgroundLayer = new Layer();
         addActor(backgroundLayer);
-        mainLayer = new Group();
+        mainLayer = new Layer();
         addActor(mainLayer);
-        foregroundLayer = new Group();
+        foregroundLayer = new Layer();
         addActor(foregroundLayer);
 
         dungeon = new Dungeon(this, System.currentTimeMillis(), 1);
@@ -45,13 +49,13 @@ public class GameStage extends Stage {
         addActor(new LightObject(this, new Color(0.4f, 0.8f, 1f, 0.8f), new Vector2(9f, 9f ), 9, 0.1f, false));
         addActor(new LightObject(this, new Color(1f, 0.7f, 0.3f, 0.8f), new Vector2(3f, 3 ), 9, 0.1f, false));
 
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < 1000; i++) {
             GameObject g = new GameObject(this, Assets.blueprints.AXE);
-            g.setPosition((int) (Math.random() * 10) + 2, (int) (Math.random() * 10) + 2);
+            g.setPosition((float) (Math.random() * 8) + 2, (float) (Math.random() * 8) + 2);
         }
         gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
 
-        //getMainLayer().addActor(new GameObject(this, Assets.blueprints.ZOMBIE));
+        new GameObject(this, Assets.blueprints.ZOMBIE);
     }
 
     @Override
@@ -60,6 +64,10 @@ public class GameStage extends Stage {
         TimeHandler.tick(delta);
         gameObjectManager.update();
         lightUpdater.update(delta);
+        //if(Math.random() < 0.005f) {
+            //sceneHandler.saveScene("test");
+            //sceneHandler.loadScene("test");
+        //}
     }
 
     @Override

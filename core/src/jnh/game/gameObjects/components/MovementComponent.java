@@ -1,5 +1,6 @@
 package jnh.game.gameObjects.components;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.gameObjects.entities.MovementState;
 import jnh.game.utils.Direction;
@@ -32,6 +33,17 @@ public class MovementComponent extends Component {
     @Override
     public void set(String[] parameters) throws Exception {
         maxSpeed = (parameters[0] != null) ? Float.parseFloat(parameters[0]) : maxSpeed;
+        state = (parameters[1] != null) ? Integer.parseInt(parameters[1]) : state;
+        looking = (parameters[2] != null) ? Integer.parseInt(parameters[2]) : looking;
+    }
+
+    @Override
+    public String[] get() {
+        String[] parameters = new String[3];
+        parameters[0] = String.valueOf(maxSpeed);
+        parameters[1] = String.valueOf(state);
+        parameters[2] = String.valueOf(looking);
+        return parameters;
     }
 
     @Override
@@ -47,7 +59,7 @@ public class MovementComponent extends Component {
     }
 
     @Override
-    public void render() {
+    public void render(Batch batch) {
 
     }
 
@@ -121,5 +133,13 @@ public class MovementComponent extends Component {
      */
     public int getState() {
         return state;
+    }
+
+    public float getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public float getSpeed() {
+        return bodyComponent.getBody().getLinearVelocity().len();
     }
 }

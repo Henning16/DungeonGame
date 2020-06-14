@@ -2,6 +2,7 @@ package jnh.game.gameObjects.components;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import jnh.game.utils.Direction;
 
 public class PlayerMovementComponent extends Component {
@@ -20,6 +21,11 @@ public class PlayerMovementComponent extends Component {
     @Override
     public void set(String[] parameters) throws Exception {
 
+    }
+
+    @Override
+    public String[] get() {
+        return new String[0];
     }
 
     @Override
@@ -52,7 +58,7 @@ public class PlayerMovementComponent extends Component {
     }
 
     @Override
-    public void render() {
+    public void render(Batch batch) {
 
     }
 

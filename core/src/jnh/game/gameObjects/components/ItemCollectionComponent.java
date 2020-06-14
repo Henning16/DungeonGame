@@ -1,8 +1,11 @@
 package jnh.game.gameObjects.components;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import jnh.game.gameObjects.GameObject;
 
-public class ItemCollectionComponent extends Component {
+import java.io.Serializable;
+
+public class ItemCollectionComponent extends Component implements Serializable {
 
     private ItemContainerComponent containerComponent;
 
@@ -19,6 +22,13 @@ public class ItemCollectionComponent extends Component {
     @Override
     public void set(String[] parameters) throws Exception {
         range = (parameters[0] != null) ? Float.parseFloat(parameters[0]): range;
+    }
+
+    @Override
+    public String[] get() {
+        String[] parameters = new String[1];
+        parameters[0] = String.valueOf(range);
+        return parameters;
     }
 
     @Override
@@ -43,7 +53,7 @@ public class ItemCollectionComponent extends Component {
     }
 
     @Override
-    public void render() {
+    public void render(Batch batch) {
 
     }
 

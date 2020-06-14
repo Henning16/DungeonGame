@@ -1,7 +1,9 @@
 package jnh.game.gameObjects;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
@@ -51,7 +53,7 @@ public class GameObject extends Image {
     }
 
     /**
-     * Aktualisiert den {@link Animator} und ruft {@link #tick(float)} und {@link #render()} auf.
+     * Aktualisiert den {@link Animator} und ruft {@link #tick(float)} auf.
      * @param delta die Zeit in Sekunden seit dem letzten Tick
      */
     @Override
@@ -61,7 +63,6 @@ public class GameObject extends Image {
         if(animator != null) {
             animator.tick(delta);
         }
-        render();
         if(animator != null) {
             setTexture(animator.getTexture());
         }
@@ -71,7 +72,6 @@ public class GameObject extends Image {
      * Führt die {@link Component#tick(float)} aller Components aus.
      * @param delta die Zeit in Sekunden seit dem letzten Tick
      * @see Component
-     * @see #render()
      */
     public void tick(float delta) {
         for(Component component: components) {
@@ -79,14 +79,11 @@ public class GameObject extends Image {
         }
     }
 
-    /**
-     * Führt die {@link Component#render()} aller Components aus.
-     * @see Component
-     * @see #tick(float)
-      */
-    public void render() {
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        super.draw(batch, parentAlpha);
         for(Component component: components) {
-            component.render();
+            component.render(batch);
         }
     }
 
@@ -183,5 +180,25 @@ public class GameObject extends Image {
             }
         }
         return null;
+    }
+
+    /**
+     * Gibt eine Liste mit allen Components zurück.
+     * @return die Components
+     * @see #getComponent(Class)
+     * @see Component
+     * @see ArrayList
+     */
+    public ArrayList<Component> getComponents() {
+        return components;
+    }
+
+    /**
+     * Überprüft, ob die angegebene Position im GameObject enthalten ist. Das funktioniert bis jetzt nur bei rechteckigen GameObjects.
+     * @param position die zu überprüfende Position
+     * @return ob die Position enthalten ist.
+     */
+    public boolean contains(Vector2 position) {
+        return new Rectangle(getX(), getY(), getWidth(), getHeight()).contains(position);
     }
 }

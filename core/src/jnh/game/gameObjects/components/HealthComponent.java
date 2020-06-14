@@ -1,11 +1,15 @@
 package jnh.game.gameObjects.components;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import jnh.game.gfx.Shake;
 
 public class HealthComponent extends Component {
 
     private int health = 100;
     private int maxHealth = 100;
+
+    private float colorFlashTimer = 0f;
 
     @Override
     public void set(String[] parameters) throws Exception {
@@ -14,13 +18,22 @@ public class HealthComponent extends Component {
     }
 
     @Override
-    public void tick(float delta) {
-
+    public String[] get() {
+        String[] parameters = new String[2];
+        parameters[0] = String.valueOf(maxHealth);
+        parameters[1] = String.valueOf(health);
+        return parameters;
     }
 
     @Override
-    public void render() {
+    public void tick(float delta) {
+        colorFlashTimer = Math.max(0, colorFlashTimer - 0.1f);
+    }
 
+    @Override
+    public void render(Batch batch) {
+        batch.setColor(new Color(1, 0, 0, colorFlashTimer));
+        batch.draw(gameObject.getTexture(), gameObject.getX(), gameObject.getY(), gameObject.getWidth(), gameObject.getHeight());
     }
 
     @Override
@@ -40,5 +53,6 @@ public class HealthComponent extends Component {
         if(gameObject.getType().equals("PLAYER")) {
             gameObject.getStage().getScreen().getGameCamera().shake(new Shake(0.2f, damage * damageModifier * 0.03f));
         }
+        colorFlashTimer = 1f;
     }
 }

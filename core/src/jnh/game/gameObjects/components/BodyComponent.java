@@ -1,5 +1,6 @@
 package jnh.game.gameObjects.components;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -50,12 +51,22 @@ public class BodyComponent extends Component {
     }
 
     @Override
+    public String[] get() {
+        String[] parameters = new String[4];
+        parameters[0] = String.valueOf(bodyType.getValue());
+        parameters[1] = String.valueOf(density);
+        parameters[2] = String.valueOf(linearDamping);
+        parameters[3] = String.valueOf(fixedRotation);
+        return parameters;
+    }
+
+    @Override
     public void tick(float delta) {
         gameObject.setPosition(getBody().getPosition().x, getBody().getPosition().y);
     }
 
     @Override
-    public void render() {
+    public void render(Batch batch) {
 
     }
 
@@ -85,15 +96,6 @@ public class BodyComponent extends Component {
         gameObject.getStage().getScreen().getWorld().destroyBody(body);
     }
 
-    /**
-     * Gibt den Body des GameObjects zurück.
-     * @return den Body
-     * @see Body
-     */
-    public Body getBody() {
-        return body;
-    }
-
     @Override
     public BodyComponent copy() {
         BodyComponent c = new BodyComponent();
@@ -104,5 +106,13 @@ public class BodyComponent extends Component {
         return c;
     }
 
+    /**
+     * Gibt den Body des GameObjects zurück.
+     * @return den Body
+     * @see Body
+     */
+    public Body getBody() {
+        return body;
+    }
 
 }

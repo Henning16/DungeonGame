@@ -9,7 +9,7 @@ public class GameObjectManager {
 
     private GameStage stage;
 
-    public static final int MAX_GAME_OBJECT_NUMBER = 1000;
+    public static final int MAX_GAME_OBJECT_NUMBER = 10000;
 
     private GameObject[] gameObjects = new GameObject[MAX_GAME_OBJECT_NUMBER];
 
@@ -69,5 +69,9 @@ public class GameObjectManager {
             items.remove((Object) id);
         }
         toBeRemoved.clear();
+    }
+
+    public GameObject[] getGameObjects() {
+        return gameObjects;
     }
 }
