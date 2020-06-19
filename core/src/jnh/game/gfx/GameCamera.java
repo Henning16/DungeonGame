@@ -1,6 +1,5 @@
 package jnh.game.gfx;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import jnh.game.Global;
 import jnh.game.screens.GameScreen;
@@ -14,7 +13,7 @@ public class GameCamera extends OrthographicCamera {
     public GameCamera(GameScreen screen) {
         super();
         this.screen = screen;
-        setToOrtho(false, Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f);
+        position.set(screen.VIEWPORT_WIDTH / 2, screen.VIEWPORT_HEIGHT / 2, 0);
         update();
     }
 
@@ -35,6 +34,7 @@ public class GameCamera extends OrthographicCamera {
     }
 
     public void resize(int width, int height) {
-        setToOrtho(false, width / 2f, height / 2f);
+        viewportWidth = screen.VIEWPORT_WIDTH;
+        viewportHeight = (screen.VIEWPORT_WIDTH / width) * height;
     }
 }

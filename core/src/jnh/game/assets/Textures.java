@@ -9,12 +9,14 @@ import jnh.game.utils.Direction;
 
 public class Textures {
 
-    private final Texture sprites, PLAYER_SHEET, ZOMBIE_SHEET, FLOOR_SHEET, WALL_SHEET, WEAPONS_SHEET;
+    private final Texture sprites, PLAYER_SHEET, ZOMBIE_SHEET, FLOOR_SHEET, WALL_SHEET, WEAPONS_SHEET, PROPS_SHEET, PARTICLE_SHEET;
     public final Animation ERROR;
     public final Animation<TextureRegion>[][] PLAYER, ZOMBIE;
     public final Animation<TextureRegion>[] FLOOR_TILE;
     public final Animation[][] WALL;
     public final Animation AXE;
+    public final Animation LOGPILE;
+    public final Animation BLOOD;
 
     public Textures() {
         sprites = new Texture(Gdx.files.internal("textures/textures.png"));
@@ -27,6 +29,8 @@ public class Textures {
         FLOOR_SHEET = new Texture(Gdx.files.internal("textures/floor.png"));
         WALL_SHEET = new Texture(Gdx.files.internal("textures/wall.png"));
         WEAPONS_SHEET = new Texture(Gdx.files.internal("textures/weapons.png"));
+        PROPS_SHEET = new Texture(Gdx.files.internal("textures/props.png"));
+        PARTICLE_SHEET = new Texture(Gdx.files.internal("textures/particle.png"));
 
         PLAYER = new Animation[4][2];
         ZOMBIE = new Animation[4][2];
@@ -175,6 +179,10 @@ public class Textures {
 
         AXE = new Animation(1f,
                 get(WEAPONS_SHEET, 0, 0, 16, 16));
+        LOGPILE = new Animation(1f,
+                get(PROPS_SHEET, 0, 0, 16, 16));
+        BLOOD = new Animation(1f,
+                get(PARTICLE_SHEET, 0, 0, 1, 1));
     }
 
     private TextureRegion get(Texture texture, int x, int y, int width, int height) {

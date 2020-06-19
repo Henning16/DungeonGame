@@ -3,6 +3,7 @@ package jnh.game.gameObjects.components;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class ItemContainerComponent extends Component {
 
@@ -55,5 +56,21 @@ public class ItemContainerComponent extends Component {
 
     public int remove(int id) {
         return items.remove(id);
+    }
+
+    public int getItem(int id) {
+        try {
+            return items.get(id);
+        } catch(IndexOutOfBoundsException e) {
+            return -1;
+        }
+    }
+
+    public List<Integer> getItems() {
+        return items;
+    }
+
+    public boolean isFull() {
+        return items.size() >= size;
     }
 }

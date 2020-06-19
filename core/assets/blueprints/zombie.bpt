@@ -5,3 +5,4 @@ MovementTextureComponent: ZOMBIE
 BodyComponent: 4 15 10 _
 FollowPlayerComponent: 4
 AttackPlayerComponent: _
+HealthComponent: 8 _

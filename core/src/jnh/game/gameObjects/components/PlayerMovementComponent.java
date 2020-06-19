@@ -37,19 +37,19 @@ public class PlayerMovementComponent extends Component {
         int direction = movementComponent.getLooking();
         int counter = 0;
         if(Gdx.input.isKeyPressed(Input.Keys.W)) {
-            movementComponent.move(Direction.UP, (Direction.UP == direction) ? 1f : 0.2f);
+            movementComponent.move(Direction.UP, (Direction.UP == direction) ? 1f : 0.1f);
             counter++;
         }
         if(Gdx.input.isKeyPressed(Input.Keys.D)) {
-            movementComponent.move(Direction.RIGHT, (Direction.RIGHT == direction) ? 1f : 0.2f);
+            movementComponent.move(Direction.RIGHT, (Direction.RIGHT == direction) ? 1f : 0.1f);
             counter++;
         }
         if(Gdx.input.isKeyPressed(Input.Keys.S)) {
-            movementComponent.move(Direction.DOWN, (Direction.DOWN == direction) ? 1f : 0.2f);
+            movementComponent.move(Direction.DOWN, (Direction.DOWN == direction) ? 1f : 0.1f);
             counter++;
         }
         if(Gdx.input.isKeyPressed(Input.Keys.A)) {
-            movementComponent.move(Direction.LEFT, (Direction.LEFT == direction) ? 1f : 0.2f);
+            movementComponent.move(Direction.LEFT, (Direction.LEFT == direction) ? 1f : 0.1f);
             counter++;
         }
         if(counter != 1) {

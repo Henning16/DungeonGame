@@ -6,6 +6,8 @@ import jnh.game.utils.TimeHandler;
 
 public class ItemComponent extends Component {
 
+    private ItemAction itemAction;
+
     @Override
     public void set(String[] parameters) throws Exception {
 
@@ -28,7 +30,7 @@ public class ItemComponent extends Component {
 
     @Override
     public void remove() {
-        //TODO removing system
+
     }
 
     @Override
@@ -41,5 +43,25 @@ public class ItemComponent extends Component {
     public ItemComponent copy() {
         ItemComponent c = new ItemComponent();
         return c;
+    }
+
+    private boolean findItemActionComponent() {
+        if(itemAction == null) {
+            itemAction = (ItemAction) gameObject.getComponentByInterface(ItemAction.class);
+            return itemAction != null;
+        } else {
+            return true;
+        }
+    }
+    public void use(GameObject user) {
+        if(findItemActionComponent()) {
+            itemAction.use(user);
+        }
+    }
+
+    public void secondaryUse(GameObject user) {
+        if(findItemActionComponent()) {
+            itemAction.secondaryUse(user);
+        }
     }
 }

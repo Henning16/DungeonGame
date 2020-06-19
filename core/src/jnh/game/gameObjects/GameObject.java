@@ -183,6 +183,23 @@ public class GameObject extends Image {
     }
 
     /**
+     * Gibt die erste Component, die das angegebene Interface implementiert, zurück, die gefunden werden konnte.
+     * @param interfaceClass das Interface der Component
+     * @return die Component
+     * @see Component
+     */
+    public Component getComponentByInterface(Class interfaceClass) {
+        for(Component component: components) {
+            for(Class componentInterfaceClass: component.getClass().getInterfaces()) {
+                if(componentInterfaceClass == interfaceClass) {
+                    return component;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
      * Gibt eine Liste mit allen Components zurück.
      * @return die Components
      * @see #getComponent(Class)
@@ -193,6 +210,10 @@ public class GameObject extends Image {
         return components;
     }
 
+    public Vector2 getPosition() {
+        return new Vector2(getX(), getY());
+    }
+
     /**
      * Überprüft, ob die angegebene Position im GameObject enthalten ist. Das funktioniert bis jetzt nur bei rechteckigen GameObjects.
      * @param position die zu überprüfende Position
@@ -201,4 +222,5 @@ public class GameObject extends Image {
     public boolean contains(Vector2 position) {
         return new Rectangle(getX(), getY(), getWidth(), getHeight()).contains(position);
     }
+
 }

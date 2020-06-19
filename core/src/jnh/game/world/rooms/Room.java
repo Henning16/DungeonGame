@@ -5,8 +5,8 @@ import jnh.game.world.Dungeon;
 
 public abstract class Room {
 
-    public static final int ROOM_WIDTH = 12;
-    public static final int ROOM_HEIGHT = 12;
+    public static final int ROOM_WIDTH = 18;
+    public static final int ROOM_HEIGHT = 18;
 
     private GameStage stage;
     private Dungeon dungeon;

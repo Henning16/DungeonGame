@@ -14,7 +14,9 @@ public class GameObjectManager {
     private GameObject[] gameObjects = new GameObject[MAX_GAME_OBJECT_NUMBER];
 
     private ArrayList<Integer> toBeRemoved = new ArrayList<>();
+
     public ArrayList<Integer> items = new ArrayList<>();
+    public ArrayList<Integer> destroyables = new ArrayList<>();
 
     public int playerID;
 
@@ -74,4 +76,5 @@ public class GameObjectManager {
     public GameObject[] getGameObjects() {
         return gameObjects;
     }
+
 }

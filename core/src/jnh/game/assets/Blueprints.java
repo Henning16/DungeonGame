@@ -10,6 +10,7 @@ public class Blueprints {
     public Blueprint PLAYER, ZOMBIE;
     public Blueprint FLOOR;
     public Blueprint AXE;
+    public Blueprint LOGPILE;
 
     public Blueprints() {
         loader = new BlueprintLoader();
@@ -20,5 +21,7 @@ public class Blueprints {
         FLOOR = loader.loadBlueprint("floor");
 
         AXE = loader.loadBlueprint("axe");
+
+        LOGPILE = loader.loadBlueprint("logpile");
     }
 }

@@ -6,7 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.FPSLogger;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -15,21 +15,25 @@ import jnh.game.Global;
 import jnh.game.gameObjects.construction.BlueprintTester;
 import jnh.game.gfx.GameCamera;
 import jnh.game.stages.GameStage;
+import jnh.game.ui.GameUI;
 
 
 public class GameScreen implements Screen {
 
     private DungeonGame game;
 
-    private FitViewport viewport;
+    private SpriteBatch batch;
 
+    private FitViewport viewport;
     private GameCamera camera;
     private RayHandler rayHandler;
-
     private World world;
     private GameStage stage;
 
+    private GameUI ui;
     private FPSLogger logger;
+
+    public float VIEWPORT_WIDTH = 800, VIEWPORT_HEIGHT = 450;
 
     public GameScreen(DungeonGame game) {
         this.game = game;
@@ -37,21 +41,24 @@ public class GameScreen implements Screen {
 
     @Override
     public void show() {
-        float width = Gdx.graphics.getWidth();
-        float height = Gdx.graphics.getHeight();
 
         camera = new GameCamera(this);
+        camera.setToOrtho(false,VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 
         world = new World(new Vector2(0f, 0f), true);
 
         rayHandler = new RayHandler(world);
-        rayHandler.setAmbientLight(new Color(1f, 0.9f, 0.8f, 0.04f));
+        rayHandler.setAmbientLight(new Color(1f, 1f, 1f, 0.04f));
         rayHandler.setBlur(true);
         rayHandler.setBlurNum(1);
 
         stage = new GameStage(this);
         stage.getViewport().setCamera(camera);
         Gdx.input.setInputProcessor(stage);
+
+        batch = (SpriteBatch) stage.getBatch();
+
+        ui = new GameUI(this);
         logger = new FPSLogger();
 
         new BlueprintTester();
@@ -63,6 +70,7 @@ public class GameScreen implements Screen {
         world.step(1 / 60f, 6, 2);
         rayHandler.update();
         camera.act(delta);
+        ui.act(delta);
     }
 
     @Override
@@ -71,14 +79,17 @@ public class GameScreen implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        Batch batch = stage.getBatch();
-
         batch.setProjectionMatrix(camera.combined.scl(Global.UNIT));
         batch.begin();
         stage.getRoot().draw(batch, 1);
         batch.end();
+
         rayHandler.setCombinedMatrix(camera.combined.translate(0.5f, 0.5f, 0f));
         rayHandler.updateAndRender();
+
+        ui.getStage().getBatch().setProjectionMatrix(ui.getStage().getCamera().combined);
+        ui.getStage().draw();
+
         logger.log();
     }
 
@@ -107,6 +118,10 @@ public class GameScreen implements Screen {
         rayHandler.dispose();
         world.dispose();
         stage.dispose();
+    }
+
+    public SpriteBatch getBatch() {
+        return batch;
     }
 
     public World getWorld() {
