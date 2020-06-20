@@ -15,13 +15,14 @@ public class Blueprints {
     public Blueprints() {
         loader = new BlueprintLoader();
 
-        PLAYER = loader.loadBlueprint("player");
-        ZOMBIE = loader.loadBlueprint("zombie");
+        PLAYER = loader.loadBlueprintFromJson("player");
+        ZOMBIE = loader.loadBlueprintFromJson("zombie");
 
-        FLOOR = loader.loadBlueprint("floor");
+        FLOOR = loader.loadBlueprintFromJson("floor");
 
-        AXE = loader.loadBlueprint("axe");
+        AXE = loader.loadBlueprintFromJson("axe");
 
-        LOGPILE = loader.loadBlueprint("logpile");
+        LOGPILE = loader.loadBlueprintFromJson("logpile");
+
     }
 }

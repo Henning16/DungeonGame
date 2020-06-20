@@ -189,4 +189,31 @@ public class Textures {
         return new TextureRegion(texture, x, y, width, height);
     }
 
+    public Animation<TextureRegion> getTexture(String name) {
+        try {
+            return (Animation<TextureRegion>) this.getClass().getField(name).get(this);
+        } catch(Exception e) {
+            System.err.println("[TextureComponent]: "+ name +" not found.");
+            return ERROR;
+        }
+    }
+
+    public Animation<TextureRegion>[] getTextureSet(String name) {
+        try {
+            return (Animation<TextureRegion>[]) this.getClass().getField(name).get(this);
+        } catch(Exception e) {
+            System.err.println("[TextureComponent]: "+ name +" not found.");
+            return new Animation[] {ERROR};
+        }
+    }
+
+    public Animation<TextureRegion>[][] getTextureSet2(String name) {
+        try {
+            return (Animation<TextureRegion>[][]) this.getClass().getField(name).get(this);
+        } catch(Exception e) {
+            System.err.println("[TextureComponent]: "+ name +" not found.");
+            return new Animation[][] {{ERROR}};
+        }
+    }
+
 }

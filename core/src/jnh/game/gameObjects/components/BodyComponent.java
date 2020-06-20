@@ -15,49 +15,17 @@ import jnh.game.gameObjects.GameObject;
  */
 public class BodyComponent extends Component {
 
-    private Body body;
+    private transient Body body;
 
     private BodyDef.BodyType bodyType = BodyDef.BodyType.DynamicBody;
     private float density = 1f;
     private float linearDamping = 10f;
     private boolean fixedRotation = true;
+    private Vector2 collisionBoxPosition = new Vector2(0, 0);
+    private Vector2 collisionBoxDimension = new Vector2(16, 16);
 
     public BodyComponent() {
 
-    }
-
-    /**
-     * Setzt die entsprechenden Werte der Component.
-     * @param parameters Übergebene Parameter als String-Array. {@code null} wird ignoriert, bestehende Werte also nicht überschireben.
-     * @throws IllegalArgumentException
-     */
-    @Override
-    public void set(String[] parameters) throws IllegalArgumentException {
-        switch(Integer.parseInt(parameters[0])) {
-            case 0:
-                bodyType = BodyDef.BodyType.StaticBody;
-                break;
-            case 1:
-                bodyType = BodyDef.BodyType.KinematicBody;
-                break;
-            case 2:
-                bodyType = BodyDef.BodyType.DynamicBody;
-                break;
-            default:
-        }
-        density = (parameters[1] != null) ? Float.parseFloat(parameters[1]): density;
-        linearDamping = (parameters[2] != null) ? Float.parseFloat(parameters[2]): linearDamping;
-        fixedRotation = (parameters[3] != null) ? Boolean.parseBoolean(parameters[3]): fixedRotation;
-    }
-
-    @Override
-    public String[] get() {
-        String[] parameters = new String[4];
-        parameters[0] = String.valueOf(bodyType.getValue());
-        parameters[1] = String.valueOf(density);
-        parameters[2] = String.valueOf(linearDamping);
-        parameters[3] = String.valueOf(fixedRotation);
-        return parameters;
     }
 
     @Override
@@ -67,7 +35,7 @@ public class BodyComponent extends Component {
 
     @Override
     public void render(Batch batch) {
-
+        super.render(batch);
     }
 
     @Override
@@ -81,7 +49,7 @@ public class BodyComponent extends Component {
         body = gameObject.getStage().getScreen().getWorld().createBody(def);
 
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(gameObject.getWidth() / 2, gameObject.getHeight() / 2, new Vector2(-0.15f, 0), 0);
+        shape.setAsBox((1f / 32f) * collisionBoxDimension.x, (1f / 32f) * collisionBoxDimension.y, new Vector2((1f / 16f) * collisionBoxPosition.x, (1f / 16f) * collisionBoxPosition.y), 0);
         getBody().createFixture(shape, density);
         shape.dispose();
         body.setUserData(gameObject);
@@ -103,6 +71,8 @@ public class BodyComponent extends Component {
         c.linearDamping = linearDamping;
         c.bodyType = bodyType;
         c.density = density;
+        c.collisionBoxPosition = collisionBoxPosition;
+        c.collisionBoxDimension = collisionBoxDimension;
         return c;
     }
 

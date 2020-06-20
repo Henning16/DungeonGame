@@ -8,26 +8,12 @@ import jnh.game.gameObjects.GameObject;
 
 public class RandomTextureComponent extends Component {
 
-    private Animation<TextureRegion>[] textures = new Animation[]{Assets.textures.ERROR};
-    private String texturesString = "ERROR";
-    private Animation<TextureRegion> texture;
-    private float elapsedTime = 0f;
+    private String textureSetName = "ERROR";
+    private transient Animation<TextureRegion>[] textureSet = new Animation[]{Assets.textures.ERROR};
+    private transient Animation<TextureRegion> texture;
+
+    private transient float elapsedTime = 0f;
     private boolean paused = true;
-
-    @Override
-    public void set(String[] parameters) throws Exception {
-        texturesString = (parameters[0] != null) ? parameters[0] : texturesString;
-        textures = (parameters[0] != null) ? (Animation<TextureRegion>[]) Assets.textures.getClass().getField(parameters[0]).get(Assets.textures) : textures;
-        paused = (parameters[1] != null) ? Boolean.parseBoolean(parameters[1]) : paused;
-    }
-
-    @Override
-    public String[] get() {
-        String[] parameters = new String[2];
-        parameters[0] = texturesString;
-        parameters[1] = String.valueOf(paused);
-        return parameters;
-    }
 
     @Override
     public void tick(float delta) {
@@ -44,21 +30,17 @@ public class RandomTextureComponent extends Component {
     }
 
     @Override
-    public void remove() {
-
-    }
-
-    @Override
     public void attachedTo(GameObject gameObject) {
         super.attachedTo(gameObject);
-        texture = textures[(int) (Math.random() * textures.length)];
+        textureSet = Assets.textures.getTextureSet(textureSetName);
+        texture = textureSet[(int) (Math.random() * textureSet.length)];
         gameObject.setTexture(texture.getKeyFrame(elapsedTime));
     }
 
     @Override
     public RandomTextureComponent copy() {
         RandomTextureComponent c = new RandomTextureComponent();
-        c.textures = textures;
+        c.textureSetName = textureSetName;
         c.elapsedTime = elapsedTime;
         c.paused = paused;
         return c;

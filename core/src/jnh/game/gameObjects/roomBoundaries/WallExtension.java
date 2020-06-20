@@ -10,7 +10,7 @@ public class WallExtension extends GameObject {
 
     public WallExtension(GameStage stage, Animation<TextureRegion> animation, Vector2 position) {
         super(stage, animation, position, new Vector2(1f, 1f));
-        getAnimator().play(animation, true);
+        setTexture(animation.getKeyFrame(0));
     }
 
 }

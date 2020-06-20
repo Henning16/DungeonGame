@@ -1,7 +1,6 @@
 package jnh.game.gameObjects.components;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.gameObjects.GameObject;
 
@@ -10,40 +9,12 @@ public class WeaponComponent extends Component implements ItemAction {
     private int damage = 1;
     private float knockback = 0.2f;
     private float range = 3f;
-    private float cooldown = 10f;
-    private float cooldownCounter = 0f;
-
-    @Override
-    public void set(String[] parameters) throws Exception {
-        damage = (parameters[0] != null) ? Integer.parseInt(parameters[0]) : damage;
-        knockback = (parameters[1] != null) ? Float.parseFloat(parameters[1]) : knockback;
-        range = (parameters[2] != null) ? Float.parseFloat(parameters[2]) : range;
-        cooldown = (parameters[3] != null) ? Float.parseFloat(parameters[3]) : cooldown;
-    }
-
-    @Override
-    public String[] get() {
-        String[] parameters = new String[4];
-        parameters[0] = String.valueOf(damage);
-        parameters[1] = String.valueOf(knockback);
-        parameters[2] = String.valueOf(range);
-        parameters[3] = String.valueOf(cooldown);
-        return parameters;
-    }
+    private float cooldown = 0.5f;
+    private transient float cooldownCounter = 0f;
 
     @Override
     public void tick(float delta) {
-        cooldownCounter = Math.max(0f, cooldownCounter - delta);
-    }
-
-    @Override
-    public void render(Batch batch) {
-
-    }
-
-    @Override
-    public void remove() {
-
+        cooldownCounter = Math.max(0, cooldownCounter - delta);
     }
 
     @Override
@@ -58,7 +29,7 @@ public class WeaponComponent extends Component implements ItemAction {
 
     @Override
     public void use(GameObject user) {
-        if(cooldownCounter != 0) {
+        if(cooldownCounter != 0.0f) {
             return;
         }
         Vector2 pos = user.getStage().convertScreenPositionToWorldPosition(new Vector2(Gdx.input.getX(), Gdx.input.getY()));
@@ -66,8 +37,12 @@ public class WeaponComponent extends Component implements ItemAction {
             GameObject other = user.getGameObjectManager().getGameObject(i);
             if(i != user.getID() && user.getPosition().dst2(other.getPosition()) < range * range) {
                 ((HealthComponent) other.getComponent(HealthComponent.class)).dealDamage(damage, 1f);
+                other.getComponent(BodyComponent.class).getBody().applyForce(
+                        new Vector2(other.getX() - gameObject.getX(), other.getY() - gameObject.getY()).scl(1000 * knockback),
+                        new Vector2(other.getX(), other.getY()), true);
             }
         }
+        cooldownCounter = cooldown;
     }
 
     @Override

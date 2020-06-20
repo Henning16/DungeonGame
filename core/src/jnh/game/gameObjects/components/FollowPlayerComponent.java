@@ -1,32 +1,19 @@
 package jnh.game.gameObjects.components;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.gameObjects.GameObject;
 
 public class FollowPlayerComponent extends Component {
 
-    private GameObject player;
-    private MovementComponent movementComponent;
+    private transient GameObject player;
+    private transient MovementComponent movementComponent;
 
     private float followDistance = 3f;
 
 
-    private float directionChangeCooldown = 0f;
-    private Vector2 wanderDestiny;
-    private float wanderDestinyTimer = 9f;
-
-    @Override
-    public void set(String[] parameters) throws Exception {
-        followDistance = (parameters[0] != null) ? Float.parseFloat(parameters[0]) : followDistance;
-    }
-
-    @Override
-    public String[] get() {
-        String[] parameters = new String[1];
-        parameters[0] = String.valueOf(followDistance);
-        return parameters;
-    }
+    private transient float directionChangeCooldown = 0f;
+    private transient Vector2 wanderDestiny;
+    private transient float wanderDestinyTimer = 9f;
 
     @Override
     public void tick(float delta) {
@@ -41,16 +28,6 @@ public class FollowPlayerComponent extends Component {
             moveTowards(player.getX(), player.getY());
         }
         directionChangeCooldown = Math.max(0, directionChangeCooldown - delta);
-
-    }
-
-    @Override
-    public void render(Batch batch) {
-
-    }
-
-    @Override
-    public void remove() {
 
     }
 

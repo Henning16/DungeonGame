@@ -2,30 +2,14 @@ package jnh.game.gameObjects.components;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import jnh.game.utils.Direction;
 
 public class PlayerMovementComponent extends Component {
 
-    private MovementComponent movementComponent;
+    private transient MovementComponent movementComponent;
 
     public PlayerMovementComponent() {
 
-    }
-
-    public PlayerMovementComponent(PlayerMovementComponent other) {
-        super(other);
-        this.movementComponent = other.movementComponent;
-    }
-
-    @Override
-    public void set(String[] parameters) throws Exception {
-
-    }
-
-    @Override
-    public String[] get() {
-        return new String[0];
     }
 
     @Override
@@ -55,16 +39,6 @@ public class PlayerMovementComponent extends Component {
         if(counter != 1) {
             movementComponent.setLooking(direction);
         }
-    }
-
-    @Override
-    public void render(Batch batch) {
-
-    }
-
-    @Override
-    public void remove() {
-
     }
 
     @Override

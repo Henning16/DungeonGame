@@ -8,25 +8,10 @@ import jnh.game.gameObjects.GameObject;
 
 public class TextureComponent extends Component {
 
-    private Animation<TextureRegion> texture = Assets.textures.ERROR;
-    private String textureString = "ERROR";
-    private float elapsedTime = 0f;
+    private String textureName = "ERROR";
+    private transient Animation<TextureRegion> texture = Assets.textures.ERROR;
+    private transient float elapsedTime = 0f;
     private boolean paused = true;
-
-    @Override
-    public void set(String[] parameters) throws Exception {
-        textureString = (parameters[0] != null) ? parameters[0] : textureString;
-        texture = (parameters[0] != null) ? (Animation<TextureRegion>) Assets.textures.getClass().getField(parameters[0]).get(Assets.textures) : texture;
-        paused = (parameters[1] != null) ? Boolean.parseBoolean(parameters[1]) : paused;
-    }
-
-    @Override
-    public String[] get() {
-        String[] parameters = new String[2];
-        parameters[0] = textureString;
-        parameters[1] = String.valueOf(paused);
-        return parameters;
-    }
 
     @Override
     public void tick(float delta) {
@@ -43,21 +28,16 @@ public class TextureComponent extends Component {
     }
 
     @Override
-    public void remove() {
-
-    }
-
-    @Override
     public void attachedTo(GameObject gameObject) {
         super.attachedTo(gameObject);
+        texture = Assets.textures.getTexture(textureName);
         gameObject.setTexture(texture.getKeyFrame(elapsedTime));
     }
 
     @Override
     public Component copy() {
         TextureComponent c = new TextureComponent();
-        c.texture = texture;
-        c.textureString = textureString;
+        c.textureName = textureName;
         c.paused = paused;
         return c;
     }

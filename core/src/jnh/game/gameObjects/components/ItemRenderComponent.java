@@ -7,18 +7,8 @@ import jnh.game.gameObjects.GameObject;
 
 public class ItemRenderComponent extends Component {
 
-    private ItemContainerComponent containerComponent;
-    private MovementComponent movementComponent;
-
-    @Override
-    public void set(String[] parameters) throws Exception {
-
-    }
-
-    @Override
-    public String[] get() {
-        return new String[0];
-    }
+    private transient ItemContainerComponent containerComponent;
+    private transient MovementComponent movementComponent;
 
     @Override
     public void tick(float delta) {
@@ -48,11 +38,6 @@ public class ItemRenderComponent extends Component {
         double angle = Math.atan2( - mouseWorldPosition.y + gameObject.getPosition().y, - mouseWorldPosition.x + gameObject.getPosition().x);
         float degrees = (float) Math.toDegrees(angle);
         //batch.draw(item.getTexture(), gameObject.getX(), gameObject.getY(), 1, 1, 1, 1, 1, 1, degrees + 90);
-    }
-
-    @Override
-    public void remove() {
-
     }
 
     @Override

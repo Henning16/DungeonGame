@@ -2,6 +2,7 @@ package jnh.game.gameObjects.components;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gfx.Shake;
 
@@ -10,22 +11,8 @@ public class HealthComponent extends Component {
     private int health = 100;
     private int maxHealth = 100;
 
-    private float colorFlashTimer = 0f;
-    private float deathTimer = 0.4f;
-
-    @Override
-    public void set(String[] parameters) throws Exception {
-        maxHealth = (parameters[0] != null) ? Integer.parseInt(parameters[0]) : maxHealth;
-        health = maxHealth;
-    }
-
-    @Override
-    public String[] get() {
-        String[] parameters = new String[2];
-        parameters[0] = String.valueOf(maxHealth);
-        parameters[1] = String.valueOf(health);
-        return parameters;
-    }
+    private transient float colorFlashTimer = 0f;
+    private transient float deathTimer = 0.4f;
 
     @Override
     public void tick(float delta) {
@@ -35,6 +22,7 @@ public class HealthComponent extends Component {
         }
         if(deathTimer == 0f) {
             gameObject.getGameObjectManager().remove(gameObject.getID());
+            gameObject.getGameObjectManager().destroyables.remove((Object) gameObject.getID());
         }
     }
 
@@ -45,22 +33,9 @@ public class HealthComponent extends Component {
 
         if(isDead()) {
             colorFlashTimer = 0f;
-            gameObject.setRotation(deathTimer * 100);
-            gameObject.setColor(new Color(1, 0, 0, deathTimer));
+            gameObject.setRotation(- deathTimer * 100);
+            gameObject.setColor(new Color(1, 0, 0, deathTimer * 2));
         }
-    }
-
-    @Override
-    public void remove() {
-
-    }
-
-    @Override
-    public HealthComponent copy() {
-        HealthComponent c = new HealthComponent();
-        c.maxHealth = maxHealth;
-        c.health = health;
-        return c;
     }
 
     @Override
@@ -69,10 +44,22 @@ public class HealthComponent extends Component {
         gameObject.getGameObjectManager().destroyables.add(gameObject.getID());
     }
 
+    @Override
+    public HealthComponent copy() {
+        HealthComponent c = new HealthComponent();
+        c.health = health;
+        c.maxHealth = maxHealth;
+        return c;
+    }
+
     public void dealDamage(int damage, float damageModifier) {
         health = Math.max(0, health - (int) (damage * damageModifier));
         if(gameObject.getType().equals("PLAYER")) {
-            gameObject.getStage().getScreen().getGameCamera().shake(new Shake(0.2f, damage * damageModifier * 0.03f));
+            gameObject.getStage().getScreen().getGameCamera().shake(new Shake(0.1f, 1));
+        } else {
+            long soundID = Assets.sounds.ENEMY_HIT.play();
+            Assets.sounds.ENEMY_HIT.setPitch(soundID, (float) (0.3f * Math.random() + 1f));
+            Assets.sounds.ENEMY_HIT.setVolume(soundID, 0.1f);
         }
         colorFlashTimer = 1f;
     }
@@ -80,4 +67,5 @@ public class HealthComponent extends Component {
     public boolean isDead() {
         return health == 0;
     }
+
 }

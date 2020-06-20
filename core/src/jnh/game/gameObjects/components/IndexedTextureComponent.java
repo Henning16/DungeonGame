@@ -8,30 +8,12 @@ import jnh.game.gameObjects.GameObject;
 
 public class IndexedTextureComponent extends Component {
 
-    private Animation<TextureRegion>[] textures = new Animation[] {Assets.textures.ERROR};
+    private transient Animation<TextureRegion>[] textures = new Animation[] {Assets.textures.ERROR};
     private String texturesString = "ERROR";
-    private Animation<TextureRegion> texture = Assets.textures.ERROR;
+    private transient Animation<TextureRegion> texture = Assets.textures.ERROR;
     private int index = 0;
-    private float elapsedTime = 0f;
+    private transient float elapsedTime = 0f;
     private boolean paused = true;
-
-    @Override
-    public void set(String[] parameters) throws Exception {
-        texturesString = (parameters[0] != null) ? parameters[0] : texturesString;
-        textures = (parameters[0] != null) ? (Animation<TextureRegion>[]) Assets.textures.getClass().getField(parameters[0]).get(Assets.textures) : textures;
-        index = (parameters[1] != null) ? Integer.parseInt(parameters[1]) : index;
-        paused = (parameters[2] != null) ? Boolean.parseBoolean(parameters[2]) : paused;
-        texture = textures[index];
-    }
-
-    @Override
-    public String[] get() {
-        String[] parameters = new String[3];
-        parameters[0] = texturesString;
-        parameters[1] = String.valueOf(index);
-        parameters[2] = String.valueOf(paused);
-        return parameters;
-    }
 
     @Override
     public void tick(float delta) {
@@ -45,11 +27,6 @@ public class IndexedTextureComponent extends Component {
         if(!paused) {
             gameObject.setTexture(texture.getKeyFrame(elapsedTime));
         }
-    }
-
-    @Override
-    public void remove() {
-
     }
 
     @Override

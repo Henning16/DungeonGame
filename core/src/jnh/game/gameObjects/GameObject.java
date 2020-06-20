@@ -24,7 +24,6 @@ public class GameObject extends Image {
     private GameObjectManager gameObjectManager;
 
     private TextureRegion texture;
-    private Animator animator;
 
     private ArrayList<Component> components = new ArrayList<>();
 
@@ -33,9 +32,19 @@ public class GameObject extends Image {
         this.gameObjectManager = stage.getGameObjectManager();
         this.blueprint = blueprint;
         this.type = blueprint.type;
-        setBounds(1,1,1,1);
+        setBounds(blueprint.position.x,blueprint.position.y,blueprint.dimension.x,blueprint.dimension.y);
         setOrigin(getWidth() / 2, getHeight() / 2);
-        this.id = getGameObjectManager().add(this, stage.getMainLayer());
+        switch(blueprint.layer) {
+            case "main":
+                this.id = getGameObjectManager().add(this, stage.getMainLayer());
+                break;
+            case "foreground":
+                this.id = getGameObjectManager().add(this, stage.getForegroundLayer());
+                break;
+            case "background":
+                this.id = getGameObjectManager().add(this, stage.getBackgroundLayer());
+                break;
+        }
         for(Component component: blueprint.components) {
             addComponent(component.copy());
         }
@@ -49,7 +58,6 @@ public class GameObject extends Image {
         this.stage = stage;
         setBounds(position.x, position.y, dimension.x, dimension.y);
         setOrigin(getWidth() / 2, getHeight() / 2);
-        this.animator = new Animator();
     }
 
     /**
@@ -60,12 +68,6 @@ public class GameObject extends Image {
     public final void act(float delta) {
         super.act(delta);
         tick(delta);
-        if(animator != null) {
-            animator.tick(delta);
-        }
-        if(animator != null) {
-            setTexture(animator.getTexture());
-        }
     }
 
     /**
@@ -153,11 +155,6 @@ public class GameObject extends Image {
         setDrawable(new TextureRegionDrawable(texture));
     }
 
-    public Animator getAnimator() {
-        return animator;
-    }
-
-
     /**
      * Fügt die Compnent dem GameObject hinzu.
      * @param component die hinzuzufügende Component
@@ -173,10 +170,10 @@ public class GameObject extends Image {
      * @return die Component
      * @see Component
      */
-    public Component getComponent(Class componentClass) {
+    public <T> T getComponent(Class<T> componentClass) {
         for(Component component: components) {
             if(component.getClass() == componentClass) {
-                return component;
+                return (T) component;
             }
         }
         return null;
@@ -188,11 +185,11 @@ public class GameObject extends Image {
      * @return die Component
      * @see Component
      */
-    public Component getComponentByInterface(Class interfaceClass) {
+    public <T> T getComponentByInterface(Class<T> interfaceClass) {
         for(Component component: components) {
             for(Class componentInterfaceClass: component.getClass().getInterfaces()) {
                 if(componentInterfaceClass == interfaceClass) {
-                    return component;
+                    return (T) component;
                 }
             }
         }

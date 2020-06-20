@@ -12,7 +12,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import jnh.game.DungeonGame;
 import jnh.game.Global;
-import jnh.game.gameObjects.construction.BlueprintTester;
 import jnh.game.gfx.GameCamera;
 import jnh.game.stages.GameStage;
 import jnh.game.ui.GameUI;
@@ -60,8 +59,6 @@ public class GameScreen implements Screen {
 
         ui = new GameUI(this);
         logger = new FPSLogger();
-
-        new BlueprintTester();
     }
 
     public void update(float delta) {

@@ -1,6 +1,5 @@
 package jnh.game.gameObjects.components;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.gameObjects.entities.MovementState;
 import jnh.game.utils.Direction;
@@ -10,41 +9,12 @@ import jnh.game.utils.Direction;
  */
 public class MovementComponent extends Component {
 
-    private BodyComponent bodyComponent;
+    private transient BodyComponent bodyComponent;
 
-    //TODO implement maxSpeed
     private float maxSpeed = 0;
 
     private int state;
     private int looking;
-
-    public MovementComponent() {
-
-    }
-
-    public MovementComponent(MovementComponent other) {
-        super(other);
-        this.bodyComponent = other.bodyComponent;
-        this.maxSpeed = other.maxSpeed;
-        this.state = other.state;
-        this.looking = other.looking;
-    }
-
-    @Override
-    public void set(String[] parameters) throws Exception {
-        maxSpeed = (parameters[0] != null) ? Float.parseFloat(parameters[0]) : maxSpeed;
-        state = (parameters[1] != null) ? Integer.parseInt(parameters[1]) : state;
-        looking = (parameters[2] != null) ? Integer.parseInt(parameters[2]) : looking;
-    }
-
-    @Override
-    public String[] get() {
-        String[] parameters = new String[3];
-        parameters[0] = String.valueOf(maxSpeed);
-        parameters[1] = String.valueOf(state);
-        parameters[2] = String.valueOf(looking);
-        return parameters;
-    }
 
     @Override
     public void tick(float delta) {
@@ -56,16 +26,6 @@ public class MovementComponent extends Component {
         } else {
             state = MovementState.IDLE;
         }
-    }
-
-    @Override
-    public void render(Batch batch) {
-
-    }
-
-    @Override
-    public void remove() {
-
     }
 
     @Override

@@ -12,7 +12,7 @@ public class Wall extends RigidObject {
 
     public Wall(GameStage stage, Animation<TextureRegion> animation, Vector2 position) {
         super(stage, animation, position, new Vector2(1, 1));
-        getAnimator().play(animation, true);
+        setTexture(animation.getKeyFrame(0));
     }
 
     @Override
