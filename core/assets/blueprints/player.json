@@ -48,13 +48,21 @@
         },
         {
             "class": "jnh.game.gameObjects.components.HealthComponent",
-            "maxHealth": 2
+            "maxHealth": 200
         },
         {
             "class": "jnh.game.gameObjects.components.PlayerItemUsageComponent"
         },
         {
             "class": "jnh.game.gameObjects.components.ModifyDimensionComponent"
+        },
+        {
+            "class": "jnh.game.gameObjects.components.LightComponent",
+            "distance": 4,
+            "color": {
+                "r": 1, "g": 0.7, "b": 0.4, "a": 0.8
+            },
+            "flickeringIntensity": 1
         }
     ]
 }
