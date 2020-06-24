@@ -22,13 +22,12 @@ public class FollowPlayerComponent extends Component {
             player = gameObject.getGameObjectManager().getGameObject(gameObject.getGameObjectManager().playerID);
             return;
         }
-        if(Vector2.dst(player.getX(), player.getY(), gameObject.getX(), gameObject.getY()) > followDistance) {
+        if(Vector2.dst(player.getX(), player.getY(), gameObject.getX(), gameObject.getY()) > followDistance || player.isRemoved()) {
             wanderArround(delta);
         } else if(Vector2.dst(player.getX(), player.getY(), gameObject.getX(), gameObject.getY()) > 1.2f){
             moveTowards(player.getX(), player.getY());
         }
         directionChangeCooldown = Math.max(0, directionChangeCooldown - delta);
-
     }
 
     @Override

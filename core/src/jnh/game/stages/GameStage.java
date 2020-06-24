@@ -59,13 +59,13 @@ public class GameStage extends Stage {
         addActor(new LightObject(this, new Color(0.4f, 0.8f, 1f, 0.9f), new Vector2(9f, 9f ), 9, 1, false));
         addActor(new LightObject(this, new Color(1f, 0.7f, 0.3f, 0.8f), new Vector2(3f, 3 ), 9, 0.1f, false));
 
-        for(int i = 0; i < 1000; i++) {
+        for(int i = 0; i < 10; i++) {
             GameObject g = new GameObject(this, Assets.blueprints.AXE);
             g.setPosition((float) (Math.random() * 7) + 6, (float) (Math.random() * 7) + 6);
         }
         gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
 
-        //new GameObject(this, Assets.blueprints.ZOMBIE);
+        new GameObject(this, Assets.blueprints.ZOMBIE);
         //GameObject g = new GameObject(this, Assets.blueprints.LOGPILE);
 
         getMainLayer().setDebug(true, true);

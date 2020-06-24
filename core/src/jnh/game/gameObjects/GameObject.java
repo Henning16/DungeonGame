@@ -27,6 +27,7 @@ public class GameObject extends Image {
     private GameObjectManager gameObjectManager;
 
     private boolean alreadyActed = false;
+    private boolean removed = false;
 
     private TextureRegion texture;
 
@@ -81,6 +82,10 @@ public class GameObject extends Image {
         alreadyActed = true;
     }
 
+    public void setAlreadyActed(boolean alreadyActed) {
+        this.alreadyActed = alreadyActed;
+    }
+
     /**
      * Führt die {@link Component#tick(float)} aller Components aus.
      * @param delta die Zeit in Sekunden seit dem letzten Tick
@@ -111,9 +116,13 @@ public class GameObject extends Image {
         for(Component component: components) {
             component.remove();
         }
+        removed = true;
         return remove;
     }
 
+    public boolean isRemoved() {
+        return removed;
+    }
 
     /**
      * Gibt den {@link Blueprint}, also die Vorlage, zurück, aus dem das GameObject erschaffen wurde.
@@ -221,10 +230,6 @@ public class GameObject extends Image {
 
     public Vector2 getPosition() {
         return new Vector2(getX(), getY());
-    }
-
-    public void setAlreadyActed(boolean alreadyActed) {
-        this.alreadyActed = alreadyActed;
     }
 
     /**
