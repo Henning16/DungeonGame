@@ -20,19 +20,22 @@
         {
             "class": "jnh.game.gameObjects.components.BodyComponent",
             "bodyType": "DynamicBody",
-            "density": 15,
+            "density": 3,
             "linearDamping": 10
         },
         {
             "class": "jnh.game.gameObjects.components.FollowPlayerComponent",
-            "followDistance": 4
+            "followDistance": 6
         },
         {
             "class": "jnh.game.gameObjects.components.AttackPlayerComponent"
         },
         {
             "class": "jnh.game.gameObjects.components.HealthComponent",
-            "maxHealth": 10
+            "maxHealth": 15
+        },
+        {
+            "class": "jnh.game.gameObjects.components.ModifyDimensionComponent"
         }
     ]
 }

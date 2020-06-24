@@ -25,7 +25,7 @@ public class GameCamera extends OrthographicCamera {
         position.x = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID).getX() * Global.UNIT;
         position.y = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID).getY() * Global.UNIT;
         if(shake.duration > 0f) {
-            translate((float) (Math.random() * 2f - 1f) * shake.intensity, (float) (Math.random() * 2f - 1f) * shake.intensity);
+            translate((float) (Math.random() * 2f - 1f) * shake.intensity / 16, (float) (Math.random() * 2f - 1f) * shake.intensity / 16);
         }
         if(shake.duration > 0f) {
             shake.duration = Math.max(0f, shake.duration - delta);
@@ -34,7 +34,11 @@ public class GameCamera extends OrthographicCamera {
     }
 
     public void resize(int width, int height) {
-        viewportWidth = screen.VIEWPORT_WIDTH;
-        viewportHeight = (screen.VIEWPORT_WIDTH / width) * height;
+        int scl = (int) ((width / screen.VIEWPORT_WIDTH) / 16);
+        if(scl == 0) {
+           scl = 1;
+        }
+        viewportWidth = width / (scl * 16);
+        viewportHeight = (viewportWidth / width) * height;
     }
 }

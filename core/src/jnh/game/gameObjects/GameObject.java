@@ -5,8 +5,11 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.SnapshotArray;
 import jnh.game.gameObjects.components.Component;
 import jnh.game.gameObjects.construction.Blueprint;
 import jnh.game.gfx.animations.Animator;
@@ -23,9 +26,13 @@ public class GameObject extends Image {
     private GameStage stage;
     private GameObjectManager gameObjectManager;
 
+    private boolean alreadyActed = false;
+
     private TextureRegion texture;
 
     private ArrayList<Component> components = new ArrayList<>();
+
+    public int indexInParent = -1;
 
     public GameObject(GameStage stage, Blueprint blueprint) {
         this.stage = stage;
@@ -66,8 +73,12 @@ public class GameObject extends Image {
      */
     @Override
     public final void act(float delta) {
+        if(alreadyActed) {
+            return;
+        }
         super.act(delta);
         tick(delta);
+        alreadyActed = true;
     }
 
     /**
@@ -79,6 +90,7 @@ public class GameObject extends Image {
         for(Component component: components) {
             component.tick(delta);
         }
+        updateZPosition();
     }
 
     @Override
@@ -211,6 +223,10 @@ public class GameObject extends Image {
         return new Vector2(getX(), getY());
     }
 
+    public void setAlreadyActed(boolean alreadyActed) {
+        this.alreadyActed = alreadyActed;
+    }
+
     /**
      * Überprüft, ob die angegebene Position im GameObject enthalten ist. Das funktioniert bis jetzt nur bei rechteckigen GameObjects.
      * @param position die zu überprüfende Position
@@ -220,4 +236,23 @@ public class GameObject extends Image {
         return new Rectangle(getX(), getY(), getWidth(), getHeight()).contains(position);
     }
 
+    private void updateZPosition() {
+        if(getParent() == null) {
+            return;
+        }
+        SnapshotArray<Actor> actors = getParent().getChildren();
+        if(indexInParent == -1) {
+            indexInParent = actors.indexOf(this, true);
+        }
+        while(indexInParent - 1 > 0 && getY() > actors.get(indexInParent - 1).getY()) {
+            getParent().swapActor(indexInParent, indexInParent - 1);
+            ((GameObject) actors.get(indexInParent)).indexInParent = indexInParent;
+            indexInParent--;
+        }
+        while(indexInParent < actors.size - 1 && getY() < actors.get(indexInParent + 1).getY()) {
+            getParent().swapActor(indexInParent, indexInParent + 1);
+            ((GameObject) actors.get(indexInParent)).indexInParent = indexInParent;
+            indexInParent++;
+        }
+    }
 }

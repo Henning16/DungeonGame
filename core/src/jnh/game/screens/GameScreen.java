@@ -23,7 +23,6 @@ public class GameScreen implements Screen {
 
     private SpriteBatch batch;
 
-    private FitViewport viewport;
     private GameCamera camera;
     private RayHandler rayHandler;
     private World world;
@@ -32,7 +31,7 @@ public class GameScreen implements Screen {
     private GameUI ui;
     private FPSLogger logger;
 
-    public float VIEWPORT_WIDTH = 800, VIEWPORT_HEIGHT = 450;
+    public float VIEWPORT_WIDTH = 24, VIEWPORT_HEIGHT = 24;
 
     public GameScreen(DungeonGame game) {
         this.game = game;
@@ -40,9 +39,8 @@ public class GameScreen implements Screen {
 
     @Override
     public void show() {
-
         camera = new GameCamera(this);
-        camera.setToOrtho(false,VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
+        camera.setToOrtho(false, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 
         world = new World(new Vector2(0f, 0f), true);
 
@@ -75,6 +73,7 @@ public class GameScreen implements Screen {
         update(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
 
         batch.setProjectionMatrix(camera.combined.scl(Global.UNIT));
         batch.begin();

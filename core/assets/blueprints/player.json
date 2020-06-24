@@ -37,7 +37,7 @@
         },
         {
             "class": "jnh.game.gameObjects.components.ItemContainerComponent",
-            "size": 1000
+            "size": 5000
         },
         {
             "class": "jnh.game.gameObjects.components.ItemCollectionComponent",
@@ -52,6 +52,9 @@
         },
         {
             "class": "jnh.game.gameObjects.components.PlayerItemUsageComponent"
+        },
+        {
+            "class": "jnh.game.gameObjects.components.ModifyDimensionComponent"
         }
     ]
 }

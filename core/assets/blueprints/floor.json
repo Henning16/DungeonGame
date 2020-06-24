@@ -1,0 +1,14 @@
+{
+    "type": "FLOOR",
+    "layer": "background",
+    "dimension": {
+        "x": 1,
+        "y": 1
+    },
+    "components": [
+        {
+            "class": "jnh.game.gameObjects.components.RandomTextureComponent",
+            "textureSetName": "FLOOR_TILE"
+        }
+    ]
+}

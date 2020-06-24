@@ -2,7 +2,11 @@ package jnh.game.stages;
 
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -29,7 +33,9 @@ public class GameStage extends Stage {
     private LightUpdater lightUpdater;
 
     private GameObjectManager gameObjectManager;
-    private Layer backgroundLayer, mainLayer, foregroundLayer;
+    private Group backgroundLayer;
+    private Group mainLayer;
+    private Group foregroundLayer;
 
     private Dungeon dungeon;
 
@@ -41,6 +47,7 @@ public class GameStage extends Stage {
         gameObjectManager = new GameObjectManager(this);
 
         backgroundLayer = new Layer();
+        
         addActor(backgroundLayer);
         mainLayer = new Layer();
         addActor(mainLayer);
@@ -54,13 +61,14 @@ public class GameStage extends Stage {
 
         for(int i = 0; i < 1000; i++) {
             GameObject g = new GameObject(this, Assets.blueprints.AXE);
-            g.setPosition((float) (Math.random() * 8) + 2, (float) (Math.random() * 8) + 2);
+            g.setPosition((float) (Math.random() * 7) + 6, (float) (Math.random() * 7) + 6);
         }
         gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
 
         //new GameObject(this, Assets.blueprints.ZOMBIE);
-        GameObject g = new GameObject(this, Assets.blueprints.LOGPILE);
+        //GameObject g = new GameObject(this, Assets.blueprints.LOGPILE);
 
+        getMainLayer().setDebug(true, true);
     }
 
     @Override

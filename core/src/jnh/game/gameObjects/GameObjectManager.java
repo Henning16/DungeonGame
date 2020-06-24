@@ -1,5 +1,6 @@
 package jnh.game.gameObjects;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import jnh.game.stages.GameStage;
 
@@ -45,7 +46,15 @@ public class GameObjectManager {
 
     public boolean remove(int id) {
         try {
-            return gameObjects[id].remove();
+            Group previousParent = gameObjects[id].getParent();
+            int oldIndex = gameObjects[id].indexInParent;
+            boolean result = gameObjects[id].remove();
+            if(result) {
+                for(int i = oldIndex; i < previousParent.getChildren().size; i++) {
+                    ((GameObject) previousParent.getChildren().get(i)).indexInParent = i;
+                }
+            }
+            return result;
         } catch(ArrayIndexOutOfBoundsException e) {
             System.err.println("GameObjectManager: Invalid ID");
             return false;
@@ -71,6 +80,11 @@ public class GameObjectManager {
             items.remove((Object) id);
         }
         toBeRemoved.clear();
+        for(GameObject gameObject: gameObjects) {
+            if(gameObject != null) {
+                gameObject.setAlreadyActed(false);
+            }
+        }
     }
 
     public GameObject[] getGameObjects() {

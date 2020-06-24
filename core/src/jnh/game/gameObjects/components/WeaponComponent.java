@@ -38,7 +38,7 @@ public class WeaponComponent extends Component implements ItemAction {
             if(i != user.getID() && user.getPosition().dst2(other.getPosition()) < range * range) {
                 ((HealthComponent) other.getComponent(HealthComponent.class)).dealDamage(damage, 1f);
                 other.getComponent(BodyComponent.class).getBody().applyForce(
-                        new Vector2(other.getX() - gameObject.getX(), other.getY() - gameObject.getY()).scl(1000 * knockback),
+                        new Vector2(other.getX() - gameObject.getX(), other.getY() - gameObject.getY()).scl(200 * knockback),
                         new Vector2(other.getX(), other.getY()), true);
             }
         }
