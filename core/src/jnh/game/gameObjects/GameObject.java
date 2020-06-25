@@ -19,17 +19,17 @@ import java.util.ArrayList;
 
 public class GameObject extends Image {
 
-    private Blueprint blueprint;
+    private transient Blueprint blueprint;
     private String type;
     private int id;
 
-    private GameStage stage;
-    private GameObjectManager gameObjectManager;
+    private transient GameStage stage;
+    private transient GameObjectManager gameObjectManager;
 
     private boolean alreadyActed = false;
     private boolean removed = false;
 
-    private TextureRegion texture;
+    private transient TextureRegion texture;
 
     private ArrayList<Component> components = new ArrayList<>();
 

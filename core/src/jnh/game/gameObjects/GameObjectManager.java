@@ -8,16 +8,17 @@ import java.util.ArrayList;
 
 public class GameObjectManager {
 
-    private GameStage stage;
+    private transient GameStage stage;
 
-    public static final int MAX_GAME_OBJECT_NUMBER = 10000;
+    private boolean doDebug = false;
+    public static final transient int MAX_GAME_OBJECT_NUMBER = 10000;
 
     private GameObject[] gameObjects = new GameObject[MAX_GAME_OBJECT_NUMBER];
 
-    private ArrayList<Integer> toBeRemoved = new ArrayList<>();
+    private transient ArrayList<Integer> toBeRemoved = new ArrayList<>();
 
-    public ArrayList<Integer> items = new ArrayList<>();
-    public ArrayList<Integer> destroyables = new ArrayList<>();
+    public transient ArrayList<Integer> items = new ArrayList<>();
+    public transient ArrayList<Integer> destroyables = new ArrayList<>();
 
     public int playerID;
 
@@ -56,7 +57,9 @@ public class GameObjectManager {
             }
             return result;
         } catch(ArrayIndexOutOfBoundsException e) {
-            System.err.println("GameObjectManager: Invalid ID");
+            if(doDebug) {
+                System.err.println("GameObjectManager: Invalid ID");
+            }
             return false;
         }
     }
@@ -65,7 +68,9 @@ public class GameObjectManager {
         try {
             return gameObjects[id];
         } catch(ArrayIndexOutOfBoundsException e) {
-            System.err.println("GameObjectManager: Invalid ID");
+            if(doDebug) {
+                System.err.println("GameObjectManager: Invalid ID");
+            }
             return null;
         }
     }

@@ -2,6 +2,7 @@ package jnh.game.stages;
 
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -9,7 +10,6 @@ import jnh.game.Global;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.GameObjectManager;
-import jnh.game.gameObjects.Layer;
 import jnh.game.gameObjects.construction.SceneHandler;
 import jnh.game.screens.GameScreen;
 import jnh.game.utils.TimeHandler;
@@ -34,12 +34,12 @@ public class GameStage extends Stage {
 
         gameObjectManager = new GameObjectManager(this);
 
-        backgroundLayer = new Layer();
+        backgroundLayer = new Group();
         
         addActor(backgroundLayer);
-        mainLayer = new Layer();
+        mainLayer = new Group();
         addActor(mainLayer);
-        foregroundLayer = new Layer();
+        foregroundLayer = new Group();
         addActor(foregroundLayer);
 
         dungeon = new Dungeon(this, System.currentTimeMillis(), 1);
@@ -50,7 +50,7 @@ public class GameStage extends Stage {
         }
         gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
 
-        new GameObject(this, Assets.blueprints.ZOMBIE);
+        //new GameObject(this, Assets.blueprints.ZOMBIE);
         //GameObject g = new GameObject(this, Assets.blueprints.LOGPILE);
 
         getMainLayer().setDebug(true, true);
@@ -61,6 +61,9 @@ public class GameStage extends Stage {
         super.act(delta);
         TimeHandler.tick(delta);
         gameObjectManager.update();
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
+            sceneHandler.saveScene("test");
+        }
     }
 
     @Override

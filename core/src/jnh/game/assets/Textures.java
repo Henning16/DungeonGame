@@ -13,7 +13,8 @@ public class Textures {
     public final Animation ERROR;
     public final Animation<TextureRegion>[][] PLAYER, ZOMBIE;
     public final Animation<TextureRegion>[] FLOOR_TILE;
-    public final Animation[][] WALL;
+    public final Animation<TextureRegion>[][] WALL;
+    public final Animation<TextureRegion>[][] WALL_NEW;
     public final Animation AXE;
     public final Animation LOGPILE;
     public final Animation BLOOD;
@@ -36,6 +37,7 @@ public class Textures {
         ZOMBIE = new Animation[4][2];
         FLOOR_TILE = new Animation[8];
         WALL = new Animation[5][4];
+        WALL_NEW = new Animation[5][4];
 
         PLAYER[Direction.UP][MovementState.IDLE] = new Animation<>(1f,
                 get(PLAYER_SHEET, 11, 0, 11, 16));
@@ -177,6 +179,27 @@ public class Textures {
         WALL[4][3] = new Animation<>(1f,
                 get(WALL_SHEET, 64, 48, 16, 16));
 
+        WALL_NEW[0][0] = new Animation<>(1f,
+                get(WALL_SHEET, 11, 12, 5, 20));
+        WALL_NEW[0][1] = new Animation<>(1f,
+                get(WALL_SHEET, 11, 28, 5, 16));
+        WALL_NEW[0][2] = new Animation<>(1f,
+                get(WALL_SHEET, 11, 44, 5, 20));
+
+        WALL_NEW[1][0] = new Animation<>(1f,
+                get(WALL_SHEET, 16, 12, 16, 20));
+        WALL_NEW[1][1] = new Animation<>(1f,
+                get(WALL_SHEET, 16, 32, 16, 12));
+        WALL_NEW[1][2] = new Animation<>(1f,
+                get(WALL_SHEET, 16, 44, 16, 20));
+
+        WALL_NEW[2][0] = new Animation<>(1f,
+                get(WALL_SHEET, 32, 12, 5, 20));
+        WALL_NEW[2][1] = new Animation<>(1f,
+                get(WALL_SHEET, 32, 28, 5, 16));
+        WALL_NEW[2][2] = new Animation<>(1f,
+                get(WALL_SHEET, 32, 44, 5, 20));
+
         AXE = new Animation(1f,
                 get(WEAPONS_SHEET, 0, 0, 16, 16));
         LOGPILE = new Animation(1f,
@@ -211,6 +234,7 @@ public class Textures {
         try {
             return (Animation<TextureRegion>[][]) this.getClass().getField(name).get(this);
         } catch(Exception e) {
+            e.printStackTrace();
             System.err.println("[TextureComponent]: "+ name +" not found.");
             return new Animation[][] {{ERROR}};
         }

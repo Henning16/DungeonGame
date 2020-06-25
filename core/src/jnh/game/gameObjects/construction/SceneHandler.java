@@ -2,7 +2,9 @@ package jnh.game.gameObjects.construction;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.utils.Json;
 import jnh.game.gameObjects.GameObject;
+import jnh.game.gameObjects.components.HealthComponent;
 import jnh.game.stages.GameStage;
 
 import java.util.Base64;
@@ -16,14 +18,8 @@ public class SceneHandler {
     }
 
     public void saveScene(String name) {
-        //TODO use parameters
-        String fileString = "";
-        GameObject[] gameObjects = stage.getGameObjectManager().getGameObjects();
-        //iterate through all GameObjects
-        for(int i = 0; i < gameObjects.length; i++) {
-
-        }
-        FileHandle file = Gdx.files.local("test.save");
+        String fileString = new Json().toJson(stage.getGameObjectManager());
+        FileHandle file = Gdx.files.local("test.json");
         file.writeString(fileString, false);
     }
 

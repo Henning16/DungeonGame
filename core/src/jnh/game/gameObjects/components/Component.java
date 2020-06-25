@@ -7,7 +7,7 @@ import jnh.game.gameObjects.GameObject;
  * Components können GameObjects hinzugefügt werden und übernehmen Teilaufgaben dieser GameObjects.
  * @see GameObject
  */
-public abstract class Component implements Cloneable {
+public abstract class Component {
 
     /**
      * Verweis auf das GameObject dem diese Component zugeordnet ist. Die Variable hat den Wert {@code null} bevor die Methode {@link #attachedTo(GameObject)} aufgerufen wurde.

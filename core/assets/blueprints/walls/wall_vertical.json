@@ -1,0 +1,27 @@
+{
+    "type": "WALL_VERTICAL",
+    "layer": "main",
+    "dimension": {
+        "x": 0.3125,
+        "y": 1
+    },
+    "components": [
+        {
+            "class": "jnh.game.gameObjects.components.Indexed2TextureComponent",
+            "textureSetName": "WALL_NEW",
+            "index": [0, 1]
+        },
+        {
+            "class": "jnh.game.gameObjects.components.BodyComponent",
+            "bodyType": "StaticBody",
+            "collisionBoxPosition": {
+                "x": -5.5,
+                "y": 0
+            },
+            "collisionBoxDimension": {
+                "x": 5,
+                "y": 16
+            }
+        }
+    ]
+}
