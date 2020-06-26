@@ -29,9 +29,6 @@ public class GameStage extends Stage {
 
     private Dungeon dungeon;
 
-    private GameUI ui;
-
-
     public GameStage(GameScreen screen) {
         this.screen = screen;
 
@@ -53,7 +50,7 @@ public class GameStage extends Stage {
         }
         gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
 
-        //new GameObject(this, Assets.blueprints.ZOMBIE);
+        new GameObject(this, Assets.blueprints.ZOMBIE);
         //GameObject g = new GameObject(this, Assets.blueprints.LOGPILE);
 
         getMainLayer().setDebug(true, true);
@@ -102,5 +99,9 @@ public class GameStage extends Stage {
                 ((screenPosition.x / Gdx.graphics.getWidth()) - 0.5f) * (screen.VIEWPORT_WIDTH / Global.UNIT) + (screen.getGameCamera().position.x / Global.UNIT),
                 ((- screenPosition.y / Gdx.graphics.getHeight()) + 0.5f) * (screen.VIEWPORT_HEIGHT / Global.UNIT) + (screen.getGameCamera().position.y / Global.UNIT));
         return new Vector2(worldPosition.x, worldPosition.y);
+    }
+
+    public GameUI getUI() {
+        return screen.getUI();
     }
 }

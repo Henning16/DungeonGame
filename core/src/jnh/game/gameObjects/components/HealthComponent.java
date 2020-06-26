@@ -55,6 +55,9 @@ public class HealthComponent extends Component {
         if(health == -1) {
             health = maxHealth;
         }
+        if(gameObject.getType().equals("PLAYER")) {
+            updateHealthBar();
+        }
     }
 
     @Override
@@ -70,12 +73,18 @@ public class HealthComponent extends Component {
         modifyDimensionComponent.deform(new Vector2(1.2f, 1.2f), 0.3f);
         if(gameObject.getType().equals("PLAYER")) {
             gameObject.getStage().getScreen().getGameCamera().shake(new Shake(0.1f, 1));
+            updateHealthBar();
         } else {
             long soundID = Assets.sounds.ENEMY_HIT.play();
             Assets.sounds.ENEMY_HIT.setPitch(soundID, (float) (0.3f * Math.random() + 1f));
             Assets.sounds.ENEMY_HIT.setVolume(soundID, 0.1f);
         }
         colorFlashTimer = 1f;
+    }
+
+    //TODO implement general approach so that every HealthComponent can point to its own progress bar
+    private void updateHealthBar() {
+        gameObject.getStage().getUI().updateHealthBar(0, maxHealth, health);
     }
 
     public boolean isDead() {

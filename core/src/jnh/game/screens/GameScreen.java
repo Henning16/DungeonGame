@@ -38,6 +38,9 @@ public class GameScreen implements Screen {
 
     @Override
     public void show() {
+
+        ui = new GameUI(this);
+
         camera = new GameCamera(this);
         camera.setToOrtho(false, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 
@@ -54,7 +57,6 @@ public class GameScreen implements Screen {
 
         batch = (SpriteBatch) stage.getBatch();
 
-        ui = new GameUI(this);
         logger = new FPSLogger();
     }
 
@@ -73,7 +75,7 @@ public class GameScreen implements Screen {
         update(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:3));
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
 
         batch.setProjectionMatrix(camera.combined.scl(Global.UNIT));
         batch.begin();
@@ -135,5 +137,9 @@ public class GameScreen implements Screen {
 
     public GameStage getStage() {
         return stage;
+    }
+
+    public GameUI getUI() {
+        return ui;
     }
 }

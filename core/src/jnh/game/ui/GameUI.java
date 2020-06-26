@@ -2,6 +2,7 @@ package jnh.game.ui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -43,7 +44,8 @@ public class GameUI implements Disposable {
         root.add(hotBar).bottom();
 
         healthBar = new ProgressBar(0, 100, 1, false, Styles.healthBar);
-        healthBar.setValue(0);
+        healthBar.setAnimateDuration(0.1f);
+
         valueBars.add(healthBar).minWidth(300);
 
         TextButton c = new TextButton("Hotbar", Styles.defaultButton);
@@ -65,8 +67,12 @@ public class GameUI implements Disposable {
         return stage;
     }
 
-    public ProgressBar getHealthBar() {
-        return healthBar;
+    public void updateHealthBar(int min, int max, int value) {
+        if(healthBar.getValue() != value) {
+
+        }
+        healthBar.setRange(min, max);
+        healthBar.setValue(value);
     }
 
 }
