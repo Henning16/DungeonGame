@@ -8,6 +8,6 @@ public class Fonts {
     public final BitmapFont PIXEL_PLAY;
 
     public Fonts() {
-        PIXEL_PLAY = new BitmapFont(Gdx.files.internal("fonts/pixelplay.fnt"));
+        PIXEL_PLAY = new BitmapFont(Gdx.files.internal("fonts/returnofganon.fnt"));
     }
 }

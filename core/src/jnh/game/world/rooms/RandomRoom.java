@@ -48,7 +48,7 @@ public class RandomRoom extends Room {
         //RIGHT
         GameObject lowerRightWall = new GameObject(getStage(), Assets.blueprints.WALL_LOWER_CORNER);
         lowerRightWall.getComponent(BodyComponent.class).getBody().setTransform(ROOM_WIDTH - 1, 0, 0);
-        for(int y = 2; y < ROOM_HEIGHT; y++) {
+        for(int y = 1; y < ROOM_HEIGHT - 1; y++) {
             GameObject wall = new GameObject(getStage(), Assets.blueprints.WALL_VERTICAL);
             wall.getComponent(BodyComponent.class).getBody().setTransform(ROOM_WIDTH - 1, y, 0);
         }

@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import jnh.game.DungeonGame;
 import jnh.game.Global;
 import jnh.game.gfx.GameCamera;
@@ -19,7 +18,7 @@ import jnh.game.ui.GameUI;
 
 public class GameScreen implements Screen {
 
-    private DungeonGame game;
+    private final DungeonGame game;
 
     private SpriteBatch batch;
 
@@ -66,6 +65,7 @@ public class GameScreen implements Screen {
         rayHandler.update();
         camera.act(delta);
         ui.act(delta);
+        ui.getStage().getCamera().update();
     }
 
     @Override
@@ -73,7 +73,7 @@ public class GameScreen implements Screen {
         update(delta);
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:3));
 
         batch.setProjectionMatrix(camera.combined.scl(Global.UNIT));
         batch.begin();
@@ -83,8 +83,8 @@ public class GameScreen implements Screen {
         rayHandler.setCombinedMatrix(camera.combined.translate(0.5f, 0.5f, 0f));
         rayHandler.updateAndRender();
 
-        ui.getStage().getBatch().setProjectionMatrix(ui.getStage().getCamera().combined);
         ui.getStage().draw();
+
 
         logger.log();
     }
@@ -92,6 +92,7 @@ public class GameScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         camera.resize(width, height);
+        ui.getStage().getViewport().update(width, height, true);
     }
 
     @Override

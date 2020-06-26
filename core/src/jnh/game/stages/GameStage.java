@@ -12,6 +12,7 @@ import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.GameObjectManager;
 import jnh.game.gameObjects.construction.SceneHandler;
 import jnh.game.screens.GameScreen;
+import jnh.game.ui.GameUI;
 import jnh.game.utils.TimeHandler;
 import jnh.game.world.Dungeon;
 
@@ -27,6 +28,8 @@ public class GameStage extends Stage {
     private Group foregroundLayer;
 
     private Dungeon dungeon;
+
+    private GameUI ui;
 
 
     public GameStage(GameScreen screen) {
@@ -61,9 +64,6 @@ public class GameStage extends Stage {
         super.act(delta);
         TimeHandler.tick(delta);
         gameObjectManager.update();
-        if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            sceneHandler.saveScene("test");
-        }
     }
 
     @Override

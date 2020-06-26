@@ -1,44 +1,54 @@
 package jnh.game.ui;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.Disposable;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import jnh.game.screens.GameScreen;
 
 public class GameUI implements Disposable {
 
-    private GameScreen screen;
+    private final GameScreen screen;
 
-    private Stage stage;
-    private Viewport viewport;
-    private SpriteBatch batch;
+    private final Stage stage;
 
-    private Table root;
+    private final Table root;
 
+    private final Table valueBars;
+    private final Table hotBar;
+
+    private final ProgressBar healthBar;
 
     public GameUI(GameScreen screen){
         this.screen = screen;
-        this.batch = new SpriteBatch();
+        SpriteBatch batch = new SpriteBatch();
 
         new Styles();
 
-        viewport = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), new OrthographicCamera());
-        stage = new Stage(viewport, batch);
+        stage = new Stage(new ScreenViewport(), batch);
 
         root = new Table();
         root.setFillParent(true);
-        root.setDebug(true);
+        stage.addActor(root);
 
-        TextButton button = new TextButton("Button", Styles.defaultButton);
-        button.setText("Hello this is some text");
-        button.setPosition(4, 4);
-        root.addActor(button);
+        valueBars = new Table();
+        root.add(valueBars).left().top().pad(10, 10, 0, 0).expand();
+        root.row();
+
+        hotBar = new Table();
+        root.add(hotBar).bottom();
+
+        healthBar = new ProgressBar(0, 100, 1, false, Styles.healthBar);
+        healthBar.setValue(0);
+        valueBars.add(healthBar).minWidth(300);
+
+        TextButton c = new TextButton("Hotbar", Styles.defaultButton);
+        hotBar.add(c);
+
         Gdx.input.setInputProcessor(stage);
     }
 
@@ -54,4 +64,9 @@ public class GameUI implements Disposable {
     public Stage getStage() {
         return stage;
     }
+
+    public ProgressBar getHealthBar() {
+        return healthBar;
+    }
+
 }
