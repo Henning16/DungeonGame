@@ -3,6 +3,8 @@ package jnh.game.ui;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -48,8 +50,8 @@ public class GameUI implements Disposable {
 
         valueBars.add(healthBar).minWidth(300);
 
-        TextButton c = new TextButton("Hotbar", Styles.defaultButton);
-        hotBar.add(c);
+        TextButton c = new TextButton("Button", Styles.defaultButton);
+        hotBar.add(c).width(160).height(60);
 
         Gdx.input.setInputProcessor(stage);
     }

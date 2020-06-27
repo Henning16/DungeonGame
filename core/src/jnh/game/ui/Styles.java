@@ -21,21 +21,24 @@ public class Styles {
         //DEFAULT BUTTON STYLE
         defaultButton = new TextButton.TextButtonStyle();
 
-        NinePatch p = new NinePatch(Assets.uiTextures.BUTTON_OVER, 5, 5, 5, 5);
+        NinePatch p = new NinePatch(Assets.uiTextures.BUTTON_UP, 5, 5, 5, 5);
         p.scale(4, 4);
         defaultButton.up =  new NinePatchDrawable(p);
 
-        NinePatch p2 = new NinePatch(Assets.uiTextures.BUTTON_DOWN, 5, 5, 5, 4);
+        NinePatch p2 = new NinePatch(Assets.uiTextures.BUTTON_OVER, 5, 5, 5, 5);
         p2.scale(4, 4);
-        defaultButton.down =  new NinePatchDrawable(p2);
+        defaultButton.over =  new NinePatchDrawable(p2);
 
-        defaultButton.fontColor = new Color(1, 0.9f, 0.8f, 1);
+        NinePatch p3 = new NinePatch(Assets.uiTextures.BUTTON_DOWN, 5, 5, 5, 5);
+        p3.scale(4, 4);
+        defaultButton.down =  new NinePatchDrawable(p3);
+
+        defaultButton.fontColor = new Color(1, 1, 1, 1);
         defaultButton.font = Assets.fonts.PIXEL_PLAY;
 
 
         //HEALTH BAR STYLE
         healthBar = new ProgressBar.ProgressBarStyle();
-
         NinePatch healthBarPatch = new NinePatch(Assets.uiTextures.HEALTH_BAR_BACKGROUND, 3, 3, 2, 2);
         healthBarPatch.scale(4, 4);
         healthBarPatch.setPadding(0, 0, 0, 0);

@@ -1,5 +1,6 @@
 package jnh.game.screens;
 
+import box2dLight.BlendFunc;
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -38,19 +39,23 @@ public class GameScreen implements Screen {
 
     @Override
     public void show() {
-
+        //UI
         ui = new GameUI(this);
 
+        //Camera
         camera = new GameCamera(this);
         camera.setToOrtho(false, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 
+        //World for physics
         world = new World(new Vector2(0f, 0f), true);
 
+        //RayHandler
         rayHandler = new RayHandler(world);
         rayHandler.setAmbientLight(new Color(1f, 1f, 1f, 0));
         rayHandler.setBlur(true);
         rayHandler.setBlurNum(1);
 
+        //Stage
         stage = new GameStage(this);
         stage.getViewport().setCamera(camera);
         Gdx.input.setInputProcessor(stage);
@@ -73,17 +78,26 @@ public class GameScreen implements Screen {
     @Override
     public void render(float delta) {
         update(delta);
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
+
+        //Gdx.gl.glClearColor(0, 0, 0, 1);
+        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
 
         batch.setProjectionMatrix(camera.combined.scl(Global.UNIT));
+        batch.enableBlending();
+        batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         batch.begin();
         stage.getRoot().draw(batch, 1);
         batch.end();
 
         rayHandler.setCombinedMatrix(camera.combined.translate(0.5f, 0.5f, 0f));
         rayHandler.updateAndRender();
+
+
+
+
+
+
 
         ui.getStage().draw();
 
@@ -104,7 +118,6 @@ public class GameScreen implements Screen {
 
     @Override
     public void resume() {
-
     }
 
     @Override
