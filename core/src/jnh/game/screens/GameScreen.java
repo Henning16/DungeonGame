@@ -3,6 +3,7 @@ package jnh.game.screens;
 import box2dLight.BlendFunc;
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.FPSLogger;
@@ -31,6 +32,8 @@ public class GameScreen implements Screen {
     private GameUI ui;
     private FPSLogger logger;
 
+    private boolean paused = false;
+
     public float VIEWPORT_WIDTH = 24, VIEWPORT_HEIGHT = 24;
 
     public GameScreen(DungeonGame game) {
@@ -58,18 +61,22 @@ public class GameScreen implements Screen {
         //Stage
         stage = new GameStage(this);
         stage.getViewport().setCamera(camera);
-        Gdx.input.setInputProcessor(stage);
 
         batch = (SpriteBatch) stage.getBatch();
 
         logger = new FPSLogger();
+
+        InputMultiplexer multiplexer = new InputMultiplexer(stage, ui.getStage());
+        Gdx.input.setInputProcessor(multiplexer);
     }
 
     public void update(float delta) {
-        Global.elapsedTime += delta;
-        stage.act(Gdx.graphics.getDeltaTime());
-        world.step(1 / 60f, 6, 2);
-        rayHandler.update();
+        if(!paused) {
+            Global.elapsedTime += delta;
+            stage.act(Gdx.graphics.getDeltaTime());
+            world.step(1 / 60f, 6, 2);
+            rayHandler.update();
+        }
         camera.act(delta);
         ui.act(delta);
         ui.getStage().getCamera().update();
@@ -93,14 +100,7 @@ public class GameScreen implements Screen {
         rayHandler.setCombinedMatrix(camera.combined.translate(0.5f, 0.5f, 0f));
         rayHandler.updateAndRender();
 
-
-
-
-
-
-
         ui.getStage().draw();
-
 
         logger.log();
     }
@@ -113,11 +113,12 @@ public class GameScreen implements Screen {
 
     @Override
     public void pause() {
-
+        paused = true;
     }
 
     @Override
     public void resume() {
+        paused = false;
     }
 
     @Override
@@ -154,5 +155,9 @@ public class GameScreen implements Screen {
 
     public GameUI getUI() {
         return ui;
+    }
+
+    public boolean isPaused() {
+        return paused;
     }
 }

@@ -31,7 +31,6 @@ public class GameStage extends Stage {
 
     public GameStage(GameScreen screen) {
         this.screen = screen;
-
         gameObjectManager = new GameObjectManager(this);
 
         backgroundLayer = new Group();
@@ -50,7 +49,12 @@ public class GameStage extends Stage {
         }
         gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
 
+        /*new GameObject(this, Assets.blueprints.ZOMBIE);
         new GameObject(this, Assets.blueprints.ZOMBIE);
+        new GameObject(this, Assets.blueprints.ZOMBIE);
+        new GameObject(this, Assets.blueprints.ZOMBIE);
+        new GameObject(this, Assets.blueprints.ZOMBIE);*/
+
         //GameObject g = new GameObject(this, Assets.blueprints.LOGPILE);
 
         getMainLayer().setDebug(true, true);
