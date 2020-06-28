@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.SnapshotArray;
 import jnh.game.gameObjects.components.Component;
+import jnh.game.gameObjects.components.ComponentHandler;
 import jnh.game.gameObjects.construction.Blueprint;
 import jnh.game.gfx.animations.Animator;
 import jnh.game.stages.GameStage;
@@ -31,7 +32,7 @@ public class GameObject extends Image {
 
     private transient TextureRegion texture;
 
-    private ArrayList<Component> components = new ArrayList<>();
+    private ComponentHandler components = new ComponentHandler();
 
     public int indexInParent = -1;
 
@@ -92,18 +93,14 @@ public class GameObject extends Image {
      * @see Component
      */
     public void tick(float delta) {
-        for(Component component: components) {
-            component.tick(delta);
-        }
+        components.tick(delta);
         updateZPosition();
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
-        for(Component component: components) {
-            component.render(batch);
-        }
+        components.render(batch);
     }
 
     /**
@@ -113,9 +110,7 @@ public class GameObject extends Image {
     @Override
     public boolean remove() {
         boolean remove = super.remove();
-        for(Component component: components) {
-            component.remove();
-        }
+        components.remove();
         removed = true;
         return remove;
     }
@@ -192,12 +187,7 @@ public class GameObject extends Image {
      * @see Component
      */
     public <T> T getComponent(Class<T> componentClass) {
-        for(Component component: components) {
-            if(component.getClass() == componentClass) {
-                return (T) component;
-            }
-        }
-        return null;
+        return components.getComponent(componentClass);
     }
 
     /**
@@ -207,14 +197,7 @@ public class GameObject extends Image {
      * @see Component
      */
     public <T> T getComponentByInterface(Class<T> interfaceClass) {
-        for(Component component: components) {
-            for(Class componentInterfaceClass: component.getClass().getInterfaces()) {
-                if(componentInterfaceClass == interfaceClass) {
-                    return (T) component;
-                }
-            }
-        }
-        return null;
+        return components.getComponentByInterface(interfaceClass);
     }
 
     /**
@@ -225,7 +208,7 @@ public class GameObject extends Image {
      * @see ArrayList
      */
     public ArrayList<Component> getComponents() {
-        return components;
+        return components.getList();
     }
 
     public Vector2 getPosition() {
