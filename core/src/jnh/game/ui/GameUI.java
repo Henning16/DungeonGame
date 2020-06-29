@@ -81,23 +81,10 @@ public class GameUI implements Disposable {
         });
         hotBar.add(c).width(160 * Settings.getUIScale()).height(40 * Settings.getUIScale());
 
-        SelectBox c2 = new SelectBox(Styles.dropdownMenu);
-        c2.setItems(new String[] {"Dropdown Item 1", "Dropdown Item 2", "Dropdown Item 3", "Dropdown Item 4", "Dropdown Item 5", "Dropdown Item 6", "Dropdown Item 7", "Dropdown Item 8", "Dropdown Item 9", "Dropdown Item 10", "Dropdown Item 11", "Dropdown Item 12","Dropdown Item 13", "Dropdown Item 14", "Dropdown Item 15", "Dropdown Item 16", "Dropdown Item 17", "Dropdown Item 18", "Dropdown Item 19", "Dropdown Item 20",  "Dropdown Item 21", "Dropdown Item 22", "Dropdown Item 23", "Dropdown Item 24"});
-        valueBars.add(c2);
-
-        Label c3 = new Label("This is a label.\nIt has multiple lines\nwhich is very cool.", Styles.label);
-        valueBars.add(c3);
-
-        Dialog d = new Dialog("Test", Styles.window).text(new Label("This is a small dialog, which asks you a question.\nWhat do you want to do?", Styles.label)).button(new TextButton("Ok", Styles.defaultButton)).button(new TextButton("Cancel", Styles.defaultButton)).button(new TextButton("Do something else", Styles.defaultButton));
-        dialogUI.add(d);
-
     }
 
     public void act(float delta) {
         stage.act(delta);
-        if(Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-            NotificationHandler.addNotification(new Notification("Name", "This is an extremly long message which contains a bunch of unnecessary words just to fill this message. Therefore a lot of letters and other stuff will be included. This results in an long message like the particular one."));
-        }
     }
 
     @Override

@@ -1,6 +1,5 @@
 package jnh.game.screens;
 
-import box2dLight.BlendFunc;
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
@@ -14,6 +13,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import jnh.game.DungeonGame;
 import jnh.game.Global;
 import jnh.game.gfx.GameCamera;
+import jnh.game.settings.Settings;
+import jnh.game.settings.SettingsHotkeyHandler;
 import jnh.game.stages.GameStage;
 import jnh.game.ui.GameUI;
 
@@ -66,6 +67,7 @@ public class GameScreen implements Screen {
 
         logger = new FPSLogger();
 
+        //Input
         InputMultiplexer multiplexer = new InputMultiplexer(stage, ui.getStage());
         Gdx.input.setInputProcessor(multiplexer);
     }
@@ -77,18 +79,23 @@ public class GameScreen implements Screen {
             world.step(1 / 60f, 6, 2);
             rayHandler.update();
         }
+
         camera.act(delta);
-        ui.act(delta);
-        ui.getStage().getCamera().update();
+
+        if(Settings.isShowingUI()) {
+            ui.act(delta);
+            ui.getStage().getCamera().update();
+        }
+
+        SettingsHotkeyHandler.update();
     }
 
     @Override
     public void render(float delta) {
         update(delta);
 
-        //Gdx.gl.glClearColor(0, 0, 0, 1);
-        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.setProjectionMatrix(camera.combined.scl(Global.UNIT));
         batch.enableBlending();
@@ -97,10 +104,14 @@ public class GameScreen implements Screen {
         stage.getRoot().draw(batch, 1);
         batch.end();
 
-        rayHandler.setCombinedMatrix(camera.combined.translate(0.5f, 0.5f, 0f));
-        rayHandler.updateAndRender();
+        if(Settings.isRenderingLights()) {
+            rayHandler.setCombinedMatrix(camera.combined.translate(0.5f, 0.5f, 0f));
+            rayHandler.updateAndRender();
+        }
 
-        ui.getStage().draw();
+        if(Settings.isShowingUI()) {
+            ui.getStage().draw();
+        }
 
         logger.log();
     }

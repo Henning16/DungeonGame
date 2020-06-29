@@ -1,8 +1,11 @@
 package jnh.game.gfx;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import jnh.game.Global;
 import jnh.game.screens.GameScreen;
+import jnh.game.settings.Settings;
 
 public class GameCamera extends OrthographicCamera {
 
@@ -22,8 +25,23 @@ public class GameCamera extends OrthographicCamera {
     }
 
     public void act(float delta) {
-        position.x = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID).getX() * Global.UNIT;
-        position.y = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID).getY() * Global.UNIT;
+        if(Settings.isCameraFollowingPlayer()) {
+            position.x = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID).getX() * Global.UNIT;
+            position.y = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID).getY() * Global.UNIT;
+        } else {
+            if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+                position.x = position.x - 0.1f;
+            }
+            if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+                position.x = position.x + 0.1f;
+            }
+            if(Gdx.input.isKeyPressed(Input.Keys.UP)) {
+                position.y = position.y + 0.1f;
+            }
+            if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+                position.y = position.y - 0.1f;
+            }
+        }
         if(shake.duration > 0f) {
             translate((float) (Math.random() * 2f - 1f) * shake.intensity / 16, (float) (Math.random() * 2f - 1f) * shake.intensity / 16);
         }
