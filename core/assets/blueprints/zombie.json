@@ -33,9 +33,6 @@
         {
             "class": "jnh.game.gameObjects.components.HealthComponent",
             "maxHealth": 15
-        },
-        {
-            "class": "jnh.game.gameObjects.components.ModifyDimensionComponent"
         }
     ]
 }

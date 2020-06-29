@@ -1,6 +1,7 @@
 package jnh.game.stages;
 
 import box2dLight.RayHandler;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
@@ -10,6 +11,7 @@ import jnh.game.Global;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.GameObjectManager;
+import jnh.game.gameObjects.construction.Blueprint;
 import jnh.game.gameObjects.construction.SceneHandler;
 import jnh.game.screens.GameScreen;
 import jnh.game.ui.GameUI;
@@ -58,6 +60,8 @@ public class GameStage extends Stage {
         gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
 
         getMainLayer().setDebug(true, true);
+
+        new GameObject(this, Assets.blueprints.ZOMBIE);
     }
 
     @Override

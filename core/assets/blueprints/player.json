@@ -54,9 +54,6 @@
             "class": "jnh.game.gameObjects.components.PlayerItemUsageComponent"
         },
         {
-            "class": "jnh.game.gameObjects.components.ModifyDimensionComponent"
-        },
-        {
             "class": "jnh.game.gameObjects.components.LightComponent",
             "distance": 5,
             "color": {
