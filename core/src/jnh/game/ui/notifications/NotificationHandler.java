@@ -5,17 +5,19 @@ import java.util.Queue;
 
 public class NotificationHandler {
 
-    private Queue<Notification> notifications = new ArrayDeque<>();
+    private static NotificationTable table;
+    private static Queue<Notification> notifications = new ArrayDeque<>();
 
-    public NotificationHandler() {
-
-    }
-
-    public void addNotification(Notification notification) {
+    public static void addNotification(Notification notification) {
         notifications.add(notification);
+        table.addNotification(new NotificationToast(notification));
     }
 
-    public Notification popNotification() {
+    public static Notification popNotification() {
         return notifications.poll();
+    }
+
+    public static void setTable(NotificationTable table) {
+        NotificationHandler.table = table;
     }
 }

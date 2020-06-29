@@ -1,6 +1,7 @@
 package jnh.game.ui;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -11,6 +12,9 @@ import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import jnh.game.screens.GameScreen;
 import jnh.game.settings.Settings;
+import jnh.game.ui.notifications.Notification;
+import jnh.game.ui.notifications.NotificationHandler;
+import jnh.game.ui.notifications.NotificationTable;
 
 public class GameUI implements Disposable {
 
@@ -18,9 +22,9 @@ public class GameUI implements Disposable {
 
     private final Stage stage;
 
-    private final Stack root;
+
     private final Table playUI;
-    private final Table notificationUI;
+    private final Table dialogUI;
 
     private final Table valueBars;
     private final Table hotBar;
@@ -35,16 +39,22 @@ public class GameUI implements Disposable {
 
         stage = new Stage(new ScreenViewport(), batch);
 
-        root = new Stack();
-        root.setFillParent(true);
-        stage.addActor(root);
 
-        playUI = new Table().debug();
+
+        playUI = new Table();
         playUI.setFillParent(true);
-        root.add(playUI);
+        stage.addActor(playUI);
 
-        notificationUI = new Table();
-        root.add(notificationUI);
+        dialogUI = new Table();
+        dialogUI.setFillParent(true);
+        stage.addActor(dialogUI);
+
+        NotificationTable notificationUI = new NotificationTable();
+        notificationUI.setFillParent(true);
+        stage.addActor(notificationUI);
+        NotificationHandler.setTable(notificationUI);
+        NotificationHandler.addNotification(new Notification("Notification 1", "A message"));
+        NotificationHandler.addNotification(new Notification("Notification 2", "A message"));
 
         valueBars = new Table();
         playUI.add(valueBars).left().top().pad(10 * Settings.getUIScale(), 10 * Settings.getUIScale(), 0, 0).expand();
@@ -79,13 +89,15 @@ public class GameUI implements Disposable {
         valueBars.add(c3);
 
         Dialog d = new Dialog("Test", Styles.window).text(new Label("This is a small dialog, which asks you a question.\nWhat do you want to do?", Styles.label)).button(new TextButton("Ok", Styles.defaultButton)).button(new TextButton("Cancel", Styles.defaultButton)).button(new TextButton("Do something else", Styles.defaultButton));
-        root.add(d);
+        dialogUI.add(d);
 
-        Gdx.input.setInputProcessor(stage);
     }
 
     public void act(float delta) {
         stage.act(delta);
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
+            NotificationHandler.addNotification(new Notification("Name", "This is an extremly long message which contains a bunch of unnecessary words just to fill this message. Therefore a lot of letters and other stuff will be included. This results in an long message like the particular one."));
+        }
     }
 
     @Override
