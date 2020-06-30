@@ -8,7 +8,6 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.SnapshotArray;
 import jnh.game.gameObjects.components.Component;
 import jnh.game.gameObjects.components.ComponentHandler;
@@ -243,4 +242,5 @@ public class GameObject extends Image {
             indexInParent++;
         }
     }
+
 }

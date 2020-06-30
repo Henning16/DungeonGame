@@ -11,10 +11,13 @@ import jnh.game.Global;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.GameObjectManager;
+import jnh.game.gameObjects.components.BodyComponent;
 import jnh.game.gameObjects.construction.Blueprint;
 import jnh.game.gameObjects.construction.SceneHandler;
 import jnh.game.screens.GameScreen;
 import jnh.game.ui.GameUI;
+import jnh.game.ui.notifications.Notification;
+import jnh.game.ui.notifications.NotificationHandler;
 import jnh.game.utils.TimeHandler;
 import jnh.game.world.Dungeon;
 
@@ -53,15 +56,16 @@ public class GameStage extends Stage {
 
         dungeon = new Dungeon(this, System.currentTimeMillis(), 1);
 
-        for(int i = 0; i < 10; i++) {
-            GameObject g = new GameObject(this, Assets.blueprints.AXE);
-            g.setPosition((float) (Math.random() * 7) + 6, (float) (Math.random() * 7) + 6);
-        }
         gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
+        GameObject g = new GameObject(this, Assets.blueprints.AXE);
+        g.setPosition(gameObjectManager.getGameObject(gameObjectManager.playerID).getX(), gameObjectManager.getGameObject(gameObjectManager.playerID).getY());
 
         getMainLayer().setDebug(true, true);
 
-        new GameObject(this, Assets.blueprints.ZOMBIE);
+        for(int i = 0; i < 200; i++) {
+            GameObject z = new GameObject(this, Assets.blueprints.ZOMBIE);
+            z.getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 20) + 1, (float) (Math.random() * 20) + 1, 0);
+        }
     }
 
     @Override
@@ -69,6 +73,12 @@ public class GameStage extends Stage {
         super.act(delta);
         TimeHandler.tick(delta);
         gameObjectManager.update();
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
+            long start = System.currentTimeMillis();
+            SceneHandler sceneHandler = new SceneHandler(this);
+            sceneHandler.saveScene("testscene0");
+            NotificationHandler.addNotification(new Notification("Save Time", ((System.currentTimeMillis() - start) / 1000f) + " Seconds"));
+        }
     }
 
     @Override

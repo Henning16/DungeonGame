@@ -1,6 +1,7 @@
 package jnh.game.ui.notifications;
 
 import com.badlogic.gdx.graphics.g2d.NinePatch;
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -9,10 +10,12 @@ import jnh.game.assets.Assets;
 import jnh.game.settings.Settings;
 import jnh.game.ui.Styles;
 
+import java.util.Set;
+
 public class NotificationToast extends Table {
 
     private Notification notification;
-    private float timeRemaining = 4f;
+    private float timeRemaining = 8;
     private boolean removeActionsInitiated = false;
 
     public NotificationToast(Notification notification) {
@@ -33,12 +36,14 @@ public class NotificationToast extends Table {
     public void act(float delta) {
         super.act(delta);
         timeRemaining = timeRemaining - delta;
-        if(timeRemaining <= -5) {
+        if(timeRemaining <= -7) {
             getParent().removeActor(this);
-        } else if(timeRemaining <= 0 && !removeActionsInitiated) {
-            addAction(Actions.fadeOut(0.5f));
-            addAction(Actions.moveBy(75 * Settings.getUIScale(), 0, 0.5f));
-            removeActionsInitiated = true;
+        } else if(timeRemaining <= 0) {
+             if(!removeActionsInitiated) {
+                 addAction(Actions.fadeOut(0.2f));
+                 addAction(Actions.moveBy(10 * Settings.getUIScale(), 0, 0.3f));
+                 removeActionsInitiated = true;
+             }
         }
     }
 

@@ -2,9 +2,9 @@ package jnh.game.settings;
 
 public class Settings {
 
-    private static boolean cameraFollowingPlayer = false;
-    private static boolean renderingLights = false;
-    private static boolean showingUI = false;
+    private static boolean cameraFollowingPlayer = true;
+    private static boolean renderingLights = true;
+    private static boolean showingUI = true;
     private static float uiScale = 1;
 
     public static boolean isCameraFollowingPlayer() {

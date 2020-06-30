@@ -5,15 +5,15 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import jnh.game.stages.GameStage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class GameObjectManager {
 
     private transient GameStage stage;
 
     private boolean doDebug = false;
-    public static final transient int MAX_GAME_OBJECT_NUMBER = 10000;
 
-    private GameObject[] gameObjects = new GameObject[MAX_GAME_OBJECT_NUMBER];
+    private GameObject[] gameObjects = new GameObject[100];
 
     private transient ArrayList<Integer> toBeRemoved = new ArrayList<>();
 
@@ -40,8 +40,8 @@ public class GameObjectManager {
             firstFreeID++;
             return id;
         } else {
-            System.err.println("GameObjectManager: GameObject could not be added. Max GameObjectNumber is too high.");
-            return -1;
+            gameObjects = Arrays.copyOf(gameObjects, gameObjects.length + 100);
+            return add(gameObject, parent);
         }
     }
 

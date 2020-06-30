@@ -16,6 +16,6 @@ public class SettingsHotkeyHandler {
         if(Gdx.input.isKeyJustPressed(Input.Keys.F5)) {
             Settings.setCameraFollowingPlayer(!Settings.isCameraFollowingPlayer());
         }
-
     }
+
 }

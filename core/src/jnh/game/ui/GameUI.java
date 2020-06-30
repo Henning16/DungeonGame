@@ -25,7 +25,9 @@ public class GameUI implements Disposable {
 
     private final Table playUI;
     private final Table dialogUI;
+    private final Table overlayUI;
 
+    private final Label fpsLabel;
     private final Table valueBars;
     private final Table hotBar;
 
@@ -55,6 +57,14 @@ public class GameUI implements Disposable {
         NotificationHandler.setTable(notificationUI);
         NotificationHandler.addNotification(new Notification("Notification 1", "A message"));
         NotificationHandler.addNotification(new Notification("Notification 2", "A message"));
+
+        overlayUI = new Table();
+        overlayUI.top().right();
+        overlayUI.setFillParent(true);
+        stage.addActor(overlayUI);
+
+        fpsLabel = new Label("0", Styles.label);
+        overlayUI.add(fpsLabel);
 
         valueBars = new Table();
         playUI.add(valueBars).left().top().pad(10 * Settings.getUIScale(), 10 * Settings.getUIScale(), 0, 0).expand();
@@ -102,6 +112,10 @@ public class GameUI implements Disposable {
         }
         healthBar.setRange(min, max);
         healthBar.setValue(value);
+    }
+
+    public void updateFPS(int fps) {
+        fpsLabel.setText(fps);
     }
 
 }

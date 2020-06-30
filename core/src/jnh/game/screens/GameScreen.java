@@ -113,7 +113,7 @@ public class GameScreen implements Screen {
             ui.getStage().draw();
         }
 
-        logger.log();
+        ui.updateFPS(Gdx.graphics.getFramesPerSecond());
     }
 
     @Override
