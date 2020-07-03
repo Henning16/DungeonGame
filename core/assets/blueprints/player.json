@@ -1,5 +1,6 @@
 {
     "type": "PLAYER",
+    "persistent": true,
     "position": {
         "x": 4,
         "y": 4
@@ -48,7 +49,7 @@
         },
         {
             "class": "jnh.game.gameObjects.components.HealthComponent",
-            "maxHealth": 2000
+            "maxHealth": 20
         },
         {
             "class": "jnh.game.gameObjects.components.PlayerItemUsageComponent"

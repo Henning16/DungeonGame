@@ -1,7 +1,6 @@
 package jnh.game.stages;
 
 import box2dLight.RayHandler;
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
@@ -12,30 +11,31 @@ import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.GameObjectManager;
 import jnh.game.gameObjects.components.BodyComponent;
-import jnh.game.gameObjects.construction.Blueprint;
-import jnh.game.gameObjects.construction.SceneHandler;
 import jnh.game.screens.GameScreen;
 import jnh.game.ui.GameUI;
-import jnh.game.ui.notifications.Notification;
-import jnh.game.ui.notifications.NotificationHandler;
 import jnh.game.utils.TimeHandler;
-import jnh.game.world.Dungeon;
+import jnh.game.world.RandomScene;
+import jnh.game.world.Scene;
+import jnh.game.world.World;
+
+import java.io.FileNotFoundException;
 
 /**
  * This class is used for the actual stages for the game where actors like the player or other objects of the world will be placed in.
  */
 public class GameStage extends Stage {
 
-    private SceneHandler sceneHandler = new SceneHandler(this);
+    private World world;
 
-    private GameScreen screen;
+    private final GameScreen screen;
+
+    @Deprecated
+    private Scene scene;
 
     private GameObjectManager gameObjectManager;
-    private Group backgroundLayer;
-    private Group mainLayer;
-    private Group foregroundLayer;
-
-    private Dungeon dungeon;
+    private final Group backgroundLayer;
+    private final Group mainLayer;
+    private final Group foregroundLayer;
 
     /**
      * TODO this constructor needs to be cleaned up or seperated.
@@ -54,17 +54,23 @@ public class GameStage extends Stage {
         foregroundLayer = new Group();
         addActor(foregroundLayer);
 
-        dungeon = new Dungeon(this, System.currentTimeMillis(), 1);
-
         gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
+        gameObjectManager.getGameObject(gameObjectManager.playerID).setPersistent(true);
         GameObject g = new GameObject(this, Assets.blueprints.AXE);
         g.setPosition(gameObjectManager.getGameObject(gameObjectManager.playerID).getX(), gameObjectManager.getGameObject(gameObjectManager.playerID).getY());
 
-        getMainLayer().setDebug(true, true);
+        setScene(new RandomScene(this));
 
-        for(int i = 0; i < 200; i++) {
+        for(int i = 0; i < 5; i++) {
             GameObject z = new GameObject(this, Assets.blueprints.ZOMBIE);
-            z.getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 20) + 1, (float) (Math.random() * 20) + 1, 0);
+            z.getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 10) + 4, (float) (Math.random() * 10) + 4, 0);
+        }
+
+        try {
+            world = World.loadWorld(this, "test");
+            world.saveScene(0);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
@@ -74,10 +80,15 @@ public class GameStage extends Stage {
         TimeHandler.tick(delta);
         gameObjectManager.update();
         if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            long start = System.currentTimeMillis();
-            SceneHandler sceneHandler = new SceneHandler(this);
-            sceneHandler.saveScene("testscene0");
-            NotificationHandler.addNotification(new Notification("Save Time", ((System.currentTimeMillis() - start) / 1000f) + " Seconds"));
+            try {
+                world.switchScene(0);
+                world.save();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            System.out.println("debug");
         }
     }
 
@@ -109,6 +120,10 @@ public class GameStage extends Stage {
      */
     public GameObjectManager getGameObjectManager() {
         return gameObjectManager;
+    }
+
+    public void setGameObjectManager(GameObjectManager gameObjectManager) {
+        this.gameObjectManager = gameObjectManager;
     }
 
     //LAYERS
@@ -145,5 +160,15 @@ public class GameStage extends Stage {
      */
     public GameUI getUI() {
         return screen.getUI();
+    }
+
+    @Deprecated
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    @Deprecated
+    public Scene getScene() {
+        return scene;
     }
 }

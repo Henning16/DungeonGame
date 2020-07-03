@@ -1,0 +1,29 @@
+{
+    "type": "LOGPILE",
+    "position": {
+        "x": 6,
+        "y": 4
+    },
+    "dimension": {
+        "x": 1,
+        "y": 1
+    },
+    "components": [
+        {
+            "class": "jnh.game.gameObjects.components.TextureComponent",
+            "textureName": "LOGPILE"
+        },
+        {
+            "class": "jnh.game.gameObjects.components.BodyComponent",
+            "bodyType": "StaticBody",
+            "collisionBoxPosition": {
+                "x": 3,
+                "y": 1
+            },
+            "collisionBoxDimension": {
+                "x": 12,
+                "y": 11
+            }
+        }
+    ]
+}

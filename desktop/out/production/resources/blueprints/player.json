@@ -1,0 +1,65 @@
+{
+    "type": "PLAYER",
+    "position": {
+        "x": 4,
+        "y": 4
+    },
+    "dimension": {
+        "x": 0.6875,
+        "y": 1
+    },
+    "layer": "main",
+    "components": [
+        {
+            "class": "jnh.game.gameObjects.components.MovementComponent",
+            "maxSpeed": 2
+        },
+        {
+            "class": "jnh.game.gameObjects.components.PlayerMovementComponent"
+        },
+        {
+            "class": "jnh.game.gameObjects.components.MovementTextureComponent",
+            "textureSetName": "PLAYER"
+        },
+        {
+            "class": "jnh.game.gameObjects.components.BodyComponent",
+            "bodyType": "DynamicBody",
+            "density": 4,
+            "linearDamping": 10,
+            "collisionBoxPosition": {
+                "x": 0,
+                "y": -6.5
+            },
+            "collisionBoxDimension": {
+                "x": 11,
+                "y": 3
+            }
+        },
+        {
+            "class": "jnh.game.gameObjects.components.ItemContainerComponent",
+            "size": 5000
+        },
+        {
+            "class": "jnh.game.gameObjects.components.ItemCollectionComponent",
+            "range": 0.5
+        },
+        {
+            "class": "jnh.game.gameObjects.components.ItemRenderComponent"
+        },
+        {
+            "class": "jnh.game.gameObjects.components.HealthComponent",
+            "maxHealth": 20
+        },
+        {
+            "class": "jnh.game.gameObjects.components.PlayerItemUsageComponent"
+        },
+        {
+            "class": "jnh.game.gameObjects.components.LightComponent",
+            "distance": 5,
+            "color": {
+                "r": 1, "g": 0.6, "b": 0.1, "a": 0.8
+            },
+            "flickeringIntensity": 0
+        }
+    ]
+}

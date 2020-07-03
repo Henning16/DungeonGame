@@ -1,14 +1,10 @@
 package jnh.game.gameObjects.components;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Interpolation;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.badlogic.gdx.scenes.scene2d.actions.ColorAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
-import com.badlogic.gdx.scenes.scene2d.utils.TransformDrawable;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gfx.Shake;
@@ -47,7 +43,7 @@ public class HealthComponent extends Component {
             updateHealthBar();
         } else {
             long soundID = Assets.sounds.ENEMY_HIT.play();
-            Assets.sounds.ENEMY_HIT.setPitch(soundID, (float) (0.3f * Math.random() + 1f));
+            Assets.sounds.ENEMY_HIT.setPitch(soundID, (float) (0.3f * Math.random() + 0.7f));
             Assets.sounds.ENEMY_HIT.setVolume(soundID, 0.1f);
         }
         if(isDead()) {
@@ -56,7 +52,6 @@ public class HealthComponent extends Component {
                 @Override
                 public boolean act(float delta) {
                     gameObject.getGameObjectManager().remove(gameObject.getID());
-                    gameObject.getGameObjectManager().destroyables.remove((Object) gameObject.getID());
                     return true;
                 }
             }));

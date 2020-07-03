@@ -1,55 +1,78 @@
 package jnh.game.gameObjects;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import jnh.game.stages.GameStage;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class GameObjectManager {
 
     private transient GameStage stage;
 
-    private boolean doDebug = false;
-
     private GameObject[] gameObjects = new GameObject[100];
 
-    private transient ArrayList<Integer> toBeRemoved = new ArrayList<>();
 
-    public transient ArrayList<Integer> items = new ArrayList<>();
-    public transient ArrayList<Integer> destroyables = new ArrayList<>();
 
-    public int playerID;
+    private ArrayList<ID> toBeRemoved = new ArrayList<>();
 
-    private int firstFreeID = 0;
+    public ArrayList<ID> items = new ArrayList<>();
+    public ArrayList<ID> destroyables = new ArrayList<>();
+
+    public ID playerID;
+
+    private Queue<Integer> freeSlots = new LinkedList<>();
+    private int firstFreeSlot = 0;
+    private transient long uniqueIDCounter = 0;
+
+    public GameObjectManager() {
+
+    }
 
     public GameObjectManager(GameStage stage) {
         this.stage = stage;
     }
 
-    public int add(GameObject gameObject) {
+    public ID add(GameObject gameObject) {
         return add(gameObject, stage.getMainLayer());
     }
 
-    public int add(GameObject gameObject, Group parent) {
-        if(firstFreeID < gameObjects.length) {
-            gameObjects[firstFreeID] = gameObject;
-            parent.addActor(gameObject);
-            int id = firstFreeID;
-            firstFreeID++;
-            return id;
-        } else {
-            gameObjects = Arrays.copyOf(gameObjects, gameObjects.length + 100);
-            return add(gameObject, parent);
-        }
+    public ID add(GameObject gameObject, Group parent) {
+        return set(createID(gameObject), gameObject, parent);
     }
 
-    public boolean remove(int id) {
+    private ID createID(GameObject gameObject) {
+        long globalID;
+        if(gameObject.getID().getGlobalID() != -1) {
+            globalID = gameObject.getID().getGlobalID();
+        } else {
+            globalID = uniqueIDCounter;
+            uniqueIDCounter++;
+        }
+        if(freeSlots.size() != 0) {
+            ID id = new ID(freeSlots.poll(), globalID);
+            return id;
+        } else if(firstFreeSlot < gameObjects.length) {
+            ID id = new ID(firstFreeSlot, globalID);
+            firstFreeSlot++;
+            return id;
+        }
+        gameObjects = Arrays.copyOf(gameObjects, gameObjects.length + 100);
+        return createID(gameObject);
+    }
+
+    private ID set(ID id, GameObject gameObject, Group parent) {
+        gameObjects[id.getSceneID()] = gameObject;
+        parent.addActor(gameObject);
+        return id;
+    }
+
+    public boolean remove(ID id) {
         try {
-            Group previousParent = gameObjects[id].getParent();
-            int oldIndex = gameObjects[id].indexInParent;
-            boolean result = gameObjects[id].remove();
+            Group previousParent = gameObjects[id.getSceneID()].getParent();
+            int oldIndex = gameObjects[id.getSceneID()].indexInParent;
+            boolean result = gameObjects[id.getSceneID()].remove();
+            items.remove(id);
+            destroyables.remove(id);
             if(result) {
                 for(int i = oldIndex; i < previousParent.getChildren().size; i++) {
                     ((GameObject) previousParent.getChildren().get(i)).indexInParent = i;
@@ -57,32 +80,56 @@ public class GameObjectManager {
             }
             return result;
         } catch(ArrayIndexOutOfBoundsException e) {
-            if(doDebug) {
-                System.err.println("GameObjectManager: Invalid ID");
-            }
             return false;
         }
     }
 
-    public GameObject getGameObject(int id) {
+    public GameObject getGameObject(ID id) {
         try {
-            return gameObjects[id];
-        } catch(ArrayIndexOutOfBoundsException e) {
-            if(doDebug) {
-                System.err.println("GameObjectManager: Invalid ID");
+            GameObject gameObject = gameObjects[id.getSceneID()];
+            if(gameObject != null) {
+                if(gameObject.getID().equals(id)) {
+                    return gameObject;
+                }
+            }
+            if(id.getSceneID() != -1) {
+                id.setSceneID(findSceneIDOf(id.getGlobalID()));
+                return getGameObject(id);
             }
             return null;
+        } catch(ArrayIndexOutOfBoundsException e) {
+            return null;
         }
+
     }
 
-    public void requestRemove(int id) {
+    private int findSceneIDOf(long globalID) {
+        for(GameObject gameObject: gameObjects) {
+            if(gameObject != null && gameObject.getID().getGlobalID() == globalID) {
+                return gameObject.getID().getSceneID();
+            }
+        }
+        return -1;
+    }
+
+    public void requestRemove(ID id) {
         toBeRemoved.add(id);
     }
 
+    /**
+     * Removes all GameObjects which are not marked with {@link GameObject#setPersistent(boolean)} set to true.
+     */
+    public void removeAll() {
+        for(GameObject gameObject: gameObjects) {
+            if(gameObject != null) {
+                remove(gameObject.getID());
+            }
+        }
+    }
+
     public void update() {
-        for(int id: toBeRemoved) {
+        for(ID id: toBeRemoved) {
             remove(id);
-            items.remove((Object) id);
         }
         toBeRemoved.clear();
         for(GameObject gameObject: gameObjects) {
@@ -92,8 +139,54 @@ public class GameObjectManager {
         }
     }
 
+    public GameObject stash(ID id) {
+        if(id.getSceneID() < -1 && id.getSceneID() >= gameObjects.length) {
+            System.err.println("Invalid ID");
+        }
+        GameObject gameObject = gameObjects[id.getSceneID()];
+        gameObjects[id.getSceneID()] = null;
+        freeSlots.add(id.getSceneID());
+        return gameObject;
+    }
+
+    public List<GameObject> stashPersistent() {
+        ArrayList<GameObject> list = new ArrayList<>();
+        for(GameObject gameObject: gameObjects) {
+            if(gameObject != null && gameObject.isPersistent()) {
+                list.add(stash(gameObject.getID()));
+            }
+        }
+        return list;
+    }
+
+    public void unstash(List<GameObject> unstashGameObjects) {
+        for(GameObject gameObject: unstashGameObjects) {
+            ID id = createID(gameObject);
+            gameObjects[id.getSceneID()] = gameObject;
+            gameObject.setID(id);
+            if(gameObject.getType().equals("PLAYER")) {
+                playerID = gameObject.getID();
+            }
+        }
+    }
+
     public GameObject[] getGameObjects() {
         return gameObjects;
     }
 
+    public void setGameObjects(GameObject[] gameObjects) {
+        this.gameObjects = gameObjects;
+    }
+
+    public void setStage(GameStage stage) {
+        this.stage = stage;
+    }
+
+    public long getUniqueIDCounter() {
+        return uniqueIDCounter;
+    }
+
+    public void setUniqueIDCounter(long uniqueIDCounter) {
+        this.uniqueIDCounter = uniqueIDCounter;
+    }
 }

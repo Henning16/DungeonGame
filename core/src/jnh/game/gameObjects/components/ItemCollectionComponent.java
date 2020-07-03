@@ -2,6 +2,7 @@ package jnh.game.gameObjects.components;
 
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
+import jnh.game.gameObjects.ID;
 
 import java.io.Serializable;
 
@@ -22,10 +23,10 @@ public class ItemCollectionComponent extends Component implements Serializable {
     @Override
     public void tick(float delta) {
         if(containerComponent == null) {
-            containerComponent = (ItemContainerComponent) gameObject.getComponent(ItemContainerComponent.class);
+            containerComponent = gameObject.getComponent(ItemContainerComponent.class);
             return;
         }
-        for(int itemID: gameObject.getGameObjectManager().items) {
+        for(ID itemID: gameObject.getGameObjectManager().items) {
             GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
             float distanceSquare = (item.getX() - gameObject.getX())*(item.getX() - gameObject.getX()) + (item.getY() - gameObject.getY())*(item.getY() - gameObject.getY());
             if(distanceSquare <= 5 * range * range && !containerComponent.isFull()) {

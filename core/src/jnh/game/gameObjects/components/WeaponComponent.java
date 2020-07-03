@@ -3,6 +3,7 @@ package jnh.game.gameObjects.components;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.gameObjects.GameObject;
+import jnh.game.gameObjects.ID;
 
 public class WeaponComponent extends Component implements ItemAction {
 
@@ -33,10 +34,10 @@ public class WeaponComponent extends Component implements ItemAction {
             return;
         }
         Vector2 pos = user.getStage().convertScreenPositionToWorldPosition(new Vector2(Gdx.input.getX(), Gdx.input.getY()));
-        for(Integer i: user.getGameObjectManager().destroyables) {
-            GameObject other = user.getGameObjectManager().getGameObject(i);
-            if(i != user.getID() && user.getPosition().dst2(other.getPosition()) < range * range) {
-                ((HealthComponent) other.getComponent(HealthComponent.class)).dealDamage(damage, 1f);
+        for(ID id: user.getGameObjectManager().destroyables) {
+            GameObject other = user.getGameObjectManager().getGameObject(id);
+            if(!id.equals(user.getID()) && user.getPosition().dst2(other.getPosition()) < range * range) {
+                other.getComponent(HealthComponent.class).dealDamage(damage, 1f);
                 other.getComponent(BodyComponent.class).getBody().applyForce(
                         new Vector2(other.getX() - gameObject.getX(), other.getY() - gameObject.getY()).scl(200 * knockback),
                         new Vector2(other.getX(), other.getY()), true);

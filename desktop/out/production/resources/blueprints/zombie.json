@@ -1,0 +1,38 @@
+{
+    "type": "ZOMBIE",
+    "position": {
+        "x": 4,
+        "y": 6
+    },
+    "dimension": {
+        "x": 0.6875,
+        "y": 1
+    },
+    "components": [
+        {
+            "class": "jnh.game.gameObjects.components.MovementComponent",
+            "maxSpeed": 1
+        },
+        {
+            "class": "jnh.game.gameObjects.components.MovementTextureComponent",
+            "textureSetName": "ZOMBIE"
+        },
+        {
+            "class": "jnh.game.gameObjects.components.BodyComponent",
+            "bodyType": "DynamicBody",
+            "density": 3,
+            "linearDamping": 10
+        },
+        {
+            "class": "jnh.game.gameObjects.components.FollowPlayerComponent",
+            "followDistance": 6
+        },
+        {
+            "class": "jnh.game.gameObjects.components.AttackPlayerComponent"
+        },
+        {
+            "class": "jnh.game.gameObjects.components.HealthComponent",
+            "maxHealth": 15
+        }
+    ]
+}

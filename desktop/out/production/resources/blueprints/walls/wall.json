@@ -1,0 +1,19 @@
+{
+    "type": "WALL",
+    "layer": "main",
+    "dimension": {
+        "x": 0.3125,
+        "y": 1.25
+    },
+    "components": [
+        {
+            "class": "jnh.game.gameObjects.components.Indexed2TextureComponent",
+            "textureSetName": "WALL_NEW",
+            "index": [0, 0]
+        },
+        {
+            "class": "jnh.game.gameObjects.components.BodyComponent",
+            "bodyType": "StaticBody"
+        }
+    ]
+}

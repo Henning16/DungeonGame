@@ -51,6 +51,13 @@ project(":desktop") {
         api "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
 
     }
+    jar {
+        manifest {
+            attributes(
+                    'Main-Class': 'jnh.game.desktop.DesktopLauncher'
+            )
+        }
+    }
 }
 
 project(":core") {

@@ -23,6 +23,7 @@ public class BodyComponent extends Component {
     private boolean fixedRotation = true;
     private Vector2 collisionBoxPosition = new Vector2(0, 0);
     private Vector2 collisionBoxDimension = new Vector2(16, 16);
+    private transient boolean alreadyDeleted = false;
 
     public BodyComponent() {
 
@@ -61,7 +62,10 @@ public class BodyComponent extends Component {
      */
     @Override
     public void remove() {
-        gameObject.getStage().getScreen().getWorld().destroyBody(body);
+        if(!alreadyDeleted) {
+            gameObject.getStage().getScreen().getWorld().destroyBody(body);
+            alreadyDeleted = true;
+        }
     }
 
     @Override

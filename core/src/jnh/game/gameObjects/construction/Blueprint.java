@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public final class Blueprint {
 
     public String type;
+    public boolean persistent;
     public String layer = "main";
     public Vector2 position = new Vector2(0, 0);
     public Vector2 dimension = new Vector2(1, 1);

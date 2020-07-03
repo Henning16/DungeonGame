@@ -21,13 +21,15 @@ public class GameObject extends Image {
 
     private transient Blueprint blueprint;
     private String type;
-    private int id;
+    private ID id = ID.NULL;
+    private String layerAsString;
 
     private transient GameStage stage;
     private transient GameObjectManager gameObjectManager;
 
     private boolean alreadyActed = false;
     private boolean removed = false;
+    private boolean persistent;
 
     private transient TextureRegion texture;
 
@@ -35,7 +37,38 @@ public class GameObject extends Image {
 
     public int indexInParent = -1;
 
+    //TODO can the two constructors be combined?
+    public GameObject(GameStage stage, GameObjectJson gameObjectJson) {
+        super();
+        this.stage = stage;
+        this.gameObjectManager = stage.getGameObjectManager();
+        this.type = gameObjectJson.type;
+        this.id = gameObjectJson.id;
+        this.removed = gameObjectJson.removed;
+        this.persistent = gameObjectJson.persistent;
+        setBounds(gameObjectJson.position.x,gameObjectJson.position.y,gameObjectJson.dimension.x,gameObjectJson.dimension.y);
+        setOrigin(getWidth() / 2, getHeight() / 2);
+        if(!removed) {
+            switch(gameObjectJson.layer) {
+                case "main":
+                    stage.getMainLayer().addActor(this);
+                    break;
+                case "foreground":
+                    stage.getForegroundLayer().addActor(this);
+                    break;
+                case "background":
+                    stage.getBackgroundLayer().addActor(this);
+                    break;
+            }
+        }
+        layerAsString = gameObjectJson.layer;
+        for(Component component: gameObjectJson.components) {
+            addComponent(component);
+        }
+    }
+
     public GameObject(GameStage stage, Blueprint blueprint) {
+        super();
         this.stage = stage;
         this.gameObjectManager = stage.getGameObjectManager();
         this.blueprint = blueprint;
@@ -53,6 +86,7 @@ public class GameObject extends Image {
                 this.id = getGameObjectManager().add(this, stage.getBackgroundLayer());
                 break;
         }
+        layerAsString = blueprint.layer;
         for(Component component: blueprint.components) {
             addComponent(component.copy());
         }
@@ -103,7 +137,7 @@ public class GameObject extends Image {
     }
 
     /**
-     * Löscht das GameObject. Diese Methode darf nur vom {@link GameObjectManager} benutzt werden! Zum Löschen eines GameObjects immer {@link GameObjectManager#remove(int)} oder {@link GameObjectManager#requestRemove(int)} benutzen!
+     * Löscht das GameObject. Diese Methode darf nur vom {@link GameObjectManager} benutzt werden! Zum Löschen eines GameObjects immer {@link GameObjectManager#remove(ID)} oder {@link GameObjectManager#requestRemove(ID)} benutzen!
      * @return ob das GameObject gelöscht wurde, oder es schon gelöscht war
      */
     @Override
@@ -135,14 +169,13 @@ public class GameObject extends Image {
         return type;
     }
 
-    public int getID() {
+    public ID getID() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setID(ID id) {
         this.id = id;
     }
-
 
     /**
      * Gibt die {@link GameStage} zurück.
@@ -157,7 +190,7 @@ public class GameObject extends Image {
      * @return der GameObjectManager
      */
     public GameObjectManager getGameObjectManager() {
-        return gameObjectManager;
+        return stage.getGameObjectManager();
     }
 
 
@@ -212,6 +245,22 @@ public class GameObject extends Image {
 
     public Vector2 getPosition() {
         return new Vector2(getX(), getY());
+    }
+
+    public boolean isPersistent() {
+        return persistent;
+    }
+
+    public void setPersistent(boolean persistent) {
+        this.persistent = persistent;
+    }
+
+    public void setStage(GameStage stage) {
+        this.stage = stage;
+    }
+
+    public String getLayerAsString() {
+        return layerAsString;
     }
 
     /**

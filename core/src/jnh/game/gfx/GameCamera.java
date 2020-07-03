@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import jnh.game.Global;
+import jnh.game.gameObjects.GameObject;
 import jnh.game.screens.GameScreen;
 import jnh.game.settings.Settings;
 
@@ -26,8 +27,11 @@ public class GameCamera extends OrthographicCamera {
 
     public void act(float delta) {
         if(Settings.isCameraFollowingPlayer()) {
-            position.x = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID).getX() * Global.UNIT;
-            position.y = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID).getY() * Global.UNIT;
+            GameObject player = screen.getStage().getGameObjectManager().getGameObject(screen.getStage().getGameObjectManager().playerID);
+            if(player != null) {
+                position.x = player.getX() * Global.UNIT;
+                position.y = player.getY() * Global.UNIT;
+            }
         } else {
             if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
                 position.x = position.x - 0.1f;

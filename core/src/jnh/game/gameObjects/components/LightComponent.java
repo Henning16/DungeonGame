@@ -32,7 +32,9 @@ public class LightComponent extends Component {
     @Override
     public void remove() {
         super.remove();
-        light.remove();
+        if(light != null) {
+            light.remove();
+        }
     }
 
     @Override
