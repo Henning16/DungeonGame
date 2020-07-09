@@ -14,8 +14,8 @@ import jnh.game.gameObjects.components.BodyComponent;
 import jnh.game.screens.GameScreen;
 import jnh.game.ui.GameUI;
 import jnh.game.utils.TimeHandler;
-import jnh.game.world.RandomScene;
-import jnh.game.world.Scene;
+import jnh.game.world.Dungeon;
+import jnh.game.world.Room;
 import jnh.game.world.World;
 
 import java.io.FileNotFoundException;
@@ -25,17 +25,18 @@ import java.io.FileNotFoundException;
  */
 public class GameStage extends Stage {
 
-    private World world;
-
     private final GameScreen screen;
-
-    @Deprecated
-    private Scene scene;
 
     private GameObjectManager gameObjectManager;
     private final Group backgroundLayer;
     private final Group mainLayer;
     private final Group foregroundLayer;
+
+    private World world;
+    private final Dungeon dungeon;
+    @Deprecated
+    private Room room;
+
 
     /**
      * TODO this constructor needs to be cleaned up or seperated.
@@ -44,10 +45,9 @@ public class GameStage extends Stage {
      */
     public GameStage(GameScreen screen) {
         this.screen = screen;
+
         gameObjectManager = new GameObjectManager(this);
-
         backgroundLayer = new Group();
-
         addActor(backgroundLayer);
         mainLayer = new Group();
         addActor(mainLayer);
@@ -56,22 +56,23 @@ public class GameStage extends Stage {
 
         gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
         gameObjectManager.getGameObject(gameObjectManager.playerID).setPersistent(true);
-        GameObject g = new GameObject(this, Assets.blueprints.AXE);
-        g.setPosition(gameObjectManager.getGameObject(gameObjectManager.playerID).getX(), gameObjectManager.getGameObject(gameObjectManager.playerID).getY());
 
-        setScene(new RandomScene(this));
+        new GameObject(this, Assets.blueprints.AXE).setPosition(4, 4);
+        new GameObject(this, Assets.blueprints.CRATE).setPosition(8, 4);
+        new GameObject(this, Assets.blueprints.LOGPILE).getComponent(BodyComponent.class).getBody().setTransform(6, 4, 0);
 
-        for(int i = 0; i < 5; i++) {
-            GameObject z = new GameObject(this, Assets.blueprints.ZOMBIE);
-            z.getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 10) + 4, (float) (Math.random() * 10) + 4, 0);
+        for(int i = 0; i < 20; i++) {
+            GameObject g = new GameObject(this, Assets.blueprints.CRATE);
+            g.setPosition((float) (Math.random() * 8) + 5, (float) (Math.random() * 8) + 2, 0);
         }
 
         try {
             world = World.loadWorld(this, "test");
-            world.saveScene(0);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        dungeon = new Dungeon(this);
+        dungeon.setRoom(0, 0);
     }
 
     @Override
@@ -79,14 +80,7 @@ public class GameStage extends Stage {
         super.act(delta);
         TimeHandler.tick(delta);
         gameObjectManager.update();
-        if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-            try {
-                world.switchScene(0);
-                world.save();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
+
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             System.out.println("debug");
         }
@@ -103,6 +97,10 @@ public class GameStage extends Stage {
      */
     public GameScreen getScreen() {
         return screen;
+    }
+
+    public World getWorld() {
+        return world;
     }
 
     /**
@@ -163,12 +161,12 @@ public class GameStage extends Stage {
     }
 
     @Deprecated
-    public void setScene(Scene scene) {
-        this.scene = scene;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     @Deprecated
-    public Scene getScene() {
-        return scene;
+    public Room getRoom() {
+        return room;
     }
 }

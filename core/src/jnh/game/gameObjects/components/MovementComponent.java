@@ -1,6 +1,7 @@
 package jnh.game.gameObjects.components;
 
 import com.badlogic.gdx.math.Vector2;
+import jnh.game.Global;
 import jnh.game.gameObjects.entities.MovementState;
 import jnh.game.utils.Direction;
 
@@ -19,7 +20,7 @@ public class MovementComponent extends Component {
     @Override
     public void tick(float delta) {
         if(bodyComponent == null) {
-            bodyComponent = (BodyComponent) gameObject.getComponent(BodyComponent.class);
+            bodyComponent = gameObject.getComponent(BodyComponent.class);
         }
         if(bodyComponent.getBody().getLinearVelocity().len() > 0.5) {
             state = MovementState.WALK;

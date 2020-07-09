@@ -25,7 +25,12 @@ public class World {
     }
 
     public void loadScene(int id) throws FileNotFoundException {
-        String sceneString = Gdx.files.external(World.getSaveFolder().path()+"/"+fileName+"/"+"scene"+id+".json").readString();
+        FileHandle sceneFile = Gdx.files.external(World.getSaveFolder().path()+"/"+fileName+"/"+"scene"+id+".json");
+        if(!sceneFile.exists()) {
+            newScene(id);
+            return;
+        }
+        String sceneString = sceneFile.readString();
         stage.getGameObjectManager().removeAll();
         Json json = new Json();
         json.setOutputType(JsonWriter.OutputType.json);
@@ -52,6 +57,16 @@ public class World {
     public void addScene(int id) throws FileNotFoundException {
         FileHandle sceneFile = Gdx.files.external(World.getSaveFolder().path()+"/"+fileName+"/"+"scene"+id+".json");
         sceneFile.writeString("{}", false);
+    }
+
+    public void newScene(int id) throws FileNotFoundException {
+        stage.getGameObjectManager().removeAll();
+        uniqueIDCounter = stage.getGameObjectManager().getUniqueIDCounter();
+        stage.setGameObjectManager(new GameObjectManager());
+        stage.getGameObjectManager().setStage(stage);
+        stage.getGameObjectManager().setUniqueIDCounter(uniqueIDCounter);
+        sceneID = id;
+        saveScene(id);
     }
 
     public void switchScene(int id) throws FileNotFoundException {

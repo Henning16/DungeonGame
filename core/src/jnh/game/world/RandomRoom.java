@@ -5,14 +5,14 @@ import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.components.BodyComponent;
 import jnh.game.stages.GameStage;
 
-public class RandomScene extends Scene {
+public class RandomRoom extends Room {
 
-    public RandomScene(GameStage stage) {
-        super(stage);
+    public RandomRoom(GameStage stage, int id) {
+        super(stage, id);
     }
 
     @Override
-    protected void load() {
+    public void load() {
         for(int y = 1; y < ROOM_WIDTH - 1; y++) {
             for(int x = 1; x < ROOM_HEIGHT - 1; x++) {
                 GameObject tile = new GameObject(getStage(), Assets.blueprints.FLOOR);

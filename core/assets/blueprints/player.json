@@ -6,7 +6,7 @@
         "y": 4
     },
     "dimension": {
-        "x": 0.6875,
+        "x": 0.5625,
         "y": 1
     },
     "layer": "main",
@@ -27,14 +27,18 @@
             "bodyType": "DynamicBody",
             "density": 4,
             "linearDamping": 10,
-            "collisionBoxPosition": {
-                "x": 0,
-                "y": -6.5
-            },
-            "collisionBoxDimension": {
-                "x": 11,
-                "y": 3
-            }
+            "collisionBoxes": [
+                {
+                    "position": {
+                        "x": -3.5,
+                        "y": -6
+                    },
+                    "dimension": {
+                        "x": 11,
+                        "y": 4
+                    }
+                }
+            ]
         },
         {
             "class": "jnh.game.gameObjects.components.ItemContainerComponent",
@@ -49,16 +53,16 @@
         },
         {
             "class": "jnh.game.gameObjects.components.HealthComponent",
-            "maxHealth": 20
+            "maxHealth": 200
         },
         {
             "class": "jnh.game.gameObjects.components.PlayerItemUsageComponent"
         },
         {
             "class": "jnh.game.gameObjects.components.LightComponent",
-            "distance": 5,
+            "distance": 9,
             "color": {
-                "r": 1, "g": 0.6, "b": 0.1, "a": 0.8
+                "r": 1, "g": 0.55, "b": 0.1, "a": 0.85
             },
             "flickeringIntensity": 0
         }

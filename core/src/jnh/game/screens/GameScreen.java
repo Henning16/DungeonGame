@@ -55,7 +55,7 @@ public class GameScreen implements Screen {
 
         //RayHandler
         rayHandler = new RayHandler(world);
-        rayHandler.setAmbientLight(new Color(1f, 1f, 1f, 0));
+        rayHandler.setAmbientLight(new Color(1, 1, 1, 0));
         rayHandler.setBlur(true);
         rayHandler.setBlurNum(1);
 
@@ -95,7 +95,7 @@ public class GameScreen implements Screen {
         update(delta);
 
         Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
 
         batch.setProjectionMatrix(camera.combined.scl(Global.UNIT));
         batch.enableBlending();

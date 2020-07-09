@@ -1,33 +1,30 @@
 {
-    "type": "LOGPILE",
-    "position": {
-        "x": 6,
-        "y": 4
-    },
+    "type": "CRATE",
     "dimension": {
-        "x": 0.8125,
-        "y": 1
+        "x": 0.875,
+        "y": 1.0625
     },
     "components": [
         {
             "class": "jnh.game.gameObjects.components.TextureComponent",
-            "textureName": "LOGPILE"
+            "textureName": "CRATE"
         },
         {
             "class": "jnh.game.gameObjects.components.BodyComponent",
-            "bodyType": "StaticBody",
+            "density": 20,
             "collisionBoxes": [
                 {
                     "position": {
-                        "x": -2,
+                        "x": -1.5,
                         "y": -4
                     },
                     "dimension": {
                         "x": 12,
-                        "y": 11
+                        "y": 9
                     }
                 }
             ]
+
         }
     ]
 }

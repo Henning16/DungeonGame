@@ -3,6 +3,7 @@ package jnh.game.assets;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import jnh.game.gameObjects.entities.MovementState;
 import jnh.game.utils.Direction;
@@ -16,7 +17,7 @@ public class Textures {
     public final Animation<TextureRegion>[][] WALL;
     public final Animation<TextureRegion>[][] WALL_NEW;
     public final Animation AXE;
-    public final Animation LOGPILE;
+    public final Animation LOGPILE, CRATE;
     public final Animation BLOOD;
 
     public Textures() {
@@ -25,7 +26,7 @@ public class Textures {
         ERROR = new Animation<>(1f,
                 get(sprites, 496, 496, 16, 16));
 
-        PLAYER_SHEET = new Texture(Gdx.files.internal("textures/player.png"));
+        PLAYER_SHEET = new Texture(Gdx.files.internal("textures/playeralt.png"));
         ZOMBIE_SHEET = new Texture(Gdx.files.internal("textures/zombie.png"));
         FLOOR_SHEET = new Texture(Gdx.files.internal("textures/floor.png"));
         WALL_SHEET = new Texture(Gdx.files.internal("textures/wall.png"));
@@ -40,40 +41,40 @@ public class Textures {
         WALL_NEW = new Animation[5][4];
 
         PLAYER[Direction.UP][MovementState.IDLE] = new Animation<>(1f,
-                get(PLAYER_SHEET, 11, 0, 11, 16));
+                get(PLAYER_SHEET, 13, 2, 9, 16));
                 PLAYER[Direction.UP][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.RIGHT][MovementState.IDLE] = new Animation<>(1f,
-                get(PLAYER_SHEET, 22, 0, 8, 16));
+                get(PLAYER_SHEET, 24, 2, 9, 16));
                 PLAYER[Direction.RIGHT][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.DOWN][MovementState.IDLE] = new Animation<>(1f,
-                get(PLAYER_SHEET, 0, 0, 11, 16));
+                get(PLAYER_SHEET, 2, 2, 9, 16));
                 PLAYER[Direction.DOWN][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.LEFT][MovementState.IDLE] = new Animation<>(1f,
-                get(PLAYER_SHEET, 30, 0, 8, 16));
+                get(PLAYER_SHEET, 35, 2, 9, 16));
                 PLAYER[Direction.LEFT][MovementState.IDLE].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.UP][MovementState.WALK] = new Animation<>(0.2f,
-                get(PLAYER_SHEET, 11, 0, 11, 16),
-                get(PLAYER_SHEET, 11, 16, 11, 16),
-                get(PLAYER_SHEET, 11, 0, 11, 16),
-                get(PLAYER_SHEET, 11, 32, 11, 16));
+                get(PLAYER_SHEET, 13, 2, 9, 16),
+                get(PLAYER_SHEET, 13, 20, 9, 16),
+                get(PLAYER_SHEET, 13, 2, 9, 16),
+                get(PLAYER_SHEET, 13, 38, 9, 16));
                 PLAYER[Direction.UP][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.RIGHT][MovementState.WALK] = new Animation<>(0.2f,
-                get(PLAYER_SHEET, 22, 0, 8, 16),
-                get(PLAYER_SHEET, 22, 16, 8, 16),
-                get(PLAYER_SHEET, 22, 0, 8, 16),
-                get(PLAYER_SHEET, 22, 32, 8, 16));
+                get(PLAYER_SHEET, 24, 2, 9, 16),
+                get(PLAYER_SHEET, 24, 20, 9, 16),
+                get(PLAYER_SHEET, 24, 2, 9, 16),
+                get(PLAYER_SHEET, 24, 38, 9, 16));
                 PLAYER[Direction.RIGHT][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.DOWN][MovementState.WALK] = new Animation<>(0.2f,
-                get(PLAYER_SHEET, 0, 0, 11, 16),
-                get(PLAYER_SHEET, 0, 16, 11, 16),
-                get(PLAYER_SHEET, 0, 0, 11, 16),
-                get(PLAYER_SHEET, 0, 32, 11, 16));
+                get(PLAYER_SHEET, 2, 2, 9, 16),
+                get(PLAYER_SHEET, 2, 20, 9, 16),
+                get(PLAYER_SHEET, 2, 2, 9, 16),
+                get(PLAYER_SHEET, 2, 38, 9, 16));
                 PLAYER[Direction.DOWN][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
         PLAYER[Direction.LEFT][MovementState.WALK] = new Animation<>(0.2f,
-                get(PLAYER_SHEET, 30, 0, 8, 16),
-                get(PLAYER_SHEET, 30, 16, 8, 16),
-                get(PLAYER_SHEET, 30, 0, 8, 16),
-                get(PLAYER_SHEET, 30, 32, 8, 16));
+                get(PLAYER_SHEET, 35, 2, 9, 16),
+                get(PLAYER_SHEET, 35, 20, 9, 16),
+                get(PLAYER_SHEET, 35, 2, 9, 16),
+                get(PLAYER_SHEET, 35, 38, 9, 16));
                 PLAYER[Direction.LEFT][MovementState.WALK].setPlayMode(Animation.PlayMode.LOOP);
 
         ZOMBIE[Direction.UP][MovementState.IDLE] = new Animation<>(1f,
@@ -203,7 +204,9 @@ public class Textures {
         AXE = new Animation(1f,
                 get(WEAPONS_SHEET, 0, 0, 16, 16));
         LOGPILE = new Animation(1f,
-                get(PROPS_SHEET, 0, 0, 16, 16));
+                get(PROPS_SHEET, 2, 2, 13, 16));
+        CRATE = new Animation(1f,
+                get(PROPS_SHEET, 17, 2, 13, 17));
         BLOOD = new Animation(1f,
                 get(PARTICLE_SHEET, 0, 0, 1, 1));
     }
@@ -237,6 +240,16 @@ public class Textures {
             e.printStackTrace();
             System.err.println("[TextureComponent]: "+ name +" not found.");
             return new Animation[][] {{ERROR}};
+        }
+    }
+
+    public Animation<TextureRegion>[][][] getTextureSet3(String name) {
+        try {
+            return (Animation<TextureRegion>[][][]) this.getClass().getField(name).get(this);
+        } catch(Exception e) {
+            e.printStackTrace();
+            System.err.println("[TextureComponent]: "+ name +" not found.");
+            return new Animation[][][] {{{ERROR}}};
         }
     }
 

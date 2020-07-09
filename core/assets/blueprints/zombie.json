@@ -20,8 +20,30 @@
         {
             "class": "jnh.game.gameObjects.components.BodyComponent",
             "bodyType": "DynamicBody",
-            "density": 3,
-            "linearDamping": 10
+            "density": 15,
+            "linearDamping": 10,
+            "collisionBoxes": [
+                {
+                    "position": {
+                        "x": -2.5,
+                        "y": -6
+                    },
+                    "dimension": {
+                        "x": 11,
+                        "y": 4
+                    }
+                },
+                {
+                    "position": {
+                        "x": -4,
+                        "y": -6
+                    },
+                    "dimension": {
+                        "x": 8,
+                        "y": 4
+                    }
+                }
+            ]
         },
         {
             "class": "jnh.game.gameObjects.components.FollowPlayerComponent",

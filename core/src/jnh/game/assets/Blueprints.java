@@ -11,7 +11,7 @@ public class Blueprints {
     public Blueprint FLOOR;
     public Blueprint WALL_HORIZONTAL, WALL_VERTICAL, WALL_UPPER_CORNER, WALL_LOWER_CORNER;
     public Blueprint AXE;
-    public Blueprint LOGPILE;
+    public Blueprint LOGPILE, CRATE;
 
     public Blueprints() {
         loader = new BlueprintLoader();
@@ -29,6 +29,8 @@ public class Blueprints {
         AXE = loader.loadBlueprintFromJson("axe");
 
         LOGPILE = loader.loadBlueprintFromJson("logpile");
+        CRATE = loader.loadBlueprintFromJson("crate");
+        CRATE = loader.loadBlueprintFromJson("crate");
 
     }
 }

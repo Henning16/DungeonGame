@@ -2,11 +2,13 @@ package jnh.game.gameObjects.components;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.PolygonShape;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.physics.box2d.*;
 import jnh.game.gameObjects.GameObject;
+import jnh.game.ui.notifications.Notification;
+import jnh.game.ui.notifications.NotificationHandler;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Verwaltet den möglichen Body, also die physikalischen Eigenschaften, des GameObjects.
@@ -23,10 +25,11 @@ public class BodyComponent extends Component {
     private boolean fixedRotation = true;
     private Vector2 collisionBoxPosition = new Vector2(0, 0);
     private Vector2 collisionBoxDimension = new Vector2(16, 16);
+    private transient int oldIndex = 0;
+    private CollisionBox[] collisionBoxes = new CollisionBox[0];
     private transient boolean alreadyDeleted = false;
 
     public BodyComponent() {
-
     }
 
     @Override
@@ -49,9 +52,16 @@ public class BodyComponent extends Component {
         def.fixedRotation = fixedRotation;
         body = gameObject.getStage().getScreen().getWorld().createBody(def);
 
+        CollisionBox collisionBox = new CollisionBox();
+        try {
+            if(collisionBoxes[0] != null) {
+                collisionBox = collisionBoxes[0];
+            }
+        } catch(ArrayIndexOutOfBoundsException e) {
+        }
+
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox((1f / 32f) * collisionBoxDimension.x, (1f / 32f) * collisionBoxDimension.y, new Vector2((1f / 16f) * collisionBoxPosition.x, (1f / 16f) * collisionBoxPosition.y), 0);
-        getBody().createFixture(shape, density);
+        shape.setAsBox((1f / 32f) * collisionBox.dimension.x, (1f / 32f) * collisionBox.dimension.y, new Vector2((1f / 16f) * collisionBox.position.x, (1f / 16f) * collisionBox.position.y), 0);getBody().createFixture(shape, density);
         shape.dispose();
         body.setUserData(gameObject);
     }
@@ -77,6 +87,7 @@ public class BodyComponent extends Component {
         c.density = density;
         c.collisionBoxPosition = collisionBoxPosition;
         c.collisionBoxDimension = collisionBoxDimension;
+        c.collisionBoxes = collisionBoxes;
         return c;
     }
 
@@ -87,6 +98,26 @@ public class BodyComponent extends Component {
      */
     public Body getBody() {
         return body;
+    }
+
+    public void setCollisionBox(int index) {
+        try {
+            if(collisionBoxes[index] != null) {
+                updateCollisionBox(collisionBoxes[index]);
+            }
+        } catch(ArrayIndexOutOfBoundsException e) { }
+    }
+
+    public void updateCollisionBox(CollisionBox collisionBox) {
+        CollisionBox oldCollisionBox = new CollisionBox();
+        try {
+            if(collisionBoxes[oldIndex] != null) {
+                oldCollisionBox = collisionBoxes[oldIndex];
+            }
+        } catch(ArrayIndexOutOfBoundsException e) { }
+        for(Fixture fixture: body.getFixtureList()) {
+            ((PolygonShape) fixture.getShape()).setAsBox((1f / 32f) * collisionBox.dimension.x, (1f / 32f) * collisionBox.dimension.y, new Vector2((1f / 16f) * collisionBox.position.x, (1f / 16f) * collisionBox.position.y), 0);
+        }
     }
 
 }

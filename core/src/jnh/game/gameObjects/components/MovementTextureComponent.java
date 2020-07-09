@@ -24,14 +24,8 @@ public class MovementTextureComponent extends Component {
             return;
         }
         animator.tick(delta);
-        if(movementComponent.getLooking() == 1 || movementComponent.getLooking() == 3) {
-            gameObject.setSize(0.5f, 1);
-            gameObject.setOrigin(gameObject.getWidth() / 2, gameObject.getHeight() / 2);
-        } else {
-            gameObject.setSize(0.6875f, 1);
-        }
         Animation animation = textureSet[movementComponent.getLooking()][movementComponent.getState()];
-        animation.setFrameDuration(1 / (4f + 0.002f * movementComponent.getSpeed()));
+        animation.setFrameDuration(1 / (6f + 0.002f * movementComponent.getSpeed()));
         animator.play(animation, true);
     }
 
