@@ -34,16 +34,16 @@ public class GameCamera extends OrthographicCamera {
             }
         } else {
             if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-                position.x = position.x - 0.1f;
+                position.x -= 0.1f;
             }
             if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-                position.x = position.x + 0.1f;
+                position.x += 0.1f;
             }
             if(Gdx.input.isKeyPressed(Input.Keys.UP)) {
-                position.y = position.y + 0.1f;
+                position.y += 0.1f;
             }
             if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-                position.y = position.y - 0.1f;
+                position.y -= 0.1f;
             }
         }
         if(shake.duration > 0f) {

@@ -1,7 +1,8 @@
 {
     "type": "ZOMBIE",
     "tags": [
-        "destroyable"
+        "destroyable",
+        "enemy"
     ],
     "position": {
         "x": 4,

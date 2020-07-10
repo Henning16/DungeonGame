@@ -234,7 +234,7 @@ public class GameObject extends Image {
     }
 
     /**
-     * Fügt die Compnent dem GameObject hinzu.
+     * Fügt die Component dem GameObject hinzu.
      * @param component die hinzuzufügende Component
      */
     public void addComponent(Component component) {

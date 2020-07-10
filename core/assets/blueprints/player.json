@@ -2,7 +2,8 @@
     "type": "PLAYER",
     "persistent": true,
     "tags": [
-        "destroyable"
+        "destroyable",
+        "player"
     ],
     "position": {
         "x": 4,
