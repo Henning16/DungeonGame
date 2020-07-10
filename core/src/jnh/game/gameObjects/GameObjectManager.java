@@ -15,8 +15,7 @@ public class GameObjectManager {
 
     private ArrayList<ID> toBeRemoved = new ArrayList<>();
 
-    public ArrayList<ID> items = new ArrayList<>();
-    public ArrayList<ID> destroyables = new ArrayList<>();
+    private transient Map<String, ArrayList<ID>> tags = new LinkedHashMap<>();
 
     public ID playerID;
 
@@ -71,8 +70,6 @@ public class GameObjectManager {
             Group previousParent = gameObjects[id.getSceneID()].getParent();
             int oldIndex = gameObjects[id.getSceneID()].indexInParent;
             boolean result = gameObjects[id.getSceneID()].remove();
-            items.remove(id);
-            destroyables.remove(id);
             if(result) {
                 for(int i = oldIndex; i < previousParent.getChildren().size; i++) {
                     ((GameObject) previousParent.getChildren().get(i)).indexInParent = i;
@@ -176,6 +173,31 @@ public class GameObjectManager {
 
     public void setGameObjects(GameObject[] gameObjects) {
         this.gameObjects = gameObjects;
+    }
+
+    public List<ID> getGameObjectsByTag(String tag) {
+        if(tags.containsKey(tag)) {
+            return tags.get(tag);
+        } else {
+            return new ArrayList<ID>();
+        }
+    }
+
+    public void addGameObjectToTag(String tag, ID id) {
+        if(tags.containsKey(tag)) {
+            tags.get(tag).add(id);
+        } else {
+            tags.put(tag, new ArrayList<ID>());
+            addGameObjectToTag(tag, id);
+        }
+    }
+
+    public boolean removeGameObjectFromTag(String tag, ID id) {
+        if(tags.containsKey(tag)) {
+            tags.get(tag).remove(id);
+            return true;
+        }
+        return false;
     }
 
     public void setStage(GameStage stage) {

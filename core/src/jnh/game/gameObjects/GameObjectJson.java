@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import jnh.game.gameObjects.components.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GameObjectJson {
 
@@ -14,6 +15,7 @@ public class GameObjectJson {
     public String layer;
     public Vector2 position;
     public Vector2 dimension;
+    public List<String> tags;
     public ArrayList<Component> components;
 
     public GameObjectJson() {
@@ -28,6 +30,7 @@ public class GameObjectJson {
         this.layer = gameObject.getLayerAsString();
         this.position = new Vector2(gameObject.getX(), gameObject.getY());
         this.dimension = new Vector2(gameObject.getWidth(), gameObject.getHeight());
+        this.tags = gameObject.getTags();
         this.components = gameObject.getComponents();
     }
 }

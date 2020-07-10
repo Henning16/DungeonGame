@@ -17,7 +17,6 @@ public class HealthComponent extends Component {
     @Override
     public void attachedTo(GameObject gameObject) {
         super.attachedTo(gameObject);
-        gameObject.getGameObjectManager().destroyables.add(gameObject.getID());
         if(health == -1) {
             health = maxHealth;
         }
@@ -52,6 +51,7 @@ public class HealthComponent extends Component {
                 @Override
                 public boolean act(float delta) {
                     gameObject.getGameObjectManager().remove(gameObject.getID());
+                    gameObject.removeTag("destroyable");
                     return true;
                 }
             }));

@@ -15,7 +15,6 @@ public class ItemComponent extends Component {
     @Override
     public void attachedTo(GameObject gameObject) {
         super.attachedTo(gameObject);
-        gameObject.getGameObjectManager().items.add(gameObject.getID());
     }
 
     @Override

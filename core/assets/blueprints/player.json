@@ -1,6 +1,9 @@
 {
     "type": "PLAYER",
     "persistent": true,
+    "tags": [
+        "destroyable"
+    ],
     "position": {
         "x": 4,
         "y": 4
@@ -9,7 +12,6 @@
         "x": 0.5625,
         "y": 1
     },
-    "layer": "main",
     "components": [
         {
             "class": "jnh.game.gameObjects.components.MovementComponent",
@@ -53,7 +55,7 @@
         },
         {
             "class": "jnh.game.gameObjects.components.HealthComponent",
-            "maxHealth": 200
+            "maxHealth": 4
         },
         {
             "class": "jnh.game.gameObjects.components.PlayerItemUsageComponent"

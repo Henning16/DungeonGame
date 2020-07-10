@@ -12,6 +12,7 @@ public final class Blueprint {
     public String layer = "main";
     public Vector2 position = new Vector2(0, 0);
     public Vector2 dimension = new Vector2(1, 1);
+    public ArrayList<String> tags = new ArrayList<>();
     public ArrayList<Component> components;
 
     public Blueprint() {

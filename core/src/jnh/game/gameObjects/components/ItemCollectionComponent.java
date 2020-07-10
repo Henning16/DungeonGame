@@ -26,7 +26,7 @@ public class ItemCollectionComponent extends Component implements Serializable {
             containerComponent = gameObject.getComponent(ItemContainerComponent.class);
             return;
         }
-        for(ID itemID: gameObject.getGameObjectManager().items) {
+        for(ID itemID: gameObject.getGameObjectManager().getGameObjectsByTag("collectable")) {
             GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
             float distanceSquare = (item.getX() - gameObject.getX())*(item.getX() - gameObject.getX()) + (item.getY() - gameObject.getY())*(item.getY() - gameObject.getY());
             if(distanceSquare <= 5 * range * range && !containerComponent.isFull()) {
@@ -38,6 +38,7 @@ public class ItemCollectionComponent extends Component implements Serializable {
                     Assets.sounds.COLLECT_ITEM.setPitch(soundID, (float) Math.random() + 1);
                     Assets.sounds.COLLECT_ITEM.setVolume(soundID, 10000);
                     gameObject.getGameObjectManager().requestRemove(itemID);
+                    gameObject.removeTag("collectable");
                 }
             }
         }

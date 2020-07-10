@@ -136,7 +136,7 @@ public class World {
             if(!userFolder.exists()) {
                 throw new FileNotFoundException("User folder was not found and could not be created.");
             }
-            return userFolder.child(".dungeonGame/saves");
+            return userFolder.child(".dungeongame/saves");
         } catch(Exception e) {
             throw new FileNotFoundException("Save folder was not found and could not be created.");
         }

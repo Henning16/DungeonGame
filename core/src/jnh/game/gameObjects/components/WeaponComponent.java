@@ -34,7 +34,7 @@ public class WeaponComponent extends Component implements ItemAction {
             return;
         }
         Vector2 pos = user.getStage().convertScreenPositionToWorldPosition(new Vector2(Gdx.input.getX(), Gdx.input.getY()));
-        for(ID id: user.getGameObjectManager().destroyables) {
+        for(ID id: user.getGameObjectManager().getGameObjectsByTag("destroyable")) {
             GameObject other = user.getGameObjectManager().getGameObject(id);
             if(!id.equals(user.getID()) && user.getPosition().dst2(other.getPosition()) < range * range) {
                 other.getComponent(HealthComponent.class).dealDamage(damage, 1f);
