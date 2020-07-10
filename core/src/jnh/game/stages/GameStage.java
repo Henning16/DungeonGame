@@ -68,8 +68,8 @@ public class GameStage extends Stage {
         }
 
         try {
-            world = World.loadWorld(this, "test");
-        } catch (FileNotFoundException e) {
+            world = World.newWorld(this, "test");
+        } catch (Exception e) {
             e.printStackTrace();
         }
         dungeon = new Dungeon(this);
@@ -83,7 +83,6 @@ public class GameStage extends Stage {
         gameObjectManager.update();
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-            NotificationHandler.addNotification(new Notification("Eike", "I'm a German student and interested in computer science and programming. I can write Lua and Python scripts and Java and a bit of C++."));
         }
     }
 

@@ -132,11 +132,11 @@ public class World {
 
     private static FileHandle getSaveFolder() throws FileNotFoundException {
         try {
-            FileHandle roamingFolder = Gdx.files.external("Appdata/Roaming");
-            if(!roamingFolder.exists()) {
-                throw new FileNotFoundException("AppData/Roaming folder was not found and could not be created.");
+            FileHandle userFolder = Gdx.files.external("");
+            if(!userFolder.exists()) {
+                throw new FileNotFoundException("User folder was not found and could not be created.");
             }
-            return roamingFolder.child(".dungeongame/saves");
+            return userFolder.child(".dungeonGame/saves");
         } catch(Exception e) {
             throw new FileNotFoundException("Save folder was not found and could not be created.");
         }
