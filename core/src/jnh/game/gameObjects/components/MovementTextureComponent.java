@@ -25,7 +25,7 @@ public class MovementTextureComponent extends Component {
         }
         animator.tick(delta);
         Animation animation = textureSet[movementComponent.getLooking()][movementComponent.getState()];
-        animation.setFrameDuration(1 / (6f + 0.002f * movementComponent.getSpeed()));
+        animation.setFrameDuration(1 / (6 + 0.02f * movementComponent.getSpeed()));
         animator.play(animation, true);
     }
 

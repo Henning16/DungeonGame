@@ -14,14 +14,18 @@
         {
             "class": "jnh.game.gameObjects.components.BodyComponent",
             "bodyType": "StaticBody",
-            "collisionBoxPosition": {
-                "x": 0,
-                "y": -4
-            },
-            "collisionBoxDimension": {
-                "x": 16,
-                "y": 8
-            }
+            "collisionBoxes": [
+                {
+                    "position": {
+                        "x": 8,
+                        "y": 0
+                    },
+                    "dimension": {
+                        "x": 16,
+                        "y": 4
+                    }
+                }
+            ]
         }
     ]
 }

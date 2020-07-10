@@ -13,6 +13,8 @@ import jnh.game.gameObjects.GameObjectManager;
 import jnh.game.gameObjects.components.BodyComponent;
 import jnh.game.screens.GameScreen;
 import jnh.game.ui.GameUI;
+import jnh.game.ui.notifications.Notification;
+import jnh.game.ui.notifications.NotificationHandler;
 import jnh.game.utils.TimeHandler;
 import jnh.game.world.Dungeon;
 import jnh.game.world.Room;
@@ -61,9 +63,8 @@ public class GameStage extends Stage {
         new GameObject(this, Assets.blueprints.CRATE).setPosition(8, 4);
         new GameObject(this, Assets.blueprints.LOGPILE).getComponent(BodyComponent.class).getBody().setTransform(6, 4, 0);
 
-        for(int i = 0; i < 20; i++) {
-            GameObject g = new GameObject(this, Assets.blueprints.CRATE);
-            g.setPosition((float) (Math.random() * 8) + 5, (float) (Math.random() * 8) + 2, 0);
+        for(int i = 0; i < 4; i++) {
+            new GameObject(this, Assets.blueprints.ZOMBIE).setPosition((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3);
         }
 
         try {
@@ -82,7 +83,7 @@ public class GameStage extends Stage {
         gameObjectManager.update();
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-            System.out.println("debug");
+            NotificationHandler.addNotification(new Notification("Eike", "I'm a German student and interested in computer science and programming. I can write Lua and Python scripts and Java and a bit of C++."));
         }
     }
 

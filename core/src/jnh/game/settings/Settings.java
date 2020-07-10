@@ -5,7 +5,7 @@ public class Settings {
     private static boolean cameraFollowingPlayer = true;
     private static boolean renderingLights = true;
     private static boolean showingUI = true;
-    private static float uiScale = 1.5f;
+    private static float uiScale = 1;
 
     public static boolean isCameraFollowingPlayer() {
         return cameraFollowingPlayer;
