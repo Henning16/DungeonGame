@@ -17,8 +17,8 @@
             "collisionBoxes": [
                 {
                     "position": {
-                        "x": 8,
-                        "y": 0
+                        "x": 0,
+                        "y": -8
                     },
                     "dimension": {
                         "x": 16,

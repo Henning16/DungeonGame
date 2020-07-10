@@ -173,25 +173,25 @@ public class Textures {
                 get(WALL_SHEET, 64, 48, 16, 16));
 
         WALL_NEW[0][0] = new Animation<>(1f,
-                get(WALL_SHEET, 11, 12, 5, 20));
+                get(WALL_SHEET, 2, 2, 5, 20));
         WALL_NEW[0][1] = new Animation<>(1f,
-                get(WALL_SHEET, 11, 28, 5, 16));
+                get(WALL_SHEET, 2, 24, 5, 16));
         WALL_NEW[0][2] = new Animation<>(1f,
-                get(WALL_SHEET, 11, 44, 5, 20));
+                get(WALL_SHEET, 2, 42, 5, 20));
 
         WALL_NEW[1][0] = new Animation<>(1f,
-                get(WALL_SHEET, 16, 12, 16, 20));
+                get(WALL_SHEET, 9, 2, 16, 20));
         WALL_NEW[1][1] = new Animation<>(1f,
-                get(WALL_SHEET, 16, 32, 16, 12));
+                get(WALL_SHEET, 9, 24, 16, 12));
         WALL_NEW[1][2] = new Animation<>(1f,
-                get(WALL_SHEET, 16, 44, 16, 20));
+                get(WALL_SHEET, 9, 42, 16, 20));
 
         WALL_NEW[2][0] = new Animation<>(1f,
-                get(WALL_SHEET, 32, 12, 5, 20));
+                get(WALL_SHEET, 27, 2, 5, 20));
         WALL_NEW[2][1] = new Animation<>(1f,
-                get(WALL_SHEET, 32, 28, 5, 16));
+                get(WALL_SHEET, 27, 24, 5, 16));
         WALL_NEW[2][2] = new Animation<>(1f,
-                get(WALL_SHEET, 32, 44, 5, 20));
+                get(WALL_SHEET, 27, 42, 5, 20));
 
         AXE = new Animation(1f,
                 get(WEAPONS_SHEET, 0, 0, 16, 16));
