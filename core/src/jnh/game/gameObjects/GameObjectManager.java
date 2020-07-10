@@ -131,6 +131,7 @@ public class GameObjectManager {
         toBeRemoved.clear();
         for(GameObject gameObject: gameObjects) {
             if(gameObject != null) {
+                gameObject.finishedTagOperations();
                 gameObject.setAlreadyActed(false);
             }
         }

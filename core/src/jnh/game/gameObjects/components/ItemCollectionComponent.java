@@ -37,8 +37,8 @@ public class ItemCollectionComponent extends Component implements Serializable {
                     long soundID = Assets.sounds.COLLECT_ITEM.play();
                     Assets.sounds.COLLECT_ITEM.setPitch(soundID, (float) Math.random() + 1);
                     Assets.sounds.COLLECT_ITEM.setVolume(soundID, 10000);
+                    item.removeTagWhileIterating("collectable");
                     gameObject.getGameObjectManager().requestRemove(itemID);
-                    gameObject.removeTag("collectable");
                 }
             }
         }

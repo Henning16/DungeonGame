@@ -16,6 +16,7 @@ import jnh.game.gfx.animations.Animator;
 import jnh.game.stages.GameStage;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class GameObject extends Image {
@@ -35,6 +36,8 @@ public class GameObject extends Image {
     private transient TextureRegion texture;
 
     private ArrayList<String> tags = new ArrayList<>();
+    private transient ArrayList<String> tagsToBeAdded = new ArrayList<>();
+    private transient ArrayList<String> tagsToBeRemoved = new ArrayList<>();
     private ComponentHandler components = new ComponentHandler();
 
     public int indexInParent = -1;
@@ -220,13 +223,34 @@ public class GameObject extends Image {
         gameObjectManager.addGameObjectToTag(tag, getID());
     }
 
+    public void addTagWhileIterating(String tag) {
+        tags.add(tag);
+        tagsToBeAdded.add(tag);
+    }
+
     public void removeTag(String tag) {
         tags.remove(tag);
         gameObjectManager.removeGameObjectFromTag(tag, getID());
     }
 
+    public void removeTagWhileIterating(String tag) {
+        tags.remove(tag);
+        tagsToBeRemoved.add(tag);
+    }
+
     public boolean hasTag(String tag) {
         return tags.contains(tag);
+    }
+
+    public void finishedTagOperations() {
+        for(String tag: tagsToBeAdded) {
+            gameObjectManager.removeGameObjectFromTag(tag, getID());
+        }
+        tagsToBeAdded.clear();
+        for(String tag: tagsToBeRemoved) {
+            gameObjectManager.removeGameObjectFromTag(tag, getID());
+        }
+        tagsToBeRemoved.clear();
     }
 
     public ArrayList<String> getTags() {
