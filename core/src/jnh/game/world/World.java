@@ -2,6 +2,7 @@ package jnh.game.world;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.*;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.GameObjectJson;
@@ -17,6 +18,8 @@ public class World {
 
     private String name;
     private String fileName;
+    private Vector2 respawnPosition = new Vector2(12, 12);
+    private int respawnSceneID = 0;
     private transient int sceneID = 0;
     private long uniqueIDCounter = 0;
 
@@ -140,5 +143,21 @@ public class World {
         } catch(Exception e) {
             throw new FileNotFoundException("Save folder was not found and could not be created.");
         }
+    }
+
+    public Vector2 getRespawnPosition() {
+        return respawnPosition;
+    }
+
+    public void setRespawnPosition(Vector2 respawnPosition) {
+        this.respawnPosition = respawnPosition;
+    }
+
+    public int getRespawnSceneID() {
+        return respawnSceneID;
+    }
+
+    public void setRespawnSceneID(int respawnSceneID) {
+        this.respawnSceneID = respawnSceneID;
     }
 }

@@ -22,6 +22,7 @@ public class Styles {
     public static Slider.SliderStyle slider;
     public static Label.LabelStyle text;
     public static TextField.TextFieldStyle textField;
+    public static Label.LabelStyle title;
     public static Window.WindowStyle window;
 
     public Styles() {
@@ -35,6 +36,7 @@ public class Styles {
         loadSlider();
         loadText();
         loadTextField();
+        loadTitle();
         loadWindow();
     }
 
@@ -197,13 +199,19 @@ public class Styles {
         textField.messageFontColor = Color.WHITE;
     }
 
+    private void loadTitle() {
+        title = new Label.LabelStyle();
+        title.font = Assets.fonts.EXEPPL;
+        title.fontColor = Color.WHITE;
+    }
+
     private void loadWindow() {
         NinePatch p1 = new NinePatch(Assets.uiTextures.WINDOW_BACKGROUND, 5, 5, 19, 5);
         p1.scale(2 * Settings.getUIScale(), 2 * Settings.getUIScale());
         p1.setPadding(16 * Settings.getUIScale(), 16 * Settings.getUIScale(), 32 * Settings.getUIScale(), 8 * Settings.getUIScale());
         Drawable background = new NinePatchDrawable(p1);
         window = new Window.WindowStyle(Assets.fonts.EXEPP, Color.WHITE, background);
-        window.stageBackground = new TextureRegionDrawable((TextureRegion) Assets.uiTextures.LIST_SELECTION);
+        window.stageBackground = new TextureRegionDrawable(Assets.uiTextures.LIST_SELECTION);
 
     }
 }

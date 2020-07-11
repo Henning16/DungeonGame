@@ -67,10 +67,9 @@ public class GameStage extends Stage {
         new GameObject(this, Assets.blueprints.CRATE).getComponent(BodyComponent.class).getBody().setTransform(8, 4, 0);
         new GameObject(this, Assets.blueprints.LOGPILE).getComponent(BodyComponent.class).getBody().setTransform(6, 4, 0);
 
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 1; i++) {
             new GameObject(this, Assets.blueprints.ZOMBIE).getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3, 0);
         }
-
         world.save();
     }
 
@@ -79,9 +78,6 @@ public class GameStage extends Stage {
         super.act(delta);
         TimeHandler.tick(delta);
         gameObjectManager.update();
-
-        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-        }
     }
 
     @Override

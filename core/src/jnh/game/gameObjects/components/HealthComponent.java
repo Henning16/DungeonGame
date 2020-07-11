@@ -46,15 +46,20 @@ public class HealthComponent extends Component {
             Assets.sounds.ENEMY_HIT.setVolume(soundID, 0.1f);
         }
         if(isDead()) {
-            gameObject.addAction(Actions.rotateBy(-30, 0.2f, Interpolation.pow3Out));
-            gameObject.addAction(new SequenceAction(Actions.alpha(0, 0.2f), new Action() {
-                @Override
-                public boolean act(float delta) {
-                    gameObject.getGameObjectManager().remove(gameObject.getID());
-                    gameObject.removeTag("destroyable");
-                    return true;
-                }
-            }));
+            if(gameObject.getType().equals("PLAYER")) {
+                gameObject.getStage().getScreen().pause();
+                gameObject.getStage().getScreen().getUI().showDeathScreen();
+            } else {
+                gameObject.addAction(Actions.rotateBy(-30, 0.2f, Interpolation.pow3Out));
+                gameObject.addAction(new SequenceAction(Actions.alpha(0, 0.2f), new Action() {
+                    @Override
+                    public boolean act(float delta) {
+                        gameObject.getGameObjectManager().remove(gameObject.getID());
+                        gameObject.removeTag("destroyable");
+                        return true;
+                    }
+                }));
+            }
         }
     }
 
@@ -67,4 +72,21 @@ public class HealthComponent extends Component {
         return health == 0;
     }
 
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+        updateHealthBar();
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+        updateHealthBar();
+    }
 }

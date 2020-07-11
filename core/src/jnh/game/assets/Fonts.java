@@ -8,13 +8,15 @@ import jnh.game.settings.Settings;
 
 public class Fonts {
 
-    public final BitmapFont EXEPP, EXEPPS;
+    public final BitmapFont EXEPP, EXEPPL, EXEPPS;
 
     public Fonts() {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/exepp.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = (int) (32 * Settings.getUIScale());
         EXEPP = generator.generateFont(parameter);
+        parameter.size = (int) (64 * Settings.getUIScale());
+        EXEPPL = generator.generateFont(parameter);
         parameter.size = (int) (16 * Settings.getUIScale());
         EXEPPS = generator.generateFont(parameter); // font size 32
         generator.dispose();
