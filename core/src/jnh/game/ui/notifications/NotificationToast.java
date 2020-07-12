@@ -1,16 +1,13 @@
 package jnh.game.ui.notifications;
 
 import com.badlogic.gdx.graphics.g2d.NinePatch;
-import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import jnh.game.assets.Assets;
 import jnh.game.settings.Settings;
-import jnh.game.ui.Styles;
-
-import java.util.Set;
+import jnh.game.ui.UIStyles;
 
 public class NotificationToast extends Table {
 
@@ -24,9 +21,9 @@ public class NotificationToast extends Table {
         NinePatch background = new NinePatch(Assets.uiTextures.BUTTON_UP, 5, 5, 6, 5);
         background.scale(2 * Settings.getUIScale(), 2 * Settings.getUIScale());
         setBackground(new NinePatchDrawable(background));
-        add(new Label(notification.getTitle(), Styles.label)).padLeft(0).left().top();
+        add(new Label(notification.getTitle(), UIStyles.label)).padLeft(0).left().top();
         row();
-        Label label = new Label(notification.getMessage(), Styles.text);
+        Label label = new Label(notification.getMessage(), UIStyles.text);
         label.setWrap(true);
         add(label).padTop(8 * Settings.getUIScale()).width(184 * Settings.getUIScale());
         addNotification();

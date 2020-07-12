@@ -1,25 +1,19 @@
 package jnh.game.ui;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
-import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Disposable;
-import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
@@ -54,7 +48,7 @@ public class GameUI implements Disposable {
         this.screen = _screen;
         SpriteBatch batch = new SpriteBatch();
 
-        new Styles();
+        new UIStyles();
 
         stage = new Stage(new ScreenViewport(), batch);
 
@@ -78,7 +72,7 @@ public class GameUI implements Disposable {
         overlayUI.setFillParent(true);
         stage.addActor(overlayUI);
 
-        fpsLabel = new Label("0", Styles.label);
+        fpsLabel = new Label("0", Assets.uiStyles.label);
         overlayUI.add(fpsLabel);
 
         valueBars = new Table();
@@ -88,12 +82,12 @@ public class GameUI implements Disposable {
         hotBar = new Table();
         playUI.add(hotBar).bottom();
 
-        healthBar = new ProgressBar(0, 100, 1, false, Styles.healthBar);
+        healthBar = new ProgressBar(0, 100, 1, false, Assets.uiStyles.healthBar);
         healthBar.setAnimateDuration(0.1f);
 
         valueBars.add(healthBar).minWidth(200 * Settings.getUIScale());
 
-        TextButton c = new TextButton("Pause", Styles.defaultButton);
+        TextButton c = new TextButton("Pause", Assets.uiStyles.defaultButton);
         c.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
@@ -137,11 +131,11 @@ public class GameUI implements Disposable {
         deathOverlay.setColor(new Color(1, 1, 1, 0));
         deathOverlay.addAction(Actions.fadeIn(1));
 
-        Label deathTitle = new Label("You died", Styles.title);
+        Label deathTitle = new Label("You died", Assets.uiStyles.title);
         deathOverlay.add(deathTitle).padBottom(12 * Settings.getUIScale());
         deathOverlay.row();
 
-        TextButton respawnButton = new TextButton("Respawn", Styles.defaultButton);
+        TextButton respawnButton = new TextButton("Respawn", Assets.uiStyles.defaultButton);
         respawnButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {

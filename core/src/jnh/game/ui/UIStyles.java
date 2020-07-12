@@ -10,22 +10,21 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import jnh.game.assets.Assets;
 import jnh.game.settings.Settings;
 
-public class Styles {
+public class UIStyles {
 
+    public CheckBox.CheckBoxStyle checkBox;
+    public TextButton.TextButtonStyle defaultButton;
+    public SelectBox.SelectBoxStyle dropdownMenu;
+    public ProgressBar.ProgressBarStyle healthBar;
+    public Label.LabelStyle label;
+    public ScrollPane.ScrollPaneStyle scrollBar;
+    public Slider.SliderStyle slider;
+    public Label.LabelStyle text;
+    public TextField.TextFieldStyle textField;
+    public Label.LabelStyle title;
+    public Window.WindowStyle window;
 
-    public static CheckBox.CheckBoxStyle checkBox;
-    public static TextButton.TextButtonStyle defaultButton;
-    public static SelectBox.SelectBoxStyle dropdownMenu;
-    public static ProgressBar.ProgressBarStyle healthBar;
-    public static Label.LabelStyle label;
-    public static ScrollPane.ScrollPaneStyle scrollBar;
-    public static Slider.SliderStyle slider;
-    public static Label.LabelStyle text;
-    public static TextField.TextFieldStyle textField;
-    public static Label.LabelStyle title;
-    public static Window.WindowStyle window;
-
-    public Styles() {
+    public UIStyles() {
         loadScrollBar();
         loadCheckBox();
         loadDefaultButton();

@@ -95,7 +95,7 @@ public class GameScreen implements Screen {
         update(delta);
 
         Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.setProjectionMatrix(camera.combined.scl(Global.UNIT));
         batch.enableBlending();
@@ -139,6 +139,7 @@ public class GameScreen implements Screen {
 
     @Override
     public void dispose() {
+        batch.dispose();
         rayHandler.dispose();
         world.dispose();
         stage.dispose();

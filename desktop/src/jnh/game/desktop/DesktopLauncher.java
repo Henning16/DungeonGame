@@ -13,7 +13,7 @@ public class DesktopLauncher {
         config.useGL30 = false;
         config.width = 1600;
         config.height = 900;
-        config.samples = 3;
+        config.samples = 16;
         config.pauseWhenBackground = true;
         config.backgroundFPS = -1;
         config.foregroundFPS = 60;
