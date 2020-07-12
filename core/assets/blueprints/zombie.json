@@ -47,7 +47,10 @@
             ]
         },
         {
-            "class": "jnh.game.gameObjects.components.AttackPlayerComponent"
+            "class": "jnh.game.gameObjects.components.AttackComponent",
+            "targetedTags": [
+                "player"
+            ]
         },
         {
             "class": "jnh.game.gameObjects.components.HealthComponent",

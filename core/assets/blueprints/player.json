@@ -68,12 +68,6 @@
                 "r": 1, "g": 0.7, "b": 0.3, "a": 0.85
             },
             "flickeringIntensity": 0
-        },
-        {
-            "class": "jnh.game.gameObjects.components.AttackComponent",
-            "targetedTags": [
-                "enemy"
-            ]
         }
     ]
 }
