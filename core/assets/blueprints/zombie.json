@@ -40,8 +40,11 @@
             ]
         },
         {
-            "class": "jnh.game.gameObjects.components.FollowPlayerComponent",
-            "followDistance": 6
+            "class": "jnh.game.gameObjects.components.FollowComponent",
+            "followDistance": 6,
+            "targetedTags": [
+                "player"
+            ]
         },
         {
             "class": "jnh.game.gameObjects.components.AttackPlayerComponent"
