@@ -10,6 +10,7 @@ import jnh.game.gameObjects.GameObjectManager;
 import jnh.game.stages.GameStage;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class World {
@@ -131,6 +132,16 @@ public class World {
         }
         world.stage = stage;
         return world;
+    }
+
+    public static List<String> getWorlds() throws FileNotFoundException {
+        ArrayList<String> worlds = new ArrayList<>();
+        for(FileHandle fileHandle : getSaveFolder().list()) {
+            if(fileHandle.child("meta.json").exists()) {
+                worlds.add(fileHandle.name());
+            }
+        }
+        return worlds;
     }
 
     private static FileHandle getSaveFolder() throws FileNotFoundException {

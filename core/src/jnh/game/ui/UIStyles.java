@@ -15,6 +15,7 @@ public class UIStyles {
     public CheckBox.CheckBoxStyle checkBox;
     public TextButton.TextButtonStyle defaultButton;
     public SelectBox.SelectBoxStyle dropdownMenu;
+    public Label.LabelStyle header;
     public ProgressBar.ProgressBarStyle healthBar;
     public Label.LabelStyle label;
     public ScrollPane.ScrollPaneStyle scrollBar;
@@ -29,6 +30,7 @@ public class UIStyles {
         loadCheckBox();
         loadDefaultButton();
         loadDropdownMenu();
+        loadHeader();
         loadHealthBar();
         loadLabel();
         loadScrollBar();
@@ -112,6 +114,12 @@ public class UIStyles {
         dropdownMenu.listStyle.font = Assets.fonts.EXEPP;
         dropdownMenu.font = Assets.fonts.EXEPP;
 
+    }
+
+    private void loadHeader() {
+        header = new Label.LabelStyle();
+        header.font = Assets.fonts.EXEPPL;
+        header.fontColor = Color.WHITE;
     }
 
     private void loadHealthBar() {
@@ -200,7 +208,7 @@ public class UIStyles {
 
     private void loadTitle() {
         title = new Label.LabelStyle();
-        title.font = Assets.fonts.EXEPPL;
+        title.font = Assets.fonts.EXEPPXL;
         title.fontColor = Color.WHITE;
     }
 

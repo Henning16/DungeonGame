@@ -4,11 +4,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import jnh.game.gameObjects.GameObject;
-import jnh.game.ui.notifications.Notification;
-import jnh.game.ui.notifications.NotificationHandler;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Verwaltet den möglichen Body, also die physikalischen Eigenschaften, des GameObjects.
@@ -50,7 +45,7 @@ public class BodyComponent extends Component {
         def.position.set(gameObject.getX(), gameObject.getY());
         def.linearDamping = linearDamping;
         def.fixedRotation = fixedRotation;
-        body = gameObject.getStage().getScreen().getWorld().createBody(def);
+        body = gameObject.getStage().getScreen().getPhysicsWorld().createBody(def);
 
         CollisionBox collisionBox = new CollisionBox();
         try {
@@ -73,7 +68,7 @@ public class BodyComponent extends Component {
     @Override
     public void remove() {
         if(!alreadyDeleted) {
-            gameObject.getStage().getScreen().getWorld().destroyBody(body);
+            gameObject.getStage().getScreen().getPhysicsWorld().destroyBody(body);
             alreadyDeleted = true;
         }
     }

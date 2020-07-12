@@ -27,7 +27,7 @@ public class GameScreen implements Screen {
 
     private GameCamera camera;
     private RayHandler rayHandler;
-    private World world;
+    private World physicsWorld;
     private GameStage stage;
 
     private GameUI ui;
@@ -39,10 +39,7 @@ public class GameScreen implements Screen {
 
     public GameScreen(DungeonGame game) {
         this.game = game;
-    }
 
-    @Override
-    public void show() {
         //UI
         ui = new GameUI(this);
 
@@ -51,10 +48,10 @@ public class GameScreen implements Screen {
         camera.setToOrtho(false, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
 
         //World for physics
-        world = new World(new Vector2(0f, 0f), true);
+        physicsWorld = new World(new Vector2(0f, 0f), true);
 
         //RayHandler
-        rayHandler = new RayHandler(world);
+        rayHandler = new RayHandler(physicsWorld);
         rayHandler.setAmbientLight(new Color(1, 1, 1, 0));
         rayHandler.setBlur(true);
         rayHandler.setBlurNum(1);
@@ -72,11 +69,16 @@ public class GameScreen implements Screen {
         Gdx.input.setInputProcessor(multiplexer);
     }
 
+    @Override
+    public void show() {
+
+    }
+
     public void update(float delta) {
         if(!paused) {
             Global.elapsedTime += delta;
             stage.act(Gdx.graphics.getDeltaTime());
-            world.step(1 / 60f, 6, 2);
+            physicsWorld.step(1 / 60f, 6, 2);
             rayHandler.update();
         }
 
@@ -141,7 +143,7 @@ public class GameScreen implements Screen {
     public void dispose() {
         batch.dispose();
         rayHandler.dispose();
-        world.dispose();
+        physicsWorld.dispose();
         stage.dispose();
     }
 
@@ -149,8 +151,8 @@ public class GameScreen implements Screen {
         return batch;
     }
 
-    public World getWorld() {
-        return world;
+    public World getPhysicsWorld() {
+        return physicsWorld;
     }
 
     public RayHandler getRayHandler() {
