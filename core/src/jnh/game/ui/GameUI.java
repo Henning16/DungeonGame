@@ -33,7 +33,6 @@ public class GameUI implements Disposable {
 
     private final Stage stage;
 
-
     private final Table playUI;
     private final Table dialogUI;
     private final Table overlayUI;

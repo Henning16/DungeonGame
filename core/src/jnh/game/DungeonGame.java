@@ -10,7 +10,7 @@ public class DungeonGame extends Game {
     @Override
     public void create() {
         new Assets();
-        setScreen(new GameScreen(this));
+        setScreen(new StartScreen(this));
     }
 
 }

@@ -1,7 +1,6 @@
 package jnh.game.desktop;
 
 import com.badlogic.gdx.Files;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import jnh.game.DungeonGame;
@@ -14,6 +13,7 @@ public class DesktopLauncher {
         config.width = 1600;
         config.height = 900;
         config.samples = 16;
+        config.forceExit = false;
         config.pauseWhenBackground = true;
         config.backgroundFPS = -1;
         config.foregroundFPS = 60;
