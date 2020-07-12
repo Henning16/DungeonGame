@@ -2,13 +2,18 @@ package jnh.game.gameObjects.components;
 
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.gameObjects.GameObject;
+import jnh.game.gameObjects.GameObjectManager;
+import jnh.game.gameObjects.ID;
 
-public class FollowPlayerComponent extends Component {
+import java.util.ArrayList;
 
-    private transient GameObject player;
+public class FollowComponent extends Component {
+
     private transient MovementComponent movementComponent;
+    private transient GameObject target;
 
     private float followDistance = 3f;
+    private ArrayList<String> targetedTags = new ArrayList<>();
 
 
     private transient float directionChangeCooldown = 0f;
@@ -17,30 +22,50 @@ public class FollowPlayerComponent extends Component {
 
     @Override
     public void tick(float delta) {
-        if(movementComponent == null || player == null) {
-            movementComponent = (MovementComponent) gameObject.getComponent(MovementComponent.class);
-            player = gameObject.getGameObjectManager().getGameObject(gameObject.getGameObjectManager().playerID);
+        if(movementComponent == null) {
+            movementComponent = gameObject.getComponent(MovementComponent.class);
             return;
         }
-        if(Vector2.dst(player.getX(), player.getY(), gameObject.getX(), gameObject.getY()) > followDistance || player.isRemoved()) {
-            wanderArround(delta);
-        } else if(Vector2.dst(player.getX(), player.getY(), gameObject.getX(), gameObject.getY()) > 1.2f){
-            moveTowards(player.getX(), player.getY());
+        if(target == null || Vector2.dst(target.getX(), target.getY(), gameObject.getX(), gameObject.getY()) > followDistance || target.isRemoved()) {
+            target = getNearestTarget();
+            if (target == null) {
+                wanderAround(delta);
+            }
+        } else if(Vector2.dst(target.getX(), target.getY(), gameObject.getX(), gameObject.getY()) > 1.2f){
+            moveTowards(target.getX(), target.getY());
         }
         directionChangeCooldown = Math.max(0, directionChangeCooldown - delta);
     }
 
     @Override
     public Component copy() {
-        FollowPlayerComponent c = new FollowPlayerComponent();
+        FollowComponent c = new FollowComponent();
         c.followDistance = followDistance;
+        c.targetedTags = targetedTags;
         return c;
     }
 
+    public GameObject getNearestTarget() {
+        GameObjectManager gameObjectManager = gameObject.getGameObjectManager();
+        float smallestDistance2 = Float.MAX_VALUE;
+        GameObject nearestTarget = null;
+        for (String tag: targetedTags) {
+            for (ID targetID: gameObjectManager.getGameObjectsByTag(tag)) {
+                GameObject target = gameObjectManager.getGameObject(targetID);
+                float dst2 = gameObject.getPosition().dst2(target.getPosition());
+                if (dst2 < smallestDistance2) {
+                    smallestDistance2 = dst2;
+                    nearestTarget = target;
+                }
+            }
+        }
 
-    private void wanderArround(float delta) {
+        return nearestTarget;
+    }
+
+    private void wanderAround(float delta) {
         if((wanderDestiny == null || new Vector2(gameObject.getX(), gameObject.getY()).dst2(wanderDestiny) < 0.4f || wanderDestinyTimer < 0f)) {
-            wanderDestiny = new Vector2((float) (gameObject.getX() - Math.random() * 10 + 5), (float) (gameObject.getY() - Math.random() * 10 + 5));
+            wanderDestiny = new Vector2((float) (gameObject.getX() - Math.random() * 10 - 5), (float) (gameObject.getY() - Math.random() * 10 - 5));
             wanderDestinyTimer = 9f;
         }
         if(wanderDestiny != null) {
@@ -60,7 +85,7 @@ public class FollowPlayerComponent extends Component {
         moveTowards(x, y, 1f);
     }
 
-    //TODO move into seperate class when needed
+    //TODO move into separate class when needed
     private void moveTowards(float x, float y, float speedMultiplier) {
         int direction;
         if(directionChangeCooldown == 0f) {
@@ -73,11 +98,9 @@ public class FollowPlayerComponent extends Component {
                     direction = i;
                 }
             }
-            directionChangeCooldown = 0.7f * (1 / speedMultiplier);
-        } else {
-            direction = movementComponent.getLooking();
-        }
-        if((direction + 1) % 2 == 0) {
+            directionChangeCooldown = 0.7f / speedMultiplier;
+        } else direction = movementComponent.getLooking();
+        if(direction % 2 == 1) {
             if(Math.abs(y - gameObject.getY()) > 0.02f) {
                 movementComponent.move((y - gameObject.getY() > 0) ? 0 : 2, 0.2f * speedMultiplier);
             }
