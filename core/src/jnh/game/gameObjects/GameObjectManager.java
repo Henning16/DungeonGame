@@ -11,8 +11,6 @@ public class GameObjectManager {
 
     private GameObject[] gameObjects = new GameObject[100];
 
-
-
     private ArrayList<ID> toBeRemoved = new ArrayList<>();
 
     private Map<String, ArrayList<ID>> tags = new LinkedHashMap<>();
