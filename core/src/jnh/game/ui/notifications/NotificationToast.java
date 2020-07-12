@@ -21,9 +21,9 @@ public class NotificationToast extends Table {
         NinePatch background = new NinePatch(Assets.uiTextures.BUTTON_UP, 5, 5, 6, 5);
         background.scale(2 * Settings.getUIScale(), 2 * Settings.getUIScale());
         setBackground(new NinePatchDrawable(background));
-        add(new Label(notification.getTitle(), UIStyles.label)).padLeft(0).left().top();
+        add(new Label(notification.getTitle(), Assets.uiStyles.label)).padLeft(0).left().top();
         row();
-        Label label = new Label(notification.getMessage(), UIStyles.text);
+        Label label = new Label(notification.getMessage(), Assets.uiStyles.text);
         label.setWrap(true);
         add(label).padTop(8 * Settings.getUIScale()).width(184 * Settings.getUIScale());
         addNotification();
