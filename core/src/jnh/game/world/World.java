@@ -21,7 +21,7 @@ public class World {
     private String fileName;
     private Vector2 respawnPosition = new Vector2(12, 12);
     private int respawnSceneID = 0;
-    private transient int sceneID = 0;
+    private int sceneID = 0;
     private long uniqueIDCounter = 0;
 
     private World() {
@@ -80,6 +80,9 @@ public class World {
         stage.getGameObjectManager().unstash(persistentGameObjects);
     }
 
+    public boolean sceneExists(int id) throws FileNotFoundException {
+        return Gdx.files.external(World.getSaveFolder().path()+"/"+fileName+"/"+"scene"+id+".json").exists();
+    }
     public void saveScene(int id) throws FileNotFoundException {
         Json json = new Json();
         String fileString = "";
@@ -100,19 +103,20 @@ public class World {
         sceneFile.writeString(fileString, false);
     }
 
-    public void save() {
-        try {
-            saveScene(sceneID);
-            FileHandle meta = Gdx.files.external(getSaveFolder().path()+"/"+fileName+"/"+"meta.json");
-            Json json = new Json();
-            json.setOutputType(JsonWriter.OutputType.json);
-            meta.writeString(json.prettyPrint(json.toJson(this)), false);
-        } catch(FileNotFoundException e) {
-            e.printStackTrace();
+    public void save() throws FileNotFoundException {
+        saveScene(sceneID);
+        FileHandle meta = Gdx.files.external(getSaveFolder().path()+"/"+fileName+"/"+"meta.json");
+        Json json = new Json();
+        json.setOutputType(JsonWriter.OutputType.json);
+        meta.writeString(json.prettyPrint(json.toJson(this)), false);
+        FileHandle userFolder = Gdx.files.external("");
+        if(!userFolder.exists()) {
+            throw new FileNotFoundException("User folder was not found and could not be created.");
         }
+        userFolder.child(".dungeongame/lastWorld").writeString(name, false);
     }
 
-    public static World newWorld(GameStage stage, String name) {
+    public static World newWorld(GameStage stage, String name) throws FileNotFoundException{
         World world = new World();
         world.stage = stage;
         world.name = name;
@@ -123,6 +127,9 @@ public class World {
 
     public static World loadWorld(GameStage stage, String name) throws FileNotFoundException {
         FileHandle worldFolder = getSaveFolder().child(name);
+        if(!worldFolder.exists()) {
+            throw new FileNotFoundException("World not found.");
+        }
         Json json = new Json();
         World world;
         try {
@@ -132,6 +139,18 @@ public class World {
         }
         world.stage = stage;
         return world;
+    }
+
+    public static String getLastWorld() throws FileNotFoundException{
+        FileHandle userFolder = Gdx.files.external("");
+        if(!userFolder.exists()) {
+            throw new FileNotFoundException("User folder was not found and could not be created.");
+        }
+        FileHandle lastWorldFile = userFolder.child(".dungeongame/lastWorld");
+        if(!lastWorldFile.exists()) {
+            throw new FileNotFoundException("Last world not found.");
+        }
+        return lastWorldFile.readString();
     }
 
     public static List<String> getWorlds() throws FileNotFoundException {
@@ -154,6 +173,10 @@ public class World {
         } catch(Exception e) {
             throw new FileNotFoundException("Save folder was not found and could not be created.");
         }
+    }
+
+    public int getSceneID() {
+        return sceneID;
     }
 
     public Vector2 getRespawnPosition() {

@@ -17,14 +17,24 @@ public class Dungeon {
         }
     }
 
-    public boolean setRoom(int y, int x) {
+    public boolean setRoom(int y, int x, boolean saveCurrentRoom) {
         try {
-            stage.getWorld().switchScene(rooms[y][x].getID());
-            rooms[y][x].load();
+            boolean newRoom = !stage.getWorld().sceneExists(rooms[y][x].getID());
+            if(saveCurrentRoom) {
+                stage.getWorld().switchScene(rooms[y][x].getID());
+            } else {
+                stage.getWorld().loadScene(rooms[y][x].getID());
+            }
+            if(newRoom) {
+                rooms[y][x].generate();
+            }
             return true;
         } catch(Exception e) {
             return false;
         }
+    }
+    public boolean setRoom(int y, int x) {
+        return setRoom(y, x, true);
     }
 
 }

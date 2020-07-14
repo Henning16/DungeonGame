@@ -15,7 +15,7 @@ public class Room {
         this.id = id;
     }
 
-    protected void load() {
+    protected void generate() {
 
     }
 

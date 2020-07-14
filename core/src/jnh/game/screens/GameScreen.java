@@ -63,15 +63,13 @@ public class GameScreen implements Screen {
         batch = (SpriteBatch) stage.getBatch();
 
         logger = new FPSLogger();
-
-        //Input
-        InputMultiplexer multiplexer = new InputMultiplexer(stage, ui.getStage());
-        Gdx.input.setInputProcessor(multiplexer);
     }
 
     @Override
     public void show() {
-
+        //Input
+        InputMultiplexer multiplexer = new InputMultiplexer(stage, ui.getStage());
+        Gdx.input.setInputProcessor(multiplexer);
     }
 
     public void update(float delta) {

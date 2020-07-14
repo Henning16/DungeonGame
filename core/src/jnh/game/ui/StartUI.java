@@ -29,7 +29,7 @@ public class StartUI {
         startMenu.add(new Label("Dungeon Game", Assets.uiStyles.title)).padBottom(32 * Settings.getUIScale());
         startMenu.row();
 
-        TextButton playbutton = new TextButton("Play", Assets.uiStyles.defaultButton);
+        final TextButton playbutton = new TextButton("Play", Assets.uiStyles.defaultButton);
         playbutton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
@@ -37,13 +37,11 @@ public class StartUI {
                 GameScreen gameScreen = new GameScreen(screen.getGame());
                 //TODO Save and use last world
                 try {
-                    World.loadWorld(gameScreen.getStage(), "test");
+                    gameScreen.getStage().setWorld(World.loadWorld(gameScreen.getStage(), World.getLastWorld()));
+                    screen.getGame().setScreen(gameScreen);
                 } catch (FileNotFoundException e) {
-                    gameScreen.dispose();
-                    return;
+                    playbutton.setText("Play (No recent worlds found)");
                 }
-                screen.getGame().setScreen(gameScreen);
-                screen.dispose();
             }
         });
         startMenu.add(playbutton).padBottom(8 * Settings.getUIScale());
@@ -101,7 +99,6 @@ public class StartUI {
             }
         } catch (FileNotFoundException e) {
             worldsMenu.add(new Label("Save folder not found", Assets.uiStyles.label));
-
         }
 
         //New World Menu
@@ -124,14 +121,17 @@ public class StartUI {
         final TextField nameField = new TextField("", Assets.uiStyles.textField);
         newWorldMenu.add(nameField).padBottom(20 * Settings.getUIScale()).minWidth(256 * Settings.getUIScale()).left();
         newWorldMenu.row();
-        TextButton createButton = new TextButton("Create World", Assets.uiStyles.defaultButton);
+        final TextButton createButton = new TextButton("Create World", Assets.uiStyles.defaultButton);
         createButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 GameScreen gameScreen = new GameScreen(screen.getGame());
-                World.newWorld(gameScreen.getStage(), nameField.getText());
-                screen.getGame().setScreen(gameScreen);
-                screen.dispose();
+                try {
+                    gameScreen.getStage().setWorld(World.newWorld(gameScreen.getStage(), nameField.getText()));
+                    screen.getGame().setScreen(gameScreen);
+                } catch (FileNotFoundException e) {
+                    createButton.setText("Create World (Fatal Error)");
+                }
             }
         });
         newWorldMenu.add(createButton).left();

@@ -14,6 +14,8 @@ import jnh.game.gameObjects.GameObjectManager;
 import jnh.game.gameObjects.components.BodyComponent;
 import jnh.game.screens.GameScreen;
 import jnh.game.ui.GameUI;
+import jnh.game.ui.notifications.Notification;
+import jnh.game.ui.notifications.NotificationHandler;
 import jnh.game.utils.TimeHandler;
 import jnh.game.world.Dungeon;
 import jnh.game.world.Room;
@@ -55,29 +57,41 @@ public class GameStage extends Stage {
         foregroundLayer = new Group();
         addActor(foregroundLayer);
         dungeon = new Dungeon(this);
-
-        world = World.newWorld(this, "test");
-
-
-        dungeon.setRoom(0, 0);
-        gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
-        gameObjectManager.getGameObject(gameObjectManager.playerID).setPersistent(true);
-
-        new GameObject(this, Assets.blueprints.AXE).setPosition(4, 4);
-        new GameObject(this, Assets.blueprints.CRATE).getComponent(BodyComponent.class).getBody().setTransform(8, 4, 0);
-        new GameObject(this, Assets.blueprints.LOGPILE).getComponent(BodyComponent.class).getBody().setTransform(6, 4, 0);
-
-        for(int i = 0; i < 1; i++) {
-            new GameObject(this, Assets.blueprints.ZOMBIE).getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3, 0);
-        }
-        world.save();
     }
 
+    public void setWorld(World world) {
+        this.world = world;
+
+        final int x = world.getSceneID() % Dungeon.DUNGEON_SIZE;
+        final int y = (world.getSceneID() - x) / Dungeon.DUNGEON_SIZE;
+        dungeon.setRoom(y, x, false);
+
+        //TEMP
+        if(gameObjectManager.playerID == null) {
+            gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
+            gameObjectManager.getGameObject(gameObjectManager.playerID).setPersistent(true);
+        }
+
+
+        try {
+            world.save();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
     @Override
     public void act(float delta) {
         super.act(delta);
         TimeHandler.tick(delta);
         gameObjectManager.update();
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            try {
+                world.save();
+                NotificationHandler.addNotification(new Notification("Save", "World sucessfully saved."));
+            } catch (FileNotFoundException e) {
+                NotificationHandler.addNotification(new Notification("Save", "World not correctly saved."));
+            }
+        }
     }
 
     @Override
@@ -163,4 +177,5 @@ public class GameStage extends Stage {
     public Room getRoom() {
         return room;
     }
+
 }

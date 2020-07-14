@@ -12,13 +12,13 @@ public class DesktopLauncher {
         config.useGL30 = false;
         config.width = 1600;
         config.height = 900;
-        config.samples = 32;
+        config.samples = 0;
         config.forceExit = false;
         config.pauseWhenBackground = true;
         config.backgroundFPS = -1;
         config.foregroundFPS = 60;
         config.vSyncEnabled = true;
-        config.fullscreen = false;
+        config.resizable = true;
         config.addIcon("textures/icon.png", Files.FileType.Internal);
         new LwjglApplication(new DungeonGame(), config);
     }
