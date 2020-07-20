@@ -2,7 +2,6 @@ package jnh.game.screens;
 
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
@@ -28,8 +27,7 @@ public class GameScreen implements Screen {
 
     private final DungeonGame game;
 
-    private SpriteBatch batch;
-    private SpriteBatch fboBatch;
+    private final SpriteBatch batch;
 
     private final GameCamera camera;
     private final RayHandler rayHandler;
@@ -38,10 +36,10 @@ public class GameScreen implements Screen {
     private final ShaderProgram shaderProgram = new ShaderProgram(Gdx.files.internal("shaders/vertex.glsl"), Gdx.files.internal("shaders/fragment.glsl"));
     private final ColorGrader colorGrader;
 
-    private World physicsWorld;
-    private GameStage stage;
+    private final World physicsWorld;
+    private final GameStage stage;
 
-    private GameUI ui;
+    private final GameUI ui;
 
     private boolean paused = false;
 
@@ -73,7 +71,6 @@ public class GameScreen implements Screen {
         stage.getViewport().setCamera(camera);
 
         batch = (SpriteBatch) stage.getBatch();
-        fboBatch = new SpriteBatch();
     }
 
     @Override

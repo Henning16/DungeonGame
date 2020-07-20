@@ -11,13 +11,13 @@ public class GameObjectManager {
 
     private GameObject[] gameObjects = new GameObject[100];
 
-    private ArrayList<ID> toBeRemoved = new ArrayList<>();
+    private final ArrayList<ID> toBeRemoved = new ArrayList<>();
 
-    private Map<String, ArrayList<ID>> tags = new LinkedHashMap<>();
+    private final Map<String, ArrayList<ID>> tags = new LinkedHashMap<>();
 
     public ID playerID;
 
-    private Queue<Integer> freeSlots = new LinkedList<>();
+    private final Queue<Integer> freeSlots = new LinkedList<>();
     private int firstFreeSlot = 0;
     private transient long uniqueIDCounter = 0;
 
@@ -46,8 +46,7 @@ public class GameObjectManager {
             uniqueIDCounter++;
         }
         if(freeSlots.size() != 0) {
-            ID id = new ID(freeSlots.poll(), globalID);
-            return id;
+            return new ID(freeSlots.poll(), globalID);
         } else if(firstFreeSlot < gameObjects.length) {
             ID id = new ID(firstFreeSlot, globalID);
             firstFreeSlot++;
@@ -178,7 +177,7 @@ public class GameObjectManager {
         if(tags.containsKey(tag)) {
             return tags.get(tag);
         } else {
-            return new ArrayList<ID>();
+            return new ArrayList<>();
         }
     }
 

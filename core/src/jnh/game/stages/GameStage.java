@@ -89,7 +89,7 @@ public class GameStage extends Stage {
     public void close() {
         try {
             world.save();
-        } catch (FileNotFoundException e) { }
+        } catch (FileNotFoundException ignored) { }
     }
 
     /**

@@ -16,8 +16,6 @@ import jnh.game.gfx.animations.Animator;
 import jnh.game.stages.GameStage;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class GameObject extends Image {
 
