@@ -121,7 +121,6 @@ public class World {
         world.stage = stage;
         world.name = name;
         world.fileName = name;
-        world.save();
         return world;
     }
 
@@ -141,6 +140,9 @@ public class World {
         return world;
     }
 
+    public static void deleteWorld(String name) throws FileNotFoundException {
+        getSaveFolder().child(name).deleteDirectory();
+    }
     public static String getLastWorld() throws FileNotFoundException{
         FileHandle userFolder = Gdx.files.external("");
         if(!userFolder.exists()) {

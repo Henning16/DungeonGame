@@ -21,5 +21,14 @@ public class Assets {
         //TODO add Sounds, Maps, Music and more like texts etc.
     }
 
+    public static void reloadFonts() {
+        fonts = new Fonts();
+    }
+    public static void reloadUIStyles() {
+        uiStyles = new UIStyles();
+    }
 
+    public static void dispose() {
+        Assets.textures.dispose();
+    }
 }

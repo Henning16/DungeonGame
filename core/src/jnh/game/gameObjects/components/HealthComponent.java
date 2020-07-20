@@ -54,8 +54,8 @@ public class HealthComponent extends Component {
                 gameObject.addAction(new SequenceAction(Actions.alpha(0, 0.2f), new Action() {
                     @Override
                     public boolean act(float delta) {
-                        gameObject.getGameObjectManager().remove(gameObject.getID());
                         gameObject.removeTag("destroyable");
+                        gameObject.getGameObjectManager().remove(gameObject.getID());
                         return true;
                     }
                 }));

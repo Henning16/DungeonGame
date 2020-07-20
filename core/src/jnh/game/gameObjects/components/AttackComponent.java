@@ -39,10 +39,12 @@ public class AttackComponent extends Component {
         for (String tag: targetedTags) {
             for (ID targetID: gameObjectManager.getGameObjectsByTag(tag)) {
                 GameObject target = gameObjectManager.getGameObject(targetID);
-                float dst2 = gameObject.getPosition().dst2(target.getPosition());
-                if (dst2 < smallestDistance2) {
-                    smallestDistance2 = dst2;
-                    nearestTarget = target;
+                if(target != null) {
+                    float dst2 = gameObject.getPosition().dst2(target.getPosition());
+                    if (dst2 < smallestDistance2) {
+                        smallestDistance2 = dst2;
+                        nearestTarget = target;
+                    }
                 }
             }
         }

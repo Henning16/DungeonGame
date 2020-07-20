@@ -1,5 +1,7 @@
 package jnh.game.ui;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
@@ -10,7 +12,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
-import com.badlogic.gdx.scenes.scene2d.ui.*;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Disposable;
@@ -20,6 +25,7 @@ import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.components.BodyComponent;
 import jnh.game.gameObjects.components.HealthComponent;
 import jnh.game.screens.GameScreen;
+import jnh.game.screens.StartScreen;
 import jnh.game.settings.Settings;
 import jnh.game.ui.notifications.Notification;
 import jnh.game.ui.notifications.NotificationHandler;
@@ -33,8 +39,21 @@ public class GameUI implements Disposable {
 
     private final Stage stage;
 
+    /**
+     * This table contains ui for the game itself like health bars etc. but no inventory and such.
+     */
     private final Table playUI;
+    /**
+     * This table can be used for displaying dialogs.
+     */
     private final Table dialogUI;
+    /**
+     * This table is used to display the pause menu.
+     */
+    private final Table pauseUI;
+    /**
+     * This table is currently only used to display the fps.
+     */
     private final Table overlayUI;
 
     private final Label fpsLabel;
@@ -46,26 +65,66 @@ public class GameUI implements Disposable {
     public GameUI(GameScreen _screen){
         this.screen = _screen;
         SpriteBatch batch = new SpriteBatch();
-
         new UIStyles();
-
         stage = new Stage(new ScreenViewport(), batch);
 
 
-
+        //Play
         playUI = new Table();
         playUI.setFillParent(true);
         stage.addActor(playUI);
 
-        dialogUI = new Table();
-        dialogUI.setFillParent(true);
-        stage.addActor(dialogUI);
+        valueBars = new Table();
+        playUI.add(valueBars).left().top().pad(10 * Settings.getUIScale(), 10 * Settings.getUIScale(), 0, 0).expand();
+        playUI.row();
 
+        healthBar = new ProgressBar(0, 100, 1, false, Assets.uiStyles.healthBar);
+        healthBar.setAnimateDuration(0.1f);
+        valueBars.add(healthBar).minWidth(200 * Settings.getUIScale());
+
+        hotBar = new Table();
+
+
+        //Notifications
         NotificationTable notificationUI = new NotificationTable();
         notificationUI.setFillParent(true);
         stage.addActor(notificationUI);
         NotificationHandler.setTable(notificationUI);
 
+
+        //Pause
+        pauseUI = new Table();
+        pauseUI.setFillParent(true);
+        Pixmap pixmap = new Pixmap(1, 1, Pixmap.Format.RGB888);
+        pixmap.setColor(Color.BLACK);
+        pixmap.fillRectangle(0, 0, 1, 1);
+        pauseUI.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture(pixmap))));
+        pixmap.dispose();
+
+        final TextButton titleScreenButton = new TextButton("Title Screen", Assets.uiStyles.defaultButton);
+        titleScreenButton.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                screen.getGame().setScreen(new StartScreen(screen.getGame()));
+            }
+        });
+        pauseUI.add(titleScreenButton).padBottom(20 * Settings.getUIScale());
+        pauseUI.row();
+        final TextButton resumeButton = new TextButton("Resume", Assets.uiStyles.defaultButton);
+        resumeButton.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                resumeGame();
+            }
+        });
+        pauseUI.add(resumeButton);
+
+        //Dialog
+        dialogUI = new Table();
+        dialogUI.setFillParent(true);
+
+
+        //Overlay
         overlayUI = new Table();
         overlayUI.top().right();
         overlayUI.setFillParent(true);
@@ -73,36 +132,17 @@ public class GameUI implements Disposable {
 
         fpsLabel = new Label("0", Assets.uiStyles.label);
         overlayUI.add(fpsLabel);
-
-        valueBars = new Table();
-        playUI.add(valueBars).left().top().pad(10 * Settings.getUIScale(), 10 * Settings.getUIScale(), 0, 0).expand();
-        playUI.row();
-
-        hotBar = new Table();
-        playUI.add(hotBar).bottom();
-
-        healthBar = new ProgressBar(0, 100, 1, false, Assets.uiStyles.healthBar);
-        healthBar.setAnimateDuration(0.1f);
-
-        valueBars.add(healthBar).minWidth(200 * Settings.getUIScale());
-
-        TextButton c = new TextButton("Pause", Assets.uiStyles.defaultButton);
-        c.addListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-                if(screen.isPaused()) {
-                    screen.resume();
-                } else {
-                    screen.pause();
-                }
-            }
-        });
-        hotBar.add(c).width(160 * Settings.getUIScale()).height(40 * Settings.getUIScale());
-
     }
 
     public void act(float delta) {
         stage.act(delta);
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            if(pauseUI.hasParent()) {
+                resumeGame();
+            } else {
+                showPauseScreen();
+            }
+        }
     }
 
     @Override
@@ -160,5 +200,17 @@ public class GameUI implements Disposable {
         deathOverlay.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture(pixmap))));
         pixmap.dispose();
         deathOverlay.add(respawnButton);
+    }
+
+    private void showPauseScreen() {
+        stage.addActor(pauseUI);
+        screen.pause();
+        pauseUI.setColor(1, 1, 1, 0);
+        pauseUI.addAction(Actions.fadeIn(0.4f));
+    }
+
+    private void resumeGame() {
+        pauseUI.remove();
+        screen.resume();
     }
 }

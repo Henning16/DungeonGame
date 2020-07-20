@@ -13,11 +13,13 @@ import jnh.game.settings.Settings;
 public class UIStyles {
 
     public CheckBox.CheckBoxStyle checkBox;
+    public TextButton.TextButtonStyle dangerousButton;
     public TextButton.TextButtonStyle defaultButton;
     public SelectBox.SelectBoxStyle dropdownMenu;
     public Label.LabelStyle header;
     public ProgressBar.ProgressBarStyle healthBar;
     public Label.LabelStyle label;
+    public List.ListStyle list;
     public ScrollPane.ScrollPaneStyle scrollBar;
     public Slider.SliderStyle slider;
     public Label.LabelStyle text;
@@ -29,10 +31,13 @@ public class UIStyles {
         loadScrollBar();
         loadCheckBox();
         loadDefaultButton();
+        //Dangerous button uses default button
+        loadDangerousButton();
         loadDropdownMenu();
         loadHeader();
         loadHealthBar();
         loadLabel();
+        loadList();
         loadScrollBar();
         loadSlider();
         loadText();
@@ -64,6 +69,11 @@ public class UIStyles {
 
         checkBox.disabledFontColor = new Color(1, 1, 1, 0.5f);
         checkBox.font = Assets.fonts.EXEPP;
+    }
+
+    private void loadDangerousButton() {
+        dangerousButton = new TextButton.TextButtonStyle(defaultButton);
+        dangerousButton.fontColor = new Color(1, 0.4f, 0.4f, 1);
     }
 
     private void loadDefaultButton() {
@@ -143,6 +153,24 @@ public class UIStyles {
         label.fontColor = Color.WHITE;
     }
 
+    private void loadList() {
+        list = new List.ListStyle();
+
+        NinePatch p1 = new NinePatch(Assets.uiTextures.LIST_BACKGROUND, 5, 5, 6, 5);
+        p1.scale(2 * Settings.getUIScale(), 2 * Settings.getUIScale());
+        p1.setPadding(2 * Settings.getUIScale(), 2 * Settings.getUIScale(), 2 * Settings.getUIScale(), 2 * Settings.getUIScale());
+        list.background = new NinePatchDrawable(p1);
+
+        NinePatch p2 = new NinePatch(Assets.uiTextures.LIST_SELECTION, 2, 2, 1, 1);
+        p2.scale(2 * Settings.getUIScale(), 2 * Settings.getUIScale());
+        p2.setPadding(8 * Settings.getUIScale(), 8 * Settings.getUIScale(), 8 * Settings.getUIScale(), 8 * Settings.getUIScale());
+        list.selection = new NinePatchDrawable(p2);
+
+        list.font = Assets.fonts.EXEPP;
+        list.fontColorSelected = Color.WHITE;
+        list.fontColorUnselected = Color.WHITE;
+    }
+
     private void loadText() {
         text = new Label.LabelStyle();
         text.font = Assets.fonts.EXEPPS;
@@ -171,14 +199,21 @@ public class UIStyles {
         p1.scale(2 * Settings.getUIScale(), 2 * Settings.getUIScale());
         p1.setPadding(0, 0, 0,0);
         slider.background = new NinePatchDrawable(p1);
-        slider.background.setMinHeight(20 * Settings.getUIScale());
+        slider.background.setMinHeight(24 * Settings.getUIScale());
 
-        slider.knob = new TextureRegionDrawable(Assets.uiTextures.SLIDER_KNOB);
-        slider.knob.setMinHeight(20 * Settings.getUIScale());
-        slider.knob.setMinWidth(20 * Settings.getUIScale());
-        slider.knobOver = new TextureRegionDrawable(Assets.uiTextures.SLIDER_KNOB_OVER);
-        slider.knobOver.setMinHeight(20 * Settings.getUIScale());
-        slider.knobOver.setMinWidth(20 * Settings.getUIScale());
+        NinePatch p2 = new NinePatch(Assets.uiTextures.SLIDER_KNOB, 3, 3, 3, 3);
+        p2.scale(2 * Settings.getUIScale(), 2 * Settings.getUIScale());
+        p2.setPadding(0, 0, 0,0);
+        slider.knob = new NinePatchDrawable(p2);
+        slider.knob.setMinHeight(24 * Settings.getUIScale());
+        slider.knob.setMinWidth(24 * Settings.getUIScale());
+
+        NinePatch p3 = new NinePatch(Assets.uiTextures.SLIDER_KNOB_OVER, 3, 3, 3, 3);
+        p3.scale(2 * Settings.getUIScale(), 2 * Settings.getUIScale());
+        p3.setPadding(0, 0, 0,0);
+        slider.knobOver = new NinePatchDrawable(p3);
+        slider.knobOver.setMinHeight(24 * Settings.getUIScale());
+        slider.knobOver.setMinWidth(24 * Settings.getUIScale());
     }
 
     private void loadTextField() {

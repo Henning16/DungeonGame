@@ -245,4 +245,15 @@ public class Textures {
         }
     }
 
+    public void dispose() {
+        sprites.dispose();
+        PLAYER_SHEET.dispose();
+        ZOMBIE_SHEET.dispose();
+        WEAPONS_SHEET.dispose();
+        PROPS_SHEET.dispose();
+        FLOOR_SHEET.dispose();
+        WALL_SHEET.dispose();
+        PARTICLE_SHEET.dispose();
+    }
+
 }

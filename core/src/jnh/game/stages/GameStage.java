@@ -84,19 +84,12 @@ public class GameStage extends Stage {
         super.act(delta);
         TimeHandler.tick(delta);
         gameObjectManager.update();
-        if(Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-            try {
-                world.save();
-                NotificationHandler.addNotification(new Notification("Save", "World sucessfully saved."));
-            } catch (FileNotFoundException e) {
-                NotificationHandler.addNotification(new Notification("Save", "World not correctly saved."));
-            }
-        }
     }
 
-    @Override
-    public void dispose() {
-        super.dispose();
+    public void close() {
+        try {
+            world.save();
+        } catch (FileNotFoundException e) { }
     }
 
     /**

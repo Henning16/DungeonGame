@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import jnh.game.DungeonGame;
 import jnh.game.ui.StartUI;
 
@@ -20,7 +21,7 @@ public class StartScreen implements Screen {
 
     @Override
     public void show() {
-        stage = new Stage();
+        stage = new Stage(new ScreenViewport());
         ui = new StartUI(this);
         Gdx.input.setInputProcessor(stage);
     }
@@ -67,5 +68,9 @@ public class StartScreen implements Screen {
 
     public Stage getStage() {
         return stage;
+    }
+
+    public StartUI getStartUI() {
+        return ui;
     }
 }

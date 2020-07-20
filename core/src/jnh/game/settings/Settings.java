@@ -1,41 +1,65 @@
 package jnh.game.settings;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.utils.Json;
+
 public class Settings {
 
-    private static boolean cameraFollowingPlayer = true;
-    private static boolean renderingLights = true;
-    private static boolean showingUI = true;
-    private static float uiScale = 1;
+    private static Settings instance;
+
+    private transient boolean cameraFollowingPlayer = true;
+    private transient boolean renderingLights = true;
+    private transient boolean showingUI = true;
+    private float uiScale = 2;
+
+    private Settings() {
+
+    }
+
+    public static void load() {
+        FileHandle settingsFile = Gdx.files.external(".dungeongame/settings.json");
+        if(settingsFile.exists()) {
+            instance = new Json().fromJson(Settings.class, settingsFile.readString());
+        } else {
+            instance = new Settings();
+        }
+    }
+
+    public static void save() {
+        Gdx.files.external(".dungeongame/settings.json").writeString(new Json().toJson(instance), false);
+    }
 
     public static boolean isCameraFollowingPlayer() {
-        return cameraFollowingPlayer;
+        return instance.cameraFollowingPlayer;
     }
 
     public static void setCameraFollowingPlayer(boolean cameraFollowingPlayer) {
-        Settings.cameraFollowingPlayer = cameraFollowingPlayer;
+        instance.cameraFollowingPlayer = cameraFollowingPlayer;
     }
 
     public static boolean isRenderingLights() {
-        return renderingLights;
+        return instance.renderingLights;
     }
 
     public static void setRenderingLights(boolean renderingLights) {
-        Settings.renderingLights = renderingLights;
+        instance.renderingLights = renderingLights;
     }
 
     public static boolean isShowingUI() {
-        return showingUI;
+        return instance.showingUI;
     }
 
     public static void setShowingUI(boolean showingUI) {
-        Settings.showingUI = showingUI;
+        instance.showingUI = showingUI;
     }
 
     public static float getUIScale() {
-        return uiScale;
+        return instance.uiScale;
     }
 
     public static void setUIScale(float uiScale) {
-        Settings.uiScale = uiScale;
+        instance.uiScale = uiScale;
     }
+
 }
