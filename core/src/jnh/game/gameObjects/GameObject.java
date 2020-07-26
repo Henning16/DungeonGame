@@ -304,11 +304,29 @@ public class GameObject extends Image {
         tagsToBeAdded.add(tag);
     }
 
+    /**
+     * Removes the tag if it is not null.
+     * @param tag the tag to be removed
+     * @see #addTag(String) Add tag while not iterating over the tag list
+     * @see #addTagWhileIterating(String) Add a tag while iterating over the tag list
+     * @see #removeTagWhileIterating(String) Remove a tag while iterating over the tag list
+     */
     public void removeTag(String tag) {
-        tags.remove(tag);
-        gameObjectManager.removeGameObjectFromTag(tag, getID());
+        if(tag != null) {
+            tags.remove(tag);
+            gameObjectManager.removeGameObjectFromTag(tag, getID());
+        }
     }
 
+    /**
+     * Adds the provided tag to another list and removes it when the iteration is finished.
+     * This avoids a {@link ConcurrentModificationException} from occuring.
+     * You need to {@link #finishedTagOperations() notify} the game object when the iteration has ended.
+     * @param tag the tag to be removed
+     * @see #addTag(String) Add tag while not iterating over the tag list
+     * @see #addTagWhileIterating(String) Add a tag while iterating over the tag list
+     * @see #removeTag(String) Remove a tag while not iterating over the tag list
+     */
     public void removeTagWhileIterating(String tag) {
         tags.remove(tag);
         tagsToBeRemoved.add(tag);
@@ -323,6 +341,11 @@ public class GameObject extends Image {
         return tags.contains(tag);
     }
 
+    /**
+     * Call this method to notify the game object when the iteration is finished and the tags added using
+     * {@link #addTagWhileIterating(String)} should be added and the tags removed using
+     * {@link #removeTagWhileIterating(String)} should be removed.
+     */
     public void finishedTagOperations() {
         for(String tag: tagsToBeAdded) {
             gameObjectManager.removeGameObjectFromTag(tag, getID());
@@ -339,18 +362,21 @@ public class GameObject extends Image {
     }
 
     /**
-     * Fügt die Component dem GameObject hinzu.
-     * @param component die hinzuzufügende Component
+     * Adds the component to the game object if it is not null.
+     * @param component the component to be added
+     * @see Component
      */
     public void addComponent(Component component) {
-        components.add(component);
-        component.attachedTo(this);
+        if(component != null) {
+            components.add(component);
+            component.attachedTo(this);
+        }
     }
 
     /**
-     * Gibt die erste Component des angegebenen Typs zurück, die gefunden werden konnte.
-     * @param componentClass die Klasse der Component
-     * @return die Component
+     * Returns the first component found of the specified class.
+     * @param componentClass the class of the component
+     * @return the component, can be null
      * @see Component
      */
     public <T> T getComponent(Class<T> componentClass) {
@@ -358,9 +384,9 @@ public class GameObject extends Image {
     }
 
     /**
-     * Gibt die erste Component, die das angegebene Interface implementiert, zurück, die gefunden werden konnte.
-     * @param interfaceClass das Interface der Component
-     * @return die Component
+     * Returns the first component found implementing the specified interface
+     * @param interfaceClass the interface of the component
+     * @return the component, can be null
      * @see Component
      */
     public <T> T getComponentByInterface(Class<T> interfaceClass) {
@@ -368,45 +394,59 @@ public class GameObject extends Image {
     }
 
     /**
-     * Gibt eine Liste mit allen Components zurück.
-     * @return die Components
+     * Returns the list of components of this game object.
+     * @return the list
      * @see #getComponent(Class)
+     * @see #getComponentByInterface(Class)
      * @see Component
-     * @see ArrayList
      */
     public ArrayList<Component> getComponents() {
         return components.getList();
     }
 
+    /**
+     * Returns the position of the game object. This is equivalent to either {@link #getX()} or {@link #getY()}.
+     * @return the game objects position
+     */
     public Vector2 getPosition() {
         return new Vector2(getX(), getY());
     }
 
+    /**
+     * @return whether the game object is persistent, i.e. stays when the scene is switched
+     */
     public boolean isPersistent() {
         return persistent;
     }
 
+    /**
+     * @param persistent whether the game object should be persistent, i.e. if it shoudl stay when the scene is switched
+     */
     public void setPersistent(boolean persistent) {
         this.persistent = persistent;
     }
 
-    public void setStage(GameStage stage) {
-        this.stage = stage;
-    }
-
+    /**
+     * @return the string representation of the layer the game object is in. Possible values are "main", "foreground"
+     * and "background".
+     */
     public String getLayerAsString() {
         return layerAsString;
     }
 
     /**
-     * Überprüft, ob die angegebene Position im GameObject enthalten ist. Das funktioniert bis jetzt nur bei rechteckigen GameObjects.
-     * @param position die zu überprüfende Position
-     * @return ob die Position enthalten ist.
+     * Checks whether the game object contains the specified position. This works only for rectangles right now.
+     * @param position the position
+     * @return whether the position is contained
      */
     public boolean contains(Vector2 position) {
         return new Rectangle(getX(), getY(), getWidth(), getHeight()).contains(position);
     }
 
+    /**
+     * Updates the z position, i.e. the index in its parent, by comparing the y-values with its neighbours and swapping
+     * if necessary until it has the right index.
+     */
     private void updateZPosition() {
         if(getParent() == null) {
             return;

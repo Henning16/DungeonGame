@@ -6,6 +6,9 @@ import jnh.game.components.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is only a utility class to transfer json to a game object.
+ */
 public class GameObjectJson {
 
     public String type;

@@ -5,6 +5,10 @@ import jnh.game.stages.GameStage;
 
 import java.util.*;
 
+/**
+ * The GameObjectManager handles the references to all game objects in the given scene, no matter if they are still
+ * in the stage or already removed.
+ */
 public class GameObjectManager {
 
     private transient GameStage stage;
@@ -21,22 +25,49 @@ public class GameObjectManager {
     private int firstFreeSlot = 0;
     private transient long uniqueIDCounter = 0;
 
+    /**
+     * Creates a new instance. If this constructor is used, the stage needs to bet set using {@link #setStage(GameStage)}.
+     * @see #GameObjectManager(GameStage)
+     */
     public GameObjectManager() {
 
     }
 
+    /**
+     * Creates a new instance.
+     * @see #GameObjectManager()
+     */
     public GameObjectManager(GameStage stage) {
         this.stage = stage;
     }
 
+    /**
+     * Adds the specified game object to the main layer.
+     * @param gameObject the game object to be added
+     * @return the newly calculated id which is associated with the game object
+     * @see #add(GameObject, Group)
+     */
     public ID add(GameObject gameObject) {
         return add(gameObject, stage.getMainLayer());
     }
 
+    /**
+     * Adds the specified game object to the given layer.
+     * @param gameObject the game object to be added
+     * @param parent the layer
+     * @return the newly calculated id which is associated with the game object
+     * @see #add(GameObject, Group)
+     */
     public ID add(GameObject gameObject, Group parent) {
         return set(createID(gameObject), gameObject, parent);
     }
 
+    /**
+     * Creates a new id. For this the unique identiy of the game object, if it has one, is kept. Furthermore,
+     * free slots are recycled if that is possible. In addition, this method might resize the game objects
+     * array to be able to fit a larger amount of game objects.
+     * @return the newly calculated id
+     */
     private ID createID(GameObject gameObject) {
         long globalID;
         if(gameObject.getID().getGlobalID() != -1) {
