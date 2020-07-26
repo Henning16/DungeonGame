@@ -2,23 +2,17 @@ package jnh.game.stages;
 
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.SnapshotArray;
 import jnh.game.Global;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.GameObjectManager;
-import jnh.game.gameObjects.components.BodyComponent;
 import jnh.game.screens.GameScreen;
 import jnh.game.ui.GameUI;
-import jnh.game.ui.notifications.Notification;
-import jnh.game.ui.notifications.NotificationHandler;
 import jnh.game.utils.TimeHandler;
 import jnh.game.world.Dungeon;
-import jnh.game.world.Room;
 import jnh.game.world.World;
 
 import java.io.FileNotFoundException;
@@ -37,9 +31,6 @@ public class GameStage extends Stage {
 
     private World world;
     private final Dungeon dungeon;
-    @Deprecated
-    private Room room;
-
 
     /**
      * TODO this constructor needs to be cleaned up or seperated.
@@ -98,6 +89,7 @@ public class GameStage extends Stage {
      */
     public GameScreen getScreen() {
         return screen;
+
     }
 
     public World getWorld() {
@@ -121,20 +113,36 @@ public class GameStage extends Stage {
         return gameObjectManager;
     }
 
+    /**
+     * Sets the game object manager.
+     * @param gameObjectManager the new game object manager
+     */
     public void setGameObjectManager(GameObjectManager gameObjectManager) {
         this.gameObjectManager = gameObjectManager;
     }
 
     //LAYERS
 
+    /**
+     * Returns the background layer, which is for example used for the floor.
+     * @return the background layer
+     */
     public Group getBackgroundLayer() {
         return backgroundLayer;
     }
 
+    /**
+     * Returns the main layer, which is used for the most objects in the game like the player, enemies etc.
+     * @return the main layer
+     */
     public Group getMainLayer() {
         return mainLayer;
     }
 
+    /**
+     * Returns the foreground layer, which is currently not really being used.
+     * @return the forground layer
+     */
     public Group getForegroundLayer() {
         return foregroundLayer;
     }
@@ -159,16 +167,6 @@ public class GameStage extends Stage {
      */
     public GameUI getUI() {
         return screen.getUI();
-    }
-
-    @Deprecated
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-    @Deprecated
-    public Room getRoom() {
-        return room;
     }
 
 }

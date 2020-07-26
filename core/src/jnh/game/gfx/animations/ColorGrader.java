@@ -6,7 +6,7 @@ import jnh.game.gfx.ColorGrading;
 
 public class ColorGrader {
 
-    private ColorGrading current = ColorGrading.NORMAL;
+    private ColorGrading current = ColorGrading.UNMODIFIED;
     private ColorGrading target = null;
     private int inertia;
 

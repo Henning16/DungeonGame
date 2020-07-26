@@ -29,7 +29,12 @@ public class BodyComponent extends Component {
 
     @Override
     public void tick(float delta) {
-        gameObject.setPosition(getBody().getPosition().x, getBody().getPosition().y);
+        if(gameObject.getType().equals("PLAYER") && body.getLinearVelocity().len2() < 0.8f) {
+            body.setLinearVelocity(0, 0);
+        }
+        if(gameObject.getX() != getBody().getPosition().x ||gameObject.getY() != getBody().getPosition().y) {
+            gameObject.setPosition(getBody().getPosition().x, getBody().getPosition().y);
+        }
     }
 
     @Override
@@ -58,7 +63,7 @@ public class BodyComponent extends Component {
         PolygonShape shape = new PolygonShape();
         shape.setAsBox((1f / 32f) * collisionBox.dimension.x, (1f / 32f) * collisionBox.dimension.y, new Vector2((1f / 16f) * collisionBox.position.x, (1f / 16f) * collisionBox.position.y), 0);getBody().createFixture(shape, density);
         shape.dispose();
-        body.setUserData(gameObject);
+        body.setSleepingAllowed(false);
     }
 
     /**
