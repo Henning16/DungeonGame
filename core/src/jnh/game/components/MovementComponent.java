@@ -1,7 +1,6 @@
-package jnh.game.gameObjects.components;
+package jnh.game.components;
 
 import com.badlogic.gdx.math.Vector2;
-import jnh.game.Global;
 import jnh.game.gameObjects.entities.MovementState;
 import jnh.game.utils.Direction;
 

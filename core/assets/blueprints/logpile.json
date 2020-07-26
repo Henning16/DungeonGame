@@ -10,11 +10,11 @@
     },
     "components": [
         {
-            "class": "jnh.game.gameObjects.components.TextureComponent",
+            "class": "jnh.game.components.TextureComponent",
             "textureName": "LOGPILE"
         },
         {
-            "class": "jnh.game.gameObjects.components.BodyComponent",
+            "class": "jnh.game.components.BodyComponent",
             "bodyType": "StaticBody",
             "collisionBoxes": [
                 {

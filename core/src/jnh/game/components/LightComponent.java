@@ -1,4 +1,4 @@
-package jnh.game.gameObjects.components;
+package jnh.game.components;
 
 import box2dLight.Light;
 import box2dLight.PointLight;

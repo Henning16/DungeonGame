@@ -1,4 +1,4 @@
-package jnh.game.gameObjects.components;
+package jnh.game.components;
 
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;

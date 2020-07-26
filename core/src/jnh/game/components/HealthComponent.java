@@ -1,4 +1,4 @@
-package jnh.game.gameObjects.components;
+package jnh.game.components;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Interpolation;

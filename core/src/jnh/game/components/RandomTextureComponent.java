@@ -1,4 +1,4 @@
-package jnh.game.gameObjects.components;
+package jnh.game.components;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -6,10 +6,12 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 
-public class TextureComponent extends Component {
+public class RandomTextureComponent extends Component {
 
-    private String textureName = "ERROR";
-    private transient Animation<TextureRegion> texture = Assets.textures.ERROR;
+    private String textureSetName = "ERROR";
+    private transient Animation<TextureRegion>[] textureSet = new Animation[]{Assets.textures.ERROR};
+    private transient Animation<TextureRegion> texture;
+
     private transient float elapsedTime = 0f;
     private boolean paused = true;
 
@@ -22,6 +24,7 @@ public class TextureComponent extends Component {
 
     @Override
     public void render(Batch batch) {
+        super.render(batch);
         if(!paused) {
             gameObject.setTexture(texture.getKeyFrame(elapsedTime));
         }
@@ -30,23 +33,17 @@ public class TextureComponent extends Component {
     @Override
     public void attachedTo(GameObject gameObject) {
         super.attachedTo(gameObject);
-        texture = Assets.textures.getTexture(textureName);
+        textureSet = Assets.textures.getTextureSet(textureSetName);
+        texture = textureSet[(int) (Math.random() * textureSet.length)];
         gameObject.setTexture(texture.getKeyFrame(elapsedTime));
     }
 
     @Override
-    public Component copy() {
-        TextureComponent c = new TextureComponent();
-        c.textureName = textureName;
+    public RandomTextureComponent copy() {
+        RandomTextureComponent c = new RandomTextureComponent();
+        c.textureSetName = textureSetName;
+        c.elapsedTime = elapsedTime;
         c.paused = paused;
         return c;
-    }
-
-    public boolean isPaused() {
-        return paused;
-    }
-
-    public void setPaused(boolean paused) {
-        this.paused = paused;
     }
 }

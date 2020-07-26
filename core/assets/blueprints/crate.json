@@ -6,11 +6,11 @@
     },
     "components": [
         {
-            "class": "jnh.game.gameObjects.components.TextureComponent",
+            "class": "jnh.game.components.TextureComponent",
             "textureName": "CRATE"
         },
         {
-            "class": "jnh.game.gameObjects.components.BodyComponent",
+            "class": "jnh.game.components.BodyComponent",
             "density": 20,
             "collisionBoxes": [
                 {

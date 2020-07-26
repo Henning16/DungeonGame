@@ -15,18 +15,18 @@
     },
     "components": [
         {
-            "class": "jnh.game.gameObjects.components.MovementComponent",
+            "class": "jnh.game.components.MovementComponent",
             "maxSpeed": 2
         },
         {
-            "class": "jnh.game.gameObjects.components.PlayerMovementComponent"
+            "class": "jnh.game.components.PlayerMovementComponent"
         },
         {
-            "class": "jnh.game.gameObjects.components.MovementTextureComponent",
+            "class": "jnh.game.components.MovementTextureComponent",
             "textureSetName": "PLAYER"
         },
         {
-            "class": "jnh.game.gameObjects.components.BodyComponent",
+            "class": "jnh.game.components.BodyComponent",
             "bodyType": "DynamicBody",
             "density": 4,
             "linearDamping": 10,
@@ -44,25 +44,25 @@
             ]
         },
         {
-            "class": "jnh.game.gameObjects.components.ItemContainerComponent",
+            "class": "jnh.game.components.ItemContainerComponent",
             "size": 100
         },
         {
-            "class": "jnh.game.gameObjects.components.ItemCollectionComponent",
+            "class": "jnh.game.components.ItemCollectionComponent",
             "range": 0.5
         },
         {
-            "class": "jnh.game.gameObjects.components.ItemRenderComponent"
+            "class": "jnh.game.components.ItemRenderComponent"
         },
         {
-            "class": "jnh.game.gameObjects.components.HealthComponent",
+            "class": "jnh.game.components.HealthComponent",
             "maxHealth": 2
         },
         {
-            "class": "jnh.game.gameObjects.components.PlayerItemUsageComponent"
+            "class": "jnh.game.components.PlayerItemUsageComponent"
         },
         {
-            "class": "jnh.game.gameObjects.components.LightComponent",
+            "class": "jnh.game.components.LightComponent",
             "distance": 9,
             "color": {
                 "r": 1, "g": 0.7, "b": 0.3, "a": 0.85

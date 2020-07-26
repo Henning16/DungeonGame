@@ -7,12 +7,12 @@
     },
     "components": [
         {
-            "class": "jnh.game.gameObjects.components.Indexed2TextureComponent",
+            "class": "jnh.game.components.Indexed2TextureComponent",
             "textureSetName": "WALL_NEW",
             "index": [1, 0]
         },
         {
-            "class": "jnh.game.gameObjects.components.BodyComponent",
+            "class": "jnh.game.components.BodyComponent",
             "bodyType": "StaticBody",
             "collisionBoxes": [
                 {

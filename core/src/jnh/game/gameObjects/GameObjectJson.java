@@ -1,7 +1,7 @@
 package jnh.game.gameObjects;
 
 import com.badlogic.gdx.math.Vector2;
-import jnh.game.gameObjects.components.Component;
+import jnh.game.components.Component;
 
 import java.util.ArrayList;
 import java.util.List;

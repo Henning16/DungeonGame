@@ -9,14 +9,14 @@
     },
     "components": [
         {
-            "class": "jnh.game.gameObjects.components.TextureComponent",
+            "class": "jnh.game.components.TextureComponent",
             "textureName": "AXE"
         },
         {
-            "class": "jnh.game.gameObjects.components.ItemComponent"
+            "class": "jnh.game.components.ItemComponent"
         },
         {
-            "class": "jnh.game.gameObjects.components.WeaponComponent",
+            "class": "jnh.game.components.WeaponComponent",
             "damage": 5,
             "knockback": 1,
             "range": 5,

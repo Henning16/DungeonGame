@@ -2,7 +2,7 @@ package jnh.game.world;
 
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
-import jnh.game.gameObjects.components.BodyComponent;
+import jnh.game.components.BodyComponent;
 import jnh.game.stages.GameStage;
 
 public class RandomRoom extends Room {

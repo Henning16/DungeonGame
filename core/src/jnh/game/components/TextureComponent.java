@@ -1,4 +1,4 @@
-package jnh.game.gameObjects.components;
+package jnh.game.components;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -6,12 +6,10 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 
-public class RandomTextureComponent extends Component {
+public class TextureComponent extends Component {
 
-    private String textureSetName = "ERROR";
-    private transient Animation<TextureRegion>[] textureSet = new Animation[]{Assets.textures.ERROR};
-    private transient Animation<TextureRegion> texture;
-
+    private String textureName = "ERROR";
+    private transient Animation<TextureRegion> texture = Assets.textures.ERROR;
     private transient float elapsedTime = 0f;
     private boolean paused = true;
 
@@ -24,7 +22,6 @@ public class RandomTextureComponent extends Component {
 
     @Override
     public void render(Batch batch) {
-        super.render(batch);
         if(!paused) {
             gameObject.setTexture(texture.getKeyFrame(elapsedTime));
         }
@@ -33,17 +30,23 @@ public class RandomTextureComponent extends Component {
     @Override
     public void attachedTo(GameObject gameObject) {
         super.attachedTo(gameObject);
-        textureSet = Assets.textures.getTextureSet(textureSetName);
-        texture = textureSet[(int) (Math.random() * textureSet.length)];
+        texture = Assets.textures.getTexture(textureName);
         gameObject.setTexture(texture.getKeyFrame(elapsedTime));
     }
 
     @Override
-    public RandomTextureComponent copy() {
-        RandomTextureComponent c = new RandomTextureComponent();
-        c.textureSetName = textureSetName;
-        c.elapsedTime = elapsedTime;
+    public Component copy() {
+        TextureComponent c = new TextureComponent();
+        c.textureName = textureName;
         c.paused = paused;
         return c;
+    }
+
+    public boolean isPaused() {
+        return paused;
+    }
+
+    public void setPaused(boolean paused) {
+        this.paused = paused;
     }
 }

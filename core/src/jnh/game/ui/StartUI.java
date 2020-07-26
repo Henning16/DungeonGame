@@ -5,7 +5,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Array;
 import jnh.game.assets.Assets;
-import jnh.game.gameObjects.components.LightComponent;
 import jnh.game.screens.GameScreen;
 import jnh.game.screens.StartScreen;
 import jnh.game.settings.Settings;

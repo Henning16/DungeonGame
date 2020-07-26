@@ -1,6 +1,5 @@
 package jnh.game.gameObjects;
 
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
@@ -9,23 +8,43 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.SnapshotArray;
-import jnh.game.gameObjects.components.Component;
-import jnh.game.gameObjects.components.ComponentHandler;
+import jnh.game.assets.Blueprints;
+import jnh.game.components.Component;
+import jnh.game.components.ComponentHandler;
 import jnh.game.gameObjects.construction.Blueprint;
-import jnh.game.gfx.animations.Animator;
 import jnh.game.stages.GameStage;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 
+/**
+ * <p>
+ * All objects in the actual game are represented using game objects.
+ * They can be either loaded from {@link #GameObject(GameStage, GameObjectJson) a json representation}
+ * or constructed using a {@link #GameObject(GameStage, Blueprint) json blueprint}.
+ * <p>
+ * Game objects get their function and unique properties via {@link Component components}.
+ * These can be added during runtime or using {@link Blueprint blueprints}.
+ * So, you can understand game objects as a class holding and managing the different components.
+ * <p>
+ * Though, every game object has a few properties like a position, dimension and a texture.
+ * However, the last one should be acessed by using a component like {@link jnh.game.components.TextureComponent}.
+ * Further properties are an id, which generated automatically, the type of the game object, ususally specified using
+ * the blueprint, the layer it is in and whether it is persistent (whether it stays when the room is switched, e.g.
+ * the player).
+ * <p>
+ * Furthermore, each game object has a list of tags, which make it easier to adress certain groups like game objects,
+ * for example only those who are alive.
+ */
 public class GameObject extends Image {
 
     private transient Blueprint blueprint;
-    private String type;
+    private final String type;
     private ID id = ID.NULL;
-    private String layerAsString;
+    private final String layerAsString;
 
     private transient GameStage stage;
-    private transient GameObjectManager gameObjectManager;
+    private final transient GameObjectManager gameObjectManager;
 
     private boolean alreadyActed = false;
     private boolean removed = false;
@@ -33,14 +52,20 @@ public class GameObject extends Image {
 
     private transient TextureRegion texture;
 
-    private ArrayList<String> tags = new ArrayList<>();
-    private transient ArrayList<String> tagsToBeAdded = new ArrayList<>();
-    private transient ArrayList<String> tagsToBeRemoved = new ArrayList<>();
-    private ComponentHandler components = new ComponentHandler();
+    private final ArrayList<String> tags = new ArrayList<>();
+    private final transient ArrayList<String> tagsToBeAdded = new ArrayList<>();
+    private final transient ArrayList<String> tagsToBeRemoved = new ArrayList<>();
+    private final ComponentHandler components = new ComponentHandler();
 
     public int indexInParent = -1;
 
-    //TODO can the two constructors be combined?
+    /**
+     * <p style="color: blue;">Note: This methods needs to be cleaned up.</p>
+     * Loads a new game object from a json representation. This is used when a scene is loaded.
+     * @param stage the stage it should be in
+     * @param gameObjectJson the json representation that should be used
+     * @see #GameObject(GameStage, Blueprint) Create a new game object
+     */
     public GameObject(GameStage stage, GameObjectJson gameObjectJson) {
         super();
         this.stage = stage;
@@ -75,15 +100,24 @@ public class GameObject extends Image {
         }
     }
 
+    /**
+     * <p style="color: blue;">Note: This methods needs to be cleaned up.</p>
+     * Creates a new game object using the specified blueprint.
+     * @param stage the stage it should be in
+     * @param blueprint the blueprint that should be used to create the game object
+     * @see #GameObject(GameStage, GameObjectJson) Load a game object from json
+     * @see Blueprint
+     * @see Blueprints
+     */
     public GameObject(GameStage stage, Blueprint blueprint) {
         super();
         this.stage = stage;
         this.gameObjectManager = stage.getGameObjectManager();
         this.blueprint = blueprint;
         this.type = blueprint.type;
-        setBounds(blueprint.position.x,blueprint.position.y,blueprint.dimension.x,blueprint.dimension.y);
+        setBounds(blueprint.position.x, blueprint.position.y, blueprint.dimension.x, blueprint.dimension.y);
         setOrigin(getWidth() / 2, getHeight() / 2);
-        switch(blueprint.layer) {
+        switch (blueprint.layer) {
             case "main":
                 this.id = getGameObjectManager().add(this, stage.getMainLayer());
                 break;
@@ -96,28 +130,18 @@ public class GameObject extends Image {
         }
         layerAsString = blueprint.layer;
 
-        for(String tag: blueprint.tags) {
+        for (String tag : blueprint.tags) {
             addTag(tag);
         }
 
-        for(Component component: blueprint.components) {
+        for (Component component : blueprint.components) {
             addComponent(component.copy());
         }
     }
 
-    //TODO add constructor accepting specific GameObject data
-
-    @Deprecated
-    public GameObject(GameStage stage, Animation<TextureRegion> animation, Vector2 position, Vector2 dimension) {
-        super(animation.getKeyFrame(0));
-        this.stage = stage;
-        setBounds(position.x, position.y, dimension.x, dimension.y);
-        setOrigin(getWidth() / 2, getHeight() / 2);
-    }
-
     /**
-     * Aktualisiert den {@link Animator} und ruft {@link #tick(float)} auf.
-     * @param delta die Zeit in Sekunden seit dem letzten Tick
+     * Calls {@link #tick(float)} when the game object has not acted in the tick before.
+     * @param delta the time in seconds since the last tick
      */
     @Override
     public final void act(float delta) {
@@ -129,13 +153,17 @@ public class GameObject extends Image {
         alreadyActed = true;
     }
 
+    /**
+     * Sets if the game object already did act in the tick.
+     * @param alreadyActed whether it already acted
+     */
     public void setAlreadyActed(boolean alreadyActed) {
         this.alreadyActed = alreadyActed;
     }
 
     /**
-     * Führt die {@link Component#tick(float)} aller Components aus.
-     * @param delta die Zeit in Sekunden seit dem letzten Tick
+     * Calls the {@link Component#tick(float)} method of all components and {@link #updateZPosition() updates the z-position}.
+     * @param delta the time in seconds since the last tick
      * @see Component
      */
     public void tick(float delta) {
@@ -143,6 +171,14 @@ public class GameObject extends Image {
         updateZPosition();
     }
 
+    /**
+     * <p style="color: orange;">Note: This method might be changed soon.</p>
+     * Draws the game object and draws possible further things on top of it by calling the {@link Component#render(Batch)}
+     * method of all components.
+     * @param batch the batch used for drawing
+     * @param parentAlpha which alpha value the parent has
+     * @see Component
+     */
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
@@ -150,8 +186,10 @@ public class GameObject extends Image {
     }
 
     /**
-     * Löscht das GameObject. Diese Methode darf nur vom {@link GameObjectManager} benutzt werden! Zum Löschen eines GameObjects immer {@link GameObjectManager#remove(ID)} oder {@link GameObjectManager#requestRemove(ID)} benutzen!
-     * @return ob das GameObject gelöscht wurde, oder es schon gelöscht war
+     * Deletes the game object. This is method can be only used by the {@link GameObjectManager}! To delete a game objet
+     * always use {@link GameObjectManager#remove(ID)} or {@link GameObjectManager#requestRemove(ID)}!
+     * @return if the game object was sucessfully deleted or if it could not be found in the first place
+     * @see #isRemoved()
      */
     @Override
     public boolean remove() {
@@ -161,13 +199,17 @@ public class GameObject extends Image {
         return remove;
     }
 
+    /**
+     * @return if the game object was already removed
+     * @see #remove()
+     */
     public boolean isRemoved() {
         return removed;
     }
 
     /**
-     * Gibt den {@link Blueprint}, also die Vorlage, zurück, aus dem das GameObject erschaffen wurde.
-     * @return der Blueprint, aus dem das GameObject erschaffen wurde
+     * Returns the {@link Blueprint}, in other words the template, which was used to create the game object.
+     * @return the blueprint
      * @see GameObject#GameObject(GameStage, Blueprint) 
      */
     public Blueprint getBlueprint() {
@@ -175,52 +217,88 @@ public class GameObject extends Image {
     }
 
     /**
-     * Gibt den Typ des GameObjects zurück. Also zum Beispiel {@code PLAYER} oder {@code ZOMBIE}. Das hat den gleichen Effekt wie {@link Blueprint#type}.
-     * @return der Typ
+     * Returns the type of the game object, e.g. {@code "PLAYER"} oder {@code "FLOOR"}.
+     * This equivalent to {@link Blueprint#type}.
+     * @return the type
      */
     public String getType() {
         return type;
     }
 
+    /**
+     * Returns the id, which is used to uniquely identify the game object.
+     * @return the id
+     * @see #setID(ID)
+     */
     public ID getID() {
         return id;
     }
 
+    /**
+     * Sets the game objects id to the provided. Know that changing the id without knowing what you are doing can
+     * cause serious problems. This method is mostly for the {@link GameObjectManager} and scene loading.
+     * @return the id
+     * @see #getID()
+     */
     public void setID(ID id) {
         this.id = id;
     }
 
     /**
-     * Gibt die {@link GameStage} zurück.
-     * @return die GameStage
+     * @return the {@link GameStage stage} the game object is in
+     * @see #GameObject(GameStage, Blueprint)
+     * @see #GameObject(GameStage, GameObjectJson)
      */
     public GameStage getStage() {
         return stage;
     }
 
     /**
-     * Gibt den {@link GameObjectManager} zurück.
-     * @return der GameObjectManager
+     * @return the {@link GameObjectManager}
      */
     public GameObjectManager getGameObjectManager() {
         return stage.getGameObjectManager();
     }
 
-
+    /**
+     * @return the current texture region
+     */
     public TextureRegion getTexture() {
         return texture;
     }
 
+    /**
+     * Sets the current texture to the provided texture region.
+     * @param texture the texture region
+     */
     public void setTexture(TextureRegion texture) {
         this.texture = texture;
         setDrawable(new TextureRegionDrawable(texture));
     }
 
+    /**
+     * Adds the provided tag to the game object if it is not null.
+     * @param tag the tag to be added
+     * @see #addTagWhileIterating(String) Add a tag while iterating over the tag list
+     * @see #removeTag(String) Remove a tag while not iterating over the tag list
+     * @see #removeTagWhileIterating(String) Remove a tag while iterating over the tag list
+     */
     public void addTag(String tag) {
-        tags.add(tag);
-        gameObjectManager.addGameObjectToTag(tag, getID());
+        if(tag != null) {
+            tags.add(tag);
+            gameObjectManager.addGameObjectToTag(tag, getID());
+        }
     }
 
+    /**
+     * Adds the provided tag to another list and adds it when the iteration is finished.
+     * This avoids a {@link ConcurrentModificationException} from occuring.
+     * You need to {@link #finishedTagOperations() notify} the game object when the iteration has ended.
+     * @param tag the tag to be added
+     * @see #addTag(String) Add tag while not iterating over the tag list
+     * @see #removeTag(String) Remove a tag while not iterating over the tag list
+     * @see #removeTagWhileIterating(String) Remove a tag while iterating over the tag list
+     */
     public void addTagWhileIterating(String tag) {
         tags.add(tag);
         tagsToBeAdded.add(tag);
@@ -236,6 +314,11 @@ public class GameObject extends Image {
         tagsToBeRemoved.add(tag);
     }
 
+    /**
+     * Returns whether the game object has a certain tag.
+     * @param tag the tag that should be searched for
+     * @return whether it has the tag
+     */
     public boolean hasTag(String tag) {
         return tags.contains(tag);
     }

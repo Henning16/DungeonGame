@@ -1,4 +1,4 @@
-package jnh.game.gameObjects.components;
+package jnh.game.components;
 
 import com.badlogic.gdx.Gdx;
 import jnh.game.gameObjects.GameObject;

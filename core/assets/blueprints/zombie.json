@@ -14,15 +14,15 @@
     },
     "components": [
         {
-            "class": "jnh.game.gameObjects.components.MovementComponent",
+            "class": "jnh.game.components.MovementComponent",
             "maxSpeed": 1
         },
         {
-            "class": "jnh.game.gameObjects.components.MovementTextureComponent",
+            "class": "jnh.game.components.MovementTextureComponent",
             "textureSetName": "ZOMBIE"
         },
         {
-            "class": "jnh.game.gameObjects.components.BodyComponent",
+            "class": "jnh.game.components.BodyComponent",
             "bodyType": "DynamicBody",
             "density": 15,
             "linearDamping": 10,
@@ -40,20 +40,20 @@
             ]
         },
         {
-            "class": "jnh.game.gameObjects.components.FollowComponent",
+            "class": "jnh.game.components.FollowComponent",
             "followDistance": 6,
             "targetedTags": [
                 "player"
             ]
         },
         {
-            "class": "jnh.game.gameObjects.components.AttackComponent",
+            "class": "jnh.game.components.AttackComponent",
             "targetedTags": [
                 "player"
             ]
         },
         {
-            "class": "jnh.game.gameObjects.components.HealthComponent",
+            "class": "jnh.game.components.HealthComponent",
             "maxHealth": 15
         }
     ]
