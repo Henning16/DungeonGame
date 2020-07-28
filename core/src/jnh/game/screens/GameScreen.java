@@ -113,18 +113,20 @@ public class GameScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
         batch.setProjectionMatrix(camera.combined.scl(Global.UNIT));
         batch.begin();
+        batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
         stage.getRoot().draw(batch, 1);
         batch.end();
         fbo.end();
+        fbo.getColorBufferTexture().setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
+        TextureRegion fboRegion = new TextureRegion(fbo.getColorBufferTexture(), 0, 0, fbo.getWidth(), fbo.getHeight());
+        TextureRegion lightFboRegion = null;
+        fboRegion.flip(false, true);
         if(Settings.isRenderingLights()) {
             rayHandler.setCombinedMatrix(camera.combined.translate(0.5f, 0.5f, 0f));
             rayHandler.updateAndRender();
+            lightFboRegion = new TextureRegion(rayHandler.getLightMapBuffer().getColorBufferTexture(), 0, 0, rayHandler.getLightMapBuffer().getWidth(), rayHandler.getLightMapBuffer().getHeight());
+            lightFboRegion.flip(false, true);
         }
-        fbo.getColorBufferTexture().setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
-        TextureRegion fboRegion = new TextureRegion(fbo.getColorBufferTexture(), 0, 0, fbo.getWidth(), fbo.getHeight());
-        fboRegion.flip(false, true);
-        TextureRegion lightFboRegion = new TextureRegion(rayHandler.getLightMapBuffer().getColorBufferTexture(), 0, 0, rayHandler.getLightMapBuffer().getWidth(), rayHandler.getLightMapBuffer().getHeight());
-        lightFboRegion.flip(false, true);
 
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT | (Gdx.graphics.getBufferFormat().coverageSampling?GL20.GL_COVERAGE_BUFFER_BIT_NV:0));
@@ -134,11 +136,12 @@ public class GameScreen implements Screen {
         colorGrader.update(shaderProgram);
         batch.setShader(shaderProgram);
         batch.draw(fboRegion, 0, 0, camera.viewportWidth, camera.viewportHeight);
-        batch.setBlendFunction(GL20.GL_ZERO, GL20.GL_SRC_ALPHA);
-        batch.draw(lightFboRegion, 0, 0, camera.viewportWidth, camera.viewportHeight);
-        batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
-        batch.draw(lightFboRegion, 0, 0, camera.viewportWidth, camera.viewportHeight);
-        batch.setBlendFunction(-1, -1);
+        if(Settings.isRenderingLights()) {
+            batch.setBlendFunction(GL20.GL_ZERO, GL20.GL_SRC_ALPHA);
+            batch.draw(lightFboRegion, 0, 0, camera.viewportWidth, camera.viewportHeight);
+            batch.setBlendFunction(GL20.GL_SRC_ALPHA, GL20.GL_ONE);
+            batch.draw(lightFboRegion, 0, 0, camera.viewportWidth, camera.viewportHeight);
+        }
         batch.end();
         if(Settings.isShowingUI()) {
             ui.getStage().draw();
