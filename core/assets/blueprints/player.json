@@ -56,7 +56,7 @@
         },
         {
             "class": "jnh.game.components.HealthComponent",
-            "maxHealth": 2
+            "maxHealth": 200
         },
         {
             "class": "jnh.game.components.PlayerItemUsageComponent"

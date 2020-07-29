@@ -194,7 +194,7 @@ public class Textures {
                 get(WALL_SHEET, 27, 42, 5, 20));
 
         AXE = new Animation(1f,
-                get(WEAPONS_SHEET, 0, 0, 16, 16));
+                get(WEAPONS_SHEET, 0, 0, 5, 12));
         LOGPILE = new Animation(1f,
                 get(PROPS_SHEET, 2, 2, 13, 16));
         CRATE = new Animation(1f,

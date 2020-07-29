@@ -43,6 +43,8 @@ public class GameObject extends Image {
     private ID id = ID.NULL;
     private final String layerAsString;
 
+    private float zPosition = 0;
+
     private transient GameStage stage;
     private final transient GameObjectManager gameObjectManager;
 
@@ -197,6 +199,14 @@ public class GameObject extends Image {
         components.remove();
         removed = true;
         return remove;
+    }
+
+    /**
+     * Sets whether the game object is removed.
+     * @param removed
+     */
+    public void setRemoved(boolean removed) {
+        this.removed = removed;
     }
 
     /**
@@ -413,6 +423,15 @@ public class GameObject extends Image {
     }
 
     /**
+     * Sets the position of the game object to the specfied position. This is a shortcut for
+     * {@link #setPosition(float, float)}.
+     * @param position the new position
+     */
+    public void setPosition(Vector2 position) {
+        setPosition(position.x, position.y);
+    }
+
+    /**
      * @return whether the game object is persistent, i.e. stays when the scene is switched
      */
     public boolean isPersistent() {
@@ -455,16 +474,23 @@ public class GameObject extends Image {
         if(indexInParent == -1) {
             indexInParent = actors.indexOf(this, true);
         }
-        while(indexInParent - 1 > 0 && getY() > actors.get(indexInParent - 1).getY()) {
+        while(indexInParent - 1 > 0 && (getY() + zPosition) > (actors.get(indexInParent - 1).getY() + ((GameObject) actors.get(indexInParent - 1)).getzPosition())) {
             getParent().swapActor(indexInParent, indexInParent - 1);
             ((GameObject) actors.get(indexInParent)).indexInParent = indexInParent;
             indexInParent--;
         }
-        while(indexInParent < actors.size - 1 && getY() < actors.get(indexInParent + 1).getY()) {
+        while(indexInParent < actors.size - 1 && (getY() + zPosition) < (actors.get(indexInParent + 1).getY() + ((GameObject) actors.get(indexInParent + 1)).getzPosition())) {
             getParent().swapActor(indexInParent, indexInParent + 1);
             ((GameObject) actors.get(indexInParent)).indexInParent = indexInParent;
             indexInParent++;
         }
     }
 
+    public float getzPosition() {
+        return zPosition;
+    }
+
+    public void setzPosition(float zPosition) {
+        this.zPosition = zPosition;
+    }
 }

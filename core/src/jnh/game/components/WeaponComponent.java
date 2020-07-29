@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
+import jnh.game.utils.Direction;
 
 public class WeaponComponent extends Component implements ItemAction {
 
@@ -37,10 +38,31 @@ public class WeaponComponent extends Component implements ItemAction {
         for(ID id: user.getGameObjectManager().getGameObjectsByTag("destroyable")) {
             GameObject other = user.getGameObjectManager().getGameObject(id);
             if(!id.equals(user.getID()) && user.getPosition().dst2(other.getPosition()) < range * range) {
-                other.getComponent(HealthComponent.class).dealDamage(damage, 1f);
-                other.getComponent(BodyComponent.class).getBody().applyForce(
-                        new Vector2(other.getX() - gameObject.getX(), other.getY() - gameObject.getY()).scl(200 * knockback),
-                        new Vector2(other.getX(), other.getY()), true);
+                if(user.getComponent(MovementComponent.class) != null) {
+                    boolean inVision;
+                    switch(user.getComponent(MovementComponent.class).getLooking()) {
+                        case Direction.LEFT:
+                            inVision = other.getX() < user.getX();
+                            break;
+                        case Direction.RIGHT:
+                            inVision = other.getX() > user.getX();
+                            break;
+                        case Direction.UP:
+                            inVision = other.getY() > user.getY();
+                            break;
+                        case Direction.DOWN:
+                            inVision = other.getY() < user.getY();
+                            break;
+                        default:
+                            inVision = true;
+                    }
+                    if(inVision) {
+                        other.getComponent(HealthComponent.class).dealDamage(damage, 1f);
+                        other.getComponent(BodyComponent.class).getBody().applyForce(
+                                new Vector2(other.getX() - gameObject.getX(), other.getY() - gameObject.getY()).scl(200 * knockback),
+                                new Vector2(other.getX(), other.getY()), true);
+                    }
+                }
             }
         }
         cooldownCounter = cooldown;

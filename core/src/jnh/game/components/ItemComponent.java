@@ -6,10 +6,13 @@ import jnh.game.utils.TimeHandler;
 public class ItemComponent extends Component {
 
     private transient ItemAction itemAction;
+    private boolean inWorld = true;
 
     @Override
     public void tick(float delta) {
-        gameObject.setPosition(gameObject.getX(), (float) (gameObject.getY() + 0.005f * Math.sin(0.1f * TimeHandler.getTicks())));
+        if(inWorld) {
+            gameObject.setPosition(gameObject.getX(), (float) (gameObject.getY() + 0.005f * Math.sin(0.1f * TimeHandler.getTicks())));
+        }
     }
 
     @Override
@@ -20,6 +23,7 @@ public class ItemComponent extends Component {
     @Override
     public ItemComponent copy() {
         ItemComponent c = new ItemComponent();
+        c.inWorld = inWorld;
         return c;
     }
 
@@ -41,5 +45,13 @@ public class ItemComponent extends Component {
         if(findItemActionComponent()) {
             itemAction.secondaryUse(user);
         }
+    }
+
+    public boolean isInWorld() {
+        return inWorld;
+    }
+
+    public void setInWorld(boolean inWorld) {
+        this.inWorld = inWorld;
     }
 }

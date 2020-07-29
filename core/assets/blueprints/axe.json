@@ -4,8 +4,8 @@
         "collectable"
     ],
     "dimension": {
-        "x": 0.6,
-        "y": 0.6
+        "x": 0.3125,
+        "y": 0.75
     },
     "components": [
         {
