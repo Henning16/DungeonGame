@@ -1,0 +1,26 @@
+{
+    "type": "SWORD",
+    "tags": [
+        "collectable"
+    ],
+    "dimension": {
+        "x": 0.3125,
+        "y": 0.75
+    },
+    "components": [
+        {
+            "class": "jnh.game.components.TextureComponent",
+            "textureName": "SWORD"
+        },
+        {
+            "class": "jnh.game.components.ItemComponent"
+        },
+        {
+            "class": "jnh.game.components.WeaponComponent",
+            "damage": 9,
+            "knockback": 0.5,
+            "range": 5,
+            "cooldown": 0.3
+        }
+    ]
+}

@@ -11,6 +11,7 @@ public class Settings {
     private transient boolean cameraFollowingPlayer = true;
     private transient boolean renderingLights = true;
     private transient boolean showingUI = true;
+    private transient boolean usingColorGrading = true;
     private float uiScale = 2;
 
     private Settings() {
@@ -48,6 +49,14 @@ public class Settings {
 
     public static boolean isShowingUI() {
         return instance.showingUI;
+    }
+
+    public static boolean isUsingColorGrading() {
+        return instance.usingColorGrading;
+    }
+
+    public static void setUsingColorGrading(boolean usingColorGrading) {
+        instance.usingColorGrading = usingColorGrading;
     }
 
     public static void setShowingUI(boolean showingUI) {

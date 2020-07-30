@@ -134,7 +134,11 @@ public class GameScreen implements Screen {
         batch.begin();
         batch.setProjectionMatrix(new Matrix4().setToOrtho2D(0, 0, camera.viewportWidth, camera.viewportHeight));
         colorGrader.update(shaderProgram);
-        batch.setShader(shaderProgram);
+        if(Settings.isUsingColorGrading()) {
+            batch.setShader(shaderProgram);
+        } else {
+            batch.setShader(null);
+        }
         batch.draw(fboRegion, 0, 0, camera.viewportWidth, camera.viewportHeight);
         if(Settings.isRenderingLights()) {
             batch.setBlendFunction(GL20.GL_ZERO, GL20.GL_SRC_ALPHA);

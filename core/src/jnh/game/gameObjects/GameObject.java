@@ -44,6 +44,7 @@ public class GameObject extends Image {
     private final String layerAsString;
 
     private float zPosition = 0;
+    private boolean flipX, flipY;
 
     private transient GameStage stage;
     private final transient GameObjectManager gameObjectManager;
@@ -183,8 +184,15 @@ public class GameObject extends Image {
      */
     @Override
     public void draw(Batch batch, float parentAlpha) {
+        if(getTexture() != null) {
+            getTexture().flip(flipX, flipY);
+        }
         super.draw(batch, parentAlpha);
         components.render(batch);
+        if(getTexture() != null) {
+            getTexture().flip(flipX, flipY);
+        }
+
     }
 
     /**
@@ -486,11 +494,34 @@ public class GameObject extends Image {
         }
     }
 
+    /**
+     * Returns the modifier used for calculating z position.
+     * @return the modifier
+     * @see #updateZPosition()
+     */
     public float getzPosition() {
         return zPosition;
     }
 
+    /**
+     * Sets the modifier used for calculating z position.
+     * @param zPosition the modifier
+     * @see #updateZPosition()
+     */
     public void setzPosition(float zPosition) {
         this.zPosition = zPosition;
+    }
+
+    public void setFlip(boolean x, boolean y) {
+        this.flipX = x;
+        this.flipY = y;
+    }
+
+    public boolean isFlipX() {
+        return flipX;
+    }
+
+    public boolean isFlipY() {
+        return flipY;
     }
 }

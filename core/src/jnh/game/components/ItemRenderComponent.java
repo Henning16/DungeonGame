@@ -35,36 +35,28 @@ public class ItemRenderComponent extends Component {
                 item.setY(gameObject.getY() + 0.15f);
                 item.setzPosition(0);
                 item.setRotation(45);
-                if(!item.getTexture().isFlipX()) {
-                    item.getTexture().flip(true, false);
-                }
+                item.setFlip(true, false);
                 break;
             case Direction.RIGHT:
                 item.setX(item.getX() + 0.35f);
                 item.setY(gameObject.getY() + 0.15f);
-                item.setzPosition(-0.151f);
+                item.setzPosition(-0.1501f);
                 item.setRotation(315);
-                if(item.getTexture().isFlipX()) {
-                    item.getTexture().flip(true, false);
-                }
+                item.setFlip(false, false);
                 break;
             case Direction.UP:
-                item.setX(item.getX() + 0.55f);
+                item.setX(item.getX() + 0.5f);
                 item.setY(gameObject.getY() + 0.22f);
-                item.setzPosition(0.221f);
+                item.setzPosition(0.2201f);
                 item.setRotation(337.5f);
-                if(item.getTexture().isFlipX()) {
-                    item.getTexture().flip(true, false);
-                }
+                item.setFlip(false, false);
                 break;
             case Direction.DOWN:
-                item.setX(item.getX() - 0.3f);
+                item.setX(item.getX() - 0.2f);
                 item.setY(gameObject.getY() + 0.17f);
-                item.setzPosition(-0.01f);
+                item.setzPosition(-0.1701f);
                 item.setRotation(22.5f);
-                if(!item.getTexture().isFlipX()) {
-                    item.getTexture().flip(true, false);
-                }
+                item.setFlip(true, false);
                 break;
         }
     }

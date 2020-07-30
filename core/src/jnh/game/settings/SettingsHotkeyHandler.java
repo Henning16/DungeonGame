@@ -16,6 +16,10 @@ public class SettingsHotkeyHandler {
         if(Gdx.input.isKeyJustPressed(Input.Keys.F5)) {
             Settings.setCameraFollowingPlayer(!Settings.isCameraFollowingPlayer());
         }
+
+        if(Gdx.input.isKeyJustPressed(Input.Keys.F6)) {
+            Settings.setUsingColorGrading(!Settings.isUsingColorGrading());
+        }
     }
 
 }

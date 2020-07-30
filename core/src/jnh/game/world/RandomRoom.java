@@ -52,12 +52,15 @@ public class RandomRoom extends Room {
         GameObject upperRightWall = new GameObject(getStage(), Assets.blueprints.WALL_UPPER_CORNER);
         upperRightWall.getComponent(BodyComponent.class).getBody().setTransform(ROOM_WIDTH - 1, ROOM_HEIGHT - 1, 0);
 
-        new GameObject(getStage(), Assets.blueprints.AXE).setPosition(4, 4);
         new GameObject(getStage(), Assets.blueprints.CRATE).getComponent(BodyComponent.class).getBody().setTransform(8, 4, 0);
         new GameObject(getStage(), Assets.blueprints.LOGPILE).getComponent(BodyComponent.class).getBody().setTransform(6, 4, 0);
 
         for(int i = 0; i < 3; i++) {
             new GameObject(getStage(), Assets.blueprints.ZOMBIE).getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3, 0);
+        }
+
+        for(int i = 0; i < 50; i++) {
+            new GameObject(getStage(), Assets.blueprints.SWORD).setPosition((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3);
         }
     }
 }

@@ -16,7 +16,7 @@ public class Textures {
     public final Animation<TextureRegion>[] FLOOR_TILE;
     public final Animation<TextureRegion>[][] WALL;
     public final Animation<TextureRegion>[][] WALL_NEW;
-    public final Animation AXE;
+    public final Animation AXE, SWORD;
     public final Animation LOGPILE, CRATE;
     public final Animation BLOOD;
 
@@ -195,6 +195,8 @@ public class Textures {
 
         AXE = new Animation(1f,
                 get(WEAPONS_SHEET, 0, 0, 5, 12));
+        SWORD = new Animation(1f,
+                get(WEAPONS_SHEET, 5, 0, 5, 12));
         LOGPILE = new Animation(1f,
                 get(PROPS_SHEET, 2, 2, 13, 16));
         CRATE = new Animation(1f,

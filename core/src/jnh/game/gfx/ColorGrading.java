@@ -10,9 +10,10 @@ public class ColorGrading {
 
     public static final ColorGrading UNMODIFIED = new ColorGrading(Color.RED, Color.GREEN, Color.BLUE);
     public static final ColorGrading NORMAL = new ColorGrading(
-            new Color(0.91f, 0.04f, 0.05f, 1),
-            new Color(0.02f, 0.94f, 0.04f, 1),
-            new Color(0.01f, 0.02f, 0.97f, 1));
+            new Color(0.95f, 0.025f, 0.025f, 1),
+            new Color(0.025f, 0.95f, 0.025f, 1),
+            new Color(0.025f, 0.025f, 0.95f, 1),
+            0.1f,0, -0.1f);
     public static final ColorGrading BLACKWHITE = new ColorGrading(new Color(1 / 3f, 1 / 3f, 1 / 3f, 1), new Color(1 / 3f, 1 / 3f, 1 / 3f, 1), new Color(1 / 3f, 1 / 3f, 1 / 3f, 1));
     public static final ColorGrading HORROR = new ColorGrading(
             new Color(0.9f, 0.05f, 0.05f, 1),
@@ -43,6 +44,7 @@ public class ColorGrading {
         this.blue = blue;
         this.redLuminosity = redLuminosity;
         this.greenLuminosity = greenLuminosity;
+        this.blueLuminosity = blueLuminosity;
         this.blueIntensity = blueIntensity;
         this.redIntensity = redIntensity;
         this.greenIntensity = greenIntensity;
