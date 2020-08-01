@@ -46,7 +46,7 @@ public class GameObject extends Image {
     private float zPosition = 0;
     private boolean flipX, flipY;
 
-    private transient GameStage stage;
+    private final transient GameStage stage;
     private final transient GameObjectManager gameObjectManager;
 
     private boolean alreadyActed = false;
@@ -211,7 +211,7 @@ public class GameObject extends Image {
 
     /**
      * Sets whether the game object is removed.
-     * @param removed
+     * @param removed whether the game object is removed
      */
     public void setRemoved(boolean removed) {
         this.removed = removed;

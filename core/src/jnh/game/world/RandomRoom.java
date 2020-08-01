@@ -59,8 +59,8 @@ public class RandomRoom extends Room {
             new GameObject(getStage(), Assets.blueprints.ZOMBIE).getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3, 0);
         }
 
-        for(int i = 0; i < 50; i++) {
-            new GameObject(getStage(), Assets.blueprints.SWORD).setPosition((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3);
+        for(int i = 0; i < 3; i++) {
+            new GameObject(getStage(), Assets.blueprints.TORCH).setPosition((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3);
         }
     }
 }

@@ -60,14 +60,6 @@
         },
         {
             "class": "jnh.game.components.PlayerItemUsageComponent"
-        },
-        {
-            "class": "jnh.game.components.LightComponent",
-            "distance": 9,
-            "color": {
-                "r": 1, "g": 0.7, "b": 0.3, "a": 0.85
-            },
-            "flickeringIntensity": 0
         }
     ]
 }

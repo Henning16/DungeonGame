@@ -12,6 +12,8 @@ public class MovementTextureComponent extends Component {
     private transient MovementComponent movementComponent;
     private transient BodyComponent bodyComponent;
 
+    private transient float frameDuration = 0.2f;
+
     private String textureSetName = "PLAYER";
     private transient Animation<TextureRegion>[][]  textureSet = Assets.textures.PLAYER;
     private transient Animator animator = new Animator();
@@ -19,13 +21,14 @@ public class MovementTextureComponent extends Component {
     @Override
     public void tick(float delta) {
         if(movementComponent == null || bodyComponent == null) {
-            movementComponent = (MovementComponent) gameObject.getComponent(MovementComponent.class);
-            bodyComponent = (BodyComponent) gameObject.getComponent(BodyComponent.class);
+            movementComponent = gameObject.getComponent(MovementComponent.class);
+            bodyComponent = gameObject.getComponent(BodyComponent.class);
             return;
         }
         animator.tick(delta);
         Animation animation = textureSet[movementComponent.getLooking()][movementComponent.getState()];
         animation.setFrameDuration(1 / (6 + 0.02f * movementComponent.getSpeed()));
+        frameDuration = animation.getFrameDuration();
         animator.play(animation, true);
     }
 
@@ -45,5 +48,9 @@ public class MovementTextureComponent extends Component {
         MovementTextureComponent c = new MovementTextureComponent();
         c.textureSetName = textureSetName;
         return c;
+    }
+
+    public float getFrameDuration() {
+        return frameDuration;
     }
 }

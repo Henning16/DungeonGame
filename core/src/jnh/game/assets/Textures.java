@@ -16,9 +16,9 @@ public class Textures {
     public final Animation<TextureRegion>[] FLOOR_TILE;
     public final Animation<TextureRegion>[][] WALL;
     public final Animation<TextureRegion>[][] WALL_NEW;
-    public final Animation AXE, SWORD;
+    public final Animation AXE, SWORD, TORCH;
     public final Animation LOGPILE, CRATE;
-    public final Animation BLOOD;
+    public final Animation ATTACK;
 
     public Textures() {
         sprites = new Texture(Gdx.files.internal("textures/textures.png"));
@@ -197,12 +197,14 @@ public class Textures {
                 get(WEAPONS_SHEET, 0, 0, 5, 12));
         SWORD = new Animation(1f,
                 get(WEAPONS_SHEET, 5, 0, 5, 12));
+        TORCH = new Animation(1f,
+                get(WEAPONS_SHEET, 15, 0, 5, 12));
         LOGPILE = new Animation(1f,
                 get(PROPS_SHEET, 2, 2, 13, 16));
         CRATE = new Animation(1f,
                 get(PROPS_SHEET, 17, 2, 13, 17));
-        BLOOD = new Animation(1f,
-                get(PARTICLE_SHEET, 0, 0, 1, 1));
+        ATTACK = new Animation(1f,
+                get(PARTICLE_SHEET, 0, 0, 3, 12));
     }
 
     private TextureRegion get(Texture texture, int x, int y, int width, int height) {

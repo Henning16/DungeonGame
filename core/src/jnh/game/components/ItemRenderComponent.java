@@ -1,8 +1,11 @@
 package jnh.game.components;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import jnh.game.Global;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.utils.Direction;
+
+import javax.swing.text.html.parser.Entity;
 
 public class ItemRenderComponent extends Component {
 
@@ -27,35 +30,47 @@ public class ItemRenderComponent extends Component {
             gameObject.getStage().getMainLayer().addActor(item);
             item.setRemoved(false);
             item.getComponent(ItemComponent.class).setInWorld(false);
+            if(item.getComponent(LightComponent.class) != null) {
+                item.getComponent(LightComponent.class).add();
+            }
         }
         item.setPosition(gameObject.getPosition());
+        int state = movementComponent.getState();
         switch(movementComponent.getLooking()) {
             case Direction.LEFT:
                 item.setX(item.getX() - 0.1f);
-                item.setY(gameObject.getY() + 0.15f);
+                item.setY((float) (gameObject.getY() + 0.18f +
+                        state * 0.02f * Math.sin(Global.elapsedTime * 10)));
                 item.setzPosition(0);
-                item.setRotation(45);
+                item.setRotation((float) (45 -
+                        state * 2 * Math.sin(Global.elapsedTime * 10)));
                 item.setFlip(true, false);
                 break;
             case Direction.RIGHT:
-                item.setX(item.getX() + 0.35f);
-                item.setY(gameObject.getY() + 0.15f);
-                item.setzPosition(-0.1501f);
-                item.setRotation(315);
+                item.setX(item.getX() + 0.3f);
+                item.setY((float) (gameObject.getY() + 0.18f +
+                        state * 0.02f * Math.sin(Global.elapsedTime * 10)));
+                item.setzPosition(-0.2f);
+                item.setRotation((float) (315 +
+                        state * 2 * Math.sin(Global.elapsedTime * 10)));
                 item.setFlip(false, false);
                 break;
             case Direction.UP:
-                item.setX(item.getX() + 0.5f);
-                item.setY(gameObject.getY() + 0.22f);
-                item.setzPosition(0.2201f);
-                item.setRotation(337.5f);
+                item.setX(item.getX() + 0.4f);
+                item.setY((float) (gameObject.getY() + 0.18f +
+                        state * 0.02f * Math.sin(Global.elapsedTime * 10)));
+                item.setzPosition(0.2f);
+                item.setRotation((float) (337.5f +
+                        state * 2 * Math.sin(Global.elapsedTime * 10)));
                 item.setFlip(false, false);
                 break;
             case Direction.DOWN:
-                item.setX(item.getX() - 0.2f);
-                item.setY(gameObject.getY() + 0.17f);
-                item.setzPosition(-0.1701f);
-                item.setRotation(22.5f);
+                item.setX(item.getX() - 0.15f);
+                item.setY((float) (gameObject.getY() + 0.18f +
+                        state * 0.02f * Math.sin(Global.elapsedTime * 10)));
+                item.setzPosition(-0.2f);
+                item.setRotation((float) (22.5f -
+                        state * 2 * Math.sin(Global.elapsedTime * 10)));
                 item.setFlip(true, false);
                 break;
         }

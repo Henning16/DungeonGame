@@ -1,7 +1,11 @@
 package jnh.game.components;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
+import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
 import jnh.game.utils.Direction;
@@ -12,10 +16,14 @@ public class WeaponComponent extends Component implements ItemAction {
     private float knockback = 0.2f;
     private float range = 3f;
     private float cooldown = 0.5f;
-    private transient float cooldownCounter = 0f;
+    private transient float cooldownCounter = 0;
+
+    private float attackTimer = 0;
+    private int looking = 0;
 
     @Override
     public void tick(float delta) {
+        attackTimer = Math.max(0, attackTimer - delta);
         cooldownCounter = Math.max(0, cooldownCounter - delta);
     }
 
@@ -30,17 +38,45 @@ public class WeaponComponent extends Component implements ItemAction {
     }
 
     @Override
+    public void render(Batch batch) {
+        super.render(batch);
+        if(attackTimer != 0) {
+            batch.setColor(1, 1, 1, attackTimer * 4);
+            switch(looking) {
+                case Direction.LEFT:
+                    batch.draw((TextureRegion) Assets.textures.ATTACK.getKeyFrame(0), gameObject.getX() - 0.3f, gameObject.getY(),
+                            0.09375f, 0.375f, 0.1875f, 0.75f, 1, 1, 180);
+                    break;
+                case Direction.RIGHT:
+                    batch.draw((TextureRegion) Assets.textures.ATTACK.getKeyFrame(0), gameObject.getX() + 0.4f, gameObject.getY(),
+                            0.09375f, 0.375f, 0.1875f, 0.75f, 1, 1, 0);
+                    break;
+                case Direction.UP:
+                    batch.draw((TextureRegion) Assets.textures.ATTACK.getKeyFrame(0), gameObject.getX() - 0.21f, gameObject.getY() + 0.5f,
+                            0.09375f, 0.375f, 0.1875f, 0.75f, 1, 1, 90);
+                    break;
+                case Direction.DOWN:
+                    batch.draw((TextureRegion) Assets.textures.ATTACK.getKeyFrame(0), gameObject.getX() + 0.34f, gameObject.getY() - 0.5f,
+                            0.09375f, 0.375f, 0.1875f, 0.75f, 1, 1, 270);
+                    break;
+            }
+            batch.setColor(1, 1, 1, 1);
+        }
+    }
+
+    @Override
     public void use(GameObject user) {
-        if(cooldownCounter != 0.0f) {
+        if(cooldownCounter != 0) {
             return;
         }
-        Vector2 pos = user.getStage().convertScreenPositionToWorldPosition(new Vector2(Gdx.input.getX(), Gdx.input.getY()));
+        attackTimer = 0.4f;
+        looking = user.getComponent(MovementComponent.class).getLooking();
         for(ID id: user.getGameObjectManager().getGameObjectsByTag("destroyable")) {
             GameObject other = user.getGameObjectManager().getGameObject(id);
             if(!id.equals(user.getID()) && user.getPosition().dst2(other.getPosition()) < range * range) {
                 if(user.getComponent(MovementComponent.class) != null) {
                     boolean inVision;
-                    switch(user.getComponent(MovementComponent.class).getLooking()) {
+                    switch(looking) {
                         case Direction.LEFT:
                             inVision = other.getX() < user.getX();
                             break;
@@ -57,7 +93,7 @@ public class WeaponComponent extends Component implements ItemAction {
                             inVision = true;
                     }
                     if(inVision) {
-                        other.getComponent(HealthComponent.class).dealDamage(damage, 1f);
+                        other.getComponent(HealthComponent.class).dealDamage(damage, 1);
                         other.getComponent(BodyComponent.class).getBody().applyForce(
                                 new Vector2(other.getX() - gameObject.getX(), other.getY() - gameObject.getY()).scl(200 * knockback),
                                 new Vector2(other.getX(), other.getY()), true);
