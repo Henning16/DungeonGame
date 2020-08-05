@@ -5,8 +5,6 @@ import jnh.game.Global;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.utils.Direction;
 
-import javax.swing.text.html.parser.Entity;
-
 public class ItemRenderComponent extends Component {
 
     private transient ItemContainerComponent containerComponent;
@@ -26,6 +24,7 @@ public class ItemRenderComponent extends Component {
         if(item == null) {
             return;
         }
+        WeaponComponent weaponComponent = item.getComponent(WeaponComponent.class);
         if(item.isRemoved()) {
             gameObject.getStage().getMainLayer().addActor(item);
             item.setRemoved(false);
@@ -36,6 +35,12 @@ public class ItemRenderComponent extends Component {
         }
         item.setPosition(gameObject.getPosition());
         int state = movementComponent.getState();
+        float rotationModifier = 0;
+        if(weaponComponent != null) {
+            if(weaponComponent.getAttackTimer() != 0) {
+                rotationModifier = weaponComponent.getAttackTimer() * 20;
+            }
+        }
         switch(movementComponent.getLooking()) {
             case Direction.LEFT:
                 item.setX(item.getX() - 0.1f);
@@ -43,7 +48,7 @@ public class ItemRenderComponent extends Component {
                         state * 0.02f * Math.sin(Global.elapsedTime * 10)));
                 item.setzPosition(0);
                 item.setRotation((float) (45 -
-                        state * 2 * Math.sin(Global.elapsedTime * 10)));
+                        state * 2 * Math.sin(Global.elapsedTime * 10)) + rotationModifier);
                 item.setFlip(true, false);
                 break;
             case Direction.RIGHT:
@@ -52,7 +57,7 @@ public class ItemRenderComponent extends Component {
                         state * 0.02f * Math.sin(Global.elapsedTime * 10)));
                 item.setzPosition(-0.2f);
                 item.setRotation((float) (315 +
-                        state * 2 * Math.sin(Global.elapsedTime * 10)));
+                        state * 2 * Math.sin(Global.elapsedTime * 10)) - rotationModifier);
                 item.setFlip(false, false);
                 break;
             case Direction.UP:
@@ -61,7 +66,7 @@ public class ItemRenderComponent extends Component {
                         state * 0.02f * Math.sin(Global.elapsedTime * 10)));
                 item.setzPosition(0.2f);
                 item.setRotation((float) (337.5f +
-                        state * 2 * Math.sin(Global.elapsedTime * 10)));
+                        state * 2 * Math.sin(Global.elapsedTime * 10)) + rotationModifier);
                 item.setFlip(false, false);
                 break;
             case Direction.DOWN:
@@ -70,7 +75,7 @@ public class ItemRenderComponent extends Component {
                         state * 0.02f * Math.sin(Global.elapsedTime * 10)));
                 item.setzPosition(-0.2f);
                 item.setRotation((float) (22.5f -
-                        state * 2 * Math.sin(Global.elapsedTime * 10)));
+                        state * 2 * Math.sin(Global.elapsedTime * 10)) + rotationModifier);
                 item.setFlip(true, false);
                 break;
         }

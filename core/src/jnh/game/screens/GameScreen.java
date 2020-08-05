@@ -21,6 +21,11 @@ import jnh.game.settings.Settings;
 import jnh.game.settings.SettingsHotkeyHandler;
 import jnh.game.stages.GameStage;
 import jnh.game.ui.GameUI;
+import jnh.game.ui.notifications.Notification;
+import jnh.game.ui.notifications.NotificationHandler;
+
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 
 public class GameScreen implements Screen {
@@ -44,6 +49,9 @@ public class GameScreen implements Screen {
     private boolean paused = false;
 
     public float VIEWPORT_WIDTH = 24, VIEWPORT_HEIGHT = 24;
+
+    private float errorCooldown = 0;
+    private int hiddenErrorMessages = 0;
 
     public GameScreen(DungeonGame game) {
         this.game = game;
@@ -89,7 +97,27 @@ public class GameScreen implements Screen {
     public void update(float delta) {
         if(!paused) {
             Global.elapsedTime += delta;
-            stage.act(Gdx.graphics.getDeltaTime());
+            errorCooldown = Math.max(0, errorCooldown - delta);
+            try {
+                stage.act(Gdx.graphics.getDeltaTime());
+            } catch(Exception e) {
+                if(errorCooldown > 0) {
+                    hiddenErrorMessages++;
+                } else {
+                    String additionalContext = "none";
+                    if(hiddenErrorMessages != 0) {
+                        additionalContext = "hiding " + hiddenErrorMessages + " error messages";
+                    }
+                    StringWriter stringWriter = new StringWriter();
+                    PrintWriter printWriter = new PrintWriter(stringWriter);
+                    e.printStackTrace(printWriter);
+                    NotificationHandler.addNotification(new Notification("Fatal Error", "Details: "+e.getMessage()
+                            +"\n\nAdditional information: "+stringWriter.toString()
+                            +"\n\nAdditional context: "+additionalContext));
+                    errorCooldown = 0.05f;
+                    hiddenErrorMessages = 0;
+                }
+            }
             physicsWorld.step(1 / 60f, 6, 2);
             rayHandler.update();
         }
@@ -215,5 +243,9 @@ public class GameScreen implements Screen {
 
     public boolean isPaused() {
         return paused;
+    }
+
+    public ColorGrader getColorGrader() {
+        return colorGrader;
     }
 }

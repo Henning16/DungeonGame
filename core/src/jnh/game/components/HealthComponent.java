@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
+import jnh.game.gfx.ColorGrading;
 import jnh.game.gfx.Shake;
 
 public class HealthComponent extends Component {
@@ -40,6 +41,9 @@ public class HealthComponent extends Component {
         if(gameObject.getType().equals("PLAYER")) {
             gameObject.getStage().getScreen().getGameCamera().shake(new Shake(0.1f, 1));
             updateHealthBar();
+            if(health < 11f * maxHealth) {
+                gameObject.getStage().getScreen().getColorGrader().transitionTo(ColorGrading.DANGER, 10000);
+            }
         } else {
             long soundID = Assets.sounds.ENEMY_HIT.play();
             Assets.sounds.ENEMY_HIT.setPitch(soundID, (float) (0.3f * Math.random() + 0.7f));

@@ -1,6 +1,7 @@
 package jnh.game.components;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -18,13 +19,23 @@ public class WeaponComponent extends Component implements ItemAction {
     private float cooldown = 0.5f;
     private transient float cooldownCounter = 0;
 
-    private float attackTimer = 0;
-    private int looking = 0;
+    private transient float attackTimer = 0;
+    private transient int looking = 0;
+    private transient long currentSwingSound = -1;
+    private transient long panTimer = 0;
 
     @Override
     public void tick(float delta) {
         attackTimer = Math.max(0, attackTimer - delta);
         cooldownCounter = Math.max(0, cooldownCounter - delta);
+        if(currentSwingSound != -1) {
+            panTimer += delta;
+            Assets.sounds.WEAPON_SWING.setPan(currentSwingSound, panTimer * 4 - 1, 1);
+        }
+        if(panTimer > 0.5f) {
+            currentSwingSound = -1;
+            panTimer = 0;
+        }
     }
 
     @Override
@@ -70,6 +81,9 @@ public class WeaponComponent extends Component implements ItemAction {
             return;
         }
         attackTimer = 0.4f;
+        long soundID = Assets.sounds.WEAPON_SWING.play();
+        Assets.sounds.WEAPON_SWING.setPitch(soundID, (float) (0.85f + 0.3f * Math.random()));
+        Assets.sounds.WEAPON_SWING.setVolume(soundID, 0.3f);
         looking = user.getComponent(MovementComponent.class).getLooking();
         for(ID id: user.getGameObjectManager().getGameObjectsByTag("destroyable")) {
             GameObject other = user.getGameObjectManager().getGameObject(id);
@@ -139,5 +153,13 @@ public class WeaponComponent extends Component implements ItemAction {
 
     public void setCooldown(float cooldown) {
         this.cooldown = cooldown;
+    }
+
+    public float getAttackTimer() {
+        return attackTimer;
+    }
+
+    public void setAttackTimer(float attackTimer) {
+        this.attackTimer = attackTimer;
     }
 }

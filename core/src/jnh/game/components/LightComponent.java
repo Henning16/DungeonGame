@@ -5,6 +5,8 @@ import box2dLight.PointLight;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.gameObjects.GameObject;
+import jnh.game.ui.notifications.Notification;
+import jnh.game.ui.notifications.NotificationHandler;
 
 /**
  * Attaches a light to the game object and manages it. More information can be found <a href="https://github.com/Henning16/DungeonGame/wiki/Component-Dokumentation#bodycomponent">here</a>.
