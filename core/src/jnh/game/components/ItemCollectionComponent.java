@@ -5,6 +5,7 @@ import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class ItemCollectionComponent extends Component implements Serializable {
 
@@ -26,6 +27,7 @@ public class ItemCollectionComponent extends Component implements Serializable {
             containerComponent = gameObject.getComponent(ItemContainerComponent.class);
             return;
         }
+        ArrayList<GameObject> removeTags = new ArrayList<>();
         for(ID itemID: gameObject.getGameObjectManager().getGameObjectsByTag("collectable")) {
             GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
             float distanceSquare = (item.getX() - gameObject.getX())*(item.getX() - gameObject.getX()) + (item.getY() - gameObject.getY())*(item.getY() - gameObject.getY());
@@ -37,10 +39,13 @@ public class ItemCollectionComponent extends Component implements Serializable {
                     long soundID = Assets.sounds.COLLECT_ITEM.play();
                     Assets.sounds.COLLECT_ITEM.setPitch(soundID, (float) Math.random() + 1);
                     Assets.sounds.COLLECT_ITEM.setVolume(soundID, 10000);
-                    item.removeTagWhileIterating("collectable");
+                    removeTags.add(item);
                     gameObject.getGameObjectManager().requestRemove(itemID);
                 }
             }
+        }
+        for(GameObject item : removeTags) {
+            item.removeTag("collectable");
         }
     }
 

@@ -45,6 +45,7 @@ public class LightComponent extends Component {
         super.remove();
         if(light != null) {
             light.remove();
+            light = null;
         }
     }
 

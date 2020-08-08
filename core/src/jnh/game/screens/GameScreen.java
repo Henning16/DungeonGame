@@ -114,7 +114,7 @@ public class GameScreen implements Screen {
                     NotificationHandler.addNotification(new Notification("Fatal Error", "Details: "+e.getMessage()
                             +"\n\nAdditional information: "+stringWriter.toString()
                             +"\n\nAdditional context: "+additionalContext));
-                    errorCooldown = 0.05f;
+                    errorCooldown = 8f;
                     hiddenErrorMessages = 0;
                 }
             }
