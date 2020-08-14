@@ -12,7 +12,8 @@ public class AttackComponent extends Component {
     private ArrayList<String> targetedTags = new ArrayList<>();
 
     private transient GameObject target;
-    private transient float remainingCooldownTime = 0f;
+    private transient ItemContainerComponent itemContainerComponent;
+    private WeaponComponent hand;
 
     @Override
     public void tick(float delta) {
@@ -24,12 +25,19 @@ public class AttackComponent extends Component {
             target = null;
             return;
         }
-        remainingCooldownTime = Math.max(0, remainingCooldownTime - delta);
-        if(Vector2.dst(target.getX(), target.getY(), gameObject.getX(), gameObject.getY()) < 1.5f && remainingCooldownTime == 0f) {
-            target.getComponent(HealthComponent.class).dealDamage(1, 1);
-            target.getComponent(BodyComponent.class).getBody().applyForce(new Vector2(target.getX() - gameObject.getX(), target.getY() - gameObject.getY()).scl(150), new Vector2(target.getX(), target.getY()), true);
-            remainingCooldownTime = 1f;
+        if(itemContainerComponent == null) {
+            itemContainerComponent = gameObject.getComponent(ItemContainerComponent.class);
         }
+        hand.tick(delta);
+        WeaponComponent weaponComponent = null;
+        if(itemContainerComponent != null) {
+            gameObject.getGameObjectManager().getGameObject(itemContainerComponent.getItem(0)).getComponent(WeaponComponent.class);
+        }
+        if(weaponComponent == null) {
+            weaponComponent = hand;
+            //TODO Way to define stats for attack with hand
+        }
+        weaponComponent.useOn(gameObject, target);
     }
 
     public GameObject getNearestTarget() {
@@ -50,6 +58,12 @@ public class AttackComponent extends Component {
         }
 
         return nearestTarget;
+    }
+
+    @Override
+    public void attachedTo(GameObject gameObject) {
+        super.attachedTo(gameObject);
+        hand = new WeaponComponent();
     }
 
     @Override

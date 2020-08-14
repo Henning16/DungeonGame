@@ -4,10 +4,9 @@ import jnh.game.assets.Assets;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ItemCollectionComponent extends Component implements Serializable {
+public class ItemCollectionComponent extends Component {
 
     private transient ItemContainerComponent containerComponent;
 
@@ -15,10 +14,6 @@ public class ItemCollectionComponent extends Component implements Serializable {
 
     private ItemCollectionComponent() {
 
-    }
-
-    public ItemCollectionComponent(ItemCollectionComponent other) {
-        this.range = other.range;
     }
 
     @Override

@@ -22,8 +22,13 @@ public class RandomRoom extends Room {
 
         //LOWER WALLS
         for(int x = 1; x < ROOM_WIDTH - 1; x++) {
-            GameObject wall = new GameObject(getStage(), Assets.blueprints.WALL_HORIZONTAL);
-            wall.getComponent(BodyComponent.class).getBody().setTransform(x, 0, 0);
+            if(x != 6) {
+                GameObject wall = new GameObject(getStage(), Assets.blueprints.WALL_HORIZONTAL);
+                wall.getComponent(BodyComponent.class).getBody().setTransform(x, 0, 0);
+            } else {
+                GameObject wall = new GameObject(getStage(), Assets.blueprints.WALL_DOOR_HORIZONTAL);
+                wall.getComponent(BodyComponent.class).getBody().setTransform(x, 0, 0);
+            }
         }
 
         //UPPER WALLS

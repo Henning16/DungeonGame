@@ -74,41 +74,46 @@ public class WeaponComponent extends Component implements ItemAction {
 
     @Override
     public void use(GameObject user) {
+        for(ID id: user.getGameObjectManager().getGameObjectsByTag("destroyable")) {
+            useOn(user, user.getGameObjectManager().getGameObject(id));
+        }
+    }
+
+    public void useOn(GameObject user, GameObject other) {
         if(cooldownCounter != 0) {
             return;
         }
         attackTimer = 0.4f;
-        long soundID = Assets.sounds.WEAPON_SWING.play();
-        Assets.sounds.WEAPON_SWING.setPitch(soundID, (float) (0.85f + 0.3f * Math.random()));
-        Assets.sounds.WEAPON_SWING.setVolume(soundID, 0.3f);
+        if(user.getType().equals("PLAYER")) {
+            long soundID = Assets.sounds.WEAPON_SWING.play();
+            Assets.sounds.WEAPON_SWING.setPitch(soundID, (float) (0.85f + 0.3f * Math.random()));
+            Assets.sounds.WEAPON_SWING.setVolume(soundID, 0.3f);
+        }
         looking = user.getComponent(MovementComponent.class).getLooking();
-        for(ID id: user.getGameObjectManager().getGameObjectsByTag("destroyable")) {
-            GameObject other = user.getGameObjectManager().getGameObject(id);
-            if(!id.equals(user.getID()) && user.getPosition().dst2(other.getPosition()) < range * range) {
-                if(user.getComponent(MovementComponent.class) != null) {
-                    boolean inVision;
-                    switch(looking) {
-                        case Direction.LEFT:
-                            inVision = other.getX() < user.getX();
-                            break;
-                        case Direction.RIGHT:
-                            inVision = other.getX() > user.getX();
-                            break;
-                        case Direction.UP:
-                            inVision = other.getY() > user.getY();
-                            break;
-                        case Direction.DOWN:
-                            inVision = other.getY() < user.getY();
-                            break;
-                        default:
-                            inVision = true;
-                    }
-                    if(inVision) {
-                        other.getComponent(HealthComponent.class).dealDamage(damage, 1);
-                        other.getComponent(BodyComponent.class).getBody().applyForce(
-                                new Vector2(other.getX() - gameObject.getX(), other.getY() - gameObject.getY()).scl(200 * knockback),
-                                new Vector2(other.getX(), other.getY()), true);
-                    }
+        if(!other.getID().equals(user.getID()) && user.getPosition().dst2(other.getPosition()) < range * range) {
+            if(user.getComponent(MovementComponent.class) != null) {
+                boolean inVision;
+                switch(looking) {
+                    case Direction.LEFT:
+                        inVision = other.getX() < user.getX();
+                        break;
+                    case Direction.RIGHT:
+                        inVision = other.getX() > user.getX();
+                        break;
+                    case Direction.UP:
+                        inVision = other.getY() > user.getY();
+                        break;
+                    case Direction.DOWN:
+                        inVision = other.getY() < user.getY();
+                        break;
+                    default:
+                        inVision = true;
+                }
+                if(inVision) {
+                    other.getComponent(HealthComponent.class).dealDamage(damage, 1);
+                    other.getComponent(BodyComponent.class).getBody().applyForce(
+                            new Vector2(other.getX() - user.getX(), other.getY() - user.getY()).scl(200 * knockback),
+                            new Vector2(other.getX(), other.getY()), true);
                 }
             }
         }

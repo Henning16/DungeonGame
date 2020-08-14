@@ -16,6 +16,7 @@ public class Textures {
     public final Animation<TextureRegion>[] FLOOR_TILE;
     public final Animation<TextureRegion>[][] WALL;
     public final Animation<TextureRegion>[][] WALL_NEW;
+    public final Animation<TextureRegion>[][] WALL_DOOR;
     public final Animation AXE, SWORD, TORCH;
     public final Animation LOGPILE, CRATE;
     public final Animation ATTACK;
@@ -38,7 +39,8 @@ public class Textures {
         ZOMBIE = new Animation[4][2];
         FLOOR_TILE = new Animation[8];
         WALL = new Animation[5][4];
-        WALL_NEW = new Animation[5][4];
+        WALL_NEW = new Animation[3][3];
+        WALL_DOOR = new Animation[3][3];
 
         PLAYER[Direction.UP][MovementState.IDLE] = new Animation<>(1f,
                 get(PLAYER_SHEET, 13, 2, 9, 16));
@@ -192,6 +194,9 @@ public class Textures {
                 get(WALL_SHEET, 27, 24, 5, 16));
         WALL_NEW[2][2] = new Animation<>(1f,
                 get(WALL_SHEET, 27, 42, 5, 20));
+
+        WALL_DOOR[1][0] = new Animation<>(1f,
+                get(WALL_SHEET, 36, 2, 16, 20));
 
         AXE = new Animation(1f,
                 get(WEAPONS_SHEET, 0, 0, 5, 12));

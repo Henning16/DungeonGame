@@ -17,7 +17,7 @@ public class GameObjectManager {
 
     private final ArrayList<ID> toBeRemoved = new ArrayList<>();
 
-    private final Map<String, ArrayList<ID>> tags = new LinkedHashMap<>();
+    private transient final Map<String, ArrayList<ID>> tags = new LinkedHashMap<>();
 
     public ID playerID;
 
@@ -190,6 +190,9 @@ public class GameObjectManager {
             ID id = createID(gameObject);
             gameObjects[id.getSceneID()] = gameObject;
             gameObject.setID(id);
+            for(String tag : gameObject.getTags()) {
+                addGameObjectToTag(tag, id);
+            }
             if(gameObject.getType().equals("PLAYER")) {
                 playerID = gameObject.getID();
             }

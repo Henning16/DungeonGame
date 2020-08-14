@@ -10,6 +10,8 @@ import jnh.game.gameObjects.GameObject;
 import jnh.game.gfx.ColorGrading;
 import jnh.game.gfx.Shake;
 
+import java.io.FileNotFoundException;
+
 public class HealthComponent extends Component {
 
     private int health = -1;

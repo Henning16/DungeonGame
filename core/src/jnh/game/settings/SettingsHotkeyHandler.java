@@ -20,6 +20,10 @@ public class SettingsHotkeyHandler {
         if(Gdx.input.isKeyJustPressed(Input.Keys.F6)) {
             Settings.setUsingColorGrading(!Settings.isUsingColorGrading());
         }
+
+        if(Gdx.input.isKeyPressed(Input.Keys.F12)) {
+            System.out.println("debug");
+        }
     }
 
 }

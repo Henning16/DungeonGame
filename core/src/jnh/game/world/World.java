@@ -54,6 +54,11 @@ public class World {
         uniqueIDCounter = stage.getGameObjectManager().getUniqueIDCounter();
         stage.setGameObjectManager(json.fromJson(GameObjectManager.class, sceneString));
         stage.getGameObjectManager().setStage(stage);
+        for(GameObject gameObject : stage.getGameObjectManager().getGameObjects()) {
+            if(gameObject != null) {
+                gameObject.gameObjectManagerIntitializationDone();
+            }
+        }
         stage.getGameObjectManager().setUniqueIDCounter(uniqueIDCounter);
         sceneID = id;
     }

@@ -1,6 +1,5 @@
 {
-    "type": "WALL_HORIZONTAL",
-    "layer": "main",
+    "type": "WALL_DOOR_HORIZONTAL",
     "dimension": {
         "x": 1,
         "y": 1.25
@@ -8,7 +7,7 @@
     "components": [
         {
             "class": "jnh.game.components.Indexed2TextureComponent",
-            "textureSetName": "WALL_NEW",
+            "textureSetName": "WALL_DOOR",
             "index": [1, 0]
         },
         {
@@ -21,7 +20,7 @@
                         "y": -8
                     },
                     "dimension": {
-                        "x": 32,
+                        "x": 16,
                         "y": 4
                     }
                 }

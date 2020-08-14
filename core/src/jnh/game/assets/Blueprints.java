@@ -9,7 +9,7 @@ public class Blueprints {
 
     public Blueprint PLAYER, ZOMBIE;
     public Blueprint FLOOR;
-    public Blueprint WALL_HORIZONTAL, WALL_VERTICAL, WALL_UPPER_CORNER, WALL_LOWER_CORNER;
+    public Blueprint WALL_HORIZONTAL, WALL_VERTICAL, WALL_UPPER_CORNER, WALL_LOWER_CORNER, WALL_DOOR_HORIZONTAL;
     public Blueprint AXE, SWORD, TORCH;
     public Blueprint LOGPILE, CRATE;
 
@@ -25,6 +25,7 @@ public class Blueprints {
         WALL_VERTICAL = loader.loadBlueprintFromJson("walls/wall_vertical");
         WALL_UPPER_CORNER = loader.loadBlueprintFromJson("walls/wall_upper_corner");
         WALL_LOWER_CORNER = loader.loadBlueprintFromJson("walls/wall_lower_corner");
+        WALL_DOOR_HORIZONTAL = loader.loadBlueprintFromJson("walls/wall_door_horizontal");
 
         AXE = loader.loadBlueprintFromJson("weapons/axe");
         SWORD = loader.loadBlueprintFromJson("weapons/sword");

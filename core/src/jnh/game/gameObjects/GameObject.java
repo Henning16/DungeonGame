@@ -39,15 +39,15 @@ import java.util.ConcurrentModificationException;
 public class GameObject extends Image {
 
     private transient Blueprint blueprint;
-    private final String type;
+    private String type;
     private ID id = ID.NULL;
-    private final String layerAsString;
+    private String layerAsString;
 
     private float zPosition = 0;
     private boolean flipX, flipY;
 
     private final transient GameStage stage;
-    private final transient GameObjectManager gameObjectManager;
+    private transient GameObjectManager gameObjectManager;
 
     private boolean alreadyActed = false;
     private boolean removed = false;
@@ -59,6 +59,8 @@ public class GameObject extends Image {
     private final transient ArrayList<String> tagsToBeAdded = new ArrayList<>();
     private final transient ArrayList<String> tagsToBeRemoved = new ArrayList<>();
     private final ComponentHandler components = new ComponentHandler();
+
+    private transient GameObjectJson gameObjectJson;
 
     public int indexInParent = -1;
 
@@ -72,35 +74,7 @@ public class GameObject extends Image {
     public GameObject(GameStage stage, GameObjectJson gameObjectJson) {
         super();
         this.stage = stage;
-        this.gameObjectManager = stage.getGameObjectManager();
-        this.type = gameObjectJson.type;
-        this.id = gameObjectJson.id;
-        this.removed = gameObjectJson.removed;
-        this.persistent = gameObjectJson.persistent;
-        setBounds(gameObjectJson.position.x,gameObjectJson.position.y,gameObjectJson.dimension.x,gameObjectJson.dimension.y);
-        setOrigin(getWidth() / 2, getHeight() / 2);
-        if(!removed) {
-            switch(gameObjectJson.layer) {
-                case "main":
-                    stage.getMainLayer().addActor(this);
-                    break;
-                case "foreground":
-                    stage.getForegroundLayer().addActor(this);
-                    break;
-                case "background":
-                    stage.getBackgroundLayer().addActor(this);
-                    break;
-            }
-        }
-        layerAsString = gameObjectJson.layer;
-
-        for(String tag: gameObjectJson.tags) {
-            addTag(tag);
-        }
-
-        for(Component component: gameObjectJson.components) {
-            addComponent(component);
-        }
+        this.gameObjectJson = gameObjectJson;
     }
 
     /**
@@ -140,6 +114,39 @@ public class GameObject extends Image {
         for (Component component : blueprint.components) {
             addComponent(component.copy());
         }
+    }
+
+    public void gameObjectManagerIntitializationDone() {
+        this.gameObjectManager = stage.getGameObjectManager();
+        this.type = gameObjectJson.type;
+        this.id = gameObjectJson.id;
+        this.removed = gameObjectJson.removed;
+        this.persistent = gameObjectJson.persistent;
+        setBounds(gameObjectJson.position.x,gameObjectJson.position.y,gameObjectJson.dimension.x,gameObjectJson.dimension.y);
+        setOrigin(getWidth() / 2, getHeight() / 2);
+        if(!removed) {
+            switch(gameObjectJson.layer) {
+                case "main":
+                    stage.getMainLayer().addActor(this);
+                    break;
+                case "foreground":
+                    stage.getForegroundLayer().addActor(this);
+                    break;
+                case "background":
+                    stage.getBackgroundLayer().addActor(this);
+                    break;
+            }
+        }
+        layerAsString = gameObjectJson.layer;
+
+        for(String tag: gameObjectJson.tags) {
+            addTag(tag);
+        }
+
+        for(Component component: gameObjectJson.components) {
+            addComponent(component);
+        }
+        gameObjectJson = null;
     }
 
     /**

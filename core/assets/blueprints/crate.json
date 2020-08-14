@@ -11,6 +11,7 @@
         },
         {
             "class": "jnh.game.components.BodyComponent",
+            "bodyType": "StaticBody",
             "density": 20,
             "collisionBoxes": [
                 {
