@@ -2,6 +2,7 @@ package jnh.game.components;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import jnh.game.Global;
+import jnh.game.assets.Tags;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.utils.Direction;
 

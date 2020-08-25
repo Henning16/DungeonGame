@@ -48,6 +48,7 @@ public class ItemContainerComponent extends Component {
         ID id = items.get(index);
         if(id != null) {
             gameObject.getGameObjectManager().getGameObject(id).getComponent(ItemComponent.class).setInHand(false);
+            gameObject.getGameObjectManager().getGameObject(id).setPersistent(false);
         }
         return items.remove(index);
     }
@@ -71,11 +72,18 @@ public class ItemContainerComponent extends Component {
     public void ejectAll() {
         for(ID itemID : items) {
             GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
-            item.addTag(Tags.collectable);
+            if(item == null) {
+                continue;
+            }
+            if(!item.hasTag(Tags.collectable)) {
+                item.addTag(Tags.collectable);
+            }
             if(item.isRemoved()) {
                 gameObject.getStage().getMainLayer().addActor(item);
             }
             item.setRemoved(false);
+            item.getComponent(ItemComponent.class).setInHand(false);
+            item.setPersistent(false);
             item.setFlip(false, false);
             item.setRotation(315);
             item.setPosition((float) (gameObject.getX() + Math.random() * spread * 2 - spread),

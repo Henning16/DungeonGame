@@ -24,9 +24,7 @@ public class ItemCollectionComponent extends Component {
             return;
         }
         ArrayList<GameObject> removeTags = new ArrayList<>();
-        System.out.println("StartTick");
         for(ID itemID: gameObject.getGameObjectManager().getGameObjectsByTag(Tags.collectable)) {
-            System.out.println(gameObject.getGameObjectManager().getGameObject(itemID).getType());
             GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
             float distanceSquare = (item.getX() - gameObject.getX())*(item.getX() - gameObject.getX()) + (item.getY() - gameObject.getY())*(item.getY() - gameObject.getY());
             if(distanceSquare <= 5 * range * range && !containerComponent.isFull()) {

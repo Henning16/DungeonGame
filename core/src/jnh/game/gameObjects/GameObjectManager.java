@@ -18,7 +18,7 @@ public class GameObjectManager {
 
     private final ArrayList<ID> toBeRemoved = new ArrayList<>();
 
-    private transient final Map<Tags, ArrayList<ID>> tags = new LinkedHashMap<>();
+    private final Map<Tags, ArrayList<ID>> tags = new LinkedHashMap<>();
 
     public ID playerID;
 

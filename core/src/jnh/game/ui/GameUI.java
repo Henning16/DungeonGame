@@ -178,6 +178,7 @@ public class GameUI implements Disposable {
         respawnButton.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
+                System.out.println("respawn button pressed");
                 deathOverlay.remove();
                 screen.resume();
 
