@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
@@ -16,7 +17,7 @@ import jnh.game.DungeonGame;
 import jnh.game.Global;
 import jnh.game.gfx.ColorGrading;
 import jnh.game.gfx.GameCamera;
-import jnh.game.gfx.animations.ColorGrader;
+import jnh.game.gfx.ColorGrader;
 import jnh.game.settings.Settings;
 import jnh.game.settings.SettingsHotkeyHandler;
 import jnh.game.stages.GameStage;
@@ -38,7 +39,7 @@ public class GameScreen implements Screen {
     private final RayHandler rayHandler;
 
     private FrameBuffer fbo;
-    private final ShaderProgram shaderProgram = new ShaderProgram(Gdx.files.internal("shaders/vertex.glsl"), Gdx.files.internal("shaders/fragment.glsl"));
+    private final ShaderProgram colorGradingShaderProgram = new ShaderProgram(Gdx.files.internal("shaders/vertex.glsl"), Gdx.files.internal("shaders/fragment.glsl"));
     private final ColorGrader colorGrader;
 
     private final World physicsWorld;
@@ -70,7 +71,6 @@ public class GameScreen implements Screen {
 
         //RayHandler
         rayHandler = new RayHandler(physicsWorld);
-        rayHandler.setAmbientLight(new Color(1, 1, 1, 0));
         rayHandler.setBlur(true);
         rayHandler.setBlurNum(1);
 
@@ -161,9 +161,9 @@ public class GameScreen implements Screen {
 
         batch.begin();
         batch.setProjectionMatrix(new Matrix4().setToOrtho2D(0, 0, camera.viewportWidth, camera.viewportHeight));
-        colorGrader.update(shaderProgram);
+        colorGrader.update(colorGradingShaderProgram);
         if(Settings.isUsingColorGrading()) {
-            batch.setShader(shaderProgram);
+            batch.setShader(colorGradingShaderProgram);
         } else {
             batch.setShader(null);
         }

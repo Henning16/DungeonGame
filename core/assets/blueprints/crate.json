@@ -25,7 +25,23 @@
                     }
                 }
             ]
-
+        },
+        {
+            "class": "jnh.game.components.ItemContainerComponent",
+            "size": 200
+        },
+        {
+            "class": "jnh.game.components.ItemTableComponent",
+            "entries": [
+                {
+                    "lowerQuantity": 1,
+                    "upperQuantity": 5,
+                    "type": "AXE"
+                }
+            ]
+        },
+        {
+            "class": "jnh.game.components.ChestComponent"
         }
     ]
 }

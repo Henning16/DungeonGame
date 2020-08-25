@@ -24,9 +24,9 @@
         },
         {
             "class": "jnh.game.components.LightComponent",
-            "distance": 4,
+            "distance": 3,
             "color": {
-                "r": 1, "g": 0.7, "b": 0.3, "a": 1
+                "r": 1, "g": 0.7, "b": 0.3, "a": 0.8
             },
             "flickeringIntensity": 0
         }

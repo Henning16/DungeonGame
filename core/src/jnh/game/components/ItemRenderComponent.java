@@ -28,11 +28,11 @@ public class ItemRenderComponent extends Component {
         if(item.isRemoved()) {
             gameObject.getStage().getMainLayer().addActor(item);
             item.setRemoved(false);
-            item.getComponent(ItemComponent.class).setInWorld(false);
             if(item.getComponent(LightComponent.class) != null) {
                 item.getComponent(LightComponent.class).add();
             }
         }
+        item.getComponent(ItemComponent.class).setInHand(true);
         item.setPosition(gameObject.getPosition());
         int state = movementComponent.getState();
         float rotationModifier = 0;

@@ -1,6 +1,7 @@
 package jnh.game.world;
 
 import jnh.game.assets.Assets;
+import jnh.game.components.ItemContainerComponent;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.components.BodyComponent;
 import jnh.game.stages.GameStage;
@@ -57,17 +58,15 @@ public class RandomRoom extends Room {
         GameObject upperRightWall = new GameObject(getStage(), Assets.blueprints.WALL_UPPER_CORNER);
         upperRightWall.getComponent(BodyComponent.class).getBody().setTransform(ROOM_WIDTH - 1, ROOM_HEIGHT - 1, 0);
 
-        new GameObject(getStage(), Assets.blueprints.CRATE).getComponent(BodyComponent.class).getBody().setTransform(8, 4, 0);
+        GameObject crate = new GameObject(getStage(), Assets.blueprints.CRATE);
+        crate.getComponent(BodyComponent.class).getBody().setTransform(8, 4, 0);
         new GameObject(getStage(), Assets.blueprints.LOGPILE).getComponent(BodyComponent.class).getBody().setTransform(6, 4, 0);
 
         for(int i = 0; i < 3; i++) {
             new GameObject(getStage(), Assets.blueprints.ZOMBIE).getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3, 0);
         }
 
-        new GameObject(getStage(), Assets.blueprints.SWORD).setPosition(3, 3);
         new GameObject(getStage(), Assets.blueprints.TORCH).setPosition(5, 5);
-        new GameObject(getStage(), Assets.blueprints.TORCH).setPosition(8, 8);
-        new GameObject(getStage(), Assets.blueprints.TORCH).setPosition(8, 5);
         new GameObject(getStage(), Assets.blueprints.TORCH).setPosition(5, 8);
     }
 }

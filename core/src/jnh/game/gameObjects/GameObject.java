@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.SnapshotArray;
 import jnh.game.assets.Blueprints;
+import jnh.game.assets.Tags;
 import jnh.game.components.Component;
 import jnh.game.components.ComponentHandler;
 import jnh.game.gameObjects.construction.Blueprint;
@@ -55,9 +56,9 @@ public class GameObject extends Image {
 
     private transient TextureRegion texture;
 
-    private final ArrayList<String> tags = new ArrayList<>();
-    private final transient ArrayList<String> tagsToBeAdded = new ArrayList<>();
-    private final transient ArrayList<String> tagsToBeRemoved = new ArrayList<>();
+    private final ArrayList<Tags> tags = new ArrayList<>();
+    private final transient ArrayList<Tags> tagsToBeAdded = new ArrayList<>();
+    private final transient ArrayList<Tags> tagsToBeRemoved = new ArrayList<>();
     private final ComponentHandler components = new ComponentHandler();
 
     private transient GameObjectJson gameObjectJson;
@@ -107,7 +108,7 @@ public class GameObject extends Image {
         }
         layerAsString = blueprint.layer;
 
-        for (String tag : blueprint.tags) {
+        for (Tags tag : blueprint.tags) {
             addTag(tag);
         }
 
@@ -139,7 +140,7 @@ public class GameObject extends Image {
         }
         layerAsString = gameObjectJson.layer;
 
-        for(String tag: gameObjectJson.tags) {
+        for(Tags tag: gameObjectJson.tags) {
             addTag(tag);
         }
 
@@ -304,11 +305,11 @@ public class GameObject extends Image {
     /**
      * Adds the provided tag to the game object if it is not null.
      * @param tag the tag to be added
-     * @see #addTagWhileIterating(String) Add a tag while iterating over the tag list
-     * @see #removeTag(String) Remove a tag while not iterating over the tag list
-     * @see #removeTagWhileIterating(String) Remove a tag while iterating over the tag list
+     * @see #addTagWhileIterating(Tags) Add a tag while iterating over the tag list
+     * @see #removeTag(Tags) Remove a tag while not iterating over the tag list
+     * @see #removeTagWhileIterating(Tags) Remove a tag while iterating over the tag list
      */
-    public void addTag(String tag) {
+    public void addTag(Tags tag) {
         if(tag != null) {
             tags.add(tag);
             gameObjectManager.addGameObjectToTag(tag, getID());
@@ -320,11 +321,11 @@ public class GameObject extends Image {
      * This avoids a {@link ConcurrentModificationException} from occuring.
      * You need to {@link #finishedTagOperations() notify} the game object when the iteration has ended.
      * @param tag the tag to be added
-     * @see #addTag(String) Add tag while not iterating over the tag list
-     * @see #removeTag(String) Remove a tag while not iterating over the tag list
-     * @see #removeTagWhileIterating(String) Remove a tag while iterating over the tag list
+     * @see #addTag(Tags) Add tag while not iterating over the tag list
+     * @see #removeTag(Tags) Remove a tag while not iterating over the tag list
+     * @see #removeTagWhileIterating(Tags) Remove a tag while iterating over the tag list
      */
-    public void addTagWhileIterating(String tag) {
+    public void addTagWhileIterating(Tags tag) {
         tags.add(tag);
         tagsToBeAdded.add(tag);
     }
@@ -332,11 +333,11 @@ public class GameObject extends Image {
     /**
      * Removes the tag if it is not null.
      * @param tag the tag to be removed
-     * @see #addTag(String) Add tag while not iterating over the tag list
-     * @see #addTagWhileIterating(String) Add a tag while iterating over the tag list
-     * @see #removeTagWhileIterating(String) Remove a tag while iterating over the tag list
+     * @see #addTag(Tags) Add tag while not iterating over the tag list
+     * @see #addTagWhileIterating(Tags) Add a tag while iterating over the tag list
+     * @see #removeTagWhileIterating(Tags) Remove a tag while iterating over the tag list
      */
-    public void removeTag(String tag) {
+    public void removeTag(Tags tag) {
         if(tag != null) {
             tags.remove(tag);
             gameObjectManager.removeGameObjectFromTag(tag, getID());
@@ -348,11 +349,11 @@ public class GameObject extends Image {
      * This avoids a {@link ConcurrentModificationException} from occuring.
      * You need to {@link #finishedTagOperations() notify} the game object when the iteration has ended.
      * @param tag the tag to be removed
-     * @see #addTag(String) Add tag while not iterating over the tag list
-     * @see #addTagWhileIterating(String) Add a tag while iterating over the tag list
-     * @see #removeTag(String) Remove a tag while not iterating over the tag list
+     * @see #addTag(Tags) Add tag while not iterating over the tag list
+     * @see #addTagWhileIterating(Tags) Add a tag while iterating over the tag list
+     * @see #removeTag(Tags) Remove a tag while not iterating over the tag list
      */
-    public void removeTagWhileIterating(String tag) {
+    public void removeTagWhileIterating(Tags tag) {
         tags.remove(tag);
         tagsToBeRemoved.add(tag);
     }
@@ -362,27 +363,27 @@ public class GameObject extends Image {
      * @param tag the tag that should be searched for
      * @return whether it has the tag
      */
-    public boolean hasTag(String tag) {
+    public boolean hasTag(Tags tag) {
         return tags.contains(tag);
     }
 
     /**
      * Call this method to notify the game object when the iteration is finished and the tags added using
-     * {@link #addTagWhileIterating(String)} should be added and the tags removed using
-     * {@link #removeTagWhileIterating(String)} should be removed.
+     * {@link #addTagWhileIterating(Tags)} should be added and the tags removed using
+     * {@link #removeTagWhileIterating(Tags)} should be removed.
      */
     public void finishedTagOperations() {
-        for(String tag: tagsToBeAdded) {
+        for(Tags tag: tagsToBeAdded) {
             gameObjectManager.removeGameObjectFromTag(tag, getID());
         }
         tagsToBeAdded.clear();
-        for(String tag: tagsToBeRemoved) {
+        for(Tags tag: tagsToBeRemoved) {
             gameObjectManager.removeGameObjectFromTag(tag, getID());
         }
         tagsToBeRemoved.clear();
     }
 
-    public ArrayList<String> getTags() {
+    public ArrayList<Tags> getTags() {
         return tags;
     }
 

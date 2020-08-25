@@ -1,6 +1,7 @@
 package jnh.game.components;
 
 import com.badlogic.gdx.math.Vector2;
+import jnh.game.assets.Tags;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.GameObjectManager;
 import jnh.game.gameObjects.ID;
@@ -13,7 +14,7 @@ public class FollowComponent extends Component {
     private transient GameObject target;
 
     private float followDistance = 3f;
-    private ArrayList<String> targetedTags = new ArrayList<>();
+    private ArrayList<Tags> targetedTags = new ArrayList<>();
 
 
     private transient float directionChangeCooldown = 0f;
@@ -49,7 +50,7 @@ public class FollowComponent extends Component {
         GameObjectManager gameObjectManager = gameObject.getGameObjectManager();
         float smallestDistance2 = Float.MAX_VALUE;
         GameObject nearestTarget = null;
-        for (String tag: targetedTags) {
+        for (Tags tag: targetedTags) {
             for (ID targetID: gameObjectManager.getGameObjectsByTag(tag)) {
                 GameObject target = gameObjectManager.getGameObject(targetID);
                 if(target != null) {

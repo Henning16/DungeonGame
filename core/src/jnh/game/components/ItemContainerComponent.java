@@ -1,5 +1,6 @@
 package jnh.game.components;
 
+import jnh.game.assets.Tags;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
 
@@ -10,6 +11,7 @@ public class ItemContainerComponent extends Component {
 
     private List<ID> items = new ArrayList<>();
     private int size = 1;
+    private float spread = 1;
 
     @Override
     public void tick(float delta) {
@@ -26,6 +28,7 @@ public class ItemContainerComponent extends Component {
         ItemContainerComponent c = new ItemContainerComponent();
         c.size = size;
         c.items = items;
+        c.spread = spread;
         return c;
     }
 
@@ -42,6 +45,10 @@ public class ItemContainerComponent extends Component {
     }
 
     public ID remove(int index) {
+        ID id = items.get(index);
+        if(id != null) {
+            gameObject.getGameObjectManager().getGameObject(id).getComponent(ItemComponent.class).setInHand(false);
+        }
         return items.remove(index);
     }
 
@@ -59,5 +66,21 @@ public class ItemContainerComponent extends Component {
 
     public boolean isFull() {
         return items.size() >= size;
+    }
+
+    public void ejectAll() {
+        for(ID itemID : items) {
+            GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
+            item.addTag(Tags.collectable);
+            if(item.isRemoved()) {
+                gameObject.getStage().getMainLayer().addActor(item);
+            }
+            item.setRemoved(false);
+            item.setFlip(false, false);
+            item.setRotation(315);
+            item.setPosition((float) (gameObject.getX() + Math.random() * spread * 2 - spread),
+                    (float) (gameObject.getY() + Math.random() * spread * 2 - spread));
+        }
+        items.clear();
     }
 }

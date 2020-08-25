@@ -1,6 +1,7 @@
 package jnh.game.components;
 
 import jnh.game.assets.Assets;
+import jnh.game.assets.Tags;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
 
@@ -23,7 +24,9 @@ public class ItemCollectionComponent extends Component {
             return;
         }
         ArrayList<GameObject> removeTags = new ArrayList<>();
-        for(ID itemID: gameObject.getGameObjectManager().getGameObjectsByTag("collectable")) {
+        System.out.println("StartTick");
+        for(ID itemID: gameObject.getGameObjectManager().getGameObjectsByTag(Tags.collectable)) {
+            System.out.println(gameObject.getGameObjectManager().getGameObject(itemID).getType());
             GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
             float distanceSquare = (item.getX() - gameObject.getX())*(item.getX() - gameObject.getX()) + (item.getY() - gameObject.getY())*(item.getY() - gameObject.getY());
             if(distanceSquare <= 5 * range * range && !containerComponent.isFull()) {
@@ -35,12 +38,12 @@ public class ItemCollectionComponent extends Component {
                     Assets.sounds.COLLECT_ITEM.setPitch(soundID, (float) Math.random() + 1);
                     Assets.sounds.COLLECT_ITEM.setVolume(soundID, 10000);
                     removeTags.add(item);
-                    gameObject.getGameObjectManager().requestRemove(itemID);
                 }
             }
         }
         for(GameObject item : removeTags) {
-            item.removeTag("collectable");
+            item.removeTag(Tags.collectable);
+            gameObject.getGameObjectManager().remove(item.getID());
         }
     }
 

@@ -1,4 +1,4 @@
-package jnh.game.gfx.animations;
+package jnh.game.gfx;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;

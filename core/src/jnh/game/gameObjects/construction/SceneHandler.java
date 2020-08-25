@@ -1,13 +1,7 @@
 package jnh.game.gameObjects.construction;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonValue;
-import com.badlogic.gdx.utils.JsonWriter;
-import jnh.game.gameObjects.GameObject;
-import jnh.game.gameObjects.GameObjectManager;
 import jnh.game.stages.GameStage;
 
 import java.util.Base64;

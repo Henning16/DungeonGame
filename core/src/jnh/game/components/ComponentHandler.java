@@ -11,10 +11,6 @@ public class ComponentHandler {
     private Map<Class<? extends Component>, Component> map = new HashMap<>();
     private ArrayList<Component> list = new ArrayList<>();
 
-    public ComponentHandler() {
-
-    }
-
     public void tick(float delta) {
         for(Component component: list) {
             component.tick(delta);

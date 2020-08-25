@@ -1,6 +1,7 @@
 package jnh.game.gameObjects;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
+import jnh.game.assets.Tags;
 import jnh.game.stages.GameStage;
 
 import java.util.*;
@@ -17,7 +18,7 @@ public class GameObjectManager {
 
     private final ArrayList<ID> toBeRemoved = new ArrayList<>();
 
-    private transient final Map<String, ArrayList<ID>> tags = new LinkedHashMap<>();
+    private transient final Map<Tags, ArrayList<ID>> tags = new LinkedHashMap<>();
 
     public ID playerID;
 
@@ -190,7 +191,7 @@ public class GameObjectManager {
             ID id = createID(gameObject);
             gameObjects[id.getSceneID()] = gameObject;
             gameObject.setID(id);
-            for(String tag : gameObject.getTags()) {
+            for(Tags tag : gameObject.getTags()) {
                 addGameObjectToTag(tag, id);
             }
             if(gameObject.getType().equals("PLAYER")) {
@@ -207,7 +208,7 @@ public class GameObjectManager {
         this.gameObjects = gameObjects;
     }
 
-    public List<ID> getGameObjectsByTag(String tag) {
+    public List<ID> getGameObjectsByTag(Tags tag) {
         if(tags.containsKey(tag)) {
             return tags.get(tag);
         } else {
@@ -215,7 +216,7 @@ public class GameObjectManager {
         }
     }
 
-    public void addGameObjectToTag(String tag, ID id) {
+    public void addGameObjectToTag(Tags tag, ID id) {
         if(tags.containsKey(tag)) {
             tags.get(tag).add(id);
         } else {
@@ -224,7 +225,7 @@ public class GameObjectManager {
         }
     }
 
-    public boolean removeGameObjectFromTag(String tag, ID id) {
+    public boolean removeGameObjectFromTag(Tags tag, ID id) {
         if(tags.containsKey(tag)) {
             tags.get(tag).remove(id);
             return true;

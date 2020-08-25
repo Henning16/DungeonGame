@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import jnh.game.assets.Assets;
+import jnh.game.assets.Tags;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gfx.ColorGrading;
 import jnh.game.gfx.Shake;
@@ -43,8 +44,10 @@ public class HealthComponent extends Component {
         if(gameObject.getType().equals("PLAYER")) {
             gameObject.getStage().getScreen().getGameCamera().shake(new Shake(0.1f, 1));
             updateHealthBar();
-            if(health < 11f * maxHealth) {
-                gameObject.getStage().getScreen().getColorGrader().transitionTo(ColorGrading.DANGER, 10000);
+            if(health < 0.3f * maxHealth) {
+                gameObject.getStage().getScreen().getColorGrader().transitionTo(ColorGrading.DANGER, 5000);
+            } else {
+                gameObject.getStage().getScreen().getColorGrader().transitionTo(ColorGrading.NORMAL, 5000);
             }
         } else {
             long soundID = Assets.sounds.ENEMY_HIT.play();
@@ -60,11 +63,14 @@ public class HealthComponent extends Component {
                 gameObject.addAction(new SequenceAction(Actions.alpha(0, 0.2f), new Action() {
                     @Override
                     public boolean act(float delta) {
-                        gameObject.removeTag("destroyable");
+                        gameObject.removeTag(Tags.destroyable);
                         gameObject.getGameObjectManager().remove(gameObject.getID());
                         return true;
                     }
                 }));
+            }
+            if(gameObject.getComponent(ItemContainerComponent.class) != null) {
+                gameObject.getComponent(ItemContainerComponent.class).ejectAll();
             }
         }
     }

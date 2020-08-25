@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.assets.Assets;
+import jnh.game.assets.Tags;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
 import jnh.game.utils.Direction;
@@ -74,7 +75,7 @@ public class WeaponComponent extends Component implements ItemAction {
 
     @Override
     public void use(GameObject user) {
-        for(ID id: user.getGameObjectManager().getGameObjectsByTag("destroyable")) {
+        for(ID id: user.getGameObjectManager().getGameObjectsByTag(Tags.destroyable)) {
             useOn(user, user.getGameObjectManager().getGameObject(id));
         }
     }

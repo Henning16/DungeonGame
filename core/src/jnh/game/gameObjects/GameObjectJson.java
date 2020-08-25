@@ -1,6 +1,7 @@
 package jnh.game.gameObjects;
 
 import com.badlogic.gdx.math.Vector2;
+import jnh.game.assets.Tags;
 import jnh.game.components.Component;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class GameObjectJson {
     public String layer;
     public Vector2 position;
     public Vector2 dimension;
-    public List<String> tags;
+    public List<Tags> tags;
     public ArrayList<Component> components;
 
     public GameObjectJson() {
