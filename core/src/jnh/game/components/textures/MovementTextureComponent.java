@@ -1,9 +1,12 @@
-package jnh.game.components;
+package jnh.game.components.textures;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import jnh.game.assets.Assets;
+import jnh.game.components.BodyComponent;
+import jnh.game.components.Component;
+import jnh.game.components.MovementComponent;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gfx.animations.Animator;
 

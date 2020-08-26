@@ -18,7 +18,7 @@
             "maxSpeed": 1
         },
         {
-            "class": "jnh.game.components.MovementTextureComponent",
+            "class": "jnh.game.components.textures.MovementTextureComponent",
             "textureSetName": "ZOMBIE"
         },
         {

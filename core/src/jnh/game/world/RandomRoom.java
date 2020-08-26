@@ -1,7 +1,6 @@
 package jnh.game.world;
 
 import jnh.game.assets.Assets;
-import jnh.game.components.ItemContainerComponent;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.components.BodyComponent;
 import jnh.game.stages.GameStage;

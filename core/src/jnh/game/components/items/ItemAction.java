@@ -1,4 +1,4 @@
-package jnh.game.components;
+package jnh.game.components.items;
 
 import jnh.game.gameObjects.GameObject;
 

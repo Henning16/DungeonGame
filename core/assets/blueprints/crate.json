@@ -6,7 +6,7 @@
     },
     "components": [
         {
-            "class": "jnh.game.components.TextureComponent",
+            "class": "jnh.game.components.textures.TextureComponent",
             "textureName": "CRATE"
         },
         {
@@ -27,11 +27,11 @@
             ]
         },
         {
-            "class": "jnh.game.components.ItemContainerComponent",
+            "class": "jnh.game.components.items.ItemContainerComponent",
             "size": 200
         },
         {
-            "class": "jnh.game.components.ItemTableComponent",
+            "class": "jnh.game.components.items.ItemTableComponent",
             "entries": [
                 {
                     "lowerQuantity": 1,
@@ -41,7 +41,7 @@
             ]
         },
         {
-            "class": "jnh.game.components.ChestComponent"
+            "class": "jnh.game.components.items.ChestComponent"
         }
     ]
 }

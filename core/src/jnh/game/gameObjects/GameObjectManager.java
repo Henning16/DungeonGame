@@ -111,6 +111,9 @@ public class GameObjectManager {
     }
 
     public GameObject getGameObject(ID id) {
+        if(id == null) {
+            return null;
+        }
         try {
             GameObject gameObject = gameObjects[id.getSceneID()];
             if(gameObject != null) {

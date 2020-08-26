@@ -9,14 +9,14 @@
     },
     "components": [
         {
-            "class": "jnh.game.components.TextureComponent",
+            "class": "jnh.game.components.textures.TextureComponent",
             "textureName": "TORCH"
         },
         {
-            "class": "jnh.game.components.ItemComponent"
+            "class": "jnh.game.components.items.ItemComponent"
         },
         {
-            "class": "jnh.game.components.WeaponComponent",
+            "class": "jnh.game.components.items.WeaponComponent",
             "damage": 9,
             "knockback": 0.5,
             "range": 5,

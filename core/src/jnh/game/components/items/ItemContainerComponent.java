@@ -1,6 +1,7 @@
-package jnh.game.components;
+package jnh.game.components.items;
 
 import jnh.game.assets.Tags;
+import jnh.game.components.Component;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
 

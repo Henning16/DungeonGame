@@ -1,8 +1,10 @@
-package jnh.game.components;
+package jnh.game.components.items;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import jnh.game.Global;
-import jnh.game.assets.Tags;
+import jnh.game.components.Component;
+import jnh.game.components.LightComponent;
+import jnh.game.components.MovementComponent;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.utils.Direction;
 

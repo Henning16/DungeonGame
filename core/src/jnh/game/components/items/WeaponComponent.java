@@ -1,10 +1,14 @@
-package jnh.game.components;
+package jnh.game.components.items;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import jnh.game.assets.Assets;
 import jnh.game.assets.Tags;
+import jnh.game.components.BodyComponent;
+import jnh.game.components.Component;
+import jnh.game.components.HealthComponent;
+import jnh.game.components.MovementComponent;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
 import jnh.game.utils.Direction;
@@ -75,13 +79,20 @@ public class WeaponComponent extends Component implements ItemAction {
 
     @Override
     public void use(GameObject user) {
+        GameObject target = null;
+        float distance = Integer.MAX_VALUE;
         for(ID id: user.getGameObjectManager().getGameObjectsByTag(Tags.destroyable)) {
-            useOn(user, user.getGameObjectManager().getGameObject(id));
+            GameObject currentTarget = user.getGameObjectManager().getGameObject(id);
+            if(currentTarget != user && currentTarget.getPosition().dst2(user.getPosition()) < distance) {
+                target = currentTarget;
+                distance = currentTarget.getPosition().dst(user.getPosition());
+            }
         }
+        useOn(user, target);
     }
 
     public void useOn(GameObject user, GameObject other) {
-        if(cooldownCounter != 0) {
+        if(other == null || cooldownCounter != 0) {
             return;
         }
         attackTimer = 0.4f;

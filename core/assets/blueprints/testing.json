@@ -1,5 +1,5 @@
 {
-    "class": "jnh.game.components.RandomTextureComponent",
+    "class": "jnh.game.components.textures.RandomTextureComponent",
     "textureSet": "FLOOR",
     "weights": [1, 4, 5, 3, 5, 2]
 }

@@ -10,7 +10,7 @@
     },
     "components": [
         {
-            "class": "jnh.game.components.TextureComponent",
+            "class": "jnh.game.components.textures.TextureComponent",
             "textureName": "LOGPILE"
         },
         {

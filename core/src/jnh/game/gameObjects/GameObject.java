@@ -12,6 +12,7 @@ import jnh.game.assets.Blueprints;
 import jnh.game.assets.Tags;
 import jnh.game.components.Component;
 import jnh.game.components.ComponentHandler;
+import jnh.game.components.textures.TextureComponent;
 import jnh.game.gameObjects.construction.Blueprint;
 import jnh.game.stages.GameStage;
 
@@ -29,7 +30,7 @@ import java.util.ConcurrentModificationException;
  * So, you can understand game objects as a class holding and managing the different components.
  * <p>
  * Though, every game object has a few properties like a position, dimension and a texture.
- * However, the last one should be acessed by using a component like {@link jnh.game.components.TextureComponent}.
+ * However, the last one should be acessed by using a component like {@link TextureComponent}.
  * Further properties are an id, which generated automatically, the type of the game object, ususally specified using
  * the blueprint, the layer it is in and whether it is persistent (whether it stays when the room is switched, e.g.
  * the player).
@@ -520,15 +521,26 @@ public class GameObject extends Image {
         this.zPosition = zPosition;
     }
 
+    /**
+     * Sets the flip of the game object.
+     * @param x whether the game object shoud be flipped around the x-axis
+     * @param y whether the game object shoud be flipped around the y-axis
+     */
     public void setFlip(boolean x, boolean y) {
         this.flipX = x;
         this.flipY = y;
     }
 
+    /**
+     * @return whether the sprite is flipped around the x-axis
+     */
     public boolean isFlipX() {
         return flipX;
     }
 
+    /**
+     * @return whether the sprite is flipped around the y-axis
+     */
     public boolean isFlipY() {
         return flipY;
     }

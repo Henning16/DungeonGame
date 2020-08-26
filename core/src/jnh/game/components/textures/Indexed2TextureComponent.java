@@ -1,9 +1,10 @@
-package jnh.game.components;
+package jnh.game.components.textures;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import jnh.game.assets.Assets;
+import jnh.game.components.Component;
 import jnh.game.gameObjects.GameObject;
 
 public class Indexed2TextureComponent extends Component {

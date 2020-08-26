@@ -7,11 +7,10 @@ import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import jnh.game.assets.Assets;
 import jnh.game.assets.Tags;
+import jnh.game.components.items.ItemContainerComponent;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gfx.ColorGrading;
 import jnh.game.gfx.Shake;
-
-import java.io.FileNotFoundException;
 
 public class HealthComponent extends Component {
 

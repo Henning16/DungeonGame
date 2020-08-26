@@ -6,7 +6,7 @@
     },
     "components": [
         {
-            "class": "jnh.game.components.Indexed2TextureComponent",
+            "class": "jnh.game.components.textures.Indexed2TextureComponent",
             "textureSetName": "WALL_DOOR",
             "index": [1, 0]
         },

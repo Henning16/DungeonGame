@@ -7,7 +7,7 @@
     },
     "components": [
         {
-            "class": "jnh.game.components.RandomTextureComponent",
+            "class": "jnh.game.components.textures.RandomTextureComponent",
             "textureSetName": "FLOOR_TILE"
         }
     ]

@@ -1,4 +1,4 @@
-package jnh.game.components;
+package jnh.game.components.items;
 
 public class ItemTableEntry {
 

@@ -1,6 +1,7 @@
-package jnh.game.components;
+package jnh.game.components.items;
 
 import com.badlogic.gdx.Gdx;
+import jnh.game.components.Component;
 import jnh.game.gameObjects.GameObject;
 
 public class PlayerItemUsageComponent extends Component {
