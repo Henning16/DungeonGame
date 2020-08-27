@@ -36,6 +36,7 @@ public class Dungeon {
             return false;
         }
     }
+
     public boolean setRoom(int y, int x) {
         return setRoom(y, x, true);
     }

@@ -1,8 +1,10 @@
 package jnh.game.components;
 
+import com.badlogic.gdx.scenes.scene2d.Action;
 import jnh.game.assets.Tags;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
+import jnh.game.ui.GameUI;
 import jnh.game.utils.Direction;
 import jnh.game.world.Dungeon;
 import jnh.game.world.Room;
@@ -18,8 +20,7 @@ public class PortalComponent extends Component {
         for(ID playerID: gameObject.getGameObjectManager().getGameObjectsByTag(Tags.player)) {
             GameObject player = gameObject.getGameObjectManager().getGameObject(playerID);
             if(isFacingRightWay(player) && player.getPosition().dst2(gameObject.getPosition()) <= range * range) {
-                setToCorrespondingPosition(player);
-                setToCorrespondingRoom();
+                setToCorrespondingRoomAndPosition(player);
             }
         }
     }
@@ -32,27 +33,24 @@ public class PortalComponent extends Component {
         return movementComponent.getLooking() == direction;
     }
 
-    private void setToCorrespondingRoom() {
-        Dungeon dungeon = gameObject.getStage().getDungeon();
-        switch(direction) {
-            case Direction.UP:
-                dungeon.setRoom(dungeon.getCurrentRoomY() - 1, dungeon.getCurrentRoomX());
-                break;
-            case Direction.DOWN:
-                dungeon.setRoom(dungeon.getCurrentRoomY() + 1, dungeon.getCurrentRoomX());
-                break;
-        }
-    }
-
-    private void setToCorrespondingPosition(GameObject player) {
-        switch(direction) {
-            case Direction.UP:
-                player.getComponent(BodyComponent.class).getBody().setTransform(player.getX(), 1, 0);
-                break;
-            case Direction.DOWN:
-                player.getComponent(BodyComponent.class).getBody().setTransform(player.getX(), Room.ROOM_HEIGHT - 2, 0);
-                break;
-        }
+    private void setToCorrespondingRoomAndPosition(final GameObject player) {
+        final Dungeon dungeon = gameObject.getStage().getDungeon();
+        gameObject.getStage().getUI().enclauseInBlackout(1, new Action() {
+            @Override
+            public boolean act(float delta) {
+                switch(direction) {
+                    case Direction.UP:
+                        dungeon.setRoom(dungeon.getCurrentRoomY() - 1, dungeon.getCurrentRoomX());
+                        player.getComponent(BodyComponent.class).getBody().setTransform(player.getX(), 1, 0);
+                        break;
+                    case Direction.DOWN:
+                        dungeon.setRoom(dungeon.getCurrentRoomY() + 1, dungeon.getCurrentRoomX());
+                        player.getComponent(BodyComponent.class).getBody().setTransform(player.getX(), Room.ROOM_HEIGHT - 2, 0);
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     @Override

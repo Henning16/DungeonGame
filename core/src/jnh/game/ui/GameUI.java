@@ -8,9 +8,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
+import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.DelayAction;
 import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
@@ -55,6 +57,8 @@ public class GameUI implements Disposable {
      * This table is currently only used to display the fps.
      */
     private final Table overlayUI;
+
+    private final Table fadeOverlay;
 
     private final Label fpsLabel;
     private final Table valueBars;
@@ -132,6 +136,16 @@ public class GameUI implements Disposable {
 
         fpsLabel = new Label("0", Assets.uiStyles.label);
         overlayUI.add(fpsLabel);
+
+        fadeOverlay = new Table();
+        fadeOverlay.setFillParent(true);
+        stage.addActor(fadeOverlay);
+        Pixmap pixmap2 = new Pixmap(1, 1, Pixmap.Format.RGB888);
+        pixmap2.setColor(Color.BLACK);
+        pixmap2.fillRectangle(0, 0, 1, 1);
+        fadeOverlay.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture(pixmap2))));
+        pixmap2.dispose();
+        fadeOverlay.setColor(1, 1, 1, 0);
     }
 
     public void act(float delta) {
@@ -207,6 +221,30 @@ public class GameUI implements Disposable {
         screen.pause();
         pauseUI.setColor(1, 1, 1, 0);
         pauseUI.addAction(Actions.fadeIn(0.4f));
+    }
+
+    public void fadeIn(float duration) {
+        fadeOverlay.addAction(Actions.fadeIn(duration));
+    }
+
+    public void fadeOut(float duration) {
+        fadeOverlay.setColor(1, 1, 1, 1);
+        fadeOverlay.addAction(Actions.fadeOut(duration));
+    }
+
+    public void fadeInOut(float duration) {
+        fadeOverlay.addAction(new SequenceAction(Actions.fadeIn(duration / 2), Actions.fadeOut(duration / 2)));
+    }
+
+    public void enclauseInBlackout(float duration, Action action) {
+        screen.pause();
+        fadeOverlay.addAction(new SequenceAction(Actions.fadeIn(duration / 2), action, new Action() {
+            @Override
+            public boolean act(float delta) {
+                screen.resume();
+                return true;
+            }
+        }, Actions.fadeOut(duration / 2)));
     }
 
     private void resumeGame() {

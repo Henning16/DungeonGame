@@ -17,7 +17,7 @@ public class Textures {
     public final Animation<TextureRegion>[][] WALL;
     public final Animation<TextureRegion>[][] WALL_NEW;
     public final Animation<TextureRegion>[][] WALL_DOOR;
-    public final Animation AXE, SWORD, TORCH;
+    public final Animation AXE, SWORD, TORCH, HAMMER, WAND;
     public final Animation LOGPILE, CRATE;
     public final Animation ATTACK;
 
@@ -202,8 +202,12 @@ public class Textures {
                 get(WEAPONS_SHEET, 0, 0, 5, 12));
         SWORD = new Animation(1f,
                 get(WEAPONS_SHEET, 5, 0, 5, 12));
+        HAMMER = new Animation(1f,
+                get(WEAPONS_SHEET, 10, 0, 5, 12));
         TORCH = new Animation(1f,
                 get(WEAPONS_SHEET, 15, 0, 5, 12));
+        WAND = new Animation(1f,
+                get(WEAPONS_SHEET, 20, 0, 5, 12));
         LOGPILE = new Animation(1f,
                 get(PROPS_SHEET, 2, 2, 13, 16));
         CRATE = new Animation(1f,
