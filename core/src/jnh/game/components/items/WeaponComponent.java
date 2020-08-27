@@ -28,6 +28,7 @@ public class WeaponComponent extends Component implements ItemAction {
 
     @Override
     public void tick(float delta) {
+        super.tick(delta);
         attackTimer = Math.max(0, attackTimer - delta);
         cooldownCounter = Math.max(0, cooldownCounter - delta);
         if(currentSwingSound != -1) {

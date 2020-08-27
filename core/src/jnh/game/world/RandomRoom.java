@@ -7,8 +7,8 @@ import jnh.game.stages.GameStage;
 
 public class RandomRoom extends Room {
 
-    public RandomRoom(GameStage stage, int id) {
-        super(stage, id);
+    public RandomRoom(GameStage stage, int id, int x, int y) {
+        super(stage, id, x, y);
     }
 
     @Override
@@ -22,18 +22,23 @@ public class RandomRoom extends Room {
 
         //LOWER WALLS
         for(int x = 1; x < ROOM_WIDTH - 1; x++) {
-            if(x != 6) {
-                GameObject wall = new GameObject(getStage(), Assets.blueprints.WALL_HORIZONTAL);
-                wall.getComponent(BodyComponent.class).getBody().setTransform(x, 0, 0);
+            GameObject wall;
+            if(x != 7) {
+                wall = new GameObject(getStage(), Assets.blueprints.WALL_HORIZONTAL);
             } else {
-                GameObject wall = new GameObject(getStage(), Assets.blueprints.WALL_DOOR_HORIZONTAL);
-                wall.getComponent(BodyComponent.class).getBody().setTransform(x, 0, 0);
+                wall = new GameObject(getStage(), Assets.blueprints.WALL_DOOR_DOWN);
             }
+            wall.getComponent(BodyComponent.class).getBody().setTransform(x, 0, 0);
         }
 
         //UPPER WALLS
         for(int x = 1; x < ROOM_WIDTH - 1; x++) {
-            GameObject wall = new GameObject(getStage(), Assets.blueprints.WALL_HORIZONTAL);
+            GameObject wall;
+            if(x != 7) {
+                wall = new GameObject(getStage(), Assets.blueprints.WALL_HORIZONTAL);
+            } else {
+                wall = new GameObject(getStage(), Assets.blueprints.WALL_DOOR_UP);
+            }
             wall.getComponent(BodyComponent.class).getBody().setTransform(x, ROOM_HEIGHT - 1, 0);
         }
 
@@ -61,8 +66,9 @@ public class RandomRoom extends Room {
         crate.getComponent(BodyComponent.class).getBody().setTransform(8, 4, 0);
         new GameObject(getStage(), Assets.blueprints.LOGPILE).getComponent(BodyComponent.class).getBody().setTransform(6, 4, 0);
 
-        for(int i = 0; i < 3; i++) {
-            new GameObject(getStage(), Assets.blueprints.ZOMBIE).getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3, 0);
+        for(int i = 0; i < 8; i++) {
+            //new GameObject(getStage(), Assets.blueprints.ZOMBIE).getComponent(BodyComponent.class).getBody().setTransform((float) (Math.random() * 6) + 3, (float) (Math.random() * 6) + 3, 0);
+            new GameObject(getStage(), Assets.blueprints.TORCH).setPosition((float) Math.random() * 10 + 2,  (float) Math.random() * 10 + 2);
         }
 
         new GameObject(getStage(), Assets.blueprints.TORCH).setPosition(5, 5);

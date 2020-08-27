@@ -16,6 +16,7 @@ public class ItemContainerComponent extends Component {
 
     @Override
     public void tick(float delta) {
+        super.tick(delta);
         for(ID itemID: items) {
             GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
             if(item != null) {

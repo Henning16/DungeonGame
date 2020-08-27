@@ -20,6 +20,7 @@ public class ItemCollectionComponent extends Component {
 
     @Override
     public void tick(float delta) {
+        super.tick(delta);
         if(containerComponent == null) {
             containerComponent = gameObject.getComponent(ItemContainerComponent.class);
             return;

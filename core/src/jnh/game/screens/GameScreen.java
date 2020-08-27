@@ -92,6 +92,7 @@ public class GameScreen implements Screen {
                 Gdx.graphics.getWidth(), Gdx.graphics.getHeight(),
                 false
         );
+        System.out.println(colorGradingShaderProgram.getLog());
     }
 
     public void update(float delta) {

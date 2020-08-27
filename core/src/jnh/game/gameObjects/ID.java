@@ -39,5 +39,8 @@ public class ID {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "("+sceneID+", "+globalID+")";
+    }
 }

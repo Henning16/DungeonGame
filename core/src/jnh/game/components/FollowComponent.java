@@ -23,6 +23,7 @@ public class FollowComponent extends Component {
 
     @Override
     public void tick(float delta) {
+        super.tick(delta);
         if(movementComponent == null) {
             movementComponent = gameObject.getComponent(MovementComponent.class);
             return;

@@ -16,6 +16,7 @@ public class TextureComponent extends Component {
 
     @Override
     public void tick(float delta) {
+        super.tick(delta);
         if(!paused) {
             elapsedTime += delta;
         }

@@ -2,15 +2,19 @@ package jnh.game.stages;
 
 import box2dLight.RayHandler;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import jnh.game.Global;
 import jnh.game.assets.Assets;
+import jnh.game.assets.Tags;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.GameObjectManager;
 import jnh.game.screens.GameScreen;
 import jnh.game.ui.GameUI;
+import jnh.game.ui.notifications.Notification;
+import jnh.game.ui.notifications.NotificationHandler;
 import jnh.game.utils.TimeHandler;
 import jnh.game.world.Dungeon;
 import jnh.game.world.World;
@@ -33,7 +37,6 @@ public class GameStage extends Stage {
     private final Dungeon dungeon;
 
     /**
-     * TODO this constructor needs to be cleaned up or seperated.
      * Creates a new GameStage
      * @param screen the reference to the game screen, which handles drawing and more.
      */
@@ -57,12 +60,10 @@ public class GameStage extends Stage {
         final int y = (world.getSceneID() - x) / Dungeon.DUNGEON_SIZE;
         dungeon.setRoom(y, x, false);
 
-        //TEMP
         if(gameObjectManager.playerID == null) {
             gameObjectManager.playerID = new GameObject(this, Assets.blueprints.PLAYER).getID();
             gameObjectManager.getGameObject(gameObjectManager.playerID).setPersistent(true);
         }
-
 
         try {
             world.save();
@@ -94,6 +95,10 @@ public class GameStage extends Stage {
 
     public World getWorld() {
         return world;
+    }
+
+    public Dungeon getDungeon() {
+        return dungeon;
     }
 
     /**

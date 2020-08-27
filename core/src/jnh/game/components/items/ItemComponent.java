@@ -11,6 +11,7 @@ public class ItemComponent extends Component {
 
     @Override
     public void tick(float delta) {
+        super.tick(delta);
         if(!inHand) {
             gameObject.setRotation(315);
             gameObject.setPosition(gameObject.getX(), (float) (gameObject.getY() + 0.005f * Math.sin(0.1f * TimeHandler.getTicks())));

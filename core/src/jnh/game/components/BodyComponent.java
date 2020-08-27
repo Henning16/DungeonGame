@@ -29,6 +29,7 @@ public class BodyComponent extends Component {
 
     @Override
     public void tick(float delta) {
+        super.tick(delta);
         if(gameObject.getType().equals("PLAYER") && body.getLinearVelocity().len2() < 0.8f) {
             body.setLinearVelocity(0, 0);
         }

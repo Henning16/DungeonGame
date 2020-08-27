@@ -12,13 +12,12 @@ public class ColorGrading {
     public static final ColorGrading NORMAL = new ColorGrading(
             new Color(0.95f, 0.025f, 0.025f, 1),
             new Color(0.025f, 0.95f, 0.025f, 1),
-            new Color(0.025f, 0.025f, 0.95f, 1),
-            0.1f,0, -0.1f);
+            new Color(0.025f, 0.025f, 0.95f, 1), 0.1f, 0, 0);
     public static final ColorGrading DANGER = new ColorGrading(
             new Color(0.95f, 0.025f, 0.025f, 1),
             new Color(0.025f, 0.95f, 0.025f, 1),
             new Color(0.025f, 0.025f, 0.95f, 1),
-            0.3f,0, -0.1f, 0.9f, 0.6f, 0.6f);
+            0.2f, 0, 0, 1.1f, 0.9f, 0.9f);
     public static final ColorGrading BLACKWHITE = new ColorGrading(new Color(1 / 3f, 1 / 3f, 1 / 3f, 1), new Color(1 / 3f, 1 / 3f, 1 / 3f, 1), new Color(1 / 3f, 1 / 3f, 1 / 3f, 1));
     public static final ColorGrading HORROR = new ColorGrading(
             new Color(0.9f, 0.05f, 0.05f, 1),

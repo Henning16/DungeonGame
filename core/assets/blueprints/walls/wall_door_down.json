@@ -1,0 +1,34 @@
+{
+    "type": "WALL_DOOR_DOWN",
+    "dimension": {
+        "x": 1,
+        "y": 1.25
+    },
+    "components": [
+        {
+            "class": "jnh.game.components.textures.Indexed2TextureComponent",
+            "textureSetName": "WALL_DOOR",
+            "index": [1, 0]
+        },
+        {
+            "class": "jnh.game.components.BodyComponent",
+            "bodyType": "StaticBody",
+            "collisionBoxes": [
+                {
+                    "position": {
+                        "x": 0,
+                        "y": -8
+                    },
+                    "dimension": {
+                        "x": 16,
+                        "y": 4
+                    }
+                }
+            ]
+        },
+        {
+            "class": "jnh.game.components.PortalComponent",
+            "direction": 2
+        }
+    ]
+}

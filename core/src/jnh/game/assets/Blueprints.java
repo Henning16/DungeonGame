@@ -5,11 +5,11 @@ import jnh.game.gameObjects.construction.BlueprintLoader;
 
 public class Blueprints {
 
-    private BlueprintLoader loader;
+    private final BlueprintLoader loader;
 
     public Blueprint PLAYER, ZOMBIE;
     public Blueprint FLOOR;
-    public Blueprint WALL_HORIZONTAL, WALL_VERTICAL, WALL_UPPER_CORNER, WALL_LOWER_CORNER, WALL_DOOR_HORIZONTAL;
+    public Blueprint WALL_HORIZONTAL, WALL_VERTICAL, WALL_UPPER_CORNER, WALL_LOWER_CORNER, WALL_DOOR_UP, WALL_DOOR_DOWN;
     public Blueprint AXE, SWORD, TORCH;
     public Blueprint LOGPILE, CRATE;
 
@@ -25,7 +25,8 @@ public class Blueprints {
         WALL_VERTICAL = loader.loadBlueprintFromJson("walls/wall_vertical");
         WALL_UPPER_CORNER = loader.loadBlueprintFromJson("walls/wall_upper_corner");
         WALL_LOWER_CORNER = loader.loadBlueprintFromJson("walls/wall_lower_corner");
-        WALL_DOOR_HORIZONTAL = loader.loadBlueprintFromJson("walls/wall_door_horizontal");
+        WALL_DOOR_UP = loader.loadBlueprintFromJson("walls/wall_door_up");
+        WALL_DOOR_DOWN = loader.loadBlueprintFromJson("walls/wall_door_down");
 
         AXE = loader.loadBlueprintFromJson("weapons/axe");
         SWORD = loader.loadBlueprintFromJson("weapons/sword");

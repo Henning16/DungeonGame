@@ -18,6 +18,7 @@ public class MovementComponent extends Component {
 
     @Override
     public void tick(float delta) {
+        super.tick(delta);
         if(bodyComponent == null) {
             bodyComponent = gameObject.getComponent(BodyComponent.class);
         }

@@ -30,6 +30,7 @@ public class AttackComponent extends Component {
 
     @Override
     public void tick(float delta) {
+        super.tick(delta);
         if(target == null ) {
             target = getNearestTarget();
             return;
