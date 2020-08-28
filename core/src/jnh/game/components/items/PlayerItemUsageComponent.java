@@ -21,6 +21,12 @@ public class PlayerItemUsageComponent extends Component {
                 item.getComponent(ItemComponent.class).use(gameObject);
             }
         }
+        if(gameObject.getStage().getScreen().getInputHandler().isRightClicked()) {
+            GameObject item =  gameObject.getGameObjectManager().getGameObject(containerComponent.getItem(0));
+            if(item != null) {
+                item.getComponent(ItemComponent.class).secondaryUse(gameObject);
+            }
+        }
     }
 
     @Override

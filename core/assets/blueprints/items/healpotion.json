@@ -1,0 +1,35 @@
+{
+    "type": "HEAL_POTION",
+    "tags": [
+        "collectable"
+    ],
+    "dimension": {
+        "x": 0.3125,
+        "y": 0.75
+    },
+    "components": [
+        {
+            "class": "jnh.game.components.textures.TextureComponent",
+            "textureName": "RED_POTION"
+        },
+        {
+            "class": "jnh.game.components.items.ItemComponent"
+        },
+        {
+            "class": "jnh.game.components.items.HealPotionComponent",
+            "amount": 10
+        },
+        {
+            "class": "jnh.game.components.LightComponent",
+            "distance": 1,
+            "color": {
+                "r": 1, "g": 0, "b": 0, "a": 0.3
+            },
+            "flickeringIntensity": 0,
+            "position": {
+                "x": -5,
+                "y": -5
+            }
+        }
+    ]
+}

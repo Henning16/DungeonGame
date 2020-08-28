@@ -18,12 +18,13 @@ public class LightComponent extends Component {
     private Color color;
     private float distance = 4f;
     private float flickeringIntensity = 0f;
+    private Vector2 position = new Vector2(0, 0);
 
     @Override
     public void tick(float delta) {
         super.tick(delta);
         if(light != null) {
-            light.setPosition(new Vector2(gameObject.getX() - gameObject.getWidth() / 2, gameObject.getY() - gameObject.getHeight() / 2));
+            light.setPosition(new Vector2(gameObject.getX() + position.x / 16, gameObject.getY() + position.y / 16));
             if(flickeringIntensity > 0) {
                 Color modifiedColor = new Color(color).set(color.r, color.g, color.b, color.a + ((float) Math.random() * 2 - 1) * 0.01f * flickeringIntensity);
                 light.setColor(modifiedColor);
@@ -36,7 +37,7 @@ public class LightComponent extends Component {
     public void attachedTo(GameObject gameObject) {
         super.attachedTo(gameObject);
         if(!gameObject.isRemoved()) {
-            light = new PointLight(gameObject.getStage().getRayHandler(), 100, color, distance, gameObject.getX(), gameObject.getY());
+            light = new PointLight(gameObject.getStage().getRayHandler(), 100, color, distance, gameObject.getX() + position.x / 16, gameObject.getY() + position.y / 16);
         }
     }
 
@@ -50,7 +51,7 @@ public class LightComponent extends Component {
     }
 
     public void add() {
-        light = new PointLight(gameObject.getStage().getRayHandler(), 100, color, distance, gameObject.getX(), gameObject.getY());
+        light = new PointLight(gameObject.getStage().getRayHandler(), 100, color, distance, gameObject.getX() + position.x / 16, gameObject.getY() + position.y / 16);
     }
 
     @Override
@@ -59,6 +60,7 @@ public class LightComponent extends Component {
         c.color = color;
         c.distance = distance;
         c.flickeringIntensity = flickeringIntensity;
+        c.position = position;
         return c;
     }
 }

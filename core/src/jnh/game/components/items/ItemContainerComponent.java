@@ -50,6 +50,10 @@ public class ItemContainerComponent extends Component {
         }
     }
 
+    public void remove(ID id) {
+        items.remove(id);
+    }
+
     public ID remove(int index) {
         ID id = items.get(index);
         if(id != null) {

@@ -11,6 +11,7 @@ public class Blueprints {
     public Blueprint FLOOR;
     public Blueprint WALL_HORIZONTAL, WALL_VERTICAL, WALL_UPPER_CORNER, WALL_LOWER_CORNER, WALL_DOOR_UP, WALL_DOOR_DOWN;
     public Blueprint AXE, SWORD, TORCH, WAND;
+    public Blueprint HEAL_POTION;
     public Blueprint LOGPILE, CRATE;
 
     public Blueprints() {
@@ -32,6 +33,8 @@ public class Blueprints {
         SWORD = loader.loadBlueprintFromJson("weapons/sword");
         TORCH = loader.loadBlueprintFromJson("weapons/torch");
         WAND = loader.loadBlueprintFromJson("weapons/wand");
+
+        HEAL_POTION = loader.loadBlueprintFromJson("items/healpotion");
 
         LOGPILE = loader.loadBlueprintFromJson("logpile");
         CRATE = loader.loadBlueprintFromJson("crate");

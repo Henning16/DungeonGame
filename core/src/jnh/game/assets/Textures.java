@@ -10,7 +10,7 @@ import jnh.game.utils.Direction;
 
 public class Textures {
 
-    private final Texture sprites, PLAYER_SHEET, ZOMBIE_SHEET, FLOOR_SHEET, WALL_SHEET, WEAPONS_SHEET, PROPS_SHEET, PARTICLE_SHEET;
+    private final Texture sprites, PLAYER_SHEET, ZOMBIE_SHEET, FLOOR_SHEET, WALL_SHEET, WEAPONS_SHEET, ITEMS_SHEET, PROPS_SHEET, PARTICLE_SHEET;
     public final Animation ERROR;
     public final Animation<TextureRegion>[][] PLAYER, ZOMBIE;
     public final Animation<TextureRegion>[] FLOOR_TILE;
@@ -18,6 +18,7 @@ public class Textures {
     public final Animation<TextureRegion>[][] WALL_NEW;
     public final Animation<TextureRegion>[][] WALL_DOOR;
     public final Animation AXE, SWORD, TORCH, HAMMER, WAND;
+    public final Animation RED_POTION;
     public final Animation LOGPILE, CRATE;
     public final Animation ATTACK;
 
@@ -32,6 +33,7 @@ public class Textures {
         FLOOR_SHEET = new Texture(Gdx.files.internal("textures/floor.png"));
         WALL_SHEET = new Texture(Gdx.files.internal("textures/wall.png"));
         WEAPONS_SHEET = new Texture(Gdx.files.internal("textures/weapons.png"));
+        ITEMS_SHEET = new Texture(Gdx.files.internal("textures/items.png"));
         PROPS_SHEET = new Texture(Gdx.files.internal("textures/props.png"));
         PARTICLE_SHEET = new Texture(Gdx.files.internal("textures/particle.png"));
 
@@ -208,6 +210,10 @@ public class Textures {
                 get(WEAPONS_SHEET, 15, 0, 5, 12));
         WAND = new Animation(1f,
                 get(WEAPONS_SHEET, 20, 0, 5, 12));
+
+        RED_POTION = new Animation(1f,
+                get(ITEMS_SHEET, 0, 0, 5, 12));
+
         LOGPILE = new Animation(1f,
                 get(PROPS_SHEET, 2, 2, 13, 16));
         CRATE = new Animation(1f,

@@ -1,14 +1,19 @@
 package jnh.game.input;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 
 public class InputHandler implements InputProcessor {
 
     private short scroll = 0;
+    private boolean leftClicked = false;
+    private boolean rightClicked = false;
 
     public void update() {
         scroll = 0;
+        leftClicked = false;
+        rightClicked = false;
     }
 
     @Override
@@ -28,6 +33,11 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        if(button == Input.Buttons.LEFT) {
+            leftClicked = true;
+        } else if(button == Input.Buttons.RIGHT) {
+            rightClicked = true;
+        }
         return false;
     }
 
@@ -54,5 +64,13 @@ public class InputHandler implements InputProcessor {
 
     public short getScroll() {
         return scroll;
+    }
+
+    public boolean isLeftClicked() {
+        return leftClicked;
+    }
+
+    public boolean isRightClicked() {
+        return rightClicked;
     }
 }

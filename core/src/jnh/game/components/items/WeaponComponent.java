@@ -93,7 +93,7 @@ public class WeaponComponent extends Component implements ItemAction {
     }
 
     public void useOn(GameObject user, GameObject other) {
-        if(other == null || cooldownCounter != 0) {
+        if(cooldownCounter != 0) {
             return;
         }
         attackTimer = 0.4f;
@@ -103,6 +103,9 @@ public class WeaponComponent extends Component implements ItemAction {
             Assets.sounds.WEAPON_SWING.setVolume(soundID, 0.3f);
         }
         looking = user.getComponent(MovementComponent.class).getLooking();
+        if(other == null) {
+            return;
+        }
         if(!other.getID().equals(user.getID()) && user.getPosition().dst2(other.getPosition()) < range * range) {
             if(user.getComponent(MovementComponent.class) != null) {
                 boolean inVision;
