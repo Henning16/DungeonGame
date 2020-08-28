@@ -34,6 +34,7 @@ public class ItemRenderComponent extends Component {
             item.setRemoved(false);
             if(item.getComponent(LightComponent.class) != null) {
                 item.getComponent(LightComponent.class).add();
+                item.getComponent(LightComponent.class).tick(0);
             }
         }
         item.getComponent(ItemComponent.class).setInHand(true);

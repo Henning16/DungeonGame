@@ -74,6 +74,11 @@ public class HealthComponent extends Component {
         }
     }
 
+    public void heal(int amount, float healModifier) {
+        health = Math.max(maxHealth, health + (int) (amount * healModifier));
+        updateHealthBar();
+    }
+
     //TODO implement general approach so that every HealthComponent can point to its own progress bar
     private void updateHealthBar() {
         gameObject.getStage().getUI().updateHealthBar(0, maxHealth, health);

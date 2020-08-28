@@ -1,11 +1,13 @@
 package jnh.game.components.items;
 
+import com.badlogic.gdx.Gdx;
 import jnh.game.assets.Tags;
 import jnh.game.components.Component;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ItemContainerComponent extends Component {
@@ -16,7 +18,9 @@ public class ItemContainerComponent extends Component {
 
     @Override
     public void tick(float delta) {
-        super.tick(delta);
+        if(gameObject.getType().equals("PLAYER")) {
+            itemScrolling();
+        }
         for(ID itemID: items) {
             GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
             if(item != null) {
@@ -92,5 +96,24 @@ public class ItemContainerComponent extends Component {
                     (float) (gameObject.getY() + Math.random() * spread * 2 - spread));
         }
         items.clear();
+    }
+
+    private void itemScrolling() {
+        short scroll = gameObject.getStage().getScreen().getInputHandler().getScroll();
+        if(scroll == 1) {
+            ID oldHandItemID = items.get(0);
+            if(oldHandItemID != null) {
+                gameObject.getGameObjectManager().getGameObject(oldHandItemID).remove();
+                gameObject.getGameObjectManager().getGameObject(oldHandItemID).getComponent(ItemComponent.class).setInHand(false);
+            }
+            if(items.size() != 0) {
+                ID id = items.remove(0);
+                items.add(id);
+            }
+            ID newHandItemID = items.get(0);
+            if(newHandItemID != null) {
+                gameObject.getGameObjectManager().getGameObject(newHandItemID).setPosition(gameObject.getPosition());
+            }
+        }
     }
 }

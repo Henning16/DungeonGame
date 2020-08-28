@@ -18,6 +18,7 @@ import jnh.game.Global;
 import jnh.game.gfx.ColorGrading;
 import jnh.game.gfx.GameCamera;
 import jnh.game.gfx.ColorGrader;
+import jnh.game.input.InputHandler;
 import jnh.game.settings.Settings;
 import jnh.game.settings.SettingsHotkeyHandler;
 import jnh.game.stages.GameStage;
@@ -37,13 +38,14 @@ public class GameScreen implements Screen {
 
     private final GameCamera camera;
     private final RayHandler rayHandler;
-
     private FrameBuffer fbo;
     private final ShaderProgram colorGradingShaderProgram = new ShaderProgram(Gdx.files.internal("shaders/vertex.glsl"), Gdx.files.internal("shaders/fragment.glsl"));
     private final ColorGrader colorGrader;
 
     private final World physicsWorld;
     private final GameStage stage;
+
+    private final InputHandler inputHandler;
 
     private final GameUI ui;
 
@@ -59,6 +61,7 @@ public class GameScreen implements Screen {
 
         //UI
         ui = new GameUI(this);
+
         //Camera
         camera = new GameCamera(this);
         camera.setToOrtho(false, VIEWPORT_WIDTH, VIEWPORT_HEIGHT);
@@ -78,13 +81,16 @@ public class GameScreen implements Screen {
         stage = new GameStage(this);
         stage.getViewport().setCamera(camera);
 
+        //Input
+        inputHandler = new InputHandler();
+
         batch = (SpriteBatch) stage.getBatch();
     }
 
     @Override
     public void show() {
         //Input
-        InputMultiplexer multiplexer = new InputMultiplexer(stage, ui.getStage());
+        InputMultiplexer multiplexer = new InputMultiplexer(stage, ui.getStage(), inputHandler);
         Gdx.input.setInputProcessor(multiplexer);
         colorGrader.setColorGrading(ColorGrading.NORMAL);
         fbo = new FrameBuffer(
@@ -121,6 +127,7 @@ public class GameScreen implements Screen {
             }
             physicsWorld.step(1 / 60f, 6, 2);
             rayHandler.update();
+            inputHandler.update();
         }
 
         camera.act(delta);
@@ -234,6 +241,10 @@ public class GameScreen implements Screen {
         return camera;
     }
 
+    public ColorGrader getColorGrader() {
+        return colorGrader;
+    }
+
     public GameStage getStage() {
         return stage;
     }
@@ -242,11 +253,11 @@ public class GameScreen implements Screen {
         return ui;
     }
 
-    public boolean isPaused() {
-        return paused;
+    public InputHandler getInputHandler() {
+        return inputHandler;
     }
 
-    public ColorGrader getColorGrader() {
-        return colorGrader;
+    public boolean isPaused() {
+        return paused;
     }
 }
