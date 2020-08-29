@@ -17,8 +17,8 @@
         },
         {
             "class": "jnh.game.components.items.WeaponComponent",
-            "damage": 6,
-            "knockback": 3,
+            "damage": 8,
+            "knockback": 10,
             "range": 8,
             "cooldown": 0.3
         },

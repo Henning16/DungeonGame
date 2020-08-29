@@ -18,9 +18,6 @@ public class ItemContainerComponent extends Component {
 
     @Override
     public void tick(float delta) {
-        if(gameObject.getType().equals("PLAYER")) {
-            itemScrolling();
-        }
         for(ID itemID: items) {
             GameObject item = gameObject.getGameObjectManager().getGameObject(itemID);
             if(item != null) {
@@ -102,22 +99,5 @@ public class ItemContainerComponent extends Component {
         items.clear();
     }
 
-    private void itemScrolling() {
-        short scroll = gameObject.getStage().getScreen().getInputHandler().getScroll();
-        if(scroll == 1) {
-            ID oldHandItemID = items.get(0);
-            if(oldHandItemID != null) {
-                gameObject.getGameObjectManager().getGameObject(oldHandItemID).remove();
-                gameObject.getGameObjectManager().getGameObject(oldHandItemID).getComponent(ItemComponent.class).setInHand(false);
-            }
-            if(items.size() != 0) {
-                ID id = items.remove(0);
-                items.add(id);
-            }
-            ID newHandItemID = items.get(0);
-            if(newHandItemID != null) {
-                gameObject.getGameObjectManager().getGameObject(newHandItemID).setPosition(gameObject.getPosition());
-            }
-        }
-    }
+
 }

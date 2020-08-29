@@ -115,6 +115,9 @@ public class GameObject extends Image {
 
         for (Component component : blueprint.components) {
             addComponent(component.copy());
+            if(removed) {
+                component.remove();
+            }
         }
     }
 
@@ -147,6 +150,9 @@ public class GameObject extends Image {
 
         for(Component component: gameObjectJson.components) {
             addComponent(component);
+            if(removed) {
+                component.remove();
+            }
         }
         gameObjectJson = null;
     }

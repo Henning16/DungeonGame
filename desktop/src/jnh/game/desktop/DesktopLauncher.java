@@ -17,7 +17,8 @@ public class DesktopLauncher {
         config.pauseWhenBackground = true;
         config.backgroundFPS = -1;
         config.foregroundFPS = 60;
-        config.vSyncEnabled = false;
+        config.vSyncEnabled = true;
+        config.fullscreen = false;
         config.resizable = true;
         config.addIcon("textures/icon.png", Files.FileType.Internal);
         new LwjglApplication(new DungeonGame(), config);

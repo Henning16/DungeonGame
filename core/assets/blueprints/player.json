@@ -45,7 +45,10 @@
         },
         {
             "class": "jnh.game.components.items.ItemContainerComponent",
-            "size": 100
+            "size": 10
+        },
+        {
+            "class": "jnh.game.components.items.PlayerItemContainerComponent"
         },
         {
             "class": "jnh.game.components.items.ItemCollectionComponent",
@@ -56,7 +59,7 @@
         },
         {
             "class": "jnh.game.components.HealthComponent",
-            "maxHealth": 20
+            "maxHealth": 100
         },
         {
             "class": "jnh.game.components.items.PlayerItemUsageComponent"
