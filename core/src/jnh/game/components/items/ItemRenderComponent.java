@@ -87,15 +87,7 @@ public class ItemRenderComponent extends Component {
     }
 
     @Override
-    public void render(Batch batch) {
-        if(containerComponent == null) {
-            return;
-        }
-    }
-
-    @Override
     public ItemRenderComponent copy() {
-        ItemRenderComponent c = new ItemRenderComponent();
-        return c;
+        return new ItemRenderComponent();
     }
 }

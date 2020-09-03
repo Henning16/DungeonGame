@@ -2,8 +2,15 @@ package jnh.game.components.items;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.scenes.scene2d.Action;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.SequenceAction;
+import jnh.game.assets.Tags;
 import jnh.game.components.Component;
+import jnh.game.components.MovementComponent;
+import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
+import jnh.game.utils.Direction;
 
 public class PlayerItemContainerComponent extends Component {
 
@@ -30,6 +37,9 @@ public class PlayerItemContainerComponent extends Component {
     private void itemScrolling() {
         short scroll = gameObject.getStage().getScreen().getInputHandler().getScroll();
         if(scroll == 1) {
+            if(itemContainerComponent.getItems().size() == 0) {
+                return;
+            }
             ID oldHandItemID = itemContainerComponent.getItems().get(0);
             if(oldHandItemID != null) {
                 gameObject.getGameObjectManager().getGameObject(oldHandItemID).remove();
@@ -63,14 +73,39 @@ public class PlayerItemContainerComponent extends Component {
 
     private void itemThrowing() {
         if(Gdx.input.isKeyJustPressed(Input.Keys.Q)) {
+            if(itemContainerComponent.getItems().size() == 0) {
+                return;
+            }
             ID oldHandItemID = itemContainerComponent.getItems().get(0);
             if(oldHandItemID != null) {
-                gameObject.getGameObjectManager().getGameObject(oldHandItemID).remove();
-                gameObject.getGameObjectManager().getGameObject(oldHandItemID).getComponent(ItemComponent.class).setInHand(false);
-            }
-            ID newHandItemID = itemContainerComponent.getItems().get(0);
-            if(newHandItemID != null) {
-                gameObject.getGameObjectManager().getGameObject(newHandItemID).setPosition(gameObject.getPosition());
+                final GameObject oldItem = gameObject.getGameObjectManager().getGameObject(oldHandItemID);
+                itemContainerComponent.remove(0);
+                oldItem.getComponent(ItemComponent.class).setInHand(false);
+                MovementComponent movementComponent = gameObject.getComponent(MovementComponent.class);
+                Action moveByAction = null;
+                float offset = (float) (Math.random() * 1 - 0.5);
+                oldItem.setPosition(gameObject.getPosition());
+                switch(movementComponent.getLooking()) {
+                    case Direction.UP:
+                        moveByAction = Actions.moveBy(offset, 1.2f, 0.2f);
+                        break;
+                    case Direction.DOWN:
+                        moveByAction = Actions.moveBy(offset, - 1.2f, 0.2f);
+                        break;
+                    case Direction.LEFT:
+                        moveByAction = Actions.moveBy(- 1.2f, offset, 0.2f);
+                        break;
+                    case Direction.RIGHT:
+                        moveByAction = Actions.moveBy(1.2f, offset, 0.2f);
+                        break;
+                }
+                oldItem.addAction(new SequenceAction(moveByAction, new Action() {
+                    @Override
+                    public boolean act(float delta) {
+                        oldItem.addTag(Tags.collectable);
+                        return true;
+                    }
+                }));
             }
         }
     }

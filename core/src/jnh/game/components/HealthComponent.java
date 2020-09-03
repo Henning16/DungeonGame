@@ -1,6 +1,7 @@
 package jnh.game.components;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -16,6 +17,19 @@ public class HealthComponent extends Component {
 
     private int health = -1;
     private int maxHealth = 100;
+    private transient int lastDamage = 0;
+    private transient float lastDamageCounter = 0;
+
+    @Override
+    public void tick(float delta) {
+        super.tick(delta);
+        lastDamageCounter = Math.max(0, lastDamageCounter - delta);
+    }
+
+    @Override
+    public void render(Batch batch) {
+        super.render(batch);
+    }
 
     @Override
     public void attachedTo(GameObject gameObject) {
@@ -38,6 +52,7 @@ public class HealthComponent extends Component {
 
     public void dealDamage(int damage, float damageModifier) {
         health = Math.max(0, health - (int) (damage * damageModifier));
+        lastDamage = (int) (damage * damageModifier);
         gameObject.addAction(new SequenceAction(Actions.scaleTo(1.2f, 1.2f, 0.05f), Actions.scaleTo(1, 1, 0.2f)));
         gameObject.addAction(new SequenceAction(Actions.color(new Color(1, 0, 0, 1), 0.05f), Actions.color(Color.WHITE, 0.3f)));
         if(gameObject.getType().equals("PLAYER")) {
@@ -54,6 +69,7 @@ public class HealthComponent extends Component {
             Assets.sounds.ENEMY_HIT.setVolume(soundID, 0.1f);
         }
         if(isDead()) {
+            gameObject.setRemoved(true);
             if(gameObject.getType().equals("PLAYER")) {
                 gameObject.getStage().getScreen().pause();
                 gameObject.getStage().getScreen().getUI().showDeathScreen();

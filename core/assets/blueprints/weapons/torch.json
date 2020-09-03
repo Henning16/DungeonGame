@@ -19,14 +19,14 @@
             "class": "jnh.game.components.items.WeaponComponent",
             "damage": 9,
             "knockback": 0.5,
-            "range": 5,
-            "cooldown": 0.3
+            "range": 1,
+            "cooldown": 0.75
         },
         {
             "class": "jnh.game.components.LightComponent",
-            "distance": 5,
+            "distance": 4,
             "color": {
-                "r": 1, "g": 0.7, "b": 0.3, "a": 0.5
+                "r": 1, "g": 0.7, "b": 0.3, "a": 0.4
             },
             "flickeringIntensity": 0.4
         }

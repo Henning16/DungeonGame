@@ -270,7 +270,6 @@ public class GameObject extends Image {
     /**
      * Sets the game objects id to the provided. Know that changing the id without knowing what you are doing can
      * cause serious problems. This method is mostly for the {@link GameObjectManager} and scene loading.
-     * @return the id
      * @see #getID()
      */
     public void setID(ID id) {
@@ -318,7 +317,9 @@ public class GameObject extends Image {
      */
     public void addTag(Tags tag) {
         if(tag != null) {
-            tags.add(tag);
+            if(!tags.contains(tag)) {
+                tags.add(tag);
+            }
             gameObjectManager.addGameObjectToTag(tag, getID());
         }
     }

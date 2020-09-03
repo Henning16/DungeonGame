@@ -13,6 +13,9 @@ public class ComponentHandler {
 
     public void tick(float delta) {
         for(Component component: list) {
+            if(component.gameObject.isRemoved()) {
+                return;
+            }
             component.tick(delta);
         }
     }

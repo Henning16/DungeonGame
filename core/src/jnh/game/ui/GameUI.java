@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.actions.DelayAction;
@@ -42,6 +43,10 @@ public class GameUI implements Disposable {
     private final Stage stage;
 
     /**
+     * This group contains ingame ui like speech bubbles etc.
+     */
+    private final Group ingameUI;
+    /**
      * This table contains ui for the game itself like health bars etc. but no inventory and such.
      */
     private final Table playUI;
@@ -72,6 +77,8 @@ public class GameUI implements Disposable {
         new UIStyles();
         stage = new Stage(new ScreenViewport(), batch);
 
+        ingameUI = new Group();
+        stage.addActor(ingameUI);
 
         //Play
         playUI = new Table();
@@ -251,4 +258,5 @@ public class GameUI implements Disposable {
         pauseUI.remove();
         screen.resume();
     }
+
 }

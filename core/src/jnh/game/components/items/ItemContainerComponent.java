@@ -1,13 +1,11 @@
 package jnh.game.components.items;
 
-import com.badlogic.gdx.Gdx;
 import jnh.game.assets.Tags;
 import jnh.game.components.Component;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class ItemContainerComponent extends Component {
@@ -82,9 +80,7 @@ public class ItemContainerComponent extends Component {
             if(item == null) {
                 continue;
             }
-            if(!item.hasTag(Tags.collectable)) {
-                item.addTag(Tags.collectable);
-            }
+            item.addTag(Tags.collectable);
             if(item.isRemoved()) {
                 gameObject.getStage().getMainLayer().addActor(item);
             }

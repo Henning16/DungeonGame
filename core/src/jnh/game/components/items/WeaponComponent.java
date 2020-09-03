@@ -93,7 +93,7 @@ public class WeaponComponent extends Component implements ItemAction {
     }
 
     public void useOn(GameObject user, GameObject other) {
-        if(cooldownCounter != 0) {
+        if(cooldownCounter > 0) {
             return;
         }
         attackTimer = 0.4f;

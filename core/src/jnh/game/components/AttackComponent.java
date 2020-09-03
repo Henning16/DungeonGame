@@ -45,11 +45,13 @@ public class AttackComponent extends Component {
         hand.tick(delta);
         WeaponComponent weaponComponent = null;
         if(itemContainerComponent != null) {
-            gameObject.getGameObjectManager().getGameObject(itemContainerComponent.getItem(0)).getComponent(WeaponComponent.class);
+            GameObject item = gameObject.getGameObjectManager().getGameObject(itemContainerComponent.getItem(0));
+            if(item != null) {
+                weaponComponent = item.getComponent(WeaponComponent.class);
+            }
         }
         if(weaponComponent == null) {
             weaponComponent = hand;
-            //TODO Way to define stats for attack with hand
         }
         weaponComponent.useOn(gameObject, target);
     }
