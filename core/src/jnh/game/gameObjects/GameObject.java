@@ -287,9 +287,18 @@ public class GameObject extends Image {
 
     /**
      * @return the {@link GameObjectManager}
+     * @see #setGameObjectManager(GameObjectManager)
      */
     public GameObjectManager getGameObjectManager() {
         return stage.getGameObjectManager();
+    }
+
+    /**
+     * @param gameObjectManager the new {@link GameObjectManager}
+     * @see #getGameObjectManager()
+     */
+    public void setGameObjectManager(GameObjectManager gameObjectManager) {
+        this.gameObjectManager = gameObjectManager;
     }
 
     /**

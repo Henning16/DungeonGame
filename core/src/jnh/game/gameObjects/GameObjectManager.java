@@ -18,7 +18,7 @@ public class GameObjectManager {
 
     private final ArrayList<ID> toBeRemoved = new ArrayList<>();
 
-    private final Map<Tags, ArrayList<ID>> tags = new LinkedHashMap<>();
+    private transient final Map<Tags, ArrayList<ID>> tags = new LinkedHashMap<>();
 
     public ID playerID;
 
@@ -111,9 +111,6 @@ public class GameObjectManager {
     }
 
     public GameObject getGameObject(ID id) {
-        if(id == null) {
-            return null;
-        }
         try {
             GameObject gameObject = gameObjects[id.getSceneID()];
             if(gameObject != null) {
@@ -194,8 +191,9 @@ public class GameObjectManager {
             ID id = createID(gameObject);
             gameObjects[id.getSceneID()] = gameObject;
             gameObject.setID(id);
+            gameObject.setGameObjectManager(this);
             for(Tags tag : gameObject.getTags()) {
-                addGameObjectToTag(tag, id);
+                gameObject.addTag(tag);
             }
             if(gameObject.getType().equals("PLAYER")) {
                 playerID = gameObject.getID();

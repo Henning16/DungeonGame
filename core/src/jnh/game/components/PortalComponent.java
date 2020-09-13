@@ -4,7 +4,6 @@ import com.badlogic.gdx.scenes.scene2d.Action;
 import jnh.game.assets.Tags;
 import jnh.game.gameObjects.GameObject;
 import jnh.game.gameObjects.ID;
-import jnh.game.ui.GameUI;
 import jnh.game.utils.Direction;
 import jnh.game.world.Dungeon;
 import jnh.game.world.Room;

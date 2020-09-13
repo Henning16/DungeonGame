@@ -9,6 +9,7 @@ import jnh.game.assets.Tags;
 import jnh.game.components.Component;
 import jnh.game.components.MovementComponent;
 import jnh.game.gameObjects.GameObject;
+import jnh.game.gameObjects.GameObjectManager;
 import jnh.game.gameObjects.ID;
 import jnh.game.utils.Direction;
 
