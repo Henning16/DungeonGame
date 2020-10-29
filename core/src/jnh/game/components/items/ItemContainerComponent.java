@@ -34,7 +34,7 @@ public class ItemContainerComponent extends Component {
     }
 
     public boolean add(ID id) {
-        if(items.size() >= size) {
+        if(items.size() >= size || itemIsInContainer(id)) {
             return false;
         } else {
             items.add(id);
@@ -43,6 +43,15 @@ public class ItemContainerComponent extends Component {
             }
             return true;
         }
+    }
+
+    public boolean itemIsInContainer(ID itemID) {
+        for(ID id : items) {
+            if(id.equals(itemID)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void remove(ID id) {
@@ -83,8 +92,8 @@ public class ItemContainerComponent extends Component {
             item.addTag(Tags.collectable);
             if(item.isRemoved()) {
                 gameObject.getStage().getMainLayer().addActor(item);
+                item.setRemoved(false);
             }
-            item.setRemoved(false);
             item.getComponent(ItemComponent.class).setInHand(false);
             item.setPersistent(false);
             item.setFlip(false, false);

@@ -9,7 +9,6 @@ import jnh.game.assets.Tags;
 import jnh.game.components.Component;
 import jnh.game.components.MovementComponent;
 import jnh.game.gameObjects.GameObject;
-import jnh.game.gameObjects.GameObjectManager;
 import jnh.game.gameObjects.ID;
 import jnh.game.utils.Direction;
 
@@ -82,6 +81,7 @@ public class PlayerItemContainerComponent extends Component {
                 final GameObject oldItem = gameObject.getGameObjectManager().getGameObject(oldHandItemID);
                 itemContainerComponent.remove(0);
                 oldItem.getComponent(ItemComponent.class).setInHand(false);
+                oldItem.removeTag(Tags.collectable);
                 MovementComponent movementComponent = gameObject.getComponent(MovementComponent.class);
                 Action moveByAction = null;
                 float offset = (float) (Math.random() * 1 - 0.5);

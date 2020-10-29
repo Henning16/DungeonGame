@@ -204,6 +204,11 @@ public class GameUI implements Disposable {
 
                 try {
                     screen.getStage().getWorld().switchScene(screen.getStage().getWorld().getRespawnSceneID());
+                    GameObject player = screen.getStage().getGameObjectManager().getGameObject(
+                            screen.getStage().getGameObjectManager().playerID
+                    );
+                    player.setPosition(screen.getStage().getWorld().getRespawnPosition());
+                    player.setRemoved(false);
                 } catch (FileNotFoundException e) {
                     NotificationHandler.addNotification(new Notification("Error", "World is corrupted. The scene id could not be found."));
                 }
