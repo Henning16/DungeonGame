@@ -21,7 +21,7 @@ public class DungeonGame extends Game {
     }
 
     /**
-     * Called when all ressources should be released.
+     * Called when all resources should be released.
      */
     @Override
     public void dispose() {

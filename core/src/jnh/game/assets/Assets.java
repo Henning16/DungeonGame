@@ -4,7 +4,7 @@ import jnh.game.settings.Settings;
 import jnh.game.ui.UIStyles;
 
 /**
- * Utility class referencing other classes which mangage different types of assets.
+ * Utility class referencing other classes which manage different types of assets.
  */
 public class Assets {
 
@@ -81,7 +81,7 @@ public class Assets {
     }
 
     /**
-     * Releases all ressources.
+     * Releases all resources.
      */
     public static void dispose() {
         Assets.textures.dispose();

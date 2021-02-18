@@ -248,7 +248,7 @@ public class GameUI implements Disposable {
         fadeOverlay.addAction(new SequenceAction(Actions.fadeIn(duration / 2), Actions.fadeOut(duration / 2)));
     }
 
-    public void enclauseInBlackout(float duration, Action action) {
+    public void encloseInBlackout(float duration, Action action) {
         screen.pause();
         fadeOverlay.addAction(new SequenceAction(Actions.fadeIn(duration / 2), action, new Action() {
             @Override

@@ -64,7 +64,7 @@ public class GameObjectManager {
     }
 
     /**
-     * Creates a new id. For this the unique identiy of the game object, if it has one, is kept. Furthermore,
+     * Creates a new id. For this the unique identity of the game object, if it has one, is kept. Furthermore,
      * free slots are recycled if that is possible. In addition, this method might resize the game objects
      * array to be able to fit a larger amount of game objects.
      * @return the newly calculated id

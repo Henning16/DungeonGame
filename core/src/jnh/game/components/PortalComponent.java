@@ -34,7 +34,7 @@ public class PortalComponent extends Component {
 
     private void setToCorrespondingRoomAndPosition(final GameObject player) {
         final Dungeon dungeon = gameObject.getStage().getDungeon();
-        gameObject.getStage().getUI().enclauseInBlackout(1, new Action() {
+        gameObject.getStage().getUI().encloseInBlackout(1, new Action() {
             @Override
             public boolean act(float delta) {
                 switch(direction) {

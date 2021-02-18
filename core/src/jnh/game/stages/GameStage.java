@@ -142,7 +142,7 @@ public class GameStage extends Stage {
 
     /**
      * Returns the foreground layer, which is currently not really being used.
-     * @return the forground layer
+     * @return the foreground layer
      */
     public Group getForegroundLayer() {
         return foregroundLayer;

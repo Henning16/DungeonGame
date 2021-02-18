@@ -30,12 +30,12 @@ import java.util.ConcurrentModificationException;
  * So, you can understand game objects as a class holding and managing the different components.
  * <p>
  * Though, every game object has a few properties like a position, dimension and a texture.
- * However, the last one should be acessed by using a component like {@link TextureComponent}.
- * Further properties are an id, which generated automatically, the type of the game object, ususally specified using
+ * However, the last one should be accessed by using a component like {@link TextureComponent}.
+ * Further properties are an id, which generated automatically, the type of the game object, usually specified using
  * the blueprint, the layer it is in and whether it is persistent (whether it stays when the room is switched, e.g.
  * the player).
  * <p>
- * Furthermore, each game object has a list of tags, which make it easier to adress certain groups like game objects,
+ * Furthermore, each game object has a list of tags, which make it easier to address certain groups like game objects,
  * for example only those who are alive.
  */
 public class GameObject extends Image {
@@ -121,7 +121,7 @@ public class GameObject extends Image {
         }
     }
 
-    public void gameObjectManagerIntitializationDone() {
+    public void gameObjectManagerInitializationDone() {
         this.gameObjectManager = stage.getGameObjectManager();
         this.type = gameObjectJson.type;
         this.id = gameObjectJson.id;
@@ -213,7 +213,7 @@ public class GameObject extends Image {
     /**
      * Deletes the game object. This is method can be only used by the {@link GameObjectManager}! To delete a game objet
      * always use {@link GameObjectManager#remove(ID)} or {@link GameObjectManager#requestRemove(ID)}!
-     * @return if the game object was sucessfully deleted or if it could not be found in the first place
+     * @return if the game object was successfully deleted or if it could not be found in the first place
      * @see #isRemoved()
      */
     @Override
@@ -335,7 +335,7 @@ public class GameObject extends Image {
 
     /**
      * Adds the provided tag to another list and adds it when the iteration is finished.
-     * This avoids a {@link ConcurrentModificationException} from occuring.
+     * This avoids a {@link ConcurrentModificationException} from occurring.
      * You need to {@link #finishedTagOperations() notify} the game object when the iteration has ended.
      * @param tag the tag to be added
      * @see #addTag(Tags) Add tag while not iterating over the tag list
@@ -363,7 +363,7 @@ public class GameObject extends Image {
 
     /**
      * Adds the provided tag to another list and removes it when the iteration is finished.
-     * This avoids a {@link ConcurrentModificationException} from occuring.
+     * This avoids a {@link ConcurrentModificationException} from occurring.
      * You need to {@link #finishedTagOperations() notify} the game object when the iteration has ended.
      * @param tag the tag to be removed
      * @see #addTag(Tags) Add tag while not iterating over the tag list
@@ -456,7 +456,7 @@ public class GameObject extends Image {
     }
 
     /**
-     * Sets the position of the game object to the specfied position. This is a shortcut for
+     * Sets the position of the game object to the specified position. This is a shortcut for
      * {@link #setPosition(float, float)}.
      * @param position the new position
      */
@@ -472,7 +472,7 @@ public class GameObject extends Image {
     }
 
     /**
-     * @param persistent whether the game object should be persistent, i.e. if it shoudl stay when the scene is switched
+     * @param persistent whether the game object should be persistent, i.e. if it should stay when the scene is switched
      */
     public void setPersistent(boolean persistent) {
         this.persistent = persistent;
@@ -539,8 +539,8 @@ public class GameObject extends Image {
 
     /**
      * Sets the flip of the game object.
-     * @param x whether the game object shoud be flipped around the x-axis
-     * @param y whether the game object shoud be flipped around the y-axis
+     * @param x whether the game object should be flipped around the x-axis
+     * @param y whether the game object should be flipped around the y-axis
      */
     public void setFlip(boolean x, boolean y) {
         this.flipX = x;

@@ -20,7 +20,7 @@ public class Notification {
      * <li>{@code DEBUG} should be used if the notification gives information about an event, which has neither an negative impact
      * or any consequences as it was expected to take place.</li>
      * <li>{@code WARN} should be used to warn the user of an unexpected event, which could possibly have negative consequences.</li>
-     * <li>{@code ERROR} may be used to notify the user that an unexpected event occured, which has harmful consquences / could
+     * <li>{@code ERROR} may be used to notify the user that an unexpected event occurred, which has harmful consequences / could
      * cause further problems or could result in a dysfunction of certain systems or even in a crash.</li>
      * </ul>
      */

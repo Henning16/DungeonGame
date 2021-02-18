@@ -56,7 +56,7 @@ public class World {
         stage.getGameObjectManager().setStage(stage);
         for(GameObject gameObject : stage.getGameObjectManager().getGameObjects()) {
             if(gameObject != null) {
-                gameObject.gameObjectManagerIntitializationDone();
+                gameObject.gameObjectManagerInitializationDone();
             }
         }
         stage.getGameObjectManager().setUniqueIDCounter(uniqueIDCounter);
