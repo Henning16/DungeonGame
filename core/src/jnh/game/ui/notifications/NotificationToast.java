@@ -7,7 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import jnh.game.assets.Assets;
 import jnh.game.settings.Settings;
-import jnh.game.ui.UIStyles;
 
 public class NotificationToast extends Table {
 

@@ -2,7 +2,6 @@ package jnh.game.input;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.scenes.scene2d.InputListener;
 
 public class InputHandler implements InputProcessor {
 

@@ -1,6 +1,5 @@
 package jnh.game.components.items;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
 import jnh.game.Global;
 import jnh.game.components.Component;
 import jnh.game.components.LightComponent;

@@ -2,7 +2,6 @@ package jnh.game.gfx;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import jnh.game.gfx.ColorGrading;
 
 public class ColorGrader {
 
