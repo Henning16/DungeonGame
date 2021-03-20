@@ -30,8 +30,7 @@ public class PlayerItemContainerComponent extends Component {
 
     @Override
     public Component copy() {
-        PlayerItemContainerComponent c = new PlayerItemContainerComponent();
-        return c;
+        return new PlayerItemContainerComponent();
     }
 
     private void itemScrolling() {

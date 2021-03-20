@@ -25,7 +25,7 @@ public class Notification {
      * </ul>
      */
     public enum Type {
-        DEFAULT, DEBUG, WARN, ERROR;
+        DEFAULT, DEBUG, WARN, ERROR
     }
 
     /**

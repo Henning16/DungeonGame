@@ -58,7 +58,7 @@ public class BodyComponent extends Component {
             if(collisionBoxes[0] != null) {
                 collisionBox = collisionBoxes[0];
             }
-        } catch(ArrayIndexOutOfBoundsException e) {
+        } catch(ArrayIndexOutOfBoundsException ignored) {
         }
 
         PolygonShape shape = new PolygonShape();
@@ -106,7 +106,7 @@ public class BodyComponent extends Component {
             if(collisionBoxes[index] != null) {
                 updateCollisionBox(collisionBoxes[index]);
             }
-        } catch(ArrayIndexOutOfBoundsException e) { }
+        } catch(ArrayIndexOutOfBoundsException ignored) { }
     }
 
     public void updateCollisionBox(CollisionBox collisionBox) {
@@ -115,7 +115,7 @@ public class BodyComponent extends Component {
             if(collisionBoxes[oldIndex] != null) {
                 oldCollisionBox = collisionBoxes[oldIndex];
             }
-        } catch(ArrayIndexOutOfBoundsException e) { }
+        } catch(ArrayIndexOutOfBoundsException ignored) { }
         for(Fixture fixture: body.getFixtureList()) {
             ((PolygonShape) fixture.getShape()).setAsBox((1f / 32f) * collisionBox.dimension.x, (1f / 32f) * collisionBox.dimension.y, new Vector2((1f / 16f) * collisionBox.position.x, (1f / 16f) * collisionBox.position.y), 0);
         }

@@ -31,8 +31,7 @@ public class PlayerItemUsageComponent extends Component {
 
     @Override
     public Component copy() {
-        PlayerItemUsageComponent c = new PlayerItemUsageComponent();
-        return c;
+        return new PlayerItemUsageComponent();
     }
 
 }

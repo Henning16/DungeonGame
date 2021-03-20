@@ -221,7 +221,7 @@ public class GameObjectManager {
         if(tags.containsKey(tag)) {
             tags.get(tag).add(id);
         } else {
-            tags.put(tag, new ArrayList<ID>());
+            tags.put(tag, new ArrayList<>());
             addGameObjectToTag(tag, id);
         }
     }

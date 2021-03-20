@@ -1,5 +1,5 @@
 package jnh.game.assets;
 
 public enum Tags {
-    collectable, destroyable, player, enemy;
+    collectable, destroyable, player, enemy
 }

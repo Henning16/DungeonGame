@@ -16,7 +16,7 @@ public class PlayerMovementComponent extends Component {
     public void tick(float delta) {
         super.tick(delta);
         if(movementComponent == null) {
-            movementComponent = (MovementComponent) gameObject.getComponent(MovementComponent.class);
+            movementComponent = gameObject.getComponent(MovementComponent.class);
             return;
         }
         int direction = movementComponent.getLooking();
@@ -44,7 +44,6 @@ public class PlayerMovementComponent extends Component {
 
     @Override
     public PlayerMovementComponent copy() {
-        PlayerMovementComponent c = new PlayerMovementComponent();
-        return c;
+        return new PlayerMovementComponent();
     }
 }

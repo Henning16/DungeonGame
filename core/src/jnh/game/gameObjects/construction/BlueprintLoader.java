@@ -9,7 +9,6 @@ public class BlueprintLoader {
         String blueprintRepresentation = Gdx.files.internal("blueprints/"+name+".json").readString();
         Json json = new Json();
         json.setEnumNames(false);
-        Blueprint blueprint = json.fromJson(Blueprint.class, blueprintRepresentation);
-        return blueprint;
+        return json.fromJson(Blueprint.class, blueprintRepresentation);
     }
 }
